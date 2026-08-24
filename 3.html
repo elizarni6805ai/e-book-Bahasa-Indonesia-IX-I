@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 3: Sudut Pandang dalam Teks Deskripsi (Orang Pertama & Orang Ketiga) | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js untuk fungsi Unduh PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 200px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="2.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 2</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="4.html" target="_blank" class="nav-btn">Pertemuan 4 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 03</span>
+            <h1 class="chapter-title">Sudut Pandang dalam Teks Deskripsi: Orang Pertama & Orang Ketiga</h1>
+            <p class="chapter-desc">Memahami berbagai jenis sudut pandang (orang pertama dan orang ketiga, baik tunggal maupun jamak) dalam teks deskripsi, serta berlatih menulis teks deskripsi bertema acara keluarga dengan sudut pandang yang tepat.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Sudut Pandang -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-eye"></i> A. Hakikat Sudut Pandang dalam Teks Deskripsi</h3>
+            <p><strong>Sudut pandang (point of view)</strong> adalah posisi atau cara pandang pengarang dalam menyajikan suatu cerita atau deskripsi. Menurut <strong>Abrams (dalam Nurgiyantoro, 2010)</strong>, sudut pandang merupakan fokus pengisahan yang menentukan dari mana sebuah cerita atau deskripsi dilihat dan diceritakan.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Gorys Keraf (1994)</strong> menyatakan bahwa sudut pandang adalah posisi pengarang dalam membawakan cerita, apakah ia terlibat langsung sebagai tokoh atau hanya sebagai pengamat dari luar.</p>
+                <p style="margin-top: 0.5rem;"><strong>Abrams (1981)</strong> membagi sudut pandang menjadi empat jenis utama: orang pertama, orang ketiga, campuran, dan sudut pandang objektif. Dalam teks deskripsi, sudut pandang orang pertama dan orang ketiga adalah yang paling sering digunakan.</p>
+                <p style="margin-top: 0.5rem;"><strong>Stanton (1965)</strong> menambahkan bahwa pemilihan sudut pandang sangat memengaruhi kesan, kedekatan emosional, dan objektivitas sebuah teks terhadap pembacanya.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 3.1: Mengapa Sudut Pandang Penting dalam Teks Deskripsi?</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Aspek</th>
+                        <th>Pengaruh terhadap Pembaca</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Kedekatan emosional</td>
+                        <td>Pembaca merasa lebih dekat (orang pertama) atau lebih objektif (orang ketiga).</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Kredibilitas</td>
+                        <td>Pengalaman langsung penulis (orang pertama) atau pengamatan netral (orang ketiga).</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Suasana (mood)</td>
+                        <td>Sudut pandang menentukan apakah teks terasa hangat, sedih, gembira, atau formal.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Keterlibatan pembaca</td>
+                        <td>Pembaca seolah "melihat dengan mata sendiri" atau "mengamati dari jauh".</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Sudut Pandang Orang Pertama -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-user"></i> B. Sudut Pandang Orang Pertama (Tunggal & Jamak)</h3>
+            <p>Sudut pandang orang pertama adalah sudut pandang di mana pengarang menempatkan dirinya sebagai tokoh utama yang terlibat langsung dalam peristiwa yang diceritakan atau dideskripsikan. Ciri utamanya adalah penggunaan kata ganti <strong>"aku"</strong>, <strong>"saya"</strong>, atau <strong>"kami/kita"</strong>.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 3.2: Perbedaan Orang Pertama Tunggal dan Jamak</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Orang Pertama Tunggal</th>
+                        <th>Orang Pertama Jamak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kata Ganti</strong></td>
+                        <td>Aku, saya, daku, hamba</td>
+                        <td>Kami, kita</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jumlah Tokoh</strong></td>
+                        <td>Satu orang (pengarang sebagai tokoh tunggal)</td>
+                        <td>Lebih dari satu orang (pengarang + kelompok)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fokus</strong></td>
+                        <td>Pengalaman pribadi yang sangat intim</td>
+                        <td>Pengalaman bersama kelompok/keluarga</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kesan</strong></td>
+                        <td>Personal, subjektif, mendalam</td>
+                        <td>Kolektif, kebersamaan, inklusif</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contoh Kalimat</strong></td>
+                        <td>"<em>Saya</em> merasakan haru yang mendalam saat melihat nenek tersenyum."</td>
+                        <td>"<em>Kami</em> sekeluarga berkumpul di ruang tamu dengan penuh sukacita."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <strong>Contoh Teks Deskripsi dengan Sudut Pandang Orang Pertama:</strong><br><br>
+                <strong>Tunggal:</strong> <em>"Aku duduk di beranda rumah nenek. Angin sore membelai wajahku. Aroma masakan rendang tercium dari dapur. Hatiku terasa hangat."</em><br><br>
+                <strong>Jamak:</strong> <em>"Kami semua berkumpul di beranda rumah nenek. Angin sore membelai wajah kami. Aroma rendang tercium dari dapur. Hati kami terasa hangat."</em>
+            </div>
+        </section>
+
+        <!-- Content C: Sudut Pandang Orang Ketiga (BARU) -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-user-friends"></i> C. Sudut Pandang Orang Ketiga (Tunggal & Jamak)</h3>
+            <p>Sudut pandang orang ketiga adalah sudut pandang di mana pengarang berada <strong>di luar cerita</strong> dan tidak terlibat langsung sebagai tokoh. Pengarang berperan sebagai pengamat yang mendeskripsikan tokoh atau objek dari luar. Ciri utamanya adalah penggunaan kata ganti <strong>"dia"</strong>, <strong>"ia"</strong>, <strong>"beliau"</strong>, atau <strong>"mereka"</strong>.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 3.3: Perbedaan Orang Ketiga Tunggal dan Jamak</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Orang Ketiga Tunggal</th>
+                        <th>Orang Ketiga Jamak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kata Ganti</strong></td>
+                        <td>Dia, ia, beliau, -nya</td>
+                        <td>Mereka, para, sekalian</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jumlah Tokoh</strong></td>
+                        <td>Satu orang (tokoh yang diamati)</td>
+                        <td>Lebih dari satu orang (kelompok yang diamati)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Posisi Pengarang</strong></td>
+                        <td>Pengamat di luar cerita, fokus pada satu tokoh</td>
+                        <td>Pengamat di luar cerita, fokus pada kelompok</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kesan</strong></td>
+                        <td>Objektif, formal, netral, seperti laporan</td>
+                        <td>Objektif, menggambarkan kebersamaan kelompok</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contoh Kalimat</strong></td>
+                        <td>"<em>Ia</em> duduk di beranda rumah nenek dengan tenang."</td>
+                        <td>"<em>Mereka</em> berkumpul di beranda rumah nenek dengan penuh sukacita."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Kapan Menggunakan Sudut Pandang Orang Ketiga?</h4>
+                <p>Sudut pandang orang ketiga cocok digunakan ketika:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Penulis ingin bersikap <strong>objektif dan netral</strong>.</li>
+                    <li>Teks bersifat <strong>formal atau laporan</strong> (misalnya berita, laporan kegiatan).</li>
+                    <li>Penulis <strong>tidak terlibat langsung</strong> dalam peristiwa yang dideskripsikan.</li>
+                    <li>Ingin mendeskripsikan <strong>tokoh lain</strong> secara detail dari luar.</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh Teks Deskripsi dengan Sudut Pandang Orang Ketiga:</strong><br><br>
+                <strong>Tunggal:</strong> <em>"Nenek duduk di kursi goyang kesayangannya. Rambut putihnya terurai rapi. Senyumnya mengembang lebar saat menyambut cucunya satu per satu. Matanya yang sayu tampak berbinar penuh kebahagiaan."</em><br><br>
+                <strong>Jamak:</strong> <em>"Mereka — sekeluarga besar — berkumpul di beranda rumah nenek. Tawa renyah anak-anak kecil memenuhi ruangan. Para orang dewasa saling bercengkrama sambil menikmati hidangan. Suasana hangat menyelimuti seluruh anggota keluarga."</em>
+            </div>
+        </section>
+
+        <!-- Content D: Perbandingan Keempat Jenis (BARU) -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-balance-scale"></i> D. Perbandingan Keempat Jenis Sudut Pandang</h3>
+            <p>Untuk memudahkan pemahaman, berikut adalah perbandingan keempat jenis sudut pandang yang paling umum digunakan dalam teks deskripsi:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis Sudut Pandang</th>
+                        <th>Kata Ganti</th>
+                        <th>Posisi Pengarang</th>
+                        <th>Kesan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Orang Pertama Tunggal</strong></td>
+                        <td>Aku, saya</td>
+                        <td>Terlibat langsung sebagai tokoh utama</td>
+                        <td>Personal, subjektif, intim</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Orang Pertama Jamak</strong></td>
+                        <td>Kami, kita</td>
+                        <td>Terlibat sebagai bagian dari kelompok</td>
+                        <td>Kolektif, kebersamaan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Orang Ketiga Tunggal</strong></td>
+                        <td>Dia, ia, beliau</td>
+                        <td>Pengamat dari luar, fokus satu tokoh</td>
+                        <td>Objektif, netral, formal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Orang Ketiga Jamak</strong></td>
+                        <td>Mereka, para</td>
+                        <td>Pengamat dari luar, fokus kelompok</td>
+                        <td>Objektif, deskriptif kelompok</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <strong>Contoh Perbandingan dalam Satu Objek (Acara Lebaran):</strong><br><br>
+                <strong>1. Orang Pertama Tunggal:</strong> <em>"Aku merasa haru saat melihat nenek menyambut kami."</em><br>
+                <strong>2. Orang Pertama Jamak:</strong> <em>"Kami merasa haru saat melihat nenek menyambut kedatangan kami."</em><br>
+                <strong>3. Orang Ketiga Tunggal:</strong> <em>"Ia (cucu) merasa haru saat melihat nenek menyambut keluarga."</em><br>
+                <strong>4. Orang Ketiga Jamak:</strong> <em>"Mereka (para cucu) merasa haru saat nenek menyambut kedatangan mereka."</em>
+            </div>
+        </section>
+
+        <!-- Content E: Ciri-Ciri -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-list-check"></i> E. Ciri-Ciri Teks Deskripsi Berdasarkan Sudut Pandang</h3>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Teks Deskripsi dengan Sudut Pandang Orang Pertama:</h4>
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li>Menggunakan kata ganti orang pertama: <strong>aku, saya, kami, kita</strong>.</li>
+                <li>Pengarang terlibat langsung sebagai pelaku atau pengamat utama.</li>
+                <li>Banyak memuat <strong>perasaan, pikiran, dan kesan pribadi</strong> penulis.</li>
+                <li>Objek yang dideskripsikan dilihat <strong>dari kacamata penulis</strong> (subjektif).</li>
+                <li>Cenderung menggunakan <strong>gaya bahasa yang emosional</strong> dan personal.</li>
+            </ol>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Teks Deskripsi dengan Sudut Pandang Orang Ketiga:</h4>
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li>Menggunakan kata ganti orang ketiga: <strong>dia, ia, beliau, mereka</strong>.</li>
+                <li>Pengarang <strong>tidak terlibat langsung</strong>, hanya sebagai pengamat.</li>
+                <li>Bersifat <strong>lebih objektif dan netral</strong>, minim perasaan pribadi.</li>
+                <li>Cocok untuk <strong>teks formal, laporan, atau berita</strong>.</li>
+                <li>Fokus pada <strong>pengamatan detail</strong> terhadap tokoh atau objek dari luar.</li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Tips Penting</h4>
+                <p>Untuk tema <strong>acara keluarga</strong>, sudut pandang <strong>orang pertama</strong> (tunggal/jamak) lebih cocok karena acara keluarga bersifat personal dan penuh emosi. Namun, sudut pandang <strong>orang ketiga</strong> dapat digunakan untuk laporan kegiatan keluarga yang bersifat formal.</p>
+            </div>
+        </section>
+
+        <!-- Content F: Langkah Menulis -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-pen-fancy"></i> F. Langkah-Langkah Menulis Teks Deskripsi Acara Keluarga</h3>
+            <p>Menulis teks deskripsi bertema acara keluarga memerlukan persiapan yang matang agar tulisan terasa hidup dan menyentuh. Berikut langkah-langkahnya:</p>
+            
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li><strong>Pilih Acara Keluarga yang Berkesan</strong> — Misalnya: lebaran, ulang tahun, syukuran, pernikahan saudara, arisan keluarga, atau liburan bersama.</li>
+                <li><strong>Tentukan Sudut Pandang</strong> — Pilih salah satu: orang pertama tunggal ("aku"), orang pertama jamak ("kami"), orang ketiga tunggal ("ia"), atau orang ketiga jamak ("mereka"). Sesuaikan dengan tujuan penulisan.</li>
+                <li><strong>Kumpulkan Detail Panca Indra</strong> — Catat apa yang dilihat, didengar, dicium, dirasakan, dan diraba saat acara berlangsung.</li>
+                <li><strong>Susun Struktur Teks</strong> — Identifikasi → Deskripsi Bagian → Kesan/Simpulan.</li>
+                <li><strong>Tulis dengan Gaya yang Sesuai</strong> — Gunakan gaya emosional untuk orang pertama, atau gaya objektif untuk orang ketiga.</li>
+                <li><strong>Baca dan Revisi</strong> — Periksa kohesi, koherensi, ejaan, dan konsistensi sudut pandang.</li>
+            </ol>
+        </section>
+
+        <!-- Content G: Struktur Teks -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-sitemap"></i> G. Struktur Teks Deskripsi Acara Keluarga</h3>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 3.4: Struktur Teks Deskripsi</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Struktur</th>
+                        <th>Isi</th>
+                        <th>Contoh (Sudut Pandang Orang Pertama Tunggal)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Identifikasi</strong></td>
+                        <td>Pengenalan objek: nama acara, waktu, tempat, dan kesan umum.</td>
+                        <td>"Lebaran di rumah nenek adalah momen paling kunanti setiap tahun. Suasananya selalu hangat dan penuh kebahagiaan."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Deskripsi Bagian</strong></td>
+                        <td>Rincian detail: suasana, orang-orang, makanan, aktivitas, suara, aroma, dll.</td>
+                        <td>"Rumah nenek penuh sesak oleh sanak saudara. Aroma opor ayam dan ketupat menguar dari dapur. Tawa renyah anak-anak kecil memenuhi ruang tamu."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kesan/Simpulan</strong></td>
+                        <td>Perasaan penulis terhadap acara tersebut.</td>
+                        <td>"Bagiku, lebaran di rumah nenek bukan sekadar tradisi, melainkan pengikat kasih yang menyatukan hati seluruh keluarga."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <strong>Contoh Teks Deskripsi Lengkap (Sudut Pandang Orang Pertama Tunggal):</strong><br><br>
+                <strong><em>Lebaran di Rumah Nenek</em></strong><br><br>
+                <strong>[Identifikasi]</strong> Lebaran di rumah nenek adalah momen paling kunanti setiap tahun. Sejak pagi, hatiku sudah berdebar membayangkan kehangatan berkumpul bersama seluruh keluarga besar.<br><br>
+                <strong>[Deskripsi Bagian]</strong> Rumah nenek yang biasanya sepi, hari itu penuh sesak oleh sanak saudara. Aroma opor ayam dan ketupat menguar dari dapur, bercampur dengan wangi dupa yang dibakar di sudut ruang tamu. Tawa renyah sepupu-sepupuku yang kecil memenuhi ruangan. Nenek duduk di kursi goyang kesayangannya, tersenyum lebar sambil menyambut satu per satu cucunya dengan pelukan hangat.<br><br>
+                <strong>[Kesan]</strong> Bagiku, lebaran di rumah nenek bukan sekadar tradisi tahunan, melainkan pengikat kasih yang menyatukan hati seluruh keluarga. Aku bersyukur masih diberi kesempatan merasakan kehangatan ini.
+            </div>
+        </section>
+
+        <!-- Content H: Referensi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bookmark"></i> H. Referensi Pendukung</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Keraf, Gorys. (1994). <em>Diksi dan Gaya Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Nurgiyantoro, Burhan. (2010). <em>Teori Pengkajian Fiksi</em>. Yogyakarta: Gadjah Mada University Press.</li>
+                <li>Abrams, M.H. (1981). <em>The Mirror and the Lamp: Romantic Theory and the Critical Tradition</em>. New York: Oxford University Press.</li>
+                <li>Stanton, Robert. (1965). <em>An Introduction to Fiction</em>. New York: Holt, Rinehart and Winston.</li>
+            </ul>
+        </section>
+
+        <!-- Kata Kunci -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-key"></i> Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Sudut Pandang</span>
+                <span class="keyword-tag">Orang Pertama</span>
+                <span class="keyword-tag">Orang Pertama Tunggal</span>
+                <span class="keyword-tag">Orang Pertama Jamak</span>
+                <span class="keyword-tag">Orang Ketiga</span>
+                <span class="keyword-tag">Orang Ketiga Tunggal</span>
+                <span class="keyword-tag">Orang Ketiga Jamak</span>
+                <span class="keyword-tag">Teks Deskripsi</span>
+                <span class="keyword-tag">Acara Keluarga</span>
+                <span class="keyword-tag">Identifikasi</span>
+                <span class="keyword-tag">Deskripsi Bagian</span>
+            </div>
+        </section>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍ وَٰحِدَةٍ</div>
+            <p class="quote-translation">"Wahai manusia! Bertakwalah kepada Tuhanmu yang telah menciptakan kamu dari diri yang satu (Adam)..."</p>
+            <p class="quote-source">— QS. An-Nisa [4]: 1</p>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 3</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal x 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Sudut pandang orang pertama dalam teks deskripsi ditandai dengan penggunaan kata ganti... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Dia, ia, mereka</label>
+                        <label><input type="radio" name="q1" value="B"> B. Aku, saya, kami, kita</label>
+                        <label><input type="radio" name="q1" value="C"> C. Kamu, anda, kalian</label>
+                        <label><input type="radio" name="q1" value="D"> D. Ini, itu, tersebut</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Sudut pandang orang ketiga dalam teks deskripsi ditandai dengan penggunaan kata ganti... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Aku, saya, kami</label>
+                        <label><input type="radio" name="q2" value="B"> B. Kamu, anda, kalian</label>
+                        <label><input type="radio" name="q2" value="C"> C. Dia, ia, beliau, mereka</label>
+                        <label><input type="radio" name="q2" value="D"> D. Kita, kami, kita semua</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Perbedaan utama antara sudut pandang orang pertama dan orang ketiga adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Panjang pendeknya kalimat</label>
+                        <label><input type="radio" name="q3" value="B"> B. Jumlah paragraf dalam teks</label>
+                        <label><input type="radio" name="q3" value="C"> C. Keterlibatan pengarang dalam cerita (terlibat langsung vs pengamat dari luar)</label>
+                        <label><input type="radio" name="q3" value="D"> D. Jenis teks yang digunakan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Kalimat berikut yang menggunakan sudut pandang orang ketiga jamak adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Aku merasa sangat bahagia hari ini.</label>
+                        <label><input type="radio" name="q4" value="B"> B. Kami sekeluarga berkumpul di ruang tamu.</label>
+                        <label><input type="radio" name="q4" value="C"> C. Mereka berkumpul di beranda rumah nenek dengan penuh sukacita.</label>
+                        <label><input type="radio" name="q4" value="D"> D. Ia duduk di kursi dengan tenang.</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Struktur teks deskripsi yang benar secara berurutan adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Deskripsi Bagian → Identifikasi → Kesan</label>
+                        <label><input type="radio" name="q5" value="B"> B. Identifikasi → Deskripsi Bagian → Kesan/Simpulan</label>
+                        <label><input type="radio" name="q5" value="C"> C. Kesan → Identifikasi → Deskripsi Bagian</label>
+                        <label><input type="radio" name="q5" value="D"> D. Orientasi → Komplikasi → Resolusi</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Perhatikan kalimat berikut: <em>"Nenek duduk di kursi goyang kesayangannya dengan tenang."</em><br>Kalimat tersebut menggunakan sudut pandang... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Orang pertama tunggal</label>
+                        <label><input type="radio" name="q6" value="B"> B. Orang pertama jamak</label>
+                        <label><input type="radio" name="q6" value="C"> C. Orang ketiga tunggal</label>
+                        <label><input type="radio" name="q6" value="D"> D. Orang ketiga jamak</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Salah satu ciri teks deskripsi dengan sudut pandang orang ketiga adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Memuat perasaan pribadi penulis secara dominan</label>
+                        <label><input type="radio" name="q7" value="B"> B. Bersifat lebih objektif dan netral, minim perasaan pribadi</label>
+                        <label><input type="radio" name="q7" value="C"> C. Pengarang terlibat langsung sebagai tokoh utama</label>
+                        <label><input type="radio" name="q7" value="D"> D. Selalu menggunakan kata ganti "aku" dan "saya"</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Sudut pandang yang paling cocok untuk teks deskripsi bertema "acara keluarga yang personal dan emosional" adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Orang pertama (tunggal/jamak)</label>
+                        <label><input type="radio" name="q8" value="B"> B. Orang ketiga tunggal</label>
+                        <label><input type="radio" name="q8" value="C"> C. Orang ketiga jamak</label>
+                        <label><input type="radio" name="q8" value="D"> D. Sudut pandang objektif murni</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Menurut Abrams, sudut pandang yang menempatkan pengarang di luar cerita sebagai pengamat disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Sudut pandang orang pertama</label>
+                        <label><input type="radio" name="q9" value="B"> B. Sudut pandang orang ketiga</label>
+                        <label><input type="radio" name="q9" value="C"> C. Sudut pandang campuran</label>
+                        <label><input type="radio" name="q9" value="D"> D. Sudut pandang partisipan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Langkah kedua dalam menulis teks deskripsi bertema acara keluarga (setelah memilih acara) adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Langsung menulis paragraf penutup</label>
+                        <label><input type="radio" name="q10" value="B"> B. Menentukan sudut pandang yang akan digunakan</label>
+                        <label><input type="radio" name="q10" value="C"> C. Menghafal struktur teks</label>
+                        <label><input type="radio" name="q10" value="D"> D. Menyalin teks dari buku</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal x 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan perbedaan antara sudut pandang orang pertama dan orang ketiga! Berikan masing-masing dua contoh kalimat! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Sebutkan dan jelaskan 4 jenis sudut pandang dalam teks deskripsi (orang pertama tunggal, orang pertama jamak, orang ketiga tunggal, orang ketiga jamak)! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Sebutkan 3 ciri teks deskripsi dengan sudut pandang orang pertama dan 3 ciri dengan sudut pandang orang ketiga! Jelaskan perbedaannya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan langkah-langkah menulis teks deskripsi bertema acara keluarga secara runtut! Mengapa penentuan sudut pandang merupakan langkah yang penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK MENULIS): Tulislah sebuah teks deskripsi singkat (minimal 3 paragraf) bertema "Acara Keluarga yang Berkesan". Gunakan <strong>dua versi sudut pandang yang berbeda</strong>: satu versi dengan sudut pandang orang pertama (tunggal/jamak), dan satu versi lagi dengan sudut pandang orang ketiga (tunggal/jamak). Lengkapi dengan struktur: Identifikasi, Deskripsi Bagian, dan Kesan/Simpulan. <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea form-textarea-large" placeholder="Tulis teks deskripsi Anda di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="2.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 2</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="4.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 4 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'C', q3: 'C', q4: 'C', q5: 'B',
+            q6: 'C', q7: 'B', q8: 'A', q9: 'B', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_3_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Tampilkan hasil dulu jika belum
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 3 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan3_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 3 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 3 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

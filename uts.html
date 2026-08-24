@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Tengah Semester (UTS) | Bahasa Indonesia Kelas IX Semester I</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+            --warning: #F59E0B;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .chapter-title { font-size: 2.8rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 750px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- EXAM INFO BOX --- */
+        .exam-info {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .exam-info h3 {
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .exam-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+        .question-meeting {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"], .options input[type="checkbox"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        /* True/False */
+        .tf-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+        .tf-options label {
+            justify-content: center;
+            padding: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Matching */
+        .matching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .matching-column h5 {
+            color: var(--gold-light);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        .matching-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
+        .matching-select {
+            width: 100%;
+            padding: 0.6rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-primary);
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        .breakdown-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .breakdown-label { font-size: 0.85rem; color: var(--text-secondary); }
+        .breakdown-value { font-size: 1.5rem; color: var(--gold-primary); font-weight: 700; font-family: 'Playfair Display', serif; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+            .matching-grid { grid-template-columns: 1fr; }
+            .tf-options { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="11.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 11</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="13.html" target="_blank" class="nav-btn">Pertemuan 13 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge"><i class="fas fa-star"></i> Evaluasi Tengah Semester</span>
+            <h1 class="chapter-title">Ujian Tengah Semester (UTS)</h1>
+            <p class="chapter-desc">Bahasa Indonesia Kelas IX Semester I — Menguji pemahaman komprehensif materi Pertemuan 1 s.d. 12 meliputi Teks Deskripsi, Teks Prosedur, dan Kosakata.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Exam Info Box -->
+        <div class="exam-info">
+            <h3><i class="fas fa-clipboard-list"></i> Informasi Ujian</h3>
+            <p style="color: var(--text-secondary);">Ujian ini mencakup seluruh materi Pertemuan 1 s.d. 12. Kerjakan dengan jujur dan teliti. Waktu pengerjaan: <strong style="color: var(--gold-primary);">120 menit</strong>.</p>
+            
+            <div class="exam-stats">
+                <div class="stat-item">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">Soal Pilihan Ganda</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Pilihan Ganda Kompleks</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Benar / Salah</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Menjodohkan</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50</div>
+                    <div class="stat-label">Total Soal</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Materi Coverage Table -->
+        <div class="content-section">
+            <h3 class="section-title"><i class="fas fa-book-open"></i> Cakupan Materi Ujian</h3>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Pertemuan</th>
+                        <th>Materi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Ide pokok dan ide pendukung dalam teks deskripsi</td></tr>
+                    <tr><td>2</td><td>Diskusi isi teks deskripsi dan makna kata kontekstual</td></tr>
+                    <tr><td>3</td><td>Sudut pandang orang pertama & menulis deskripsi acara keluarga</td></tr>
+                    <tr><td>4</td><td>Konjungsi dalam teks deskripsi</td></tr>
+                    <tr><td>5</td><td>Konjungsi dalam lirik lagu & sistem kekerabatan</td></tr>
+                    <tr><td>6</td><td>Kosakata serapan bahasa daerah & asing dalam teks deskripsi</td></tr>
+                    <tr><td>7</td><td>Kohesi dan koherensi dalam paragraf deskripsi</td></tr>
+                    <tr><td>8</td><td>Deskripsi visual melalui infografik</td></tr>
+                    <tr><td>9</td><td>Mengubah petikan cerpen menjadi teks prosedur</td></tr>
+                    <tr><td>10</td><td>Eksplorasi kosakata & penyerapan kosakata bahasa Indonesia</td></tr>
+                    <tr><td>11</td><td>Informasi dari teks prosedur dan diskusi</td></tr>
+                    <tr><td>12</td><td>Teks prosedur infografik dan membaca nyaring</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UJIAN FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-graduation-cap"></i> Ujian Tengah Semester</h2>
+                <p style="color: var(--text-secondary);">Kerjakan semua soal dengan jujur. Semua skor dihitung otomatis oleh sistem.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== BAGIAN A: PILIHAN GANDA (30 SOAL) ==================== -->
+                <h3 style="color: var(--gold-primary); margin: 2.5rem 0 1rem; font-family: 'Playfair Display', serif; font-size: 1.5rem;">📋 Bagian A: Pilihan Ganda (30 Soal × 2 Poin = 60 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Pilih satu jawaban yang paling tepat.</p>
+
+                <!-- PG 1 - Pertemuan 1 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 1</span>
+                    <p class="question-text">1. Ide pokok dalam sebuah paragraf disebut juga dengan... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg1" value="A"> A. Kalimat penjelas</label>
+                        <label><input type="radio" name="pg1" value="B"> B. Gagasan utama</label>
+                        <label><input type="radio" name="pg1" value="C"> C. Simpulan paragraf</label>
+                        <label><input type="radio" name="pg1" value="D"> D. Fakta pendukung</label>
+                    </div>
+                </div>
+
+                <!-- PG 2 - Pertemuan 1 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 1</span>
+                    <p class="question-text">2. Perhatikan kalimat: <em>"Kucingku sangat manja. Ia selalu mengeong saat lapar."</em> Ide pokok paragraf tersebut adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg2" value="A"> A. Kucingku sangat manja</label>
+                        <label><input type="radio" name="pg2" value="B"> B. Ia selalu mengeong saat lapar</label>
+                        <label><input type="radio" name="pg2" value="C"> C. Kucing adalah hewan peliharaan</label>
+                        <label><input type="radio" name="pg2" value="D"> D. Kucing suka tidur</label>
+                    </div>
+                </div>
+
+                <!-- PG 3 - Pertemuan 1 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 1</span>
+                    <p class="question-text">3. Jika ide pokok terdapat di awal paragraf dan diikuti kalimat-kalimat penjelas, pola paragraf tersebut disebut... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg3" value="A"> A. Induktif</label>
+                        <label><input type="radio" name="pg3" value="B"> B. Deduktif</label>
+                        <label><input type="radio" name="pg3" value="C"> C. Campuran</label>
+                        <label><input type="radio" name="pg3" value="D"> D. Ineratif</label>
+                    </div>
+                </div>
+
+                <!-- PG 4 - Pertemuan 2 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 2</span>
+                    <p class="question-text">4. Kata "bunga" dalam kalimat "Ia adalah <u>bunga</u> desa" memiliki makna... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg4" value="A"> A. Bagian tumbuhan yang berwarna indah</label>
+                        <label><input type="radio" name="pg4" value="B"> B. Gadis cantik yang banyak dipuja</label>
+                        <label><input type="radio" name="pg4" value="C"> C. Bunga yang ditanam di taman</label>
+                        <label><input type="radio" name="pg4" value="D"> D. Bunga tabur di atas makam</label>
+                    </div>
+                </div>
+
+                <!-- PG 5 - Pertemuan 2 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 2</span>
+                    <p class="question-text">5. Konteks yang berasal dari unsur bahasa (kalimat, paragraf) disebut... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg5" value="A"> A. Konteks situasional</label>
+                        <label><input type="radio" name="pg5" value="B"> B. Konteks ekstralinguistik</label>
+                        <label><input type="radio" name="pg5" value="C"> C. Konteks linguistik</label>
+                        <label><input type="radio" name="pg5" value="D"> D. Konteks budaya</label>
+                    </div>
+                </div>
+
+                <!-- PG 6 - Pertemuan 2 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 2</span>
+                    <p class="question-text">6. Kata "dingin" dalam kalimat "Sikapnya sangat <u>dingin</u> kepada tetangga" bermakna... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg6" value="A"> A. Suhu udara yang rendah</label>
+                        <label><input type="radio" name="pg6" value="B"> B. Tidak ramah atau tidak hangat</label>
+                        <label><input type="radio" name="pg6" value="C"> C. Sejuk dan menyegarkan</label>
+                        <label><input type="radio" name="pg6" value="D"> D. Berisi es</label>
+                    </div>
+                </div>
+
+                <!-- PG 7 - Pertemuan 3 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 3</span>
+                    <p class="question-text">7. Sudut pandang orang pertama dalam teks deskripsi ditandai dengan penggunaan kata ganti... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg7" value="A"> A. Dia, ia, mereka</label>
+                        <label><input type="radio" name="pg7" value="B"> B. Aku, saya, kami, kita</label>
+                        <label><input type="radio" name="pg7" value="C"> C. Kamu, anda, kalian</label>
+                        <label><input type="radio" name="pg7" value="D"> D. Ini, itu, tersebut</label>
+                    </div>
+                </div>
+
+                <!-- PG 8 - Pertemuan 3 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 3</span>
+                    <p class="question-text">8. Kalimat berikut yang menggunakan sudut pandang orang ketiga jamak adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg8" value="A"> A. Aku merasa sangat bahagia hari ini.</label>
+                        <label><input type="radio" name="pg8" value="B"> B. Kami sekeluarga berkumpul di ruang tamu.</label>
+                        <label><input type="radio" name="pg8" value="C"> C. Mereka berkumpul di beranda rumah nenek dengan penuh sukacita.</label>
+                        <label><input type="radio" name="pg8" value="D"> D. Ia duduk di kursi dengan tenang.</label>
+                    </div>
+                </div>
+
+                <!-- PG 9 - Pertemuan 3 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 3</span>
+                    <p class="question-text">9. Struktur teks deskripsi yang benar secara berurutan adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg9" value="A"> A. Deskripsi Bagian → Identifikasi → Kesan</label>
+                        <label><input type="radio" name="pg9" value="B"> B. Identifikasi → Deskripsi Bagian → Kesan/Simpulan</label>
+                        <label><input type="radio" name="pg9" value="C"> C. Kesan → Identifikasi → Deskripsi Bagian</label>
+                        <label><input type="radio" name="pg9" value="D"> D. Orientasi → Komplikasi → Resolusi</label>
+                    </div>
+                </div>
+
+                <!-- PG 10 - Pertemuan 4 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 4</span>
+                    <p class="question-text">10. Konjungsi yang menghubungkan dua unsur setara (sederajat) disebut... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg10" value="A"> A. Konjungsi subordinatif</label>
+                        <label><input type="radio" name="pg10" value="B"> B. Konjungsi antarkalimat</label>
+                        <label><input type="radio" name="pg10" value="C"> C. Konjungsi koordinatif</label>
+                        <label><input type="radio" name="pg10" value="D"> D. Konjungsi korelatif</label>
+                    </div>
+                </div>
+
+                <!-- PG 11 - Pertemuan 4 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 4</span>
+                    <p class="question-text">11. Perhatikan kalimat: <em>"Pemandangannya sangat indah, <u>sehingga</u> banyak wisatawan datang."</em> Konjungsi "sehingga" menunjukkan hubungan... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg11" value="A"> A. Penambahan</label>
+                        <label><input type="radio" name="pg11" value="B"> B. Pertentangan</label>
+                        <label><input type="radio" name="pg11" value="C"> C. Akibat</label>
+                        <label><input type="radio" name="pg11" value="D"> D. Pemilihan</label>
+                    </div>
+                </div>
+
+                <!-- PG 12 - Pertemuan 4 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 4</span>
+                    <p class="question-text">12. Kalimat berikut yang menggunakan konjungsi antarkalimat dengan tepat adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg12" value="A"> A. "Pantai ini indah, oleh karena itu ramai."</label>
+                        <label><input type="radio" name="pg12" value="B"> B. "Pantai ini indah. Oleh karena itu ramai."</label>
+                        <label><input type="radio" name="pg12" value="C"> C. "Pantai ini indah. Oleh karena itu, ramai."</label>
+                        <label><input type="radio" name="pg12" value="D"> D. "Pantai ini indah sehingga oleh karena itu ramai."</label>
+                    </div>
+                </div>
+
+                <!-- PG 13 - Pertemuan 5 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 5</span>
+                    <p class="question-text">13. Konjungsi yang sering muncul dalam lirik lagu untuk menunjukkan hubungan waktu adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg13" value="A"> A. oleh karena itu</label>
+                        <label><input type="radio" name="pg13" value="B"> B. ketika, saat, sejak</label>
+                        <label><input type="radio" name="pg13" value="C"> C. baik ... maupun ...</label>
+                        <label><input type="radio" name="pg13" value="D"> D. dengan demikian</label>
+                    </div>
+                </div>
+
+                <!-- PG 14 - Pertemuan 5 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 5</span>
+                    <p class="question-text">14. Dalam sistem kekerabatan Minangkabau, garis keturunan ditarik dari pihak... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg14" value="A"> A. Ayah (patrilineal)</label>
+                        <label><input type="radio" name="pg14" value="B"> B. Ibu (matrilineal)</label>
+                        <label><input type="radio" name="pg14" value="C"> C. Kedua belah pihak (bilateral)</label>
+                        <label><input type="radio" name="pg14" value="D"> D. Nenek moyang saja</label>
+                    </div>
+                </div>
+
+                <!-- PG 15 - Pertemuan 6 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 6</span>
+                    <p class="question-text">15. Kata "musyawarah" dalam bahasa Indonesia merupakan kosakata serapan dari bahasa... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg15" value="A"> A. Inggris</label>
+                        <label><input type="radio" name="pg15" value="B"> B. Arab</label>
+                        <label><input type="radio" name="pg15" value="C"> C. Belanda</label>
+                        <label><input type="radio" name="pg15" value="D"> D. Sanskerta</label>
+                    </div>
+                </div>
+
+                <!-- PG 16 - Pertemuan 6 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 6</span>
+                    <p class="question-text">16. Kata "rendang" dalam teks deskripsi tentang kuliner Minangkabau termasuk kosakata... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg16" value="A"> A. Serapan dari bahasa asing</label>
+                        <label><input type="radio" name="pg16" value="B"> B. Serapan dari bahasa daerah</label>
+                        <label><input type="radio" name="pg16" value="C"> C. Kosakata baku internasional</label>
+                        <label><input type="radio" name="pg16" value="D"> D. Kosakata slang</label>
+                    </div>
+                </div>
+
+                <!-- PG 17 - Pertemuan 6 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 6</span>
+                    <p class="question-text">17. Kata "teknologi" merupakan kosakata serapan dari bahasa asing, yaitu... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg17" value="A"> A. technology (Inggris)</label>
+                        <label><input type="radio" name="pg17" value="B"> B. technologie (Jerman)</label>
+                        <label><input type="radio" name="pg17" value="C"> C. technologie (Perancis)</label>
+                        <label><input type="radio" name="pg17" value="D"> D. Semua jawaban benar</label>
+                    </div>
+                </div>
+
+                <!-- PG 18 - Pertemuan 7 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 7</span>
+                    <p class="question-text">18. Kohesi dalam paragraf deskripsi merujuk pada... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg18" value="A"> A. Keterpaduan makna antarbagian teks</label>
+                        <label><input type="radio" name="pg18" value="B"> B. Keterkaitan bentuk antarunsur dalam teks (gramatikal)</label>
+                        <label><input type="radio" name="pg18" value="C"> C. Jumlah kalimat dalam paragraf</label>
+                        <label><input type="radio" name="pg18" value="D"> D. Panjang pendeknya paragraf</label>
+                    </div>
+                </div>
+
+                <!-- PG 19 - Pertemuan 7 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 7</span>
+                    <p class="question-text">19. Koherensi dalam paragraf merujuk pada... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg19" value="A"> A. Keterkaitan bentuk antarunsur</label>
+                        <label><input type="radio" name="pg19" value="B"> B. Keterpaduan makna dan hubungan logis antarbagian teks</label>
+                        <label><input type="radio" name="pg19" value="C"> C. Penggunaan tanda baca</label>
+                        <label><input type="radio" name="pg19" value="D"> D. Jumlah paragraf dalam teks</label>
+                    </div>
+                </div>
+
+                <!-- PG 20 - Pertemuan 7 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 7</span>
+                    <p class="question-text">20. Salah satu alat kohesi gramatikal adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg20" value="A"> A. Sinonim</label>
+                        <label><input type="radio" name="pg20" value="B"> B. Antonim</label>
+                        <label><input type="radio" name="pg20" value="C"> C. Pronomina (kata ganti)</label>
+                        <label><input type="radio" name="pg20" value="D"> D. Homonim</label>
+                    </div>
+                </div>
+
+                <!-- PG 21 - Pertemuan 8 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 8</span>
+                    <p class="question-text">21. Infografik adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg21" value="A"> A. Teks narasi yang panjang</label>
+                        <label><input type="radio" name="pg21" value="B"> B. Representasi visual dari informasi, data, atau pengetahuan</label>
+                        <label><input type="radio" name="pg21" value="C"> C. Puisi modern</label>
+                        <label><input type="radio" name="pg21" value="D"> D. Cerpen bergambar</label>
+                    </div>
+                </div>
+
+                <!-- PG 22 - Pertemuan 8 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 8</span>
+                    <p class="question-text">22. Salah satu keunggulan infografik dibandingkan teks biasa adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg22" value="A"> A. Lebih panjang dan detail</label>
+                        <label><input type="radio" name="pg22" value="B"> B. Informasi lebih cepat dipahami karena visual yang menarik</label>
+                        <label><input type="radio" name="pg22" value="C"> C. Tidak memerlukan data</label>
+                        <label><input type="radio" name="pg22" value="D"> D. Hanya berisi gambar tanpa teks</label>
+                    </div>
+                </div>
+
+                <!-- PG 23 - Pertemuan 9 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 9</span>
+                    <p class="question-text">23. Teks prosedur bertujuan untuk... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg23" value="A"> A. Menggambarkan objek secara rinci</label>
+                        <label><input type="radio" name="pg23" value="B"> B. Menjelaskan langkah-langkah melakukan atau membuat sesuatu</label>
+                        <label><input type="radio" name="pg23" value="C"> C. Menceritakan urutan peristiwa</label>
+                        <label><input type="radio" name="pg23" value="D"> D. Memaparkan argumentasi</label>
+                    </div>
+                </div>
+
+                <!-- PG 24 - Pertemuan 9 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 9</span>
+                    <p class="question-text">24. Struktur teks prosedur yang benar adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg24" value="A"> A. Identifikasi → Deskripsi Bagian → Kesan</label>
+                        <label><input type="radio" name="pg24" value="B"> B. Tujuan → Material (opsional) → Langkah-langkah → Penutup</label>
+                        <label><input type="radio" name="pg24" value="C"> C. Orientasi → Komplikasi → Resolusi</label>
+                        <label><input type="radio" name="pg24" value="D"> D. Tesis → Argumentasi → Penegasan Ulang</label>
+                    </div>
+                </div>
+
+                <!-- PG 25 - Pertemuan 10 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 10</span>
+                    <p class="question-text">25. Proses penyerapan kosakata asing ke dalam bahasa Indonesia dengan cara mengubah ejaan sesuai kaidah bahasa Indonesia disebut... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg25" value="A"> A. Translasi</label>
+                        <label><input type="radio" name="pg25" value="B"> B. Adaptasi ejaan</label>
+                        <label><input type="radio" name="pg25" value="C"> C. Adopsi langsung</label>
+                        <label><input type="radio" name="pg25" value="D"> D. Kreasi baru</label>
+                    </div>
+                </div>
+
+                <!-- PG 26 - Pertemuan 10 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 10</span>
+                    <p class="question-text">26. Kata "aktivitas" merupakan serapan dari bahasa Inggris... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg26" value="A"> A. active</label>
+                        <label><input type="radio" name="pg26" value="B"> B. activity</label>
+                        <label><input type="radio" name="pg26" value="C"> C. action</label>
+                        <label><input type="radio" name="pg26" value="D"> D. actor</label>
+                    </div>
+                </div>
+
+                <!-- PG 27 - Pertemuan 11 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 11</span>
+                    <p class="question-text">27. Ciri kebahasaan utama teks prosedur adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg27" value="A"> A. Banyak menggunakan kata sifat</label>
+                        <label><input type="radio" name="pg27" value="B"> B. Menggunakan kalimat perintah dan konjungsi temporal (kemudian, lalu)</label>
+                        <label><input type="radio" name="pg27" value="C"> C. Menggunakan dialog antar tokoh</label>
+                        <label><input type="radio" name="pg27" value="D"> D. Menggunakan sudut pandang orang pertama</label>
+                    </div>
+                </div>
+
+                <!-- PG 28 - Pertemuan 11 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 11</span>
+                    <p class="question-text">28. Kalimat berikut yang merupakan kalimat perintah dalam teks prosedur adalah... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg28" value="A"> A. Saya sedang memasak nasi goreng.</label>
+                        <label><input type="radio" name="pg28" value="B"> B. Nasi goreng adalah makanan yang lezat.</label>
+                        <label><input type="radio" name="pg28" value="C"> C. Panaskan minyak dalam wajan!</label>
+                        <label><input type="radio" name="pg28" value="D"> D. Apakah kamu suka nasi goreng?</label>
+                    </div>
+                </div>
+
+                <!-- PG 29 - Pertemuan 12 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 12</span>
+                    <p class="question-text">29. Teks prosedur berbentuk infografik biasanya menampilkan informasi dalam bentuk... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg29" value="A"> A. Narasi panjang</label>
+                        <label><input type="radio" name="pg29" value="B"> B. Diagram alir, ikon, dan ilustrasi</label>
+                        <label><input type="radio" name="pg29" value="C"> C. Puisi</label>
+                        <label><input type="radio" name="pg29" value="D"> D. Dialog</label>
+                    </div>
+                </div>
+
+                <!-- PG 30 - Pertemuan 12 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 12</span>
+                    <p class="question-text">30. Membaca nyaring dalam konteks teks prosedur bertujuan untuk... <span class="question-points">2 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="pg30" value="A"> A. Menghafal teks</label>
+                        <label><input type="radio" name="pg30" value="B"> B. Melafalkan instruksi dengan jelas agar dapat diikuti orang lain</label>
+                        <label><input type="radio" name="pg30" value="C"> C. Menirukan gaya penulis</label>
+                        <label><input type="radio" name="pg30" value="D"> D. Menambah panjang teks</label>
+                    </div>
+                </div>
+
+                <!-- ==================== BAGIAN B: PILIHAN GANDA KOMPLEKS (10 SOAL) ==================== -->
+                <h3 style="color: var(--gold-primary); margin: 2.5rem 0 1rem; font-family: 'Playfair Display', serif; font-size: 1.5rem;">📋 Bagian B: Pilihan Ganda Kompleks (10 Soal × 3 Poin = 30 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Pilih <strong>lebih dari satu</strong> jawaban yang benar. Skor penuh jika semua jawaban benar dipilih.</p>
+
+                <!-- PGK 1 - Pertemuan 1 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 1</span>
+                    <p class="question-text">31. Ciri-ciri ide pokok dalam sebuah paragraf adalah... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk1" value="A"> A. Bersifat umum dan menjadi payung bagi kalimat lain</label>
+                        <label><input type="checkbox" name="pgk1" value="B"> B. Dapat berdiri sendiri sebagai kalimat yang utuh</label>
+                        <label><input type="checkbox" name="pgk1" value="C"> C. Selalu berisi data dan angka</label>
+                        <label><input type="checkbox" name="pgk1" value="D"> D. Biasanya terdapat dalam kalimat utama</label>
+                    </div>
+                </div>
+
+                <!-- PGK 2 - Pertemuan 2 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 2</span>
+                    <p class="question-text">32. Jenis-jenis makna kata berdasarkan konteks adalah... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk2" value="A"> A. Makna denotatif</label>
+                        <label><input type="checkbox" name="pgk2" value="B"> B. Makna konotatif</label>
+                        <label><input type="checkbox" name="pgk2" value="C"> C. Makna kontekstual</label>
+                        <label><input type="checkbox" name="pgk2" value="D"> D. Makna imajinatif</label>
+                    </div>
+                </div>
+
+                <!-- PGK 3 - Pertemuan 3 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 3</span>
+                    <p class="question-text">33. Struktur teks deskripsi terdiri atas... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk3" value="A"> A. Identifikasi</label>
+                        <label><input type="checkbox" name="pgk3" value="B"> B. Deskripsi Bagian</label>
+                        <label><input type="checkbox" name="pgk3" value="C"> C. Komplikasi</label>
+                        <label><input type="checkbox" name="pgk3" value="D"> D. Kesan/Simpulan</label>
+                    </div>
+                </div>
+
+                <!-- PGK 4 - Pertemuan 4 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 4</span>
+                    <p class="question-text">34. Jenis-jenis konjungsi berdasarkan fungsinya adalah... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk4" value="A"> A. Koordinatif</label>
+                        <label><input type="checkbox" name="pgk4" value="B"> B. Subordinatif</label>
+                        <label><input type="checkbox" name="pgk4" value="C"> C. Antarkalimat</label>
+                        <label><input type="checkbox" name="pgk4" value="D"> D. Korelatif</label>
+                    </div>
+                </div>
+
+                <!-- PGK 5 - Pertemuan 6 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 6</span>
+                    <p class="question-text">35. Contoh kosakata serapan dari bahasa Arab dalam bahasa Indonesia adalah... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk5" value="A"> A. Musyawarah</label>
+                        <label><input type="checkbox" name="pgk5" value="B"> B. Komputer</label>
+                        <label><input type="checkbox" name="pgk5" value="C"> C. Kursi</label>
+                        <label><input type="checkbox" name="pgk5" value="D"> D. Pikir</label>
+                    </div>
+                </div>
+
+                <!-- PGK 6 - Pertemuan 7 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 7</span>
+                    <p class="question-text">36. Alat-alat kohesi gramatikal dalam paragraf adalah... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk6" value="A"> A. Pronomina (kata ganti)</label>
+                        <label><input type="checkbox" name="pgk6" value="B"> B. Konjungsi</label>
+                        <label><input type="checkbox" name="pgk6" value="C"> C. Elipsis</label>
+                        <label><input type="checkbox" name="pgk6" value="D"> D. Sinonim</label>
+                    </div>
+                </div>
+
+                <!-- PGK 7 - Pertemuan 8 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 8</span>
+                    <p class="question-text">37. Unsur-unsur yang sering terdapat dalam infografik adalah... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk7" value="A"> A. Ikon dan ilustrasi</label>
+                        <label><input type="checkbox" name="pgk7" value="B"> B. Grafik dan diagram</label>
+                        <label><input type="checkbox" name="pgk7" value="C"> C. Teks singkat dan poin penting</label>
+                        <label><input type="checkbox" name="pgk7" value="D"> D. Dialog antar tokoh</label>
+                    </div>
+                </div>
+
+                <!-- PGK 8 - Pertemuan 9 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 9</span>
+                    <p class="question-text">38. Ciri-ciri teks prosedur adalah... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk8" value="A"> A. Menggunakan kalimat perintah</label>
+                        <label><input type="checkbox" name="pgk8" value="B"> B. Menggunakan konjungsi temporal (kemudian, lalu)</label>
+                        <label><input type="checkbox" name="pgk8" value="C"> C. Bersifat objektif dan logis</label>
+                        <label><input type="checkbox" name="pgk8" value="D"> D. Banyak menggunakan kata sifat emosional</label>
+                    </div>
+                </div>
+
+                <!-- PGK 9 - Pertemuan 10 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 10</span>
+                    <p class="question-text">39. Cara penyerapan kosakata asing ke dalam bahasa Indonesia meliputi... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk9" value="A"> A. Adopsi langsung (pemakaian tanpa perubahan)</label>
+                        <label><input type="checkbox" name="pgk9" value="B"> B. Adaptasi (penyesuaian ejaan dan lafal)</label>
+                        <label><input type="checkbox" name="pgk9" value="C"> C. Translasi (penerjemahan)</label>
+                        <label><input type="checkbox" name="pgk9" value="D"> D. Penghapusan total dari bahasa</label>
+                    </div>
+                </div>
+
+                <!-- PGK 10 - Pertemuan 11-12 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 11-12</span>
+                    <p class="question-text">40. Jenis-jenis teks prosedur berdasarkan isinya adalah... <span class="question-points">3 POIN</span></p>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk10" value="A"> A. Prosedur cara membuat/melakukan sesuatu</label>
+                        <label><input type="checkbox" name="pgk10" value="B"> B. Prosedur cara bermain</label>
+                        <label><input type="checkbox" name="pgk10" value="C"> C. Prosedur protokol (langkah tidak harus berurutan)</label>
+                        <label><input type="checkbox" name="pgk10" value="D"> D. Prosedur naratif (bercerita)</label>
+                    </div>
+                </div>
+
+                <!-- ==================== BAGIAN C: BENAR/SALAH (5 SOAL) ==================== -->
+                <h3 style="color: var(--gold-primary); margin: 2.5rem 0 1rem; font-family: 'Playfair Display', serif; font-size: 1.5rem;">✓✗ Bagian C: Benar / Salah (5 Soal × 2 Poin = 10 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Tentukan apakah pernyataan berikut BENAR atau SALAH.</p>
+
+                <!-- BS 1 - Pertemuan 1 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 1</span>
+                    <p class="question-text">41. Ide pendukung adalah gagasan yang menjadi inti utama dalam sebuah paragraf. <span class="question-points">2 POIN</span></p>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs1" value="BENAR"> BENAR</label>
+                        <label><input type="radio" name="bs1" value="SALAH"> SALAH</label>
+                    </div>
+                </div>
+
+                <!-- BS 2 - Pertemuan 4 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 4</span>
+                    <p class="question-text">42. Konjungsi "oleh karena itu" termasuk konjungsi antarkalimat dan selalu diikuti tanda koma. <span class="question-points">2 POIN</span></p>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs2" value="BENAR"> BENAR</label>
+                        <label><input type="radio" name="bs2" value="SALAH"> SALAH</label>
+                    </div>
+                </div>
+
+                <!-- BS 3 - Pertemuan 6 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 6</span>
+                    <p class="question-text">43. Kata "rendang" merupakan kosakata serapan dari bahasa asing (Inggris). <span class="question-points">2 POIN</span></p>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs3" value="BENAR"> BENAR</label>
+                        <label><input type="radio" name="bs3" value="SALAH"> SALAH</label>
+                    </div>
+                </div>
+
+                <!-- BS 4 - Pertemuan 7 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 7</span>
+                    <p class="question-text">44. Kohesi merujuk pada keterpaduan makna antarbagian teks, sedangkan koherensi merujuk pada keterkaitan bentuk antarunsur. <span class="question-points">2 POIN</span></p>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs4" value="BENAR"> BENAR</label>
+                        <label><input type="radio" name="bs4" value="SALAH"> SALAH</label>
+                    </div>
+                </div>
+
+                <!-- BS 5 - Pertemuan 9 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 9</span>
+                    <p class="question-text">45. Teks prosedur bertujuan untuk menggambarkan objek secara rinci sehingga pembaca seolah mengalaminya sendiri. <span class="question-points">2 POIN</span></p>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs5" value="BENAR"> BENAR</label>
+                        <label><input type="radio" name="bs5" value="SALAH"> SALAH</label>
+                    </div>
+                </div>
+
+                <!-- ==================== BAGIAN D: MENJODOHKAN (5 SOAL) ==================== -->
+                <h3 style="color: var(--gold-primary); margin: 2.5rem 0 1rem; font-family: 'Playfair Display', serif; font-size: 1.5rem;">🔗 Bagian D: Menjodohkan (5 Soal × 2 Poin = 10 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Pasangkan setiap pernyataan di kolom kiri dengan jawaban yang tepat di kolom kanan.</p>
+
+                <!-- MJ 1 - Pertemuan 2 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 2</span>
+                    <p class="question-text">46. Pasangkan jenis makna kata dengan contohnya yang tepat! <span class="question-points">2 POIN</span></p>
+                    <div class="matching-grid">
+                        <div class="matching-column">
+                            <h5>Pernyataan</h5>
+                            <div class="matching-item">
+                                <strong>a.</strong> Makna Denotatif
+                                <select class="matching-select" id="mj1a">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "Bunga desa" = gadis cantik</option>
+                                    <option value="2">2. "Bunga" = bagian tumbuhan</option>
+                                    <option value="3">3. "Kepala sekolah" = pemimpin</option>
+                                    <option value="4">4. "Dingin" = tidak ramah</option>
+                                    <option value="5">5. "Ringan tangan" = gemar menolong</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>b.</strong> Makna Konotatif
+                                <select class="matching-select" id="mj1b">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "Bunga desa" = gadis cantik</option>
+                                    <option value="2">2. "Bunga" = bagian tumbuhan</option>
+                                    <option value="3">3. "Kepala sekolah" = pemimpin</option>
+                                    <option value="4">4. "Dingin" = tidak ramah</option>
+                                    <option value="5">5. "Ringan tangan" = gemar menolong</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>c.</strong> Makna Kontekstual
+                                <select class="matching-select" id="mj1c">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "Bunga desa" = gadis cantik</option>
+                                    <option value="2">2. "Bunga" = bagian tumbuhan</option>
+                                    <option value="3">3. "Kepala sekolah" = pemimpin</option>
+                                    <option value="4">4. "Dingin" = tidak ramah</option>
+                                    <option value="5">5. "Ringan tangan" = gemar menolong</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MJ 2 - Pertemuan 4 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 4</span>
+                    <p class="question-text">47. Pasangkan jenis konjungsi dengan contohnya! <span class="question-points">2 POIN</span></p>
+                    <div class="matching-grid">
+                        <div class="matching-column">
+                            <h5>Pernyataan</h5>
+                            <div class="matching-item">
+                                <strong>a.</strong> Konjungsi Koordinatif
+                                <select class="matching-select" id="mj2a">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "dan, atau, tetapi"</option>
+                                    <option value="2">2. "karena, sehingga, ketika"</option>
+                                    <option value="3">3. "oleh karena itu, dengan demikian"</option>
+                                    <option value="4">4. "baik ... maupun ..."</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>b.</strong> Konjungsi Subordinatif
+                                <select class="matching-select" id="mj2b">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "dan, atau, tetapi"</option>
+                                    <option value="2">2. "karena, sehingga, ketika"</option>
+                                    <option value="3">3. "oleh karena itu, dengan demikian"</option>
+                                    <option value="4">4. "baik ... maupun ..."</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>c.</strong> Konjungsi Antarkalimat
+                                <select class="matching-select" id="mj2c">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "dan, atau, tetapi"</option>
+                                    <option value="2">2. "karena, sehingga, ketika"</option>
+                                    <option value="3">3. "oleh karena itu, dengan demikian"</option>
+                                    <option value="4">4. "baik ... maupun ..."</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>d.</strong> Konjungsi Korelatif
+                                <select class="matching-select" id="mj2d">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "dan, atau, tetapi"</option>
+                                    <option value="2">2. "karena, sehingga, ketika"</option>
+                                    <option value="3">3. "oleh karena itu, dengan demikian"</option>
+                                    <option value="4">4. "baik ... maupun ..."</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MJ 3 - Pertemuan 6 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 6</span>
+                    <p class="question-text">48. Pasangkan kosakata serapan dengan bahasa asalnya! <span class="question-points">2 POIN</span></p>
+                    <div class="matching-grid">
+                        <div class="matching-column">
+                            <h5>Pernyataan</h5>
+                            <div class="matching-item">
+                                <strong>a.</strong> "Musyawarah"
+                                <select class="matching-select" id="mj3a">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. Bahasa Arab</option>
+                                    <option value="2">2. Bahasa Inggris</option>
+                                    <option value="3">3. Bahasa Belanda</option>
+                                    <option value="4">4. Bahasa Daerah (Minang)</option>
+                                    <option value="5">5. Bahasa Sanskerta</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>b.</strong> "Teknologi"
+                                <select class="matching-select" id="mj3b">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. Bahasa Arab</option>
+                                    <option value="2">2. Bahasa Inggris</option>
+                                    <option value="3">3. Bahasa Belanda</option>
+                                    <option value="4">4. Bahasa Daerah (Minang)</option>
+                                    <option value="5">5. Bahasa Sanskerta</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>c.</strong> "Rendang"
+                                <select class="matching-select" id="mj3c">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. Bahasa Arab</option>
+                                    <option value="2">2. Bahasa Inggris</option>
+                                    <option value="3">3. Bahasa Belanda</option>
+                                    <option value="4">4. Bahasa Daerah (Minang)</option>
+                                    <option value="5">5. Bahasa Sanskerta</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MJ 4 - Pertemuan 9 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 9</span>
+                    <p class="question-text">49. Pasangkan struktur teks prosedur dengan isinya! <span class="question-points">2 POIN</span></p>
+                    <div class="matching-grid">
+                        <div class="matching-column">
+                            <h5>Pernyataan</h5>
+                            <div class="matching-item">
+                                <strong>a.</strong> Tujuan
+                                <select class="matching-select" id="mj4a">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. Pengenalan tentang apa yang akan dibuat/dilakukan</option>
+                                    <option value="2">2. Daftar bahan/alat yang dibutuhkan</option>
+                                    <option value="3">3. Urutan langkah secara sistematis</option>
+                                    <option value="4">4. Penutup atau hasil akhir</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>b.</strong> Material
+                                <select class="matching-select" id="mj4b">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. Pengenalan tentang apa yang akan dibuat/dilakukan</option>
+                                    <option value="2">2. Daftar bahan/alat yang dibutuhkan</option>
+                                    <option value="3">3. Urutan langkah secara sistematis</option>
+                                    <option value="4">4. Penutup atau hasil akhir</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>c.</strong> Langkah-langkah
+                                <select class="matching-select" id="mj4c">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. Pengenalan tentang apa yang akan dibuat/dilakukan</option>
+                                    <option value="2">2. Daftar bahan/alat yang dibutuhkan</option>
+                                    <option value="3">3. Urutan langkah secara sistematis</option>
+                                    <option value="4">4. Penutup atau hasil akhir</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>d.</strong> Penutup
+                                <select class="matching-select" id="mj4d">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. Pengenalan tentang apa yang akan dibuat/dilakukan</option>
+                                    <option value="2">2. Daftar bahan/alat yang dibutuhkan</option>
+                                    <option value="3">3. Urutan langkah secara sistematis</option>
+                                    <option value="4">4. Penutup atau hasil akhir</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MJ 5 - Pertemuan 10 -->
+                <div class="question-card">
+                    <span class="question-meeting">Pertemuan 10</span>
+                    <p class="question-text">50. Pasangkan cara penyerapan kosakata dengan contohnya! <span class="question-points">2 POIN</span></p>
+                    <div class="matching-grid">
+                        <div class="matching-column">
+                            <h5>Pernyataan</h5>
+                            <div class="matching-item">
+                                <strong>a.</strong> Adopsi Langsung
+                                <select class="matching-select" id="mj5a">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "activity" → "aktivitas" (penyesuaian ejaan)</option>
+                                    <option value="2">2. "supermarket" → "pasar swalayan" (diterjemahkan)</option>
+                                    <option value="3">3. "hot dog", "burger" (dipakai apa adanya)</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>b.</strong> Adaptasi
+                                <select class="matching-select" id="mj5b">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "activity" → "aktivitas" (penyesuaian ejaan)</option>
+                                    <option value="2">2. "supermarket" → "pasar swalayan" (diterjemahkan)</option>
+                                    <option value="3">3. "hot dog", "burger" (dipakai apa adanya)</option>
+                                </select>
+                            </div>
+                            <div class="matching-item">
+                                <strong>c.</strong> Translasi
+                                <select class="matching-select" id="mj5c">
+                                    <option value="">-- Pilih pasangan --</option>
+                                    <option value="1">1. "activity" → "aktivitas" (penyesuaian ejaan)</option>
+                                    <option value="2">2. "supermarket" → "pasar swalayan" (diterjemahkan)</option>
+                                    <option value="3">3. "hot dog", "burger" (dipakai apa adanya)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Ujian Tengah Semester Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Total Skor (Maksimal 120)</p>
+                
+                <div class="score-breakdown">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Pilihan Ganda</div>
+                        <div class="breakdown-value" id="scorePG">0/60</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">PG Kompleks</div>
+                        <div class="breakdown-value" id="scorePGK">0/30</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Benar/Salah</div>
+                        <div class="breakdown-value" id="scoreBS">0/10</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Menjodohkan</div>
+                        <div class="breakdown-value" id="scoreMJ">0/10</div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Nilai akan dikonversi ke skala 100 oleh Ibu Elizarni, S.Pd.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="11.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 11</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="13.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 13 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban
+        const pgAnswers = {
+            pg1: 'B', pg2: 'A', pg3: 'B', pg4: 'B', pg5: 'C',
+            pg6: 'B', pg7: 'B', pg8: 'C', pg9: 'B', pg10: 'C',
+            pg11: 'C', pg12: 'C', pg13: 'B', pg14: 'B', pg15: 'B',
+            pg16: 'B', pg17: 'D', pg18: 'B', pg19: 'B', pg20: 'C',
+            pg21: 'B', pg22: 'B', pg23: 'B', pg24: 'B', pg25: 'B',
+            pg26: 'B', pg27: 'B', pg28: 'C', pg29: 'B', pg30: 'B'
+        };
+
+        // Kunci PG Kompleks (array jawaban benar)
+        const pgkAnswers = {
+            pgk1: ['A', 'B', 'D'],
+            pgk2: ['A', 'B', 'C'],
+            pgk3: ['A', 'B', 'D'],
+            pgk4: ['A', 'B', 'C', 'D'],
+            pgk5: ['A', 'C', 'D'],
+            pgk6: ['A', 'B', 'C'],
+            pgk7: ['A', 'B', 'C'],
+            pgk8: ['A', 'B', 'C'],
+            pgk9: ['A', 'B', 'C'],
+            pgk10: ['A', 'B', 'C']
+        };
+
+        // Kunci Benar/Salah
+        const bsAnswers = {
+            bs1: 'SALAH', bs2: 'BENAR', bs3: 'SALAH', bs4: 'SALAH', bs5: 'SALAH'
+        };
+
+        // Kunci Menjodohkan
+        const mjAnswers = {
+            mj1a: '2', mj1b: '1', mj1c: '3',
+            mj2a: '1', mj2b: '2', mj2c: '3', mj2d: '4',
+            mj3a: '1', mj3b: '2', mj3c: '4',
+            mj4a: '1', mj4b: '2', mj4c: '3', mj4d: '4',
+            mj5a: '3', mj5b: '1', mj5c: '2'
+        };
+
+        function calculateScore() {
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            // Hitung Skor PG (30 soal × 2 poin = 60)
+            let scorePG = 0;
+            for (let i = 1; i <= 30; i++) {
+                const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+                if (selected && selected.value === pgAnswers[`pg${i}`]) {
+                    scorePG += 2;
+                }
+            }
+
+            // Hitung Skor PG Kompleks (10 soal × 3 poin = 30)
+            let scorePGK = 0;
+            for (let i = 1; i <= 10; i++) {
+                const checkboxes = document.querySelectorAll(`input[name="pgk${i}"]:checked`);
+                const userAnswers = Array.from(checkboxes).map(cb => cb.value).sort();
+                const correctAnswers = [...pgkAnswers[`pgk${i}`]].sort();
+                
+                if (userAnswers.length === correctAnswers.length && 
+                    userAnswers.every((val, idx) => val === correctAnswers[idx])) {
+                    scorePGK += 3;
+                }
+            }
+
+            // Hitung Skor Benar/Salah (5 soal × 2 poin = 10)
+            let scoreBS = 0;
+            for (let i = 1; i <= 5; i++) {
+                const selected = document.querySelector(`input[name="bs${i}"]:checked`);
+                if (selected && selected.value === bsAnswers[`bs${i}`]) {
+                    scoreBS += 2;
+                }
+            }
+
+            // Hitung Skor Menjodohkan (5 soal × 2 poin = 10)
+            let scoreMJ = 0;
+            const mjKeys = Object.keys(mjAnswers);
+            mjKeys.forEach(key => {
+                const select = document.getElementById(key);
+                if (select && select.value === mjAnswers[key]) {
+                    scoreMJ += 2;
+                }
+            });
+            // Normalisasi: 11 pasangan × 2 = 22, kita bagi proporsional ke 10
+            scoreMJ = Math.min(10, Math.round((scoreMJ / 22) * 10));
+
+            // Total Skor
+            const totalScore = scorePG + scorePGK + scoreBS + scoreMJ;
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = totalScore;
+            document.getElementById('scorePG').textContent = `${scorePG}/60`;
+            document.getElementById('scorePGK').textContent = `${scorePGK}/30`;
+            document.getElementById('scoreBS').textContent = `${scoreBS}/10`;
+            document.getElementById('scoreMJ').textContent = `${scoreMJ}/10`;
+
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}!\n\nSkor Anda:\n• Pilihan Ganda: ${scorePG}/60\n• PG Kompleks: ${scorePGK}/30\n• Benar/Salah: ${scoreBS}/10\n• Menjodohkan: ${scoreMJ}/10\n\nTotal: ${totalScore}/120`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            // PG
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 30; i++) {
+                const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === pgAnswers[`pg${i}`];
+                if (isCorrect) pgScore += 2;
+                pgDetails += `PG ${i}: ${userAns} (Kunci: ${pgAnswers[`pg${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            // PGK
+            let pgkScore = 0;
+            let pgkDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const checkboxes = document.querySelectorAll(`input[name="pgk${i}"]:checked`);
+                const userAnswers = Array.from(checkboxes).map(cb => cb.value).sort();
+                const correctAnswers = [...pgkAnswers[`pgk${i}`]].sort();
+                const isCorrect = userAnswers.length === correctAnswers.length && 
+                    userAnswers.every((val, idx) => val === correctAnswers[idx]);
+                if (isCorrect) pgkScore += 3;
+                pgkDetails += `PGK ${i}: [${userAnswers.join(',')}] (Kunci: [${correctAnswers.join(',')}]) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            // BS
+            let bsScore = 0;
+            let bsDetails = "";
+            for (let i = 1; i <= 5; i++) {
+                const selected = document.querySelector(`input[name="bs${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === bsAnswers[`bs${i}`];
+                if (isCorrect) bsScore += 2;
+                bsDetails += `BS ${i}: ${userAns} (Kunci: ${bsAnswers[`bs${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            // MJ
+            let mjScore = 0;
+            let mjDetails = "";
+            const mjKeys = Object.keys(mjAnswers);
+            mjKeys.forEach(key => {
+                const select = document.getElementById(key);
+                const userAns = select ? select.value : 'Kosong';
+                const isCorrect = userAns === mjAnswers[key];
+                if (isCorrect) mjScore += 2;
+                mjDetails += `${key}: ${userAns} (Kunci: ${mjAnswers[key]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            });
+            mjScore = Math.min(10, Math.round((mjScore / 22) * 10));
+
+            return { 
+                nama, nis, kelas, tanggal, 
+                pgScore, pgDetails, 
+                pgkScore, pgkDetails, 
+                bsScore, bsDetails, 
+                mjScore, mjDetails,
+                total: pgScore + pgkScore + bsScore + mjScore
+            };
+        }
+
+        function downloadPDF() {
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `UTS_Bahasa_Indonesia_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== UJIAN TENGAH SEMESTER - BAHASA INDONESIA KELAS IX ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- PILIHAN GANDA: ${data.pgScore}/60 ---
+${data.pgDetails}
+--- PG KOMPLEKS: ${data.pgkScore}/30 ---
+${data.pgkDetails}
+--- BENAR/SALAH: ${data.bsScore}/10 ---
+${data.bsDetails}
+--- MENJODOHKAN: ${data.mjScore}/10 ---
+${data.mjDetails}
+
+=== TOTAL SKOR: ${data.total}/120 ===
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `UTS_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil UTS Bahasa Indonesia - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil Ujian Tengah Semester saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+RINCIAN SKOR:
+• Pilihan Ganda: ${data.pgScore}/60
+• PG Kompleks: ${data.pgkScore}/30
+• Benar/Salah: ${data.bsScore}/10
+• Menjodohkan: ${data.mjScore}/10
+• TOTAL: ${data.total}/120
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

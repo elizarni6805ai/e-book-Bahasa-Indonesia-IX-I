@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 2: Diskusi Teks Deskripsi & Makna Kata Kontekstual | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js untuk fungsi Unduh PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 650px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); font-style: normal; }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="1.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 1</a>
+            <a href="3.html" target="_blank" class="nav-btn">Pertemuan 3 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 02</span>
+            <h1 class="chapter-title">Diskusi Teks Deskripsi & Makna Kata Kontekstual</h1>
+            <p class="chapter-desc">Mendiskusikan isi teks deskripsi secara kritis dan menemukan arti kata berdasarkan konteks kalimat untuk memperkaya pemahaman literasi.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Diskusi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-comments"></i> A. Hakikat Diskusi dalam Memahami Teks Deskripsi</h3>
+            <p>Diskusi adalah proses bertukar pikiran, gagasan, atau pendapat antara dua orang atau lebih untuk mencapai kesepakatan atau pemahaman bersama terhadap suatu topik. Dalam konteks pembelajaran teks deskripsi, diskusi berperan penting untuk menguji kedalaman pemahaman siswa terhadap isi teks yang dibaca.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Henry Guntur Tarigan (2008)</strong> menyatakan bahwa diskusi merupakan proses interaksi sosial yang melibatkan pertukaran gagasan secara lisan untuk memecahkan masalah atau mencari kebenaran bersama.</p>
+                <p style="margin-top: 0.5rem;"><strong>Gorys Keraf (1995)</strong> menambahkan bahwa diskusi yang baik harus didasari oleh pemahaman materi yang utuh, sikap saling menghargai, dan kemampuan mengemukakan argumentasi secara logis.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 2.1: Tujuan Diskusi dalam Pembelajaran Teks Deskripsi</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tujuan Diskusi</th>
+                        <th>Manfaat bagi Siswa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Menguji pemahaman isi teks</td>
+                        <td>Siswa mampu mengidentifikasi ide pokok dan pendukung secara kolektif.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mengembangkan berpikir kritis</td>
+                        <td>Siswa terlatih menganalisis, menafsirkan, dan mengevaluasi informasi.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Memperluas makna kata</td>
+                        <td>Siswa belajar menemukan arti kata melalui konteks dan diskusi dengan teman.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Melatih komunikasi ilmiah</td>
+                        <td>Siswa terbiasa mengemukakan pendapat dengan santun dan berdasar.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Strategi Diskusi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-chalkboard-teacher"></i> B. Strategi Mendiskusikan Isi Teks Deskripsi</h3>
+            <p>Agar diskusi berjalan efektif dan menghasilkan pemahaman yang mendalam, diperlukan strategi yang terstruktur. Berikut adalah langkah-langkah yang disarankan:</p>
+            
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li><strong>Membaca Teks secara Seksama</strong> — Baca keseluruhan teks minimal dua kali untuk menangkap gambaran umum.</li>
+                <li><strong>Mencatat Hal-Hal Penting</strong> — Tandai ide pokok, ide pendukung, kata kunci, dan frasa yang belum dipahami.</li>
+                <li><strong>Merumuskan Pertanyaan Diskusi</strong> — Buat pertanyaan terbuka (5W+1H) yang memancing analisis, bukan sekadar hafalan.</li>
+                <li><strong>Bertukar Pendapat secara Santun</strong> — Dengarkan pendapat teman, berikan tanggapan dengan argumen yang logis.</li>
+                <li><strong>Menyimpulkan Hasil Diskusi</strong> — Rangkum pemahaman bersama dalam bentuk simpulan tertulis.</li>
+            </ol>
+
+            <div class="example-box">
+                <strong>Contoh Pertanyaan Diskusi:</strong><br><br>
+                Teks: <em>"Pantai Parangtritis memiliki pasir hitam yang membentang luas, ombak besar yang berdebuk, dan tebing karang yang menjulang."</em><br><br>
+                • <strong>Apa</strong> objek utama yang dideskripsikan dalam teks?<br>
+                • <strong>Mengapa</strong> penulis menggunakan kata "berdebuk" untuk menggambarkan ombak?<br>
+                • <strong>Bagaimana</strong> kesan yang ingin dibangun penulis melalui pilihan kata tersebut?
+            </div>
+        </section>
+
+        <!-- Content C: Makna Kata -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-spell-check"></i> C. Makna Kata dan Jenis-Jenisnya</h3>
+            <p><strong>Makna</strong> adalah maksud atau arti yang terkandung dalam suatu kata. Menurut <strong>Abdul Chaer (2007)</strong>, makna bukan hanya sekadar bunyi atau tulisan, melainkan konsep atau gagasan yang merujuk pada suatu objek, peristiwa, atau keadaan.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 2.2: Jenis-Jenis Makna Kata</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis Makna</th>
+                        <th>Pengertian</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Makna Leksikal</strong></td>
+                        <td>Makna yang sesuai dengan makna sebenarnya dalam kamus (makna denotatif).</td>
+                        <td>"Bunga" = bagian tumbuhan yang berwarna indah.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Makna Gramatikal</strong></td>
+                        <td>Makna yang muncul akibat proses gramatikal (imbuhan, pengulangan, dll).</td>
+                        <td>"Buku-buku" = banyak buku (makna jamak).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Makna Denotatif</strong></td>
+                        <td>Makna sebenarnya, objektif, tanpa perasaan tambahan.</td>
+                        <td>"Ia memiliki kulit sawo matang" = warna cokelat kekuningan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Makna Konotatif</strong></td>
+                        <td>Makna kiasan atau tambahan perasaan (positif/negatif).</td>
+                        <td>"Ia adalah bunga desa" = gadis cantik yang banyak dipuja.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Makna Kontekstual</strong></td>
+                        <td>Makna yang ditentukan oleh konteks kalimat atau situasi.</td>
+                        <td>"Kepala" pada "kepala sekolah" = pemimpin, bukan bagian tubuh.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content D: Konteks Kalimat -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-search"></i> D. Menemukan Arti Kata melalui Konteks Kalimat</h3>
+            <p><strong>Konteks</strong> adalah keseluruhan unsur kebahasaan (kalimat, paragraf, wacana) atau situasi yang mengelilingi suatu kata. Menurut <strong>Chaer (2007)</strong>, konteks berperan penting dalam menentukan makna kata yang memiliki lebih dari satu arti (polisemi).</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 2.3: Jenis Konteks dalam Menentukan Makna</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis Konteks</th>
+                        <th>Penjelasan</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Konteks Linguistik</strong></td>
+                        <td>Konteks yang berasal dari unsur bahasa (kata, kalimat, paragraf).</td>
+                        <td>"Ia <u>membanting</u> tulang" → bekerja keras (bukan memukul tulang).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konteks Ekstralinguistik</strong></td>
+                        <td>Konteks yang berasal dari luar bahasa (situasi, budaya, tempat).</td>
+                        <td>"Kursi" di ruang sidang = jabatan; di ruang tamu = tempat duduk.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konteks Situasional</strong></td>
+                        <td>Konteks yang ditentukan oleh situasi saat komunikasi berlangsung.</td>
+                        <td>"Dingin" di pegunungan = suhu rendah; di sikap = tidak ramah.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <strong>Contoh Analisis Konteks:</strong><br><br>
+                Kata <strong>"ringan"</strong> memiliki makna berbeda dalam kalimat berikut:<br><br>
+                1. "Tas ini sangat <u>ringan</u>." → <em>tidak berat (makna denotatif)</em><br>
+                2. "Ia selalu <u>ringan</u> tangan membantu tetangga." → <em>gemar menolong (makna konotatif)</em><br>
+                3. "Hukumannya <u>ringan</u>." → <em>tidak berat/tidak keras (makna kontekstual)</em>
+            </div>
+        </section>
+
+        <!-- Content E: Langkah Menentukan Makna -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-list-ol"></i> E. Langkah-Langkah Menentukan Makna Kata dari Konteks</h3>
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li><strong>Baca kalimat secara utuh</strong> untuk memahami gagasan yang ingin disampaikan.</li>
+                <li><strong>Identifikasi kata yang belum dipahami</strong> atau kata yang memiliki makna ganda.</li>
+                <li><strong>Perhatikan kata-kata di sekitarnya</strong> (kata sebelum dan sesudahnya) sebagai petunjuk makna.</li>
+                <li><strong>Hubungkan dengan situasi atau topik</strong> yang sedang dibahas dalam teks.</li>
+                <li><strong>Uji dengan sinonim</strong> — coba ganti kata tersebut dengan kata lain yang maknanya mirip; jika kalimat tetap masuk akal, maka makna tersebut tepat.</li>
+                <li><strong>Konsultasikan dengan kamus</strong> (KBBI) untuk memastikan makna yang ditemukan.</li>
+            </ol>
+        </section>
+
+        <!-- Content F: Referensi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bookmark"></i> F. Referensi Pendukung</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Chaer, Abdul. (2007). <em>Lexicology: Peristilahan, Teori, dan Penerapannya</em>. Jakarta: Rineka Cipta.</li>
+                <li>Keraf, Gorys. (1995). <em>Diksi dan Gaya Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Tarigan, Henry Guntur. (2008). <em>Berbicara Sebagai Suatu Keterampilan Berbahasa</em>. Bandung: Angkasa.</li>
+            </ul>
+        </section>
+
+        <!-- Kata Kunci -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-key"></i> Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Diskusi</span>
+                <span class="keyword-tag">Teks Deskripsi</span>
+                <span class="keyword-tag">Makna Kata</span>
+                <span class="keyword-tag">Konteks Kalimat</span>
+                <span class="keyword-tag">Makna Denotatif</span>
+                <span class="keyword-tag">Makna Konotatif</span>
+                <span class="keyword-tag">Konteks Linguistik</span>
+                <span class="keyword-tag">Konteks Situasional</span>
+            </div>
+        </section>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">وَشَاوِرْهُمْ فِى الْأَمْرِ</div>
+            <p class="quote-translation">"...dan bermusyawarahlah dengan mereka dalam urusan itu."</p>
+            <p class="quote-source">— QS. Ali Imran [3]: 159</p>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 2</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal x 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Menurut Henry Guntur Tarigan, diskusi adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Proses menghafal materi secara individu</label>
+                        <label><input type="radio" name="q1" value="B"> B. Proses interaksi sosial untuk bertukar gagasan dan memecahkan masalah</label>
+                        <label><input type="radio" name="q1" value="C"> C. Kegiatan menulis karangan secara mandiri</label>
+                        <label><input type="radio" name="q1" value="D"> D. Proses mendengarkan ceramah guru saja</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Makna kata yang sesuai dengan arti sebenarnya dalam kamus disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Makna konotatif</label>
+                        <label><input type="radio" name="q2" value="B"> B. Makna kontekstual</label>
+                        <label><input type="radio" name="q2" value="C"> C. Makna denotatif (leksikal)</label>
+                        <label><input type="radio" name="q2" value="D"> D. Makna kiasan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Kata "bunga" dalam kalimat "Ia adalah <u>bunga</u> desa" memiliki makna... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Bagian tumbuhan yang berwarna indah</label>
+                        <label><input type="radio" name="q3" value="B"> B. Gadis cantik yang banyak dipuja</label>
+                        <label><input type="radio" name="q3" value="C"> C. Bunga yang ditanam di taman</label>
+                        <label><input type="radio" name="q3" value="D"> D. Bunga tabur di atas makam</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Konteks yang berasal dari unsur bahasa (kalimat, paragraf) disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Konteks situasional</label>
+                        <label><input type="radio" name="q4" value="B"> B. Konteks ekstralinguistik</label>
+                        <label><input type="radio" name="q4" value="C"> C. Konteks linguistik</label>
+                        <label><input type="radio" name="q4" value="D"> D. Konteks budaya</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Kata "kepala" dalam kalimat "Ia baru saja diangkat menjadi <u>kepala</u> sekolah" bermakna... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Bagian tubuh di atas leher</label>
+                        <label><input type="radio" name="q5" value="B"> B. Pemimpin atau orang yang bertanggung jawab</label>
+                        <label><input type="radio" name="q5" value="C"> C. Bagian atas dari suatu benda</label>
+                        <label><input type="radio" name="q5" value="D"> D. Bagian yang paling depan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Langkah pertama dalam mendiskusikan isi teks deskripsi adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Langsung memberikan pendapat</label>
+                        <label><input type="radio" name="q6" value="B"> B. Membaca teks secara saksama untuk memahami isinya</label>
+                        <label><input type="radio" name="q6" value="C"> C. Mengkritik penulis teks</label>
+                        <label><input type="radio" name="q6" value="D"> D. Membuat simpulan akhir</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Makna yang muncul akibat tambahan perasaan (positif/negatif) disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Makna denotatif</label>
+                        <label><input type="radio" name="q7" value="B"> B. Makna leksikal</label>
+                        <label><input type="radio" name="q7" value="C"> C. Makna konotatif</label>
+                        <label><input type="radio" name="q7" value="D"> D. Makna gramatikal</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Kata "dingin" dalam kalimat "Sikapnya sangat <u>dingin</u> kepada tetangga" bermakna... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Suhu udara yang rendah</label>
+                        <label><input type="radio" name="q8" value="B"> B. Tidak ramah atau tidak hangat</label>
+                        <label><input type="radio" name="q8" value="C"> C. Sejuk dan menyegarkan</label>
+                        <label><input type="radio" name="q8" value="D"> D. Berisi es</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Salah satu ciri diskusi yang baik menurut Gorys Keraf adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Didominasi oleh satu orang saja</label>
+                        <label><input type="radio" name="q9" value="B"> B. Dilaksanakan tanpa persiapan materi</label>
+                        <label><input type="radio" name="q9" value="C"> C. Didasari pemahaman materi dan sikap saling menghargai</label>
+                        <label><input type="radio" name="q9" value="D"> D. Menghindari perbedaan pendapat</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa konteks kalimat penting dalam menentukan makna kata? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar kita bisa mengubah arti kata sesuka hati</label>
+                        <label><input type="radio" name="q10" value="B"> B. Karena banyak kata memiliki makna ganda yang hanya dapat dipahami melalui konteks</label>
+                        <label><input type="radio" name="q10" value="C"> C. Supaya kalimat menjadi lebih panjang</label>
+                        <label><input type="radio" name="q10" value="D"> D. Agar tidak perlu membuka kamus</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal x 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan perbedaan antara makna denotatif dan makna konotatif! Berikan masing-masing dua contoh dalam kalimat! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Sebutkan dan jelaskan 3 jenis konteks dalam menentukan makna kata menurut Abdul Chaer! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Tentukan makna kata "ringan" dalam tiga kalimat berikut:<br>
+                    a. "Tas ini sangat ringan."<br>
+                    b. "Ia selalu ringan tangan membantu tetangga."<br>
+                    c. "Hukumannya ringan."<br>
+                    Jelaskan mengapa makna kata tersebut berbeda! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan langkah-langkah mendiskusikan isi teks deskripsi secara efektif! Mengapa setiap langkah tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5: Bacalah paragraf berikut: <br><em>"Pasar tradisional itu sangat hidup. Pedagang berteriak menjajakan dagangan. Pembeli tawar-menawar dengan ramah. Aroma rempah dan ikan segar tercium di mana-mana."</em><br>Tentukan makna kontekstual dari kata "hidup" dalam paragraf tersebut, lalu jelaskan mengapa makna tersebut muncul! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem;">
+            <a href="1.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 1</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="3.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 3 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'C', q3: 'B', q4: 'C', q5: 'B',
+            q6: 'B', q7: 'C', q8: 'B', q9: 'C', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_2_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Tampilkan hasil dulu jika belum
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 2 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan2_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 2 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 2 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

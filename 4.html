@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 4: Konjungsi dalam Teks Deskripsi | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js untuk fungsi Unduh PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 200px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="3.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 3</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="5.html" target="_blank" class="nav-btn">Pertemuan 5 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 04</span>
+            <h1 class="chapter-title">Memahami dan Menggunakan Konjungsi dalam Teks Deskripsi</h1>
+            <p class="chapter-desc">Mempelajari berbagai jenis konjungsi (kata hubung) dan fungsinya dalam membangun kepaduan serta koherensi pada teks deskripsi, sehingga tulisan menjadi padu, logis, dan enak dibaca.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Konjungsi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-link"></i> A. Hakikat Konjungsi</h3>
+            <p><strong>Konjungsi</strong> (kata hubung) adalah kata atau ungkapan yang berfungsi menghubungkan antarkata, antarfrasa, antarklausa, atau antarkalimat. Konjungsi membuat hubungan antarunsur bahasa menjadi jelas, logis, dan padu.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Gorys Keraf (1995)</strong> menyatakan bahwa konjungsi adalah kata tugas yang berfungsi menghubungkan antarkata, antarfrasa, antarklausa, dan antarkalimat. Tanpa konjungsi, hubungan antarunsur dalam kalimat atau paragraf akan terasa terputus-putus dan sulit dipahami.</p>
+                <p style="margin-top: 0.5rem;"><strong>Abdul Chaer (2007)</strong> menambahkan bahwa konjungsi merupakan unsur kohesi gramatikal yang sangat penting dalam membangun kepaduan teks. Konjungsi membantu pembaca memahami hubungan makna antarbagian teks secara lebih jelas.</p>
+                <p style="margin-top: 0.5rem;"><strong>Harimurti Kridalaksana (2008)</strong> mengklasifikasikan konjungsi menjadi empat kelompok besar berdasarkan fungsinya: koordinatif, subordinatif, antarkalimat, dan korelatif.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 4.1: Mengapa Konjungsi Penting dalam Teks Deskripsi?</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Fungsi Konjungsi</th>
+                        <th>Dampak pada Teks Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Menghubungkan rincian deskripsi</td>
+                        <td>Rincian objek menjadi padu, tidak terpisah-pisah.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Menunjukkan hubungan sebab-akibat</td>
+                        <td>Pembaca memahami mengapa objek memiliki ciri tertentu.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Menunjukkan urutan waktu/ruang</td>
+                        <td>Deskripsi mengalir secara kronologis atau spasial.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Memperjelas pertentangan/penambahan</td>
+                        <td>Kontras atau tambahan informasi tersampaikan dengan jelas.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Membangun koherensi paragraf</td>
+                        <td>Paragraf terasa menyatu dan mudah dipahami.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Jenis-Jenis Konjungsi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-sitemap"></i> B. Jenis-Jenis Konjungsi</h3>
+            <p>Berdasarkan fungsinya, konjungsi dibagi menjadi empat jenis utama. Setiap jenis memiliki peran yang berbeda dalam membangun kepaduan teks.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 4.2: Klasifikasi Konjungsi</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis Konjungsi</th>
+                        <th>Fungsi</th>
+                        <th>Contoh Kata</th>
+                        <th>Contoh Kalimat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Koordinatif</strong></td>
+                        <td>Menghubungkan dua unsur yang setara (sederajat).</td>
+                        <td>dan, atau, tetapi, serta, melainkan</td>
+                        <td>"Pantai itu indah <u>dan</u> bersih."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Subordinatif</strong></td>
+                        <td>Menghubungkan dua unsur yang tidak setara (bertingkat: induk-anak kalimat).</td>
+                        <td>karena, sehingga, ketika, agar, meskipun, jika, bahwa, dengan</td>
+                        <td>"Ia tersenyum <u>ketika</u> melihat cucunya pulang."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Antarkalimat</strong></td>
+                        <td>Menghubungkan satu kalimat dengan kalimat sebelumnya.</td>
+                        <td>oleh karena itu, dengan demikian, selain itu, akan tetapi, jadi</td>
+                        <td>"Hujan turun sangat deras. <u>Oleh karena itu</u>, kami batal berangkat."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Korelatif</strong></td>
+                        <td>Menghubungkan dua unsur secara berpasangan.</td>
+                        <td>baik...maupun..., tidak hanya...tetapi juga..., bukan...melainkan...</td>
+                        <td>"<u>Baik</u> pagi <u>maupun</u> sore, pantai ini selalu ramai."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Perbedaan Utama</h4>
+                <p><strong>Konjungsi Koordinatif</strong> menghubungkan unsur yang <em>setara</em> (keduanya bisa berdiri sendiri).<br>
+                <strong>Konjungsi Subordinatif</strong> menghubungkan unsur yang <em>tidak setara</em> (salah satu bergantung pada yang lain).<br>
+                <strong>Konjungsi Antarkalimat</strong> selalu terletak di <em>awal kalimat baru</em> dan diikuti tanda koma.<br>
+                <strong>Konjungsi Korelatif</strong> selalu muncul <em>berpasangan</em> di dua bagian kalimat.</p>
+            </div>
+        </section>
+
+        <!-- Content C: Konjungsi Koordinatif -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-equals"></i> C. Konjungsi Koordinatif (Setara)</h3>
+            <p>Konjungsi koordinatif menghubungkan dua kata, frasa, atau klausa yang memiliki kedudukan setara. Keduanya dapat berdiri sendiri tanpa kehilangan makna.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 4.3: Jenis Konjungsi Koordinatif</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis Hubungan</th>
+                        <th>Konjungsi</th>
+                        <th>Contoh dalam Teks Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Penambahan</strong></td>
+                        <td>dan, serta</td>
+                        <td>"Pantai ini memiliki pasir putih <u>dan</u> air yang jernih."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pertentangan</strong></td>
+                        <td>tetapi, melainkan</td>
+                        <td>"Pemandangannya indah, <u>tetapi</u> jalannya cukup sulit."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pemilihan</strong></td>
+                        <td>atau</td>
+                        <td>"Kita bisa berenang <u>atau</u> bersantai di tepi pantai."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <strong>Contoh dalam Paragraf Deskripsi:</strong><br><br>
+                <em>"Pantai Parangtritis memiliki <u>pasir hitam yang membentang luas</u> <u>dan</u> <u>ombak besar yang berdebuk</u>. Pemandangannya sangat memukau, <u>tetapi</u> pengunjung harus tetap waspada karena arus lautnya cukup kuat."</em>
+            </div>
+        </section>
+
+        <!-- Content D: Konjungsi Subordinatif -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-code-branch"></i> D. Konjungsi Subordinatif (Bertingkat)</h3>
+            <p>Konjungsi subordinatif menghubungkan dua klausa yang tidak setara — satu klausa menjadi induk kalimat, dan yang lain menjadi anak kalimat. Konjungsi ini sangat beragam karena menunjukkan berbagai hubungan makna.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 4.4: Jenis Konjungsi Subordinatif</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis Hubungan</th>
+                        <th>Konjungsi</th>
+                        <th>Contoh Kalimat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sebab (kausal)</strong></td>
+                        <td>karena, sebab, oleh karena</td>
+                        <td>"Pantai ini ramai <u>karena</u> pemandangannya indah."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Akibat</strong></td>
+                        <td>sehingga, sampai-sampai, maka</td>
+                        <td>"Ombaknya sangat besar, <u>sehingga</u> pengunjung dilarang berenang jauh."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Waktu (temporal)</strong></td>
+                        <td>ketika, saat, sejak, setelah, sebelum, sambil</td>
+                        <td>"<u>Ketika</u> matahari terbenam, pantai terlihat sangat indah."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan</strong></td>
+                        <td>agar, supaya, untuk</td>
+                        <td>"Pengunjung datang <u>agar</u> dapat menikmati keindahan pantai."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Syarat</strong></td>
+                        <td>jika, kalau, apabila</td>
+                        <td>"<u>Jika</u> cuaca cerah, pantai ini akan sangat ramai."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pertentangan (konsesif)</strong></td>
+                        <td>meskipun, walaupun, biarpun</td>
+                        <td>"<u>Meskipun</u> jalannya sulit, wisatawan tetap datang."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Perbandingan</strong></td>
+                        <td>seperti, bagaikan, laksana, ibarat</td>
+                        <td>"Ombaknya bergulung <u>seperti</u> bukit yang bergerak."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alat/Cara</strong></td>
+                        <td>dengan, menggunakan</td>
+                        <td>"Ia menikmati pemandangan <u>dengan</u> penuh kekaguman."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <strong>Contoh dalam Paragraf Deskripsi:</strong><br><br>
+                <em>"<u>Ketika</u> matahari mulai terbenam, langit berubah menjadi jingga keemasan. Ombak yang besar bergulung <u>seperti</u> bukit yang bergerak perlahan. <u>Meskipun</u> angin cukup kencang, para pengunjung tetap betah berlama-lama di tepi pantai <u>karena</u> pemandangannya sangat memukau."</em>
+            </div>
+        </section>
+
+        <!-- Content E: Konjungsi Antarkalimat & Korelatif -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-arrows-alt-h"></i> E. Konjungsi Antarkalimat dan Korelatif</h3>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">1. Konjungsi Antarkalimat</h4>
+            <p>Konjungsi antarkalimat terletak di <strong>awal kalimat baru</strong> dan berfungsi menghubungkan kalimat tersebut dengan kalimat sebelumnya. Konjungsi ini selalu diikuti tanda koma (,).</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis Hubungan</th>
+                        <th>Konjungsi</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kesimpulan</strong></td>
+                        <td>jadi, dengan demikian</td>
+                        <td>"<u>Dengan demikian</u>, pantai ini sangat cocok untuk liburan."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sebab-akibat antarkalimat</strong></td>
+                        <td>oleh karena itu, oleh sebab itu</td>
+                        <td>"<u>Oleh karena itu</u>, pengunjung dilarang berenang di area berkarang."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pertentangan</strong></td>
+                        <td>akan tetapi, namun</td>
+                        <td>"<u>Akan tetapi</u>, keindahan pantai ini harus dijaga bersama."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Penambahan</strong></td>
+                        <td>selain itu, di samping itu</td>
+                        <td>"<u>Selain itu</u>, tersedia juga warung makan di sekitar pantai."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">2. Konjungsi Korelatif</h4>
+            <p>Konjungsi korelatif terdiri atas <strong>dua bagian yang dipisahkan oleh kata yang dihubungkan</strong>. Konjungsi ini selalu muncul berpasangan.</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Pasangan Konjungsi</th>
+                        <th>Fungsi</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>baik ... maupun ...</strong></td>
+                        <td>Menyatakan kedua hal sama-sama benar</td>
+                        <td>"<u>Baik</u> pagi <u>maupun</u> sore, pantai ini selalu ramai."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>tidak hanya ... tetapi juga ...</strong></td>
+                        <td>Menambahkan informasi yang lebih kuat</td>
+                        <td>"Pantai ini <u>tidak hanya</u> indah, <u>tetapi juga</u> kaya akan biota laut."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>bukan ... melainkan ...</strong></td>
+                        <td>Menyangkal yang pertama, menegaskan yang kedua</td>
+                        <td>"Yang terlihat <u>bukan</u> ombak biasa, <u>melainkan</u> gelombang raksasa."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>demikian ... sehingga ...</strong></td>
+                        <td>Menyatakan akibat yang sangat besar</td>
+                        <td>"Pemandangannya <u>demikian</u> indah <u>sehingga</u> membuat semua orang terpukau."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content F: Analisis Contoh Teks -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-search"></i> F. Analisis Konjungsi dalam Teks Deskripsi</h3>
+            <p>Untuk memahami penggunaan konjungsi secara nyata, mari kita analisis sebuah paragraf deskripsi:</p>
+            
+            <div class="example-box">
+                <strong>Teks Deskripsi: "Pantai Kuta"</strong><br><br>
+                <em>"Pantai Kuta adalah salah satu pantai paling terkenal di Bali. <u>Karena</u> lokasinya yang strategis, pantai ini selalu ramai dikunjungi wisatawan, <u>baik</u> domestik <u>maupun</u> mancanegara. Pasirnya yang putih membentang luas, <u>dan</u> ombaknya yang cukup besar menjadikannya surga bagi para peselancar. <u>Ketika</u> matahari terbenam, langit berubah menjadi jingga keemasan yang sangat memukau. <u>Oleh karena itu</u>, banyak wisatawan memilih waktu sore hari untuk menikmati pemandangan. <u>Meskipun</u> pengunjung sangat banyak, suasana tetap terasa menyenangkan <u>sehingga</u> siapa pun betah berlama-lama di sana."</em>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 4.5: Analisis Konjungsi dalam Teks</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Konjungsi</th>
+                        <th>Jenis</th>
+                        <th>Fungsi dalam Teks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>karena</td>
+                        <td>Subordinatif (sebab)</td>
+                        <td>Menjelaskan alasan pantai selalu ramai.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>baik ... maupun ...</td>
+                        <td>Korelatif</td>
+                        <td>Menegaskan bahwa wisatawan dari dua kategori sama-sama datang.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>dan</td>
+                        <td>Koordinatif (penambahan)</td>
+                        <td>Menambahkan informasi tentang ombak.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>ketika</td>
+                        <td>Subordinatif (waktu)</td>
+                        <td>Menunjukkan waktu terjadinya pemandangan indah.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>oleh karena itu</td>
+                        <td>Antarkalimat (kesimpulan/sebab-akibat)</td>
+                        <td>Menyimpulkan pilihan wisatawan berdasarkan pemandangan.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>meskipun</td>
+                        <td>Subordinatif (pertentangan)</td>
+                        <td>Menunjukkan kontras antara keramaian dan kenyamanan.</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>sehingga</td>
+                        <td>Subordinatif (akibat)</td>
+                        <td>Menjelaskan dampak suasana yang menyenangkan.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Kesimpulan Analisis</h4>
+                <p>Dengan menggunakan 7 jenis konjungsi yang bervariasi, paragraf deskripsi di atas menjadi <strong>padu, koheren, dan mengalir</strong>. Pembaca dapat memahami hubungan antarbagian deskripsi dengan jelas — mulai dari sebab, waktu, pertentangan, hingga akibat. Inilah kekuatan konjungsi dalam teks deskripsi!</p>
+            </div>
+        </section>
+
+        <!-- Content G: Kesalahan Umum -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> G. Kesalahan Umum dalam Penggunaan Konjungsi</h3>
+            <p>Banyak siswa yang masih melakukan kesalahan dalam penggunaan konjungsi. Berikut beberapa kesalahan yang sering terjadi:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Contoh Salah</th>
+                        <th>Perbaikan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Menggunakan konjungsi antarkalimat di tengah kalimat</td>
+                        <td>"Pantai ini indah, <u>oleh karena itu</u> ramai."</td>
+                        <td>"Pantai ini indah. <u>Oleh karena itu</u>, ramai."</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Memasangkan konjungsi korelatif yang tidak tepat</td>
+                        <td>"<u>Bukan</u> hanya indah, <u>tetapi juga</u> bersih."</td>
+                        <td>"<u>Tidak hanya</u> indah, <u>tetapi juga</u> bersih."</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Menggunakan "sehingga" di awal kalimat</td>
+                        <td>"<u>Sehingga</u> pantai ini ramai."</td>
+                        <td>"<u>Oleh karena itu</u>, pantai ini ramai."</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Tidak menggunakan tanda koma setelah konjungsi antarkalimat</td>
+                        <td>"<u>Oleh karena itu</u> pantai ini ramai."</td>
+                        <td>"<u>Oleh karena itu</u>, pantai ini ramai."</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Menggunakan dua konjungsi subordinatif sekaligus</td>
+                        <td>"<u>Karena</u> indah <u>sehingga</u> ramai."</td>
+                        <td>"<u>Karena</u> indah, pantai ini ramai."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content H: Referensi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bookmark"></i> H. Referensi Pendukung</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Keraf, Gorys. (1995). <em>Diksi dan Gaya Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Chaer, Abdul. (2007). <em>Tata Bahasa Praktis Bahasa Indonesia</em>. Jakarta: Rineka Cipta.</li>
+                <li>Kridalaksana, Harimurti. (2008). <em>Kamus Linguistik</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Alwi, Hasan, dkk. (2003). <em>Tata Bahasa Baku Bahasa Indonesia</em>. Jakarta: Balai Pustaka.</li>
+            </ul>
+        </section>
+
+        <!-- Kata Kunci -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-key"></i> Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Konjungsi</span>
+                <span class="keyword-tag">Kata Hubung</span>
+                <span class="keyword-tag">Konjungsi Koordinatif</span>
+                <span class="keyword-tag">Konjungsi Subordinatif</span>
+                <span class="keyword-tag">Konjungsi Antarkalimat</span>
+                <span class="keyword-tag">Konjungsi Korelatif</span>
+                <span class="keyword-tag">Kohesi</span>
+                <span class="keyword-tag">Koherensi</span>
+                <span class="keyword-tag">Teks Deskripsi</span>
+            </div>
+        </section>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">عَلَّمَهُ ٱلْبَيَانَ</div>
+            <p class="quote-translation">"Dia (Allah) telah mengajarinya berbicara (berkomunikasi)."</p>
+            <p class="quote-source">— QS. Ar-Rahman [55]: 4</p>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 4</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal x 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Menurut Gorys Keraf, konjungsi adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Kata yang menerangkan kata benda</label>
+                        <label><input type="radio" name="q1" value="B"> B. Kata tugas yang menghubungkan antarkata, antarfrasa, antarklausa, atau antarkalimat</label>
+                        <label><input type="radio" name="q1" value="C"> C. Kata yang menunjukkan waktu</label>
+                        <label><input type="radio" name="q1" value="D"> D. Kata yang menggantikan kata benda</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Konjungsi yang menghubungkan dua unsur setara (sederajat) disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Konjungsi subordinatif</label>
+                        <label><input type="radio" name="q2" value="B"> B. Konjungsi antarkalimat</label>
+                        <label><input type="radio" name="q2" value="C"> C. Konjungsi koordinatif</label>
+                        <label><input type="radio" name="q2" value="D"> D. Konjungsi korelatif</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Kelompok konjungsi berikut yang termasuk konjungsi subordinatif adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. karena, sehingga, ketika, agar</label>
+                        <label><input type="radio" name="q3" value="B"> B. dan, atau, tetapi</label>
+                        <label><input type="radio" name="q3" value="C"> C. oleh karena itu, dengan demikian</label>
+                        <label><input type="radio" name="q3" value="D"> D. baik ... maupun ..., tidak hanya ... tetapi juga ...</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Konjungsi "oleh karena itu" dan "dengan demikian" termasuk jenis... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Konjungsi koordinatif</label>
+                        <label><input type="radio" name="q4" value="B"> B. Konjungsi antarkalimat</label>
+                        <label><input type="radio" name="q4" value="C"> C. Konjungsi subordinatif</label>
+                        <label><input type="radio" name="q4" value="D"> D. Konjungsi korelatif</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Pasangan konjungsi yang termasuk konjungsi korelatif adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. dan, atau, tetapi</label>
+                        <label><input type="radio" name="q5" value="B"> B. karena, sehingga, ketika</label>
+                        <label><input type="radio" name="q5" value="C"> C. oleh karena itu, jadi</label>
+                        <label><input type="radio" name="q5" value="D"> D. baik ... maupun ..., tidak hanya ... tetapi juga ...</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Perhatikan kalimat: <em>"Pemandangannya sangat indah, <u>sehingga</u> banyak wisatawan datang."</em><br>Konjungsi "sehingga" menunjukkan hubungan... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Penambahan</label>
+                        <label><input type="radio" name="q6" value="B"> B. Pertentangan</label>
+                        <label><input type="radio" name="q6" value="C"> C. Akibat</label>
+                        <label><input type="radio" name="q6" value="D"> D. Pemilihan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Fungsi utama konjungsi dalam teks deskripsi adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Memperindah gaya bahasa tanpa makna</label>
+                        <label><input type="radio" name="q7" value="B"> B. Menciptakan kepaduan (kohesi) dan keterpaduan makna (koherensi) antarbagian teks</label>
+                        <label><input type="radio" name="q7" value="C"> C. Mengganti kata sifat yang kurang tepat</label>
+                        <label><input type="radio" name="q7" value="D"> D. Menjadi judul dari teks</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Dalam kalimat "Pantai ini memiliki pasir putih <u>dan</u> air yang jernih", konjungsi "dan" termasuk jenis... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Koordinatif (penambahan)</label>
+                        <label><input type="radio" name="q8" value="B"> B. Subordinatif (sebab)</label>
+                        <label><input type="radio" name="q8" value="C"> C. Antarkalimat (kesimpulan)</label>
+                        <label><input type="radio" name="q8" value="D"> D. Korelatif</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Kalimat berikut yang menggunakan konjungsi antarkalimat dengan tepat adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. "Pantai ini indah, oleh karena itu ramai."</label>
+                        <label><input type="radio" name="q9" value="B"> B. "Pantai ini indah. Oleh karena itu ramai."</label>
+                        <label><input type="radio" name="q9" value="C"> C. "Pantai ini indah. Oleh karena itu, ramai."</label>
+                        <label><input type="radio" name="q9" value="D"> D. "Pantai ini indah sehingga oleh karena itu ramai."</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa penggunaan konjungsi yang tepat penting dalam menulis teks deskripsi? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar kalimat menjadi lebih panjang</label>
+                        <label><input type="radio" name="q10" value="B"> B. Agar teks padu, koheren, dan mudah dipahami pembaca</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar terlihat lebih pintar</label>
+                        <label><input type="radio" name="q10" value="D"> D. Agar tidak perlu menggunakan kata sifat</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal x 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan perbedaan antara konjungsi koordinatif dan konjungsi subordinatif! Berikan masing-masing dua contoh kalimat! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Sebutkan 4 jenis konjungsi berdasarkan fungsinya! Jelaskan masing-masing beserta 2 contoh konjungsi yang termasuk di dalamnya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Bacalah paragraf berikut: <br><em>"Gunung Bromo sangat memukau. Ketika matahari terbit, langit berubah menjadi jingga keemasan. Kawahnya yang aktif mengeluarkan asap putih, sehingga pemandangan terasa dramatis. Meskipun jalannya cukup sulit, wisatawan tetap berdatangan karena keindahan alamnya yang luar biasa."</em><br>Identifikasi semua konjungsi yang terdapat dalam paragraf tersebut, lalu jelaskan jenis dan fungsinya masing-masing! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Sebutkan 3 kesalahan umum dalam penggunaan konjungsi! Berikan contoh kalimat yang salah dan perbaikannya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK MENULIS): Tulislah sebuah paragraf deskripsi (minimal 5 kalimat) tentang "Tempat Wisata yang Pernah Kamu Kunjungi". Gunakan minimal <strong>5 konjungsi yang berbeda jenis</strong> (koordinatif, subordinatif, antarkalimat, dan/atau korelatif). Tandai konjungsi yang kamu gunakan dengan garis bawah, lalu jelaskan jenis masing-masing konjungsi di bawah paragraf! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea form-textarea-large" placeholder="Tulis paragraf deskripsi Anda di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="3.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 3</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="5.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 5 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'C', q3: 'A', q4: 'B', q5: 'D',
+            q6: 'C', q7: 'B', q8: 'A', q9: 'C', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_4_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Tampilkan hasil dulu jika belum
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 4 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan4_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 4 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 4 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>
