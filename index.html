@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahasa Indonesia Kelas IX Semester I | Elizarni, S.Pd.</title>
+    
+    <!-- Google Fonts: Playfair Display (Luxury) & Inter (Modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* PANDUAN PENGGANTIAN FOTO: Ganti src="photo-penulis.png" dengan file foto Anda */
+        .author-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .author-details h3 {
+            font-size: 1.2rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-details p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        /* PANDUAN PENGGANTIAN COVER: Ganti src="cover-buku.png" dengan file cover Anda */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .book-cover {
+            max-width: 320px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 
+                -20px 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px var(--gold-glow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .book-cover:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        /* --- CURRICULUM SECTION --- */
+        .curriculum {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-primary);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .meeting-card {
+            display: flex;
+            flex-direction: column;
+            padding: 1.75rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meeting-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .meeting-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--gold-glow);
+        }
+
+        .meeting-card:hover::before {
+            opacity: 1;
+        }
+
+        .meeting-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            color: var(--gold-primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .meeting-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .meeting-icon {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            color: var(--gold-primary);
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .meeting-card:hover .meeting-icon {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        /* Exam Cards Styling */
+        .exam-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid var(--gold-primary);
+            text-align: center;
+            padding: 2.5rem;
+            margin: 1rem 0;
+        }
+
+        .exam-card .meeting-number {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exam-card .meeting-title {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-light);
+        }
+
+        .exam-card .meeting-icon {
+            display: none;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer .gold-text {
+            color: var(--gold-primary);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 3rem;
+                padding-top: 6rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .author-info {
+                justify-content: center;
+            }
+
+            .book-cover {
+                max-width: 250px;
+                transform: none;
+            }
+            
+            .book-cover:hover {
+                transform: scale(1.02);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Kurikulum Merdeka</span>
+            <h1 class="hero-title">Bahasa Indonesia<br>Kelas IX Semester I</h1>
+            <p class="hero-subtitle">Panduan komprehensif menguasai teks deskripsi, prosedur, dan rekon dengan pendekatan modern dan kontekstual.</p>
+            
+            <div class="author-info">
+                <!-- PANDUAN: Ganti 'photo-penulis.png' dengan file foto penulis yang sebenarnya -->
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." class="author-photo" onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-details">
+                    <h3>Elizarni, S.Pd.</h3>
+                    <p><i class="fas fa-school"></i> MTsN 10 Agam</p>
+                    <p><i class="fas fa-envelope"></i> elizarni6805@gmail.com</p>
+                </div>
+            </div>
+
+            <a href="#materi" class="cta-button">
+                Jelajahi Materi <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+        
+        <div class="hero-image">
+            <!-- PANDUAN: Ganti 'cover-buku.png' dengan file gambar cover buku yang sebenarnya -->
+            <img src="cover-buku.png" alt="Cover Buku Bahasa Indonesia Kelas IX" class="book-cover" onerror="this.src='https://placehold.co/320x450/0B0F19/D4AF37?text=Cover+Buku+Disini'">
+        </div>
+    </section>
+
+    <!-- CURRICULUM SECTION -->
+    <section id="materi" class="curriculum">
+        <div class="section-header">
+            <h2>Daftar Pertemuan</h2>
+            <p>24 Pertemuan terstruktur yang dirancang untuk membangun kompetensi literasi dan numerasi siswa secara bertahap.</p>
+        </div>
+
+        <div class="grid-container">
+            <!-- Pertemuan 1-12 -->
+            <a href="1.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 01</span>
+                <span class="meeting-title">Ide Pokok & Ide Pendukung dalam Teks Deskripsi</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="2.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 02</span>
+                <span class="meeting-title">Makna Kata & Konteks Kalimat dalam Deskripsi</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="3.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 03</span>
+                <span class="meeting-title">Sudut Pandang & Menulis Deskripsi Acara Keluarga</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="4.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 04</span>
+                <span class="meeting-title">Penggunaan Konjungsi dalam Teks Deskripsi</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="5.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 05</span>
+                <span class="meeting-title">Konjungsi dalam Lirik Lagu & Sistem Kekerabatan</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="6.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 06</span>
+                <span class="meeting-title">Kosakata Serapan Daerah & Asing dalam Deskripsi</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="7.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 07</span>
+                <span class="meeting-title">Kohesi & Koherensi Paragraf Deskripsi</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="8.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 08</span>
+                <span class="meeting-title">Analisis Deskripsi Visual & Infografik</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="9.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 09</span>
+                <span class="meeting-title">Mengubah Petikan Cerpen menjadi Teks Prosedur</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="10.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 10</span>
+                <span class="meeting-title">Eksplorasi & Penyerapan Kosakata Bahasa Indonesia</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="11.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 11</span>
+                <span class="meeting-title">Informasi & Diskusi Teks Prosedur</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="12.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 12</span>
+                <span class="meeting-title">Teks Prosedur Infografik & Membaca Nyaring</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <!-- UJIAN TENGAH SEMESTER -->
+            <a href="uts.html" target="_blank" class="meeting-card exam-card">
+                <span class="meeting-number"><i class="fas fa-star"></i> Evaluasi Tengah Semester</span>
+                <span class="meeting-title">Ujian Tengah Semester (UTS)</span>
+            </a>
+
+            <!-- Pertemuan 13-24 -->
+            <a href="13.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 13</span>
+                <span class="meeting-title">Prosedur Membuat Poster Promosi Kegiatan TBM</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="14.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 14</span>
+                <span class="meeting-title">Prosedur Wawancara Bertema Kesukarelawanan</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="15.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 15</span>
+                <span class="meeting-title">Menyimak & Menelaah Prosedur Menulis Esai</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="16.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 16</span>
+                <span class="meeting-title">Menulis Esai Bertema Kesukarelawanan</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="17.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 17</span>
+                <span class="meeting-title">Teks Rekon Faktual: Sejarah Komunikasi</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="18.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 18</span>
+                <span class="meeting-title">Arti Kata & Instruksi dalam Diagram Alir</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="19.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 19</span>
+                <span class="meeting-title">Fakta, Opini, & Asumsi dalam Teks Rekon</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="20.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 20</span>
+                <span class="meeting-title">Diskusi Pro & Kontra Media Sosial (Teks Rekon)</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="21.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 21</span>
+                <span class="meeting-title">Menyimak Teks Rekon Video & Catatan Informasi</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="22.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 22</span>
+                <span class="meeting-title">Kosakata Teks Rekon dalam Media Sosial</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="23.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 23</span>
+                <span class="meeting-title">Penggunaan Kamus & Kosakata Serapan Teks Rekon</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <a href="24.html" target="_blank" class="meeting-card">
+                <span class="meeting-number">Pertemuan 24</span>
+                <span class="meeting-title">Menulis Surat/Email Tanggapan berbasis Teks Rekon</span>
+                <i class="fas fa-arrow-right meeting-icon"></i>
+            </a>
+
+            <!-- UJIAN AKHIR SEMESTER -->
+            <a href="uas.html" target="_blank" class="meeting-card exam-card">
+                <span class="meeting-number"><i class="fas fa-trophy"></i> Evaluasi Akhir Semester</span>
+                <span class="meeting-title">Ujian Akhir Semester (UAS)</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> | MTsN 10 Agam</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Dibuat dengan dedikasi untuk kemajuan literasi siswa.</p>
+    </footer>
+
+</body>
+</html>
