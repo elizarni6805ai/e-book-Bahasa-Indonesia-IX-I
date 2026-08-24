@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 5: Konjungsi dalam Lirik Lagu & Sistem Kekerabatan | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- LYRIC BOX --- */
+        .lyric-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 2;
+            position: relative;
+        }
+        .lyric-box::before {
+            content: '🎵';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        .lyric-title {
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .lyric-artist {
+            display: block;
+            font-style: normal;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 200px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="4.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 4</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="6.html" target="_blank" class="nav-btn">Pertemuan 6 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 05</span>
+            <h1 class="chapter-title">Konjungsi dalam Lirik Lagu & Sistem Kekerabatan</h1>
+            <p class="chapter-desc">Menyimak dan menganalisis penggunaan konjungsi dalam lirik lagu populer, serta memahami teks tentang sistem kekerabatan di Indonesia — sebuah warisan budaya yang kaya dan beragam.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Menyimak Konjungsi dalam Lirik -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-music"></i> A. Hakikat Menyimak Konjungsi dalam Lirik Lagu</h3>
+            <p>Lirik lagu merupakan salah satu bentuk karya sastra yang kaya akan unsur kebahasaan, termasuk penggunaan <strong>konjungsi</strong>. Melalui lirik lagu, penyair atau pencipta lagu menggunakan berbagai jenis konjungsi untuk membangun kepaduan makna, menunjukkan hubungan sebab-akibat, waktu, pertentangan, maupun penambahan.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Gorys Keraf (1995)</strong> menyatakan bahwa konjungsi dalam karya sastra — termasuk lirik lagu — berfungsi tidak hanya sebagai penghubung gramatikal, tetapi juga sebagai sarana estetika yang memperindah irama dan makna.</p>
+                <p style="margin-top: 0.5rem;"><strong>Ratna (2003)</strong> menambahkan bahwa lirik lagu sebagai puisi yang dimusikalkan memiliki kekhasan dalam penggunaan konjungsi, terutama konjungsi <em>subordinatif</em> (karena, ketika, agar) dan <em>korelatif</em> (baik...maupun..., tidak hanya...tetapi juga...) untuk membangun kedalaman makna.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 5.1: Mengapa Lirik Lagu Efektif untuk Mempelajari Konjungsi?</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Alasan</th>
+                        <th>Manfaat bagi Siswa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Bahasa yang digunakan dekat dengan kehidupan sehari-hari</td>
+                        <td>Siswa lebih mudah memahami konteks penggunaan konjungsi.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Irama dan rima membuat konjungsi lebih mudah diingat</td>
+                        <td>Proses pembelajaran menjadi menyenangkan dan bermakna.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Lirik mengandung emosi dan makna yang dalam</td>
+                        <td>Siswa belajar konjungsi dalam konteks yang kaya makna.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Banyak jenis konjungsi muncul dalam satu lagu</td>
+                        <td>Siswa dapat mengidentifikasi berbagai jenis konjungsi sekaligus.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Analisis Lirik Lagu -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-compact-disc"></i> B. Analisis Konjungsi dalam Lirik Lagu</h3>
+            <p>Mari kita analisis penggunaan konjungsi dalam beberapa lirik lagu populer yang akrab di telinga siswa:</p>
+            
+            <div class="lyric-box">
+                <span class="lyric-title">"Laskar Pelangi"</span>
+                <span class="lyric-artist">— Nidji</span>
+                <em>"<u>Sebesar</u> apa pun hujan yang turun,<br>
+                <u>Jika</u> kita tak pernah mencoba,<br>
+                Pelangi takkan pernah muncul.<br>
+                <u>Meskipun</u> badai datang melanda,<br>
+                Kita <u>tetap</u> melangkah maju."</em>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 5.2: Analisis Konjungsi dalam "Laskar Pelangi"</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Konjungsi</th>
+                        <th>Jenis</th>
+                        <th>Fungsi dalam Lirik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>sebesar ... pun</td>
+                        <td>Korelatif (konsesif)</td>
+                        <td>Menunjukkan pengakuan terhadap kondisi ekstrem (hujan deras).</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>jika</td>
+                        <td>Subordinatif (syarat)</td>
+                        <td>Menyatakan syarat munculnya pelangi (harus berusaha).</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>meskipun</td>
+                        <td>Subordinatif (pertentangan)</td>
+                        <td>Menunjukkan kontras antara badai dan semangat maju.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>tetap</td>
+                        <td>Adverbia (penegas)</td>
+                        <td>Menegaskan konsistensi tindakan meski ada halangan.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="lyric-box">
+                <span class="lyric-title">"Ibu Pertiwi"</span>
+                <span class="lyric-artist">— Lagu Nasional</span>
+                <em>"Indonesia, tanah airku,<br>
+                Tanah tumpah darahku.<br>
+                <u>Di sanalah</u> aku berdiri,<br>
+                <u>Menjadi</u> pandu ibuku.<br>
+                Indonesia, tanah tumpah darahku,<br>
+                <u>Yang</u> mulia <u>dan</u> <u>yang</u> kudus."</em>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 5.3: Analisis Konjungsi dalam "Ibu Pertiwi"</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Konjungsi</th>
+                        <th>Jenis</th>
+                        <th>Fungsi dalam Lirik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>di sanalah</td>
+                        <td>Konjungsi tempat (adverbia)</td>
+                        <td>Menunjukkan tempat berdiri sebagai bentuk cinta tanah air.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>menjadi</td>
+                        <td>Konjungsi hasil/proses</td>
+                        <td>Menunjukkan proses pengabdian kepada ibu pertiwi.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>yang ... dan yang ...</td>
+                        <td>Koordinatif (penambahan)</td>
+                        <td>Menambahkan dua sifat mulia tanah air secara setara.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Tips Menyimak Lirik Lagu</h4>
+                <p>Saat menyimak lirik lagu untuk menemukan konjungsi, lakukan langkah berikut:</p>
+                <ol style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Dengarkan atau baca lirik secara utuh untuk memahami makna keseluruhan.</li>
+                    <li>Tandai kata-kata yang berfungsi menghubungkan (dan, atau, tetapi, karena, ketika, meskipun, dll).</li>
+                    <li>Identifikasi jenis konjungsi berdasarkan fungsinya.</li>
+                    <li>Analisis bagaimana konjungsi tersebut memperkaya makna lirik.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Content C: Sistem Kekerabatan -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-people-arrows"></i> C. Memahami Teks tentang Sistem Kekerabatan</h3>
+            <p><strong>Sistem kekerabatan</strong> adalah aturan atau pola hubungan keluarga yang mengatur bagaimana individu dalam suatu masyarakat saling terhubung berdasarkan garis keturunan, perkawinan, atau adopsi. Setiap suku bangsa di Indonesia memiliki sistem kekerabatan yang khas, yang menjadi bagian penting dari identitas budaya.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Koentjaraningrat (2009)</strong> menyatakan bahwa sistem kekerabatan di Indonesia sangat beragam, mencerminkan kekayaan budaya Nusantara. Sistem ini tidak hanya mengatur hubungan keluarga, tetapi juga hak waris, tempat tinggal setelah menikah, dan tanggung jawab sosial.</p>
+                <p style="margin-top: 0.5rem;"><strong>Haviland (2007)</strong> menambahkan bahwa sistem kekerabatan merupakan salah satu aspek fundamental dalam antropologi, karena menjadi dasar organisasi sosial suatu masyarakat.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 5.4: Tiga Jenis Utama Sistem Kekerabatan di Indonesia</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Patrilineal</th>
+                        <th>Matrilineal</th>
+                        <th>Bilateral (Parental)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pengertian</strong></td>
+                        <td>Garis keturunan ditarik dari pihak ayah.</td>
+                        <td>Garis keturunan ditarik dari pihak ibu.</td>
+                        <td>Garis keturunan ditarik dari kedua belah pihak (ayah dan ibu).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Suku yang Menganut</strong></td>
+                        <td>Batak, Bali, Nias, Dayak (sebagian).</td>
+                        <td>Minangkabau (Sumatra Barat).</td>
+                        <td>Jawa, Sunda, Madura, Melayu, Bugis.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marga/Nama Keluarga</strong></td>
+                        <td>Mengikuti marga ayah (contoh: Siregar, Nasution).</td>
+                        <td>Mengikuti suku/kelompok ibu (contoh: Koto, Piliang).</td>
+                        <td>Tidak ada marga; menggunakan nama keluarga atau tanpa marga.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hak Waris</strong></td>
+                        <td>Umumnya jatuh ke anak laki-laki.</td>
+                        <td>Harta pusaka jatuh ke anak perempuan.</td>
+                        <td>Dibagi rata antara anak laki-laki dan perempuan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tempat Tinggal setelah Menikah</strong></td>
+                        <td>Patrilokal (mengikuti pihak suami).</td>
+                        <td>Matrilokal (suami tinggal di rumah istri/keluarga istri).</td>
+                        <td>Neolokal (membentuk rumah tangga baru sendiri).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sebutan untuk Anak Saudara</strong></td>
+                        <td>Keponakan (dari saudara laki-laki ayah).</td>
+                        <td>Kemanakan (anak dari saudara perempuan ibu).</td>
+                        <td>Keponakan (dari saudara ayah maupun ibu).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content D: Sistem Kekerabatan Minangkabau -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-mosque"></i> D. Sistem Kekerabatan Minangkabau (Konteks Lokal)</h3>
+            <p>Sebagai siswa MTsN 10 Agam yang berada di Sumatra Barat, memahami sistem kekerabatan Minangkabau menjadi sangat relevan. Minangkabau merupakan satu-satunya masyarakat di dunia yang masih menganut sistem <strong>matrilineal</strong> secara kuat hingga saat ini.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-star"></i> Ciri Khas Kekerabatan Minangkabau</h4>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li><strong>Garis keturunan dari ibu (bundo kanduang)</strong> — anak mengikuti suku ibu.</li>
+                    <li><strong>Harta pusaka tinggi</strong> (sawah, ladang, rumah gadang) diwariskan dari ibu ke anak perempuan.</li>
+                    <li><strong>Rumah Gadang</strong> dimiliki oleh kaum perempuan dan menjadi pusat kehidupan kaum.</li>
+                    <li><strong>Mamak kepala suku</strong> (mamak) bertanggung jawab terhadap kemanakannya (anak dari saudara perempuannya).</li>
+                    <li><strong>Sistem merantau</strong> — laki-laki Minang tradisi merantau untuk mencari pengalaman dan harta.</li>
+                    <li><strong>Adat basandi syarak, syarak basandi Kitabullah</strong> — adat Minang bersendikan pada ajaran Islam.</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <strong>Istilah Penting dalam Kekerabatan Minangkabau:</strong><br><br>
+                • <strong>Bundo Kanduang</strong> — perempuan tua yang dihormati sebagai pemegang adat.<br>
+                • <strong>Mamak</strong> — saudara laki-laki ibu (paman dari pihak ibu).<br>
+                • <strong>Kemanakan</strong> — anak dari saudara perempuan (keponakan dari pihak ibu).<br>
+                • <strong>Suku</strong> — kelompok kekerabatan besar (contoh: Koto, Piliang, Chaniago, Tanjung).<br>
+                • <strong>Sumando</strong> — suami dari perempuan Minang (berstatus "tamu" di rumah istri).<br>
+                • <strong>Paruik</strong> — kelompok kekerabatan yang berasal dari satu perut (satu nenek moyang perempuan).
+            </div>
+        </section>
+
+        <!-- Content E: Konjungsi dalam Teks Kekerabatan -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-link"></i> E. Konjungsi dalam Teks Sistem Kekerabatan</h3>
+            <p>Teks tentang sistem kekerabatan banyak menggunakan konjungsi untuk menjelaskan hubungan, sebab-akibat, dan perbandingan. Mari kita analisis contoh teks berikut:</p>
+            
+            <div class="example-box">
+                <strong>Teks: "Sistem Kekerabatan Minangkabau"</strong><br><br>
+                <em>"Masyarakat Minangkabau menganut sistem kekerabatan matrilineal, <u>di mana</u> garis keturunan ditarik dari pihak ibu. <u>Oleh karena itu</u>, harta pusaka tinggi diwariskan kepada anak perempuan. <u>Meskipun</u> zaman telah modern, adat ini tetap dijaga <u>sehingga</u> identitas Minangkabau tetap lestari. <u>Baik</u> di kampung halaman <u>maupun</u> di perantauan, orang Minang selalu mengingat adatnya. <u>Karena</u> adat Minang bersendikan syarak, <u>maka</u> nilai-nilai Islam menjadi bagian tak terpisahkan dari kehidupan masyarakat."</em>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 5.5: Analisis Konjungsi dalam Teks Kekerabatan</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Konjungsi</th>
+                        <th>Jenis</th>
+                        <th>Fungsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>di mana</td>
+                        <td>Subordinatif (tempat/keterangan)</td>
+                        <td>Menjelaskan makna matrilineal.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>oleh karena itu</td>
+                        <td>Antarkalimat (sebab-akibat)</td>
+                        <td>Menunjukkan akibat dari sistem matrilineal.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>meskipun</td>
+                        <td>Subordinatif (pertentangan)</td>
+                        <td>Menunjukkan kontras antara modernitas dan tradisi.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>sehingga</td>
+                        <td>Subordinatif (akibat)</td>
+                        <td>Menunjukkan hasil dari penjagaan adat.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>baik ... maupun ...</td>
+                        <td>Korelatif</td>
+                        <td>Menegaskan kesamaan perlakuan di dua tempat.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>karena</td>
+                        <td>Subordinatif (sebab)</td>
+                        <td>Menjelaskan alasan hubungan adat dan Islam.</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>maka</td>
+                        <td>Subordinatif (akibat)</td>
+                        <td>Menunjukkan konsekuensi dari prinsip adat.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content F: Perbandingan Sistem Kekerabatan -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-balance-scale"></i> F. Perbandingan Sistem Kekerabatan di Indonesia</h3>
+            <p>Untuk memperkaya pemahaman, berikut perbandingan sistem kekerabatan dari beberapa suku besar di Indonesia:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Suku</th>
+                        <th>Sistem</th>
+                        <th>Ciri Khas</th>
+                        <th>Istilah Khas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Minangkabau</strong></td>
+                        <td>Matrilineal</td>
+                        <td>Garis ibu, harta pusaka ke anak perempuan, Rumah Gadang.</td>
+                        <td>Bundo Kanduang, Mamak, Kemanakan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Batak</strong></td>
+                        <td>Patrilineal</td>
+                        <td>Garis ayah, menggunakan marga, dalihan na tolu.</td>
+                        <td>Marga, Hula-hula, Boru</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jawa</strong></td>
+                        <td>Bilateral</td>
+                        <td>Garis ayah-ibu, warisan dibagi rata, neolokal.</td>
+                        <td>Sedulur, Keponakan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bali</strong></td>
+                        <td>Patrilineal</td>
+                        <td>Sistem kasta, puri, keturunan ayah.</td>
+                        <td>Purusa, Pradana</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dayak</strong></td>
+                        <td>Bilateral/Patrilineal</td>
+                        <td>Bervariasi menurut sub-suku, betang (rumah panjang).</td>
+                        <td>Tumanggung, Tamanggung</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Hikmah Keberagaman</h4>
+                <p>Keberagaman sistem kekerabatan di Indonesia mengajarkan kita untuk menghargai perbedaan budaya. <strong>Semua sistem memiliki nilai luhur</strong> yang bertujuan menjaga keharmonisan keluarga dan masyarakat. Dalam Islam, kita diajarkan untuk saling mengenal (<em>ta'aruf</em>) dan menjaga silaturahmi, apapun latar belakang budaya kita.</p>
+            </div>
+        </section>
+
+        <!-- Content G: Referensi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bookmark"></i> G. Referensi Pendukung</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Keraf, Gorys. (1995). <em>Diksi dan Gaya Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Koentjaraningrat. (2009). <em>Kebudayaan, Mentalitas, dan Pembangunan</em>. Jakarta: Gramedia.</li>
+                <li>Ratna, Nyoman Kutha. (2003). <em>Teori, Metode, dan Teknik Penelitian Sastra</em>. Yogyakarta: Pustaka Pelajar.</li>
+                <li>Haviland, William A. (2007). <em>Antropologi</em>. Jakarta: Prenada Media.</li>
+                <li>Tanjung, M. Amin. (2000). <em>Adat dan Upacara Perkawinan Daerah Sumatra Barat</em>. Padang: Dinas Kebudayaan.</li>
+            </ul>
+        </section>
+
+        <!-- Kata Kunci -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-key"></i> Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Lirik Lagu</span>
+                <span class="keyword-tag">Konjungsi</span>
+                <span class="keyword-tag">Sistem Kekerabatan</span>
+                <span class="keyword-tag">Patrilineal</span>
+                <span class="keyword-tag">Matrilineal</span>
+                <span class="keyword-tag">Bilateral</span>
+                <span class="keyword-tag">Minangkabau</span>
+                <span class="keyword-tag">Bundo Kanduang</span>
+                <span class="keyword-tag">Mamak</span>
+                <span class="keyword-tag">Kemanakan</span>
+                <span class="keyword-tag">Rumah Gadang</span>
+                <span class="keyword-tag">Adat Minang</span>
+            </div>
+        </section>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍ وَٰحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَآءً</div>
+            <p class="quote-translation">"Wahai manusia! Bertakwalah kepada Tuhanmu yang telah menciptakan kamu dari diri yang satu (Adam), dan (Allah) menciptakan pasangannya (Hawa) dari dirinya, dan dari keduanya Allah memperkembangbiakkan laki-laki dan perempuan yang banyak."</p>
+            <p class="quote-source">— QS. An-Nisa [4]: 1</p>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 5</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal x 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Fungsi utama konjungsi dalam lirik lagu adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Hanya sebagai hiasan tanpa makna</label>
+                        <label><input type="radio" name="q1" value="B"> B. Membangun kepaduan makna dan memperindah irama lirik</label>
+                        <label><input type="radio" name="q1" value="C"> C. Mengganti kata sifat yang kurang tepat</label>
+                        <label><input type="radio" name="q1" value="D"> D. Menjadi judul lagu</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Konjungsi yang sering muncul dalam lirik lagu untuk menunjukkan hubungan waktu adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. oleh karena itu, dengan demikian</label>
+                        <label><input type="radio" name="q2" value="B"> B. ketika, saat, sejak, sebelum</label>
+                        <label><input type="radio" name="q2" value="C"> C. baik ... maupun ...</label>
+                        <label><input type="radio" name="q2" value="D"> D. dan, atau, tetapi</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Sistem kekerabatan Minangkabau menganut sistem... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Patrilineal (garis ayah)</label>
+                        <label><input type="radio" name="q3" value="B"> B. Matrilineal (garis ibu)</label>
+                        <label><input type="radio" name="q3" value="C"> C. Bilateral (kedua belah pihak)</label>
+                        <label><input type="radio" name="q3" value="D"> D. Unilineal campuran</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Suku Batak menganut sistem kekerabatan... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Patrilineal</label>
+                        <label><input type="radio" name="q4" value="B"> B. Matrilineal</label>
+                        <label><input type="radio" name="q4" value="C"> C. Bilateral</label>
+                        <label><input type="radio" name="q4" value="D"> D. Neolokal</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Sistem kekerabatan yang menarik garis keturunan dari kedua belah pihak (ayah dan ibu) disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Patrilineal</label>
+                        <label><input type="radio" name="q5" value="B"> B. Matrilineal</label>
+                        <label><input type="radio" name="q5" value="C"> C. Bilateral (Parental)</label>
+                        <label><input type="radio" name="q5" value="D"> D. Unilineal</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Perhatikan lirik berikut: <em>"<u>Baik</u> siang <u>maupun</u> malam, aku tetap mengenangmu."</em> Konjungsi yang digunakan adalah jenis... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Koordinatif</label>
+                        <label><input type="radio" name="q6" value="B"> B. Subordinatif</label>
+                        <label><input type="radio" name="q6" value="C"> C. Antarkalimat</label>
+                        <label><input type="radio" name="q6" value="D"> D. Korelatif</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Konjungsi "sehingga" dalam lirik lagu biasanya menunjukkan hubungan... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Penambahan</label>
+                        <label><input type="radio" name="q7" value="B"> B. Pertentangan</label>
+                        <label><input type="radio" name="q7" value="C"> C. Akibat</label>
+                        <label><input type="radio" name="q7" value="D"> D. Pemilihan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Dalam sistem kekerabatan matrilineal, harta pusaka tinggi diwariskan kepada... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Anak laki-laki tertua</label>
+                        <label><input type="radio" name="q8" value="B"> B. Anak perempuan</label>
+                        <label><input type="radio" name="q8" value="C"> C. Mamak (paman)</label>
+                        <label><input type="radio" name="q8" value="D"> D. Dibagi rata kepada semua anak</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Istilah "kemanakan" dalam sistem kekerabatan Minangkabau merujuk pada... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Anak kandung sendiri</label>
+                        <label><input type="radio" name="q9" value="B"> B. Saudara sepupu dari pihak ayah</label>
+                        <label><input type="radio" name="q9" value="C"> C. Anak dari saudara perempuan (keponakan dari pihak ibu)</label>
+                        <label><input type="radio" name="q9" value="D"> D. Suami dari anak perempuan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Prinsip adat Minangkabau yang berbunyi "Adat basandi syarak, syarak basandi Kitabullah" bermakna... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Adat Minang tidak ada hubungannya dengan agama</label>
+                        <label><input type="radio" name="q10" value="B"> B. Adat Minang bersendikan pada ajaran Islam (Al-Qur'an dan Hadis)</label>
+                        <label><input type="radio" name="q10" value="C"> C. Syarak lebih rendah dari adat</label>
+                        <label><input type="radio" name="q10" value="D"> D. Kitabullah adalah buku adat Minang</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal x 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan perbedaan antara sistem kekerabatan patrilineal, matrilineal, dan bilateral! Berikan masing-masing satu contoh suku di Indonesia yang menganutnya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Sebutkan dan jelaskan 4 ciri khas sistem kekerabatan Minangkabau! Mengapa sistem ini disebut unik di dunia? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Bacalah lirik lagu berikut:<br><em>"<u>Meskipun</u> badai datang melanda, <u>dan</u> hujan turun tak kunjung reda, <u>aku</u> tetap melangkah maju <u>karena</u> aku tahu pelangi akan muncul."</em><br>Identifikasi semua konjungsi yang terdapat dalam lirik tersebut, lalu jelaskan jenis dan fungsinya masing-masing! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan makna istilah-istilah berikut dalam sistem kekerabatan Minangkabau: (a) Bundo Kanduang, (b) Mamak, (c) Kemanakan, (d) Rumah Gadang, (e) Sumando! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK MENULIS): Tulislah sebuah paragraf deskripsi singkat (minimal 5 kalimat) tentang "Sistem Kekerabatan di Keluargaku" atau "Tradisi Keluarga yang Berkesan". Gunakan minimal <strong>5 konjungsi yang berbeda jenis</strong> (koordinatif, subordinatif, antarkalimat, dan/atau korelatif). Tandai konjungsi yang kamu gunakan dengan garis bawah, lalu jelaskan jenis masing-masing konjungsi di bawah paragraf! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea form-textarea-large" placeholder="Tulis paragraf Anda di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="4.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 4</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="6.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 6 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'B', q3: 'B', q4: 'A', q5: 'C',
+            q6: 'D', q7: 'C', q8: 'B', q9: 'C', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_5_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 5 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan5_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 5 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 5 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>
