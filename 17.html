@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 17: Teks Rekon Faktual Sejarah Komunikasi | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- TOP NAVIGATION --- */
+        .top-nav {
+            background: rgba(11, 15, 25, 0.98);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        .top-nav-brand {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .top-nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- HERO HEADER --- */
+        .hero-header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .hero-icon {
+            font-size: 4rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            position: relative;
+        }
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .author-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        .author-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+        }
+        .author-card-text { text-align: left; }
+        .author-card-text h4 {
+            font-size: 1rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.2rem;
+        }
+        .author-card-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- SECTION HEADER --- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+        .section-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            line-height: 1.2;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* --- CONTENT CARD --- */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- DEFINITION BOX --- */
+        .definition-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .definition-box::before {
+            content: '📌 DEFINISI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .definition-box p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* --- CONCEPT BOX --- */
+        .concept-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .concept-box::before {
+            content: '📌 KONSEP KUNCI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .concept-box p, .concept-box code {
+            color: var(--gold-light);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* --- EXAMPLE BOX --- */
+        .example-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .example-box::before {
+            content: '💡 CONTOH NYATA';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--success);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--success);
+            border-radius: 20px;
+        }
+        .example-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .example-box strong { color: var(--gold-primary); }
+
+        /* --- RECON TEXT BOX --- */
+        .recon-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        .recon-box::before {
+            content: '📜 CONTOH TEKS REKON FAKTUAL';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .recon-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .recon-source {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .recon-box p {
+            color: var(--text-secondary);
+            text-align: justify;
+            margin-bottom: 1.25rem;
+            line-height: 2;
+        }
+        .recon-structure-label {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 0.25rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* --- TIMELINE --- */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+            margin: 2rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--gold-primary) 0%, rgba(212, 175, 55, 0.2) 100%);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 22px;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 2px var(--gold-primary);
+        }
+        .timeline-year {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--gold-primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+        .timeline-content h4 {
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* --- BENEFIT GRID --- */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.75rem;
+        }
+        .benefit-title {
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .benefit-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .keywords-section h3 {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        .islamic-quote::before, .islamic-quote::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+        .islamic-quote::before { top: 15px; left: 20px; }
+        .islamic-quote::after { bottom: 15px; right: 20px; }
+        .arabic-text {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-family: 'Traditional Arabic', serif;
+            line-height: 1.8;
+        }
+        .quote-translation {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .quote-source {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .quiz-header h2 {
+            color: var(--gold-primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .quiz-info-item {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        .quiz-info-item i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info-item strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        .quiz-info-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label {
+            display: block;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 120px; resize: vertical; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .question-points {
+            float: right;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .options input[type="radio"] {
+            accent-color: var(--gold-primary);
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold-primary);
+        }
+        .btn-success {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+        .footer-nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .top-nav { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+            .section-header { flex-direction: column; text-align: center; }
+            .timeline::before { left: 20px; }
+            .timeline-item { padding-left: 60px; }
+            .timeline-item::before { left: 12px; }
+            .timeline-year { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-brand">
+            <i class="fas fa-book-open"></i> Bahasa Indonesia Kelas IX
+        </div>
+        <div class="top-nav-links">
+            <a href="16.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 16</a>
+            <a href="index.html" class="nav-btn"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="18.html" class="nav-btn">Pertemuan 18 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <span class="hero-badge">Pertemuan 17</span>
+        <div class="hero-icon"><i class="fas fa-scroll"></i></div>
+        <h1 class="hero-title">Teks Rekon Faktual:<br>Sejarah Komunikasi Manusia</h1>
+        <p class="hero-subtitle">
+            Memahami informasi dalam teks rekon faktual tentang sejarah komunikasi —
+            perjalanan panjang manusia dari lukisan gua hingga era digital,
+            dikemas dalam bentuk teks yang menceritakan kembali peristiwa masa lalu berdasarkan fakta.
+        </p>
+        <div class="author-card">
+            <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+            <div class="author-card-text">
+                <h4>Elizarni, S.Pd.</h4>
+                <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- ============ BAGIAN A ============ -->
+        <div class="section-header">
+            <div class="section-letter">A</div>
+            <div>
+                <h2>Hakikat Teks Rekon Faktual</h2>
+                <p>Memahami pengertian, ciri, dan kedudukan teks rekon faktual dalam dunia tulis-menulis</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p><strong>Teks rekon faktual</strong> adalah teks yang menceritakan kembali peristiwa-peristiwa masa lalu yang benar-benar terjadi berdasarkan fakta, data, atau sumber sejarah yang valid. Kata <em>rekon</em> berasal dari bahasa Inggris <em>recount</em> yang berarti "menceritakan kembali".</p>
+            
+            <div class="definition-box">
+                <p><strong>Teks Rekon Faktual</strong> adalah teks yang menyajikan urutan peristiwa yang benar-benar terjadi di masa lalu secara kronologis berdasarkan fakta sejarah, tanpa melibatkan unsur fiksi atau imajinasi penulis. Tujuannya adalah memberikan informasi atau melaporkan peristiwa kepada pembaca.</p>
+            </div>
+
+            <div style="background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--gold-primary); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+                <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;"><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Gerot & Wignell (1994)</strong> mendefinisikan <em>recount text</em> sebagai teks yang berfungsi untuk memberikan informasi tentang peristiwa masa lalu dengan menyajikan urutan kejadian secara kronologis.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menambahkan bahwa teks rekon faktual berbeda dengan teks narasi fiksi karena tidak mengandung konflik atau komplikasi. Teks rekon murni menyajikan fakta tanpa rekayasa cerita.</p>
+                <p style="margin-top: 0.5rem;"><strong>Mahsun (2017)</strong> menegaskan bahwa teks rekon faktual harus dapat dipertanggungjawabkan kebenarannya melalui sumber-sumber sejarah yang kredibel, seperti dokumen, arsip, catatan resmi, atau kesaksian pelaku sejarah.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">🌟 Manfaat Mempelajari Teks Rekon Faktual</h4>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-history"></i></div>
+                    <div class="benefit-title">Memahami Sejarah</div>
+                    <div class="benefit-desc">Mengenal peristiwa masa lalu sebagai cermin untuk masa depan.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <div class="benefit-title">Berpikir Kritis</div>
+                    <div class="benefit-desc">Melatih kemampuan menganalisis fakta dan sumber informasi.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-search"></i></div>
+                    <div class="benefit-title">Literasi Informasi</div>
+                    <div class="benefit-desc">Membedakan fakta sejarah dengan fiksi atau hoaks.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-feather-alt"></i></div>
+                    <div class="benefit-title">Keterampilan Menulis</div>
+                    <div class="benefit-desc">Belajar menyajikan informasi secara sistematis dan kronologis.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN B ============ -->
+        <div class="section-header">
+            <div class="section-letter">B</div>
+            <div>
+                <h2>Teks Rekon vs Narasi Sejarah</h2>
+                <p>Memahami perbedaan mendasar antara teks rekon faktual dengan narasi sejarah fiktif</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Banyak siswa yang masih bingung membedakan teks rekon faktual dengan narasi sejarah. Padahal keduanya memiliki perbedaan mendasar dari segi tujuan, isi, dan ciri kebahasaan.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📊 Perbedaan Teks Rekon Faktual dan Narasi Sejarah</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Teks Rekon Faktual</th>
+                        <th>Narasi Sejarah (Fiksi)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tujuan</strong></td>
+                        <td>Memberikan informasi tentang peristiwa nyata</td>
+                        <td>Menghibur dan menyampaikan pesan moral</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Isi</strong></td>
+                        <td>Fakta sejarah yang dapat diverifikasi</td>
+                        <td>Imajinasi penulis + fakta sejarah</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sifat</strong></td>
+                        <td>Objektif, informatif</td>
+                        <td>Subjektif, imajinatif</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Struktur</strong></td>
+                        <td>Orientasi → Urutan Peristiwa → Reorientasi</td>
+                        <td>Orientasi → Komplikasi → Resolusi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konflik</strong></td>
+                        <td>Tidak ada konflik fiktif</td>
+                        <td>Ada konflik sebagai inti cerita</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contoh</strong></td>
+                        <td>Biografi tokoh, laporan sejarah, berita</td>
+                        <td>Novel sejarah, cerpen sejarah, legenda</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="concept-box">
+                <p><strong>Rumus Pembeda:</strong></p>
+                <p>Teks Rekon = FAKTA + KRONOLOGI + INFORMASI<br>
+                Narasi Fiksi = IMAGINASI + KONFLIK + HIBURAN</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN C ============ -->
+        <div class="section-header">
+            <div class="section-letter">C</div>
+            <div>
+                <h2>Struktur Teks Rekon Faktual</h2>
+                <p>Memahami tiga bagian utama yang membentuk teks rekon faktual yang utuh</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Teks rekon faktual memiliki struktur yang khas dan berbeda dari jenis teks lainnya. Struktur ini terdiri atas tiga bagian utama:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🏗️ Struktur Teks Rekon Faktual</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Bagian</th>
+                        <th>Pengertian</th>
+                        <th>Isi</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Orientasi (Pembuka)</strong></td>
+                        <td>Pengenalan peristiwa, tokoh, waktu, dan tempat.</td>
+                        <td>Latar belakang peristiwa yang akan diceritakan.</td>
+                        <td>"Pada abad ke-19, manusia mulai mencari cara berkomunikasi jarak jauh..."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Urutan Peristiwa (Isi)</strong></td>
+                        <td>Paparan peristiwa secara kronologis (urutan waktu).</td>
+                        <td>Rincian kejadian satu per satu sesuai urutan waktu.</td>
+                        <td>"Tahun 1837, Samuel Morse menemukan telegraf. Kemudian, tahun 1876, Alexander Graham Bell menciptakan telepon..."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Reorientasi (Penutup)</strong></td>
+                        <td>Kesimpulan, komentar pribadi, atau refleksi penulis.</td>
+                        <td>Bagian opsional yang berisi kesan atau makna peristiwa.</td>
+                        <td>"Perkembangan teknologi komunikasi telah mengubah wajah peradaban manusia secara fundamental."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>💡 Catatan Penting:</strong></p>
+                <p>Bagian <strong>Reorientasi</strong> bersifat <em>opsional</em> — artinya boleh ada, boleh tidak. Namun, bagian <strong>Orientasi</strong> dan <strong>Urutan Peristiwa</strong> adalah <strong>wajib</strong> ada dalam setiap teks rekon faktual.</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN D ============ -->
+        <div class="section-header">
+            <div class="section-letter">D</div>
+            <div>
+                <h2>Ciri Kebahasaan Teks Rekon</h2>
+                <p>Mengenali unsur-unsur kebahasaan khas yang menjadi identitas teks rekon</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Teks rekon faktual memiliki ciri kebahasaan yang khas dan berbeda dari jenis teks lainnya. Ciri-ciri ini berfungsi untuk memperkuat kesan kronologis dan faktual.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🎯 7 Ciri Kebahasaan Teks Rekon Faktual</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Ciri Kebahasaan</th>
+                        <th>Penjelasan</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Konjungsi Temporal</strong></td>
+                        <td>Kata hubung yang menunjukkan urutan waktu.</td>
+                        <td><em>kemudian, lalu, setelah itu, selanjutnya, akhirnya</em></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Kata Kerja Material</strong></td>
+                        <td>Kata kerja yang menunjukkan tindakan fisik.</td>
+                        <td><em>menemukan, menciptakan, menulis, mengirim</em></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Keterangan Waktu</strong></td>
+                        <td>Menunjukkan kapan peristiwa terjadi.</td>
+                        <td><em>pada tahun 1876, pada abad ke-19, pagi hari itu</em></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Keterangan Tempat</strong></td>
+                        <td>Menunjukkan di mana peristiwa terjadi.</td>
+                        <td><em>di Boston, di Amerika Serikat, di Minangkabau</em></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Bentuk Lampau (Past Tense)</strong></td>
+                        <td>Menggunakan kata yang menunjukkan masa lalu.</td>
+                        <td><em>telah, sudah, pernah, dulu</em></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Fokus pada Tokoh/Peristiwa</strong></td>
+                        <td>Menyajikan siapa yang terlibat dan apa yang terjadi.</td>
+                        <td>"Alexander Graham Bell menemukan telepon..."</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Bahasa Formal & Baku</strong></td>
+                        <td>Menggunakan bahasa baku sesuai PUEBI.</td>
+                        <td>Tidak menggunakan bahasa gaul atau slang.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN E ============ -->
+        <div class="section-header">
+            <div class="section-letter">E</div>
+            <div>
+                <h2>Sejarah Komunikasi Manusia</h2>
+                <p>Perjalanan panjang manusia dari lukisan gua hingga era digital</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Komunikasi merupakan kebutuhan dasar manusia. Sejak zaman prasejarah, manusia terus mengembangkan cara-cara baru untuk saling bertukar informasi. Berikut adalah <strong>garis waktu (timeline)</strong> perkembangan komunikasi manusia:</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">30.000 SM</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-paint-brush"></i> Zaman Prasejarah: Lukisan Gua</h4>
+                        <p>Manusia purba mulai berkomunikasi melalui lukisan di dinding gua (seperti di Gua Lascaux, Perancis dan gua-gua di Sulawesi). Mereka juga menggunakan asap, genderang, dan isyarat tangan.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">3.200 SM</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-scroll"></i> Zaman Kuno: Tulisan Pertama</h4>
+                        <p>Bangsa Sumeria menciptakan tulisan paku (cuneiform). Bangsa Mesir mengembangkan hieroglif. Di Cina, tulisan oracle bone muncul. Ini adalah awal mula komunikasi tertulis.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">500 SM</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-envelope"></i> Layanan Pos Kuno</h4>
+                        <p>Kekaisaran Persia dan Romawi mengembangkan sistem kurir untuk mengirim surat. Di Nusantara, kerajaan-kerajaan Hindu-Buddha menggunakan prasasti sebagai media informasi resmi.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1440</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-print"></i> Mesin Cetak Gutenberg</h4>
+                        <p>Johannes Gutenberg dari Jerman menciptakan mesin cetak bertipe bergerak. Revolusi ini memungkinkan buku diproduksi massal, sehingga ilmu pengetahuan menyebar luas ke seluruh Eropa dan dunia.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1837</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-bolt"></i> Telegraf Morse</h4>
+                        <p>Samuel Morse menemukan telegraf listrik — alat komunikasi jarak jauh pertama yang menggunakan kode titik-garis (Kode Morse). Pesan dapat dikirim dalam hitungan menit, bukan hari.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1876</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-phone"></i> Telepon Graham Bell</h4>
+                        <p>Alexander Graham Bell mematenkan telepon, memungkinkan manusia berbicara secara langsung jarak jauh. "Mr. Watson, come here, I want to see you" adalah kalimat pertama yang diucapkan melalui telepon.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1895</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-broadcast-tower"></i> Radio Marconi</h4>
+                        <p>Guglielmo Marconi mengembangkan radio nirkabel. Untuk pertama kalinya, suara dapat disiarkan ke banyak orang secara bersamaan tanpa kabel. Radio menjadi media massa pertama di dunia.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1927</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-tv"></i> Televisi</h4>
+                        <p>Philo Farnsworth dan John Logie Baird mengembangkan televisi. Media ini memadukan suara dan gambar, menjadi revolusi dalam hiburan dan informasi visual.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1969</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-network-wired"></i> Internet (ARPANET)</h4>
+                        <p>Departemen Pertahanan AS meluncurkan ARPANET, cikal bakal internet. Pesan elektronik pertama dikirim antar komputer. Ini adalah awal era digital.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1990-an</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-globe"></i> World Wide Web & Email</h4>
+                        <p>Tim Berners-Lee menciptakan World Wide Web (WWW). Email menjadi populer. Informasi dapat diakses dari mana saja di dunia. Era globalisasi informasi dimulai.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2007</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-mobile-alt"></i> Smartphone & Media Sosial</h4>
+                        <p>Apple meluncurkan iPhone, membuka era smartphone. Facebook, Twitter, Instagram, dan WhatsApp mengubah cara manusia berkomunikasi. Setiap orang kini menjadi produsen dan konsumen informasi.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2020-an</div>
+                    <div class="timeline-content">
+                        <h4><i class="fas fa-robot"></i> Era AI & Metaverse</h4>
+                        <p>Kecerdasan buatan (AI) seperti ChatGPT, realitas virtual (VR), dan metaverse menjadi frontier baru komunikasi. Batas antara dunia fisik dan digital semakin kabur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <p><strong>💡 Konteks Nusantara:</strong></p>
+                <p>Di Indonesia, perkembangan komunikasi juga memiliki jejak khas: <strong>Prasasti Kutai</strong> (abad ke-4 M) sebagai tulisan tertua di Nusantara, <strong>korespondensi kerajaan Islam</strong> (abad ke-16), <strong>surat kabar pertama</strong> <em>Batang Hari</em> (1863), <strong>RRI</strong> (1945), <strong>TVRI</strong> (1962), hingga <strong>internet masuk Indonesia</strong> (1994).</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN F ============ -->
+        <div class="section-header">
+            <div class="section-letter">F</div>
+            <div>
+                <h2>Contoh Teks Rekon Faktual</h2>
+                <p>Teladani struktur dan ciri kebahasaan teks rekon tentang sejarah komunikasi</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Berikut contoh teks rekon faktual lengkap tentang sejarah komunikasi yang dapat dijadikan teladan:</p>
+            
+            <div class="recon-box">
+                <h3 class="recon-title">"Perjalanan Panjang Komunikasi Manusia"</h3>
+                <p class="recon-source">— Teks Rekon Faktual tentang Sejarah Komunikasi</p>
+
+                <span class="recon-structure-label">📖 ORIENTASI</span>
+                <p>Komunikasi merupakan kebutuhan mendasar manusia sejak awal peradaban. Selama ribuan tahun, manusia terus mengembangkan cara-cara baru untuk saling bertukar informasi, mulai dari lukisan di dinding gua hingga teknologi digital yang kita gunakan saat ini. Perjalanan panjang ini mencerminkan kecerdasan dan kreativitas manusia dalam mengatasi tantangan jarak dan waktu.</p>
+
+                <span class="recon-structure-label">📖 URUTAN PERISTIWA</span>
+                <p>Pada masa prasejarah, sekitar 30.000 tahun yang lalu, manusia purba berkomunikasi melalui lukisan di dinding gua, isyarat tangan, asap, dan genderang. Bukti arkeologis menunjukkan lukisan gua tertua terdapat di Gua Lascaux, Perancis, dan gua-gua di Sulawesi, Indonesia. <em>Kemudian</em>, sekitar 3.200 SM, bangsa Sumeria di Mesopotamia menciptakan tulisan paku (cuneiform) — tulisan pertama dalam sejarah manusia. Bersamaan dengan itu, bangsa Mesir mengembangkan hieroglif, sementara di Cina muncul tulisan oracle bone.</p>
+
+                <p>Pada abad ke-15, tepatnya tahun 1440, Johannes Gutenberg dari Jerman menciptakan mesin cetak bertipe bergerak. Penemuan ini menjadi revolusi besar karena memungkinkan buku diproduksi secara massal. <em>Setelah itu</em>, ilmu pengetahuan menyebar luas ke seluruh Eropa dan dunia, membuka jalan bagi era pencerahan.</p>
+
+                <p>Revolusi komunikasi modern dimulai pada abad ke-19. <em>Pada tahun</em> 1837, Samuel Morse menemukan telegraf listrik yang menggunakan kode titik-garis. Untuk pertama kalinya, pesan dapat dikirim dalam hitungan menit melintasi jarak jauh. <em>Selanjutnya</em>, pada tahun 1876, Alexander Graham Bell mematenkan telepon, memungkinkan manusia berbicara secara langsung tanpa bertemu. <em>Kemudian</em>, pada tahun 1895, Guglielmo Marconi mengembangkan radio nirkabel, membuka era siaran massa.</p>
+
+                <p>Abad ke-20 menyaksikan lahirnya televisi (1927), komputer (1940-an), dan internet (1969 melalui ARPANET). <em>Pada tahun</em> 1990-an, Tim Berners-Lee menciptakan World Wide Web (WWW), yang membuat informasi dapat diakses siapa saja dari seluruh dunia. <em>Akhirnya</em>, pada tahun 2007, peluncuran iPhone oleh Apple membuka era smartphone, diikuti dengan lahirnya media sosial seperti Facebook, Twitter, dan WhatsApp yang mengubah cara manusia berkomunikasi secara fundamental.</p>
+
+                <span class="recon-structure-label">📖 REORIENTASI</span>
+                <p>Dari lukisan gua hingga kecerdasan buatan, perjalanan komunikasi manusia menunjukkan betapa besarnya hasrat kita untuk saling terhubung. Setiap penemuan bukan hanya mengubah cara kita berbicara, tetapi juga membentuk peradaban, ekonomi, dan budaya. Kini, di era digital, tantangan baru muncul: bagaimana menjaga kualitas komunikasi di tengah banjir informasi. Namun satu hal yang pasti — selama manusia masih memiliki hasrat untuk berbagi, komunikasi akan terus berkembang.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🔍 Analisis Struktur & Ciri Kebahasaan</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Elemen</th>
+                        <th>Analisis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Orientasi</strong></td>
+                        <td>Paragraf 1 — memperkenalkan topik (komunikasi) dan latar belakang umum.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Urutan Peristiwa</strong></td>
+                        <td>Paragraf 2-5 — menyajikan peristiwa kronologis dari prasejarah hingga era digital.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reorientasi</strong></td>
+                        <td>Paragraf 6 — berisi refleksi penulis tentang makna perjalanan komunikasi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konjungsi Temporal</strong></td>
+                        <td><em>kemudian, setelah itu, selanjutnya, akhirnya</em> — menandai urutan waktu.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Keterangan Waktu</strong></td>
+                        <td><em>pada masa prasejarah, tahun 1440, tahun 1837, tahun 1876, tahun 2007</em>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kata Kerja Material</strong></td>
+                        <td><em>menciptakan, menemukan, mematenkan, mengembangkan, meluncurkan</em>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fakta Sejarah</strong></td>
+                        <td>Semua peristiwa dapat diverifikasi melalui sumber sejarah yang kredibel.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Baku</strong></td>
+                        <td>Menggunakan bahasa formal sesuai PUEBI, tanpa slang.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN G ============ -->
+        <div class="section-header">
+            <div class="section-letter">G</div>
+            <div>
+                <h2>Langkah Memahami Informasi</h2>
+                <p>Teknik sistematis untuk menggali informasi dari teks rekon faktual</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Agar dapat memahami informasi dalam teks rekon faktual secara utuh, siswa perlu mengikuti langkah-langkah sistematis berikut:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📋 7 Langkah Memahami Informasi dalam Teks Rekon</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Langkah</th>
+                        <th>Kegiatan</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Membaca Sekilas</strong></td>
+                        <td>Memperoleh gambaran umum teks</td>
+                        <td>Baca judul, subjudul, dan paragraf pertama-terakhir.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Identifikasi Struktur</strong></td>
+                        <td>Menandai bagian orientasi, urutan peristiwa, reorientasi</td>
+                        <td>Tandai setiap bagian dengan spidol warna berbeda.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Catat Informasi Kunci</strong></td>
+                        <td>Mencatat 5W+1H (what, who, when, where, why, how)</td>
+                        <td>Siapa, apa, kapan, di mana, mengapa, bagaimana.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Identifikasi Ciri Kebahasaan</strong></td>
+                        <td>Menandai konjungsi temporal, keterangan waktu, kata kerja material</td>
+                        <td>Buat daftar kata-kata khas teks rekon yang ditemukan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Verifikasi Fakta</strong></td>
+                        <td>Memastikan kebenaran informasi melalui sumber lain</td>
+                        <td>Cek silang dengan buku sejarah atau sumber kredibel.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Buat Peta Konsep</strong></td>
+                        <td>Menyajikan informasi dalam bentuk visual</td>
+                        <td>Buat garis waktu (timeline) atau diagram alir.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Simpulkan & Refleksikan</strong></td>
+                        <td>Merumuskan makna dan pelajaran dari teks</td>
+                        <td>Tulis simpulan dan hubungkan dengan kehidupan saat ini.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="concept-box">
+                <p><strong>Rumus 5W+1H dalam Teks Rekon:</strong></p>
+                <p>• <strong>What</strong> — Apa yang terjadi?<br>
+                • <strong>Who</strong> — Siapa yang terlibat?<br>
+                • <strong>When</strong> — Kapan peristiwa terjadi?<br>
+                • <strong>Where</strong> — Di mana peristiwa berlangsung?<br>
+                • <strong>Why</strong> — Mengapa peristiwa itu terjadi?<br>
+                • <strong>How</strong> — Bagaimana peristiwa itu berlangsung?</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN H ============ -->
+        <div class="section-header">
+            <div class="section-letter">H</div>
+            <div>
+                <h2>Kesalahan Umum & Referensi</h2>
+                <p>Hindari kesalahan saat membaca/menulis teks rekon, serta sumber-sumber pendukung</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Banyak siswa yang masih melakukan kesalahan saat membaca atau menulis teks rekon faktual. Berikut beberapa kesalahan umum beserta solusinya:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Dampak</th>
+                        <th>Solusi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mencampuradukkan fakta dan fiksi</td>
+                        <td>Teks kehilangan kredibilitas.</td>
+                        <td>Pastikan semua informasi bersumber dari fakta sejarah.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Urutan peristiwa tidak kronologis</td>
+                        <td>Pembaca kebingungan.</td>
+                        <td>Gunakan konjungsi temporal dan keterangan waktu.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Tidak mencantumkan sumber</td>
+                        <td>Informasi tidak dapat diverifikasi.</td>
+                        <td>Cantumkan sumber (buku, arsip, dokumen) di akhir teks.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Menyisipkan opini pribadi sebagai fakta</td>
+                        <td>Teks menjadi subjektif.</td>
+                        <td>Pisahkan fakta dari opini; opini hanya di reorientasi.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Menggunakan bahasa tidak baku</td>
+                        <td>Teks terkesan tidak serius.</td>
+                        <td>Gunakan bahasa baku sesuai PUEBI.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Tidak memahami konteks sejarah</td>
+                        <td>Informasi salah tafsir.</td>
+                        <td>Pelajari latar belakang peristiwa sebelum menulis.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">📚 Referensi Pendukung</h4>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Gerot, J. & Wignell, P. (1994). <em>Making Sense of Functional Grammar</em>. Sydney: Gerd Stabler.</li>
+                <li>Mahsun. (2017). <em>Teks dan Analisis Teks Bahasa Indonesia</em>. Jakarta: Rajawali Pers.</li>
+                <li>Briggs, A. & Burke, P. (2009). <em>A Social History of the Media</em>. Cambridge: Polity Press.</li>
+                <li>Gleick, J. (2011). <em>The Information: A History, a Theory, a Flood</em>. New York: Pantheon.</li>
+                <li>Kementrian Komunikasi dan Informatika. (2020). <em>Sejarah Komunikasi di Indonesia</em>. Jakarta: Kominfo.</li>
+            </ul>
+        </div>
+
+        <!-- Kata Kunci -->
+        <div class="keywords-section">
+            <h3><i class="fas fa-key"></i> ◆ Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Teks Rekon</span>
+                <span class="keyword-tag">Rekon Faktual</span>
+                <span class="keyword-tag">Sejarah Komunikasi</span>
+                <span class="keyword-tag">Orientasi</span>
+                <span class="keyword-tag">Urutan Peristiwa</span>
+                <span class="keyword-tag">Reorientasi</span>
+                <span class="keyword-tag">Konjungsi Temporal</span>
+                <span class="keyword-tag">Kronologis</span>
+                <span class="keyword-tag">Fakta Sejarah</span>
+                <span class="keyword-tag">Telegraf</span>
+                <span class="keyword-tag">Telepon</span>
+                <span class="keyword-tag">Radio</span>
+                <span class="keyword-tag">Televisi</span>
+                <span class="keyword-tag">Internet</span>
+                <span class="keyword-tag">Smartphone</span>
+                <span class="keyword-tag">5W+1H</span>
+            </div>
+        </div>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">نٓ وَٱلْقَلَمِ وَمَا يَسْطُرُونَ</div>
+            <p class="quote-translation">"Nun. Demi <strong>pena</strong> dan apa yang <strong>mereka tulis</strong>."</p>
+            <p class="quote-source">— QS. Al-Qalam [68]: 1</p>
+        </div>
+
+        <!-- ============ UJI FORMATIF ============ -->
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 17</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+                
+                <div class="quiz-info">
+                    <div class="quiz-info-item">
+                        <i class="fas fa-list-ol"></i>
+                        <strong>PILIHAN GANDA</strong>
+                        <span>10 soal × 10 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <strong>ESSAY</strong>
+                        <span>5 soal × 20 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-trophy"></i>
+                        <strong>TOTAL MAKSIMAL</strong>
+                        <span>200 poin</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div style="background: var(--bg-card); border: 1px solid var(--gold-primary); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold-primary);"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal × 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Teks rekon faktual adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Teks yang menceritakan kisah fiksi dengan konflik</label>
+                        <label><input type="radio" name="q1" value="B"> B. Teks yang menceritakan kembali peristiwa masa lalu berdasarkan fakta</label>
+                        <label><input type="radio" name="q1" value="C"> C. Teks yang berisi argumen dan pendapat penulis</label>
+                        <label><input type="radio" name="q1" value="D"> D. Teks yang memberikan petunjuk melakukan sesuatu</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Kata "rekon" dalam teks rekon berasal dari bahasa Inggris <em>recount</em> yang berarti... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Mengarang</label>
+                        <label><input type="radio" name="q2" value="B"> B. Menceritakan kembali</label>
+                        <label><input type="radio" name="q2" value="C"> C. Menghitung</label>
+                        <label><input type="radio" name="q2" value="D"> D. Mengkritik</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Struktur teks rekon faktual yang benar secara berurutan adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Orientasi → Komplikasi → Resolusi</label>
+                        <label><input type="radio" name="q3" value="B"> B. Tujuan → Langkah-langkah → Penutup</label>
+                        <label><input type="radio" name="q3" value="C"> C. Orientasi → Urutan Peristiwa → Reorientasi</label>
+                        <label><input type="radio" name="q3" value="D"> D. Identifikasi → Deskripsi Bagian → Simpulan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Bagian teks rekon yang berisi pengenalan peristiwa, tokoh, waktu, dan tempat disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Orientasi</label>
+                        <label><input type="radio" name="q4" value="B"> B. Urutan Peristiwa</label>
+                        <label><input type="radio" name="q4" value="C"> C. Reorientasi</label>
+                        <label><input type="radio" name="q4" value="D"> D. Komplikasi</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Salah satu ciri kebahasaan teks rekon faktual adalah penggunaan konjungsi temporal. Contoh konjungsi temporal adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. karena, sehingga, oleh karena itu</label>
+                        <label><input type="radio" name="q5" value="B"> B. kemudian, lalu, setelah itu, selanjutnya</label>
+                        <label><input type="radio" name="q5" value="C"> C. baik ... maupun ...</label>
+                        <label><input type="radio" name="q5" value="D"> D. meskipun, walaupun</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Penemuan mesin cetak oleh Johannes Gutenberg terjadi pada tahun... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. 1440</label>
+                        <label><input type="radio" name="q6" value="B"> B. 1837</label>
+                        <label><input type="radio" name="q6" value="C"> C. 1876</label>
+                        <label><input type="radio" name="q6" value="D"> D. 1969</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Alexander Graham Bell menemukan telepon pada tahun... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. 1837</label>
+                        <label><input type="radio" name="q7" value="B"> B. 1876</label>
+                        <label><input type="radio" name="q7" value="C"> C. 1895</label>
+                        <label><input type="radio" name="q7" value="D"> D. 1927</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Perbedaan utama teks rekon faktual dengan narasi sejarah fiktif adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Teks rekon menggunakan bahasa gaul</label>
+                        <label><input type="radio" name="q8" value="B"> B. Teks rekon berisi fakta, sedangkan narasi fiktif mengandung imajinasi</label>
+                        <label><input type="radio" name="q8" value="C"> C. Teks rekon lebih panjang</label>
+                        <label><input type="radio" name="q8" value="D"> D. Teks rekon tidak memiliki struktur</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Langkah pertama dalam memahami informasi teks rekon faktual adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Langsung menulis simpulan</label>
+                        <label><input type="radio" name="q9" value="B"> B. Membaca sekilas untuk memperoleh gambaran umum</label>
+                        <label><input type="radio" name="q9" value="C"> C. Mengkritik penulis</label>
+                        <label><input type="radio" name="q9" value="D"> D. Menghafal teks</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa mempelajari teks rekon faktual tentang sejarah komunikasi penting? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar bisa menghafal tahun-tahun penting</label>
+                        <label><input type="radio" name="q10" value="B"> B. Untuk memahami perjalanan peradaban manusia dan mengambil pelajaran dari masa lalu</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar terlihat lebih pintar</label>
+                        <label><input type="radio" name="q10" value="D"> D. Untuk mengisi waktu luang</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal × 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan pengertian teks rekon faktual menurut Gerot & Wignell dan Mahsun! Sebutkan dan jelaskan 3 struktur teks rekon faktual! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Buatlah tabel perbandingan antara teks rekon faktual dan narasi sejarah fiktif dari segi tujuan, isi, sifat, struktur, konflik, dan contoh! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Sebutkan dan jelaskan 7 ciri kebahasaan teks rekon faktual! Berikan masing-masing dua contoh! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan 7 langkah memahami informasi dalam teks rekon faktual secara sistematis! Mengapa setiap langkah tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK MENULIS): Tulislah sebuah <strong>teks rekon faktual</strong> (minimal 5 paragraf: 1 orientasi, 3 urutan peristiwa, 1 reorientasi) bertema <strong>"Sejarah Komunikasi di Indonesia"</strong> atau <strong>"Sejarah Salah Satu Penemuan Komunikasi"</strong> (misalnya: telegraf, telepon, radio, internet). Teks harus memuat: <br>
+                    (a) Judul yang menarik<br>
+                    (b) Orientasi yang memperkenalkan topik<br>
+                    (c) Urutan peristiwa kronologis dengan keterangan waktu yang jelas<br>
+                    (d) Konjungsi temporal (kemudian, lalu, setelah itu, dll)<br>
+                    (e) Kata kerja material<br>
+                    (f) Reorientasi yang berisi refleksi penulis<br>
+                    (g) Fakta sejarah yang dapat dipertanggungjawabkan<br>
+                    Gunakan bahasa baku sesuai PUEBI! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea" style="min-height: 300px;" placeholder="Tulis teks rekon faktual Anda di sini...
+
+[JUDUL]
+
+[Paragraf 1 — Orientasi]
+
+[Paragraf 2 — Urutan Peristiwa]
+
+[Paragraf 3 — Urutan Peristiwa]
+
+[Paragraf 4 — Urutan Peristiwa]
+
+[Paragraf 5 — Reorientasi]"></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div class="footer-nav">
+            <a href="16.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 16</a>
+            <a href="index.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="18.html" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 18 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'B', q3: 'C', q4: 'A', q5: 'B',
+            q6: 'A', q7: 'B', q8: 'B', q9: 'B', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quizForm');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_17_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 17 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5 (Teks Rekon Faktual): ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan17_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 17 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 17 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. TEKS REKON FAKTUAL:
+${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

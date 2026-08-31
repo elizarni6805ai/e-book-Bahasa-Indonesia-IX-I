@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 24: Menulis Surat/Email Tanggapan Menggunakan Teks Rekon | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+            --info: #3B82F6;
+            --email-blue: #0EA5E9;
+            --letter-cream: #F5E6D3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- TOP NAVIGATION --- */
+        .top-nav {
+            background: rgba(11, 15, 25, 0.98);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        .top-nav-brand {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .top-nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- HERO HEADER --- */
+        .hero-header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .hero-icon {
+            font-size: 4rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            position: relative;
+        }
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .author-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        .author-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+        }
+        .author-card-text { text-align: left; }
+        .author-card-text h4 {
+            font-size: 1rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.2rem;
+        }
+        .author-card-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* --- FINAL MEETING BANNER --- */
+        .final-banner {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-banner::before {
+            content: '🎓';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+        .final-banner h3 {
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .final-banner p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- SECTION HEADER --- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+        .section-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            line-height: 1.2;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* --- CONTENT CARD --- */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- DEFINITION BOX --- */
+        .definition-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .definition-box::before {
+            content: '📌 DEFINISI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .definition-box p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* --- CONCEPT BOX --- */
+        .concept-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .concept-box::before {
+            content: '📌 KONSEP KUNCI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .concept-box p {
+            color: var(--gold-light);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* --- EXAMPLE BOX --- */
+        .example-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .example-box::before {
+            content: '💡 CONTOH NYATA';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--success);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--success);
+            border-radius: 20px;
+        }
+        .example-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .example-box strong { color: var(--gold-primary); }
+
+        /* --- LETTER BOX (Surat Resmi) --- */
+        .letter-box {
+            background: linear-gradient(135deg, #2a2520 0%, #1a1510 100%);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+        .letter-box::before {
+            content: '📜 CONTOH SURAT RESMI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .letter-header-section {
+            border-bottom: 2px solid var(--gold-primary);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .letter-org-name {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .letter-org-address {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+        .letter-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .letter-meta strong { color: var(--gold-light); }
+        .letter-greeting {
+            color: var(--gold-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .letter-body {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+        .letter-body p { margin-bottom: 1rem; }
+        .letter-closing {
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+        }
+        .letter-signature {
+            margin-top: 3rem;
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+        .letter-stamp {
+            display: inline-block;
+            border: 2px solid var(--gold-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+            transform: rotate(-3deg);
+        }
+
+        /* --- EMAIL BOX --- */
+        .email-box {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.08) 0%, rgba(14, 165, 233, 0.02) 100%);
+            border: 2px solid rgba(14, 165, 233, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        .email-box::before {
+            content: '📧 CONTOH EMAIL';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--email-blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--email-blue);
+            border-radius: 20px;
+        }
+        .email-header {
+            background: rgba(14, 165, 233, 0.05);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--email-blue);
+        }
+        .email-field {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.35rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .email-field strong {
+            color: var(--email-blue);
+            min-width: 60px;
+        }
+        .email-subject {
+            color: var(--gold-light);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .email-body {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            text-align: justify;
+        }
+        .email-body p { margin-bottom: 1rem; }
+        .email-signature {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .email-signature strong { color: var(--gold-primary); }
+
+        /* --- BENEFIT GRID --- */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.75rem;
+        }
+        .benefit-title {
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .benefit-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .keywords-section h3 {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        .islamic-quote::before, .islamic-quote::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+        .islamic-quote::before { top: 15px; left: 20px; }
+        .islamic-quote::after { bottom: 15px; right: 20px; }
+        .arabic-text {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-family: 'Traditional Arabic', serif;
+            line-height: 1.8;
+        }
+        .quote-translation {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .quote-source {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .quiz-header h2 {
+            color: var(--gold-primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .quiz-info-item {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        .quiz-info-item i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info-item strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        .quiz-info-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label {
+            display: block;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 120px; resize: vertical; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .question-points {
+            float: right;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .options input[type="radio"] {
+            accent-color: var(--gold-primary);
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold-primary);
+        }
+        .btn-success {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+        .footer-nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .top-nav { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+            .section-header { flex-direction: column; text-align: center; }
+            .letter-meta { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-brand">
+            <i class="fas fa-book-open"></i> Bahasa Indonesia Kelas IX
+        </div>
+        <div class="top-nav-links">
+            <a href="23.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 23</a>
+            <a href="index.html" class="nav-btn"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="index.html" class="nav-btn">🎓 Selesai <i class="fas fa-check-circle"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <span class="hero-badge">Pertemuan 24 — Pertemuan Terakhir</span>
+        <div class="hero-icon"><i class="fas fa-envelope-open-text"></i></div>
+        <h1 class="hero-title">Menulis Surat/Email Tanggapan<br>Menggunakan Teks Rekon</h1>
+        <p class="hero-subtitle">
+            Pertemuan pamungkas semester ini memadukan seluruh keterampilan menulis surat/email resmi
+            dengan kemampuan menelaah teks rekon faktual — sebuah produk literasi yang memadukan
+            fakta sejarah, bahasa baku, dan etika komunikasi tertulis secara utuh.
+        </p>
+        <div class="author-card">
+            <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+            <div class="author-card-text">
+                <h4>Elizarni, S.Pd.</h4>
+                <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Final Meeting Banner -->
+        <div class="final-banner">
+            <h3>🎓 Selamat Datang di Pertemuan Terakhir!</h3>
+            <p>Setelah 23 pertemuan penuh pembelajaran — dari teks deskripsi, prosedur, hingga rekon faktual — kini saatnya kita menyatukan seluruh keterampilan dalam satu produk literasi yang bermakna: <strong>surat/email tanggapan berbasis teks rekon</strong>. Ini adalah puncak dari perjalanan literasi kita semester ini.</p>
+        </div>
+
+        <!-- ============ BAGIAN A ============ -->
+        <div class="section-header">
+            <div class="section-letter">A</div>
+            <div>
+                <h2>Hakikat Surat dan Email Tanggapan</h2>
+                <p>Memahami pengertian, fungsi, dan kedudukan surat/email tanggapan dalam komunikasi tertulis</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p><strong>Surat/email tanggapan</strong> adalah surat atau email yang ditulis sebagai respons terhadap suatu informasi, peristiwa, atau teks yang telah dibaca — dalam konteks ini, teks rekon faktual. Surat/email tanggapan bertujuan untuk menyampaikan pendapat, apresiasi, kritik, atau pertanyaan secara tertulis dengan bahasa yang baku, santun, dan terstruktur.</p>
+            
+            <div class="definition-box">
+                <p><strong>Surat/Email Tanggapan</strong> adalah surat atau pesan elektronik yang ditulis sebagai respons terhadap suatu teks, informasi, atau peristiwa, dengan tujuan menyampaikan pendapat, apresiasi, kritik, atau saran secara tertulis menggunakan bahasa baku dan etika komunikasi yang baik.</p>
+            </div>
+
+            <div style="background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--gold-primary); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+                <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;"><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Gorys Keraf (1994)</strong> menyatakan bahwa surat merupakan sarana komunikasi tertulis yang efektif untuk menyampaikan informasi, gagasan, atau tanggapan secara formal. Surat yang baik harus memenuhi prinsip <em>7C</em>: <em>completeness, conciseness, correctness, clarity, concreteness, courtesy, dan consideration</em>.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menambahkan bahwa menulis surat/email tanggapan merupakan bagian dari keterampilan literasi kritis — kemampuan merespons teks secara aktif, bukan hanya pasif menerima informasi.</p>
+                <p style="margin-top: 0.5rem;"><strong>Tarigan (2008)</strong> menegaskan bahwa surat/email tanggapan yang baik memadukan tiga unsur: (1) pemahaman terhadap teks yang ditanggapi, (2) kemampuan mengorganisasi gagasan, dan (3) penguasaan bahasa baku yang santun.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">🌟 Manfaat Menulis Surat/Email Tanggapan</h4>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <div class="benefit-title">Berpikir Kritis</div>
+                    <div class="benefit-desc">Melatih kemampuan menganalisis dan merespons informasi secara aktif.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <div class="benefit-title">Keterampilan Menulis</div>
+                    <div class="benefit-desc">Mengasah kemampuan menulis formal dengan bahasa baku dan terstruktur.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="benefit-title">Etika Komunikasi</div>
+                    <div class="benefit-desc">Belajar berkomunikasi santun, baik dalam surat maupun email resmi.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-scroll"></i></div>
+                    <div class="benefit-title">Integrasi Literasi</div>
+                    <div class="benefit-desc">Menyatukan keterampilan membaca, menelaah, dan menulis dalam satu produk.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN B ============ -->
+        <div class="section-header">
+            <div class="section-letter">B</div>
+            <div>
+                <h2>Perbedaan Surat Resmi dan Email</h2>
+                <p>Memahami karakteristik masing-masing media komunikasi tertulis</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Dalam era digital, kita mengenal dua bentuk komunikasi tertulis formal: <strong>surat resmi (konvensional)</strong> dan <strong>email (elektronik)</strong>. Keduanya memiliki karakteristik, struktur, dan etika yang berbeda, meskipun tujuan komunikasinya sama.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📊 Perbandingan Surat Resmi dan Email</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Surat Resmi</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Media</strong></td>
+                        <td>Kertas, dikirim via pos/kurir</td>
+                        <td>Elektronik, dikirim via internet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kecepatan</strong></td>
+                        <td>Lambat (hari/minggu)</td>
+                        <td>Cepat (hitungan detik)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Struktur</strong></td>
+                        <td>Kop surat, nomor, lampiran, hal, alamat, salam pembuka, isi, salam penutup, tanda tangan, stempel</td>
+                        <td>To, CC, BCC, Subject, salam pembuka, isi, salam penutup, tanda tangan digital</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa</strong></td>
+                        <td>Sangat formal, baku, kaku</td>
+                        <td>Formal, namun bisa lebih luwes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Legalitas</strong></td>
+                        <td>Tinggi (dengan stempel & tanda tangan basah)</td>
+                        <td>Sedang (dengan tanda tangan digital)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biaya</strong></td>
+                        <td>Ada (perangko, kertas, pengiriman)</td>
+                        <td>Hampir gratis (hanya kuota internet)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jejak Digital</strong></td>
+                        <td>Fisik (dokumen kertas)</td>
+                        <td>Digital (tersimpan di server)</td>
+                    </tr>
+                   

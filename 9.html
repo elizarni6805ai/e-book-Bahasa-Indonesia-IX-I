@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 9: Mengubah Cerpen Menjadi Teks Prosedur | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- CERPEN BOX --- */
+        .cerpen-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 2;
+            position: relative;
+        }
+        .cerpen-box::before {
+            content: '📖';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        .cerpen-title {
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .cerpen-author {
+            display: block;
+            font-style: normal;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* --- PROSEDUR BOX --- */
+        .prosedur-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            color: var(--text-primary);
+            line-height: 1.9;
+            position: relative;
+        }
+        .prosedur-box::before {
+            content: '📋';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        .prosedur-title {
+            display: block;
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .prosedur-box ol {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .prosedur-box ol li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- TRANSFORMATION ARROW --- */
+        .transform-arrow {
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--gold-primary);
+            font-size: 2rem;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 250px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="8.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 8</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="10.html" target="_blank" class="nav-btn">Pertemuan 10 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 09</span>
+            <h1 class="chapter-title">Mengubah Petikan Cerpen Menjadi Teks Prosedur</h1>
+            <p class="chapter-desc">Mengeksplorasi kreativitas berbahasa dengan mengubah narasi fiksi (cerpen) menjadi teks prosedur yang sistematis, logis, dan dapat diikuti pembaca — sebuah latihan literasi yang menyenangkan dan menantang.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-book-reader"></i> A. Hakikat Cerpen dan Teks Prosedur</h3>
+            <p>Pada pertemuan ini, kita akan mempelajari keterampilan unik: <strong>mengubah petikan cerpen (cerita pendek) menjadi teks prosedur</strong>. Keduanya merupakan jenis teks yang berbeda, namun memiliki benang merah yang dapat dijembatani melalui proses analisis dan transformasi yang sistematis.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Sumardjo & Saini (1991)</strong> mendefinisikan <em>cerpen</em> sebagai karya fiksi yang menyajikan cerita pendek tentang suatu peristiwa yang menarik, mengandung konflik, dan memiliki kesan tunggal yang dominan.</p>
+                <p style="margin-top: 0.5rem;"><strong>Nurgiyantoro (2010)</strong> menambahkan bahwa cerpen memiliki unsur intrinsik: tema, tokoh, alur, latar, sudut pandang, dan amanat. Dalam cerpen sering terdapat <em>adegan</em> yang berisi serangkaian tindakan yang dapat diekstrak menjadi langkah-langkah prosedur.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menyatakan bahwa <em>teks prosedur</em> adalah teks yang berisi langkah-langkah sistematis untuk melakukan atau membuat sesuatu. Tujuannya agar pembaca dapat mengikuti petunjuk tersebut dengan tepat.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 9.1: Perbedaan Cerpen dan Teks Prosedur</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Cerpen</th>
+                        <th>Teks Prosedur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Jenis Teks</strong></td>
+                        <td>Narasi fiksi</td>
+                        <td>Teks instruksional</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan</strong></td>
+                        <td>Menghibur, menyentuh emosi, menyampaikan amanat</td>
+                        <td>Memberi petunjuk agar pembaca dapat melakukan sesuatu</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ciri Kebahasaan</strong></td>
+                        <td>Kata sifat, dialog, deskripsi, majas</td>
+                        <td>Kalimat perintah, konjungsi temporal (kemudian, lalu), bilangan penomoran</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Struktur</strong></td>
+                        <td>Orientasi → Komplikasi → Resolusi</td>
+                        <td>Tujuan → Material (opsional) → Langkah-langkah → Penutup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sifat</strong></td>
+                        <td>Imajinatif, subjektif, emosional</td>
+                        <td>Objektif, logis, sistematis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contoh</strong></td>
+                        <td>"Robohnya Surau Kami" karya A.A. Navis</td>
+                        <td>"Cara Membuat Rendang Padang"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Mengapa Bisa Diubah? -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-exchange-alt"></i> B. Mengapa Cerpen Dapat Diubah Menjadi Teks Prosedur?</h3>
+            <p>Meskipun berbeda jenis, cerpen dan teks prosedur memiliki titik temu yang memungkinkan transformasi. Banyak cerpen yang memuat <strong>adegan tindakan</strong> — yaitu rangkaian kegiatan yang dilakukan tokoh secara berurutan. Adegan inilah yang dapat diekstrak menjadi langkah-langkah prosedur.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Kunci Transformasi</h4>
+                <p>Proses mengubah cerpen menjadi teks prosedur pada dasarnya adalah proses <strong>ekstraksi</strong> dan <strong>rekonstruksi</strong>:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 2;">
+                    <li><strong>Ekstraksi</strong> — Mengambil bagian narasi yang berisi tindakan/kegiatan dari cerpen.</li>
+                    <li><strong>Analisis</strong> — Mengidentifikasi langkah-langkah, bahan, dan alat yang disebutkan.</li>
+                    <li><strong>Rekonstruksi</strong> — Menyusun ulang informasi tersebut menjadi teks prosedur yang sistematis.</li>
+                    <li><strong>Transformasi Bahasa</strong> — Mengubah kalimat naratif menjadi kalimat perintah/instruksional.</li>
+                </ul>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 9.2: Bagian Cerpen yang Dapat Diubah</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Unsur Cerpen</th>
+                        <th>Contoh dalam Cerpen</th>
+                        <th>Transformasi ke Prosedur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Adegan tindakan</strong></td>
+                        <td>"Ibu mencuci beras, lalu memasukkannya ke dalam rice cooker."</td>
+                        <td>Langkah 1: Cuci beras. Langkah 2: Masukkan ke rice cooker.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Deskripsi alat/bahan</strong></td>
+                        <td>"Di atas meja terdapat panci, spatula, dan bumbu rendang."</td>
+                        <td>Daftar material: panci, spatula, bumbu rendang.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dialog instruksional</strong></td>
+                        <td>"Aduk terus kuahnya agar tidak pecah," kata Nenek.</td>
+                        <td>Langkah: Aduk kuah secara terus-menerus.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Urutan waktu</strong></td>
+                        <td>"Setelah itu, ia menambahkan garam secukupnya."</td>
+                        <td>Langkah berikutnya: Tambahkan garam secukupnya.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content C: Langkah-Langkah -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-list-ol"></i> C. Langkah-Langkah Mengubah Cerpen Menjadi Teks Prosedur</h3>
+            <p>Agar proses transformasi berjalan sistematis, ikuti langkah-langkah berikut:</p>
+            
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li><strong>Baca Cerpen Secara Utuh</strong> — Pahami tema, tokoh, latar, dan alur cerita untuk menangkap konteks keseluruhan.</li>
+                <li><strong>Tandai Adegan Tindakan</strong> — Identifikasi bagian cerpen yang berisi rangkaian kegiatan tokoh (misalnya: memasak, membuat sesuatu, melakukan ritual).</li>
+                <li><strong>Ekstraksi Informasi</strong> — Catat setiap tindakan, alat, dan bahan yang disebutkan dalam adegan tersebut.</li>
+                <li><strong>Urutkan Langkah</strong> — Susun tindakan-tindakan tersebut secara kronologis (sesuai urutan waktu dalam cerita).</li>
+                <li><strong>Transformasi Bahasa</strong> — Ubah kalimat naratif menjadi kalimat perintah. Contoh: "Ia memotong bawang" → "<em>Potonglah bawang</em>."</li>
+                <li><strong>Susun Struktur Prosedur</strong> — Tuliskan Tujuan → Material (jika ada) → Langkah-langkah → Penutup.</li>
+                <li><strong>Tambahkan Keterangan</strong> — Berikan detail yang diperlukan (ukuran, durasi, tips) agar prosedur dapat diikuti pembaca.</li>
+                <li><strong>Review dan Revisi</strong> — Periksa kohesi, koherensi, dan kelengkapan langkah.</li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-exclamation-circle"></i> Prinsip Penting</h4>
+                <p>Transformasi ini <strong>bukan sekadar menyalin</strong> kalimat dari cerpen. Siswa harus <strong>berpikir kritis</strong> untuk: (1) menghilangkan unsur fiksi (dialog, emosi, deskripsi latar), (2) mempertahankan inti tindakan, dan (3) menyusun ulang menjadi format prosedur yang logis dan dapat diikuti siapa pun.</p>
+            </div>
+        </section>
+
+        <!-- Content D: Contoh Transformasi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-magic"></i> D. Contoh Transformasi: Cerpen → Teks Prosedur</h3>
+            <p>Untuk memperjelas, mari kita lihat contoh lengkap transformasi sebuah petikan cerpen menjadi teks prosedur.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📖 Petikan Cerpen: "Belajar Memasak Rendang bersama Nenek"</h4>
+            
+            <div class="cerpen-box">
+                <span class="cerpen-title">"Belajar Memasak Rendang bersama Nenek"</span>
+                <span class="cerpen-author">— Cerpen Fiktif untuk Pembelajaran</span>
+                <em>Sore itu, aku duduk di dapur Nenek yang hangat. Aroma rempah menguar dari tungku kayu. Nenek tersenyum kepadaku, lalu berkata, "Hari ini Nenek ajarkan kamu memasak rendang, ya."<br><br>
+                Nenek mulai menyiapkan bumbu. Ia menghaluskan cabai merah, bawang putih, bawang merah, jahe, dan lengkuas menggunakan cobek batu. "Harus halus betul, supaya rendangnya enak," katanya.<br><br>
+                Setelah bumbu halus, Nenek memanaskan minyak kelapa di wajan besar. Ia menumis bumbu halus itu hingga harum. "Aduk terus, jangan sampai gosong," pesannya.<br><br>
+                Kemudian, Nenek memasukkan daging sapi yang telah dipotong dadu ke dalam wajan. Ia mengaduknya hingga daging berubah warna. Lalu, dituangkannya santan kental dari enam butir kelapa. "Masak dengan api kecil, supaya santan tidak pecah," ujarnya.<br><br>
+                Kami memasak selama hampir empat jam. Nenek sesekali mengaduk rendang agar bumbu meresap sempurna. Ketika kuah mengering dan daging berwarna cokelat kehitaman, Nenek tersenyum puas. "Nah, rendang kita sudah jadi."</em>
+            </div>
+
+            <div class="transform-arrow">
+                <i class="fas fa-arrow-down"></i>
+                <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">Transformasi</div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📋 Hasil Transformasi: Teks Prosedur</h4>
+            
+            <div class="prosedur-box">
+                <span class="prosedur-title">Cara Membuat Rendang ala Nenek</span>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>Tujuan:</strong> Mengolah daging sapi menjadi rendang yang lezat dan empuk dengan bumbu rempah tradisional.</p>
+                
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong>Material dan Alat:</strong></p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    <li>1 kg daging sapi, potong dadu</li>
+                    <li>10 buah cabai merah</li>
+                    <li>8 siung bawang putih</li>
+                    <li>10 siung bawang merah</li>
+                    <li>3 cm jahe</li>
+                    <li>5 cm lengkuas</li>
+                    <li>6 butir kelapa (untuk santan kental)</li>
+                    <li>Minyak kelapa secukupnya</li>
+                    <li>Cobek batu, wajan besar, spatula</li>
+                </ul>
+
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong>Langkah-Langkah:</strong></p>
+                <ol>
+                    <li>Haluskan cabai merah, bawang putih, bawang merah, jahe, dan lengkuas menggunakan cobek batu hingga benar-benar halus.</li>
+                    <li>Panaskan minyak kelapa di wajan besar dengan api sedang.</li>
+                    <li>Tumis bumbu halus hingga harum. Aduk terus agar tidak gosong.</li>
+                    <li>Masukkan potongan daging sapi ke dalam wajan. Aduk hingga daging berubah warna.</li>
+                    <li>Tuangkan santan kental dari enam butir kelapa ke dalam wajan.</li>
+                    <li>Masak dengan api kecil agar santan tidak pecah.</li>
+                    <li>Aduk rendang secara berkala selama kurang lebih 4 jam hingga kuah mengering dan daging berwarna cokelat kehitaman.</li>
+                    <li>Angkat dan sajikan rendang selagi hangat.</li>
+                </ol>
+
+                <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>Penutup:</strong> Rendang akan semakin lezat jika didiamkan semalam agar bumbu meresap sempurna.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 9.3: Analisis Transformasi</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Unsur Cerpen</th>
+                        <th>Dihilangkan / Diubah</th>
+                        <th>Alasan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>"Sore itu, aku duduk di dapur Nenek yang hangat."</td>
+                        <td>Dihilangkan</td>
+                        <td>Merupakan deskripsi latar, tidak relevan dengan prosedur.</td>
+                    </tr>
+                    <tr>
+                        <td>"Nenek tersenyum... 'Hari ini Nenek ajarkan kamu...'"</td>
+                        <td>Dihilangkan</td>
+                        <td>Merupakan dialog dan emosi tokoh, tidak diperlukan dalam prosedur.</td>
+                    </tr>
+                    <tr>
+                        <td>"Ia menghaluskan cabai merah, bawang putih..."</td>
+                        <td>Diubah menjadi kalimat perintah: "Haluskan cabai merah..."</td>
+                        <td>Teks prosedur menggunakan kalimat imperatif.</td>
+                    </tr>
+                    <tr>
+                        <td>"Harus halus betul, supaya rendangnya enak."</td>
+                        <td>Diubah menjadi tips: "hingga benar-benar halus"</td>
+                        <td>Menjadi keterangan penting dalam langkah.</td>
+                    </tr>
+                    <tr>
+                        <td>"Kami memasak selama hampir empat jam."</td>
+                        <td>Ditulis sebagai durasi: "selama kurang lebih 4 jam"</td>
+                        <td>Memberikan informasi waktu yang jelas.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content E: Contoh Kedua -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-pen-nib"></i> E. Contoh Kedua: Petikan Cerpen tentang Perawatan Tanaman</h3>
+            
+            <div class="cerpen-box">
+                <span class="cerpen-title">"Pagi di Kebun Bapak"</span>
+                <span class="cerpen-author">— Cerpen Fiktif untuk Pembelajaran</span>
+                <em>Setiap pagi, Bapak selalu menyempatkan diri ke kebun kecil di belakang rumah. Aku sering ikut serta. Pertama, beliau mengambil ember dan mengisi air dari sumur. Lalu, beliau mencampur pupuk cair ke dalam air itu.<br><br>
+                Dengan hati-hati, Bapak menyiram tanaman cabai di polybag satu per satu. "Jangan terlalu banyak, nanti akar busuk," katanya. Setelah itu, ia mengambil gunting stek dan memotong daun yang menguning.<br><br>
+                Terakhir, Bapak mengambil sekop kecil dan menggemburkan tanah di sekitar tanaman. "Supaya akarnya bisa bernapas," ujarnya sambil tersenyum.</em>
+            </div>
+
+            <div class="transform-arrow">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+
+            <div class="prosedur-box">
+                <span class="prosedur-title">Cara Merawat Tanaman Cabai di Polybag</span>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong>Tujuan:</strong> Merawat tanaman cabai agar tumbuh subur dan produktif.</p>
+                
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong>Material:</strong></p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    <li>Ember dan air bersih</li>
+                    <li>Pupuk cair</li>
+                    <li>Gunting stek</li>
+                    <li>Sekop kecil</li>
+                </ul>
+
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong>Langkah-Langkah:</strong></p>
+                <ol>
+                    <li>Isi ember dengan air bersih dari sumur.</li>
+                    <li>Campurkan pupuk cair ke dalam air dengan takaran secukupnya.</li>
+                    <li>Siramkan air pupuk ke tanaman cabai di polybag satu per satu. Hindari penyiraman berlebihan agar akar tidak busuk.</li>
+                    <li>Potong daun yang menguning menggunakan gunting stek.</li>
+                    <li>Gemburkan tanah di sekitar tanaman menggunakan sekop kecil agar akar dapat bernapas dengan baik.</li>
+                </ol>
+
+                <p style="color: var(--text-secondary); margin-top: 1rem;"><strong>Penutup:</strong> Lakukan perawatan ini secara rutin setiap pagi untuk hasil optimal.</p>
+            </div>
+        </section>
+
+        <!-- Content F: Kesalahan Umum -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> F. Kesalahan Umum dalam Transformasi</h3>
+            <p>Banyak siswa yang masih melakukan kesalahan saat mengubah cerpen menjadi teks prosedur. Berikut beberapa kesalahan yang sering terjadi:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Contoh Salah</th>
+                        <th>Perbaikan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mempertahankan kalimat naratif</td>
+                        <td>"Ibu memotong bawang."</td>
+                        <td>"<u>Potonglah</u> bawang."</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Memasukkan dialog dan emosi tokoh</td>
+                        <td>"Nenek tersenyum dan berkata..."</td>
+                        <td>Dihilangkan, fokus pada tindakan.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Langkah tidak berurutan</td>
+                        <td>Langkah 2: Tuang santan. Langkah 1: Tumis bumbu.</td>
+                        <td>Susun sesuai urutan kronologis.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Tidak mencantumkan material/alat</td>
+                        <td>Langsung masuk ke langkah tanpa daftar bahan.</td>
+                        <td>Tambahkan bagian "Material" di awal.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Informasi kurang detail</td>
+                        <td>"Masak sampai matang."</td>
+                        <td>"Masak selama 4 jam dengan api kecil hingga kuah mengering."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content G: Referensi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bookmark"></i> G. Referensi Pendukung</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Sumardjo, Jakob & Saini, Klaim. (1991). <em>Kesusastraan: Teori dan Metode</em>. Jakarta: Gramedia.</li>
+                <li>Nurgiyantoro, Burhan. (2010). <em>Teori Pengkajian Fiksi</em>. Yogyakarta: Gadjah Mada University Press.</li>
+                <li>Keraf, Gorys. (1994). <em>Diksi dan Gaya Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Abrams, M.H. (1981). <em>The Mirror and the Lamp</em>. New York: Oxford University Press.</li>
+            </ul>
+        </section>
+
+        <!-- Kata Kunci -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-key"></i> Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Cerpen</span>
+                <span class="keyword-tag">Teks Prosedur</span>
+                <span class="keyword-tag">Transformasi</span>
+                <span class="keyword-tag">Ekstraksi</span>
+                <span class="keyword-tag">Rekonstruksi</span>
+                <span class="keyword-tag">Adegan Tindakan</span>
+                <span class="keyword-tag">Kalimat Perintah</span>
+                <span class="keyword-tag">Konjungsi Temporal</span>
+                <span class="keyword-tag">Langkah-Langkah</span>
+                <span class="keyword-tag">Material</span>
+                <span class="keyword-tag">Narasi Fiksi</span>
+                <span class="keyword-tag">Teks Instruksional</span>
+            </div>
+        </section>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">إِنَّ ٱللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَن يُتْقِنَهُ</div>
+            <p class="quote-translation">"Sesungguhnya Allah mencintai seseorang yang jika melakukan suatu pekerjaan, dilakukan dengan <strong>itqan</strong> (tepat, terarah, jelas, dan tuntas)."</p>
+            <p class="quote-source">— HR. Thabrani (Hadis tentang profesionalitas)</p>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 9</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal x 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Menurut Sumardjo & Saini, cerpen adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Teks yang berisi langkah-langkah melakukan sesuatu</label>
+                        <label><input type="radio" name="q1" value="B"> B. Karya fiksi yang menyajikan cerita pendek tentang peristiwa yang menarik dengan kesan tunggal</label>
+                        <label><input type="radio" name="q1" value="C"> C. Teks yang memaparkan argumentasi</label>
+                        <label><input type="radio" name="q1" value="D"> D. Puisi modern yang panjang</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Tujuan utama teks prosedur adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Menghibur pembaca dengan cerita fiksi</label>
+                        <label><input type="radio" name="q2" value="B"> B. Menggambarkan objek secara rinci</label>
+                        <label><input type="radio" name="q2" value="C"> C. Memberi petunjuk agar pembaca dapat melakukan sesuatu dengan tepat</label>
+                        <label><input type="radio" name="q2" value="D"> D. Memaparkan pendapat dan argumentasi</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Bagian cerpen yang dapat diekstrak menjadi langkah-langkah prosedur adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Dialog antar tokoh</label>
+                        <label><input type="radio" name="q3" value="B"> B. Deskripsi latar</label>
+                        <label><input type="radio" name="q3" value="C"> C. Adegan tindakan</label>
+                        <label><input type="radio" name="q3" value="D"> D. Amanat cerita</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Struktur teks prosedur yang benar adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Orientasi → Komplikasi → Resolusi</label>
+                        <label><input type="radio" name="q4" value="B"> B. Identifikasi → Deskripsi Bagian → Kesan</label>
+                        <label><input type="radio" name="q4" value="C"> C. Tujuan → Material → Langkah-langkah → Penutup</label>
+                        <label><input type="radio" name="q4" value="D"> D. Tesis → Argumentasi → Penegasan Ulang</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Dalam transformasi cerpen menjadi prosedur, kalimat "Ibu memotong bawang" diubah menjadi... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. "Ibu sedang memotong bawang."</label>
+                        <label><input type="radio" name="q5" value="B"> B. "Bawang dipotong oleh Ibu."</label>
+                        <label><input type="radio" name="q5" value="C"> C. "Potonglah bawang."</label>
+                        <label><input type="radio" name="q5" value="D"> D. "Bawang yang dipotong Ibu."</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Ciri kebahasaan utama teks prosedur adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Banyak menggunakan majas dan metafora</label>
+                        <label><input type="radio" name="q6" value="B"> B. Menggunakan kalimat perintah dan konjungsi temporal</label>
+                        <label><input type="radio" name="q6" value="C"> C. Menggunakan dialog antar tokoh</label>
+                        <label><input type="radio" name="q6" value="D"> D. Menggunakan sudut pandang orang pertama</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Proses mengubah cerpen menjadi teks prosedur disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Plagiarisme</label>
+                        <label><input type="radio" name="q7" value="B"> B. Ekstraksi dan rekonstruksi</label>
+                        <label><input type="radio" name="q7" value="C"> C. Transliterasi</label>
+                        <label><input type="radio" name="q7" value="D"> D. Transkripsi</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Bagian cerpen yang sebaiknya DIHILANGKAN saat diubah menjadi prosedur adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Tindakan tokoh</label>
+                        <label><input type="radio" name="q8" value="B"> B. Alat dan bahan yang disebutkan</label>
+                        <label><input type="radio" name="q8" value="C"> C. Dialog dan emosi tokoh</label>
+                        <label><input type="radio" name="q8" value="D"> D. Urutan kegiatan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Konjungsi temporal yang sering digunakan dalam teks prosedur adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. karena, sehingga, oleh karena itu</label>
+                        <label><input type="radio" name="q9" value="B"> B. kemudian, lalu, setelah itu, selanjutnya</label>
+                        <label><input type="radio" name="q9" value="C"> C. baik ... maupun ...</label>
+                        <label><input type="radio" name="q9" value="D"> D. meskipun, walaupun</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa transformasi cerpen menjadi prosedur penting dalam pembelajaran? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar siswa bisa menyalin cerpen tanpa berpikir</label>
+                        <label><input type="radio" name="q10" value="B"> B. Melatih kemampuan analisis, berpikir kritis, dan menulis sistematis</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar cerpen menjadi lebih panjang</label>
+                        <label><input type="radio" name="q10" value="D"> D. Untuk menghilangkan unsur fiksi dari sastra</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal x 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan perbedaan antara cerpen dan teks prosedur dari segi tujuan, struktur, dan ciri kebahasaan! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Jelaskan 8 langkah sistematis dalam mengubah cerpen menjadi teks prosedur! Mengapa setiap langkah tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Sebutkan 5 kesalahan umum dalam transformasi cerpen menjadi prosedur! Berikan contoh kalimat yang salah dan perbaikannya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Bacalah petikan cerpen berikut:<br><em>"Setiap pagi, Rina menyiapkan buku, pensil, dan penghapus di dalam tasnya. Ia memakai seragam putih merah dengan rapi. Setelah sarapan, ia berpamitan kepada Ibu, lalu berjalan kaki ke sekolah. Sesampainya di sekolah, Rina menyapa guru dan teman-temannya dengan ramah."</em><br>Ubahlah petikan cerpen tersebut menjadi teks prosedur bertema "Persiapan Berangkat ke Sekolah"! Lengkapi dengan tujuan, material, dan langkah-langkah! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK TRANSFORMASI): Tulislah sebuah petikan cerpen singkat (minimal 5 kalimat) tentang kegiatan sehari-hari (misalnya: membuat kopi, mencuci sepatu, menyiapkan meja belajar, dll). Kemudian, ubahlah petikan cerpen tersebut menjadi teks prosedur yang lengkap (tujuan, material, langkah-langkah, penutup)! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea form-textarea-large" placeholder="Tulis cerpen dan hasil transformasinya di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="8.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 8</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="10.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 10 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'C', q3: 'C', q4: 'C', q5: 'C',
+            q6: 'B', q7: 'B', q8: 'C', q9: 'B', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_9_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 9 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan9_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 9 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 9 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

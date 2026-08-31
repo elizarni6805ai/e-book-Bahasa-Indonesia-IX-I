@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 18: Arti Kata & Instruksi dalam Diagram Alir | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- TOP NAVIGATION --- */
+        .top-nav {
+            background: rgba(11, 15, 25, 0.98);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        .top-nav-brand {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .top-nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- HERO HEADER --- */
+        .hero-header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .hero-icon {
+            font-size: 4rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            position: relative;
+        }
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .author-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        .author-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+        }
+        .author-card-text { text-align: left; }
+        .author-card-text h4 {
+            font-size: 1rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.2rem;
+        }
+        .author-card-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- SECTION HEADER --- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+        .section-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            line-height: 1.2;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* --- CONTENT CARD --- */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- DEFINITION BOX --- */
+        .definition-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .definition-box::before {
+            content: '📌 DEFINISI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .definition-box p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* --- CONCEPT BOX --- */
+        .concept-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .concept-box::before {
+            content: '📌 KONSEP KUNCI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .concept-box p {
+            color: var(--gold-light);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* --- EXAMPLE BOX --- */
+        .example-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .example-box::before {
+            content: '💡 CONTOH NYATA';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--success);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--success);
+            border-radius: 20px;
+        }
+        .example-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .example-box strong { color: var(--gold-primary); }
+
+        /* --- FLOWCHART VISUAL --- */
+        .flowchart-container {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        .flowchart-container::before {
+            content: '🔀 DIAGRAM ALIR';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .flowchart-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .flow-node {
+            padding: 1rem 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            min-width: 220px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .flow-start, .flow-end {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        .flow-process {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold-primary);
+            border-radius: 10px;
+        }
+        .flow-decision {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid var(--error);
+            color: var(--text-primary);
+            transform: rotate(0deg);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            padding: 2rem 2.5rem;
+            min-width: 200px;
+        }
+        .flow-decision-text {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+        .flow-io {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid var(--success);
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+            padding: 1rem 2rem;
+            min-width: 240px;
+        }
+        .flow-arrow {
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        .flow-label {
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            font-style: italic;
+            margin: -0.25rem 0;
+        }
+
+        /* --- SYMBOL GRID --- */
+        .symbol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .symbol-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .symbol-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .symbol-shape {
+            width: 70px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .symbol-info h4 {
+            color: var(--gold-light);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        .symbol-info p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* --- BENEFIT GRID --- */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.75rem;
+        }
+        .benefit-title {
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .benefit-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .keywords-section h3 {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        .islamic-quote::before, .islamic-quote::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+        .islamic-quote::before { top: 15px; left: 20px; }
+        .islamic-quote::after { bottom: 15px; right: 20px; }
+        .arabic-text {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-family: 'Traditional Arabic', serif;
+            line-height: 1.8;
+        }
+        .quote-translation {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .quote-source {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .quiz-header h2 {
+            color: var(--gold-primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .quiz-info-item {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        .quiz-info-item i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info-item strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        .quiz-info-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label {
+            display: block;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 120px; resize: vertical; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .question-points {
+            float: right;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .options input[type="radio"] {
+            accent-color: var(--gold-primary);
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold-primary);
+        }
+        .btn-success {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+        .footer-nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .top-nav { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+            .section-header { flex-direction: column; text-align: center; }
+            .flow-node { min-width: 180px; font-size: 0.85rem; }
+            .symbol-card { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-brand">
+            <i class="fas fa-book-open"></i> Bahasa Indonesia Kelas IX
+        </div>
+        <div class="top-nav-links">
+            <a href="17.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 17</a>
+            <a href="index.html" class="nav-btn"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="19.html" class="nav-btn">Pertemuan 19 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <span class="hero-badge">Pertemuan 18</span>
+        <div class="hero-icon"><i class="fas fa-project-diagram"></i></div>
+        <h1 class="hero-title">Mencari Arti Kata & Memahami<br>Instruksi dalam Diagram Alir</h1>
+        <p class="hero-subtitle">
+            Menelaah kosakata teknis dan memahami instruksi yang disajikan dalam bentuk diagram alir (flowchart) —
+            sebuah representasi visual sistematis dari suatu proses, khususnya dalam konteks sejarah komunikasi.
+        </p>
+        <div class="author-card">
+            <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+            <div class="author-card-text">
+                <h4>Elizarni, S.Pd.</h4>
+                <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- ============ BAGIAN A ============ -->
+        <div class="section-header">
+            <div class="section-letter">A</div>
+            <div>
+                <h2>Hakikat Diagram Alir (Flowchart)</h2>
+                <p>Memahami pengertian, fungsi, dan kedudukan diagram alir dalam penyajian informasi</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p><strong>Diagram alir</strong> (<em>flowchart</em>) adalah representasi grafis dari suatu proses, sistem, atau algoritma yang menggunakan simbol-simbol standar yang dihubungkan dengan panah untuk menunjukkan urutan aliran. Diagram alir merupakan bagian penting dari <strong>teks prosedur visual</strong> yang banyak digunakan dalam dunia teknologi, bisnis, dan pendidikan.</p>
+            
+            <div class="definition-box">
+                <p><strong>Diagram Alir (Flowchart)</strong> adalah bagan aliran yang menggambarkan proses pengambilan keputusan, alur kerja, atau sistem secara visual menggunakan simbol-simbol standar yang saling terhubung dengan panah, sehingga memudahkan pembaca memahami urutan langkah secara cepat dan logis.</p>
+            </div>
+
+            <div style="background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--gold-primary); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+                <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;"><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Gilb & Weinberg (1993)</strong> mendefinisikan flowchart sebagai representasi grafis dari urutan langkah-langkah yang diperlukan untuk menyelesaikan suatu proses. Setiap simbol memiliki makna spesifik yang telah distandarisasi secara internasional (ANSI/ISO).</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menambahkan bahwa diagram alir termasuk dalam kategori <em>teks prosedur visual</em> yang memadukan unsur verbal (teks) dan visual (simbol) untuk menyajikan informasi secara efektif.</p>
+                <p style="margin-top: 0.5rem;"><strong>Edward Tufte (2001)</strong> menegaskan bahwa visualisasi proses yang baik harus mampu menyajikan informasi kompleks secara sederhana — dan diagram alir adalah salah satu alat terbaik untuk itu.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">🌟 Manfaat Mempelajari Diagram Alir</h4>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-eye"></i></div>
+                    <div class="benefit-title">Pemahaman Cepat</div>
+                    <div class="benefit-desc">Proses kompleks dapat dipahami dalam hitungan detik melalui visualisasi.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <div class="benefit-title">Berpikir Sistematis</div>
+                    <div class="benefit-desc">Melatih kemampuan mengurai masalah menjadi langkah-langkah logis.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="benefit-title">Literasi Digital</div>
+                    <div class="benefit-desc">Dasar penting untuk memahami algoritma komputer dan teknologi.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-comments"></i></div>
+                    <div class="benefit-title">Komunikasi Efektif</div>
+                    <div class="benefit-desc">Menyampaikan instruksi rumit dengan cara yang sederhana dan universal.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN B ============ -->
+        <div class="section-header">
+            <div class="section-letter">B</div>
+            <div>
+                <h2>Simbol-Simbol Standar Diagram Alir</h2>
+                <p>Mengenali simbol-simbol baku yang digunakan dalam pembuatan flowchart</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Diagram alir menggunakan simbol-simbol standar yang telah ditetapkan oleh <strong>ANSI (American National Standards Institute)</strong> dan <strong>ISO (International Organization for Standardization)</strong>. Setiap simbol memiliki makna spesifik yang wajib dipahami.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🔷 Simbol-Simbol Utama dalam Diagram Alir</h4>
+            <div class="symbol-grid">
+                <div class="symbol-card">
+                    <div class="symbol-shape" style="background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); border-radius: 30px; font-weight: 700;">MULAI</div>
+                    <div class="symbol-info">
+                        <h4>Terminal (Start/End)</h4>
+                        <p>Bentuk oval/lonjong. Menandakan awal (MULAI) atau akhir (SELESAI) dari suatu proses.</p>
+                    </div>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-shape" style="background: rgba(212, 175, 55, 0.1); border: 2px solid var(--gold-primary); border-radius: 8px;">PROSES</div>
+                    <div class="symbol-info">
+                        <h4>Process (Proses)</h4>
+                        <p>Bentuk persegi panjang. Menandakan suatu proses, tindakan, atau operasi yang dilakukan.</p>
+                    </div>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-shape" style="background: rgba(239, 68, 68, 0.1); border: 2px solid var(--error); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"><span style="font-size: 0.65rem;">YA/TIDAK?</span></div>
+                    <div class="symbol-info">
+                        <h4>Decision (Keputusan)</h4>
+                        <p>Bentuk belah ketupat. Menandakan percabangan berdasarkan pertanyaan ya/tidak.</p>
+                    </div>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-shape" style="background: rgba(16, 185, 129, 0.1); border: 2px solid var(--success); clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);">INPUT</div>
+                    <div class="symbol-info">
+                        <h4>Input/Output (Data)</h4>
+                        <p>Bentuk jajar genjang. Menandakan proses input data atau output hasil.</p>
+                    </div>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-shape" style="color: var(--gold-primary); font-size: 1.5rem;">→</div>
+                    <div class="symbol-info">
+                        <h4>Flow Line (Alur)</h4>
+                        <p>Bentuk panah. Menunjukkan arah aliran proses dari satu langkah ke langkah berikutnya.</p>
+                    </div>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-shape" style="background: rgba(212, 175, 55, 0.1); border: 2px solid var(--gold-primary); border-radius: 50%; font-size: 0.7rem;">A</div>
+                    <div class="symbol-info">
+                        <h4>Connector (Penghubung)</h4>
+                        <p>Bentuk lingkaran kecil. Menghubungkan bagian flowchart yang terputus atau antar halaman.</p>
+                    </div>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-shape" style="background: rgba(168, 85, 247, 0.1); border: 2px solid #A855F7; border-left: 4px solid #A855F7; border-radius: 4px; font-size: 0.7rem;">DATA</div>
+                    <div class="symbol-info">
+                        <h4>Document (Dokumen)</h4>
+                        <p>Bentuk seperti kertas berombak di bawah. Menandakan dokumen atau laporan yang dihasilkan.</p>
+                    </div>
+                </div>
+
+                <div class="symbol-card">
+                    <div class="symbol-shape" style="background: rgba(59, 130, 246, 0.1); border: 2px solid #3B82F6; border-radius: 4px; font-size: 0.7rem;">DATABASE</div>
+                    <div class="symbol-info">
+                        <h4>Database (Penyimpanan)</h4>
+                        <p>Bentuk silinder. Menandakan penyimpanan data di database atau media penyimpanan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-box">
+                <p><strong>Rumus Membaca Diagram Alir:</strong></p>
+                <p>MULAI → INPUT → PROSES → KEPUTUSAN → OUTPUT → SELESAI</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN C ============ -->
+        <div class="section-header">
+            <div class="section-letter">C</div>
+            <div>
+                <h2>Langkah Membaca Diagram Alir</h2>
+                <p>Teknik sistematis memahami instruksi dalam flowchart</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Agar dapat memahami instruksi dalam diagram alir secara utuh, siswa perlu mengikuti langkah-langkah sistematis berikut:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📋 7 Langkah Membaca Diagram Alir</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Langkah</th>
+                        <th>Kegiatan</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Baca Judul</strong></td>
+                        <td>Memahami topik diagram</td>
+                        <td>Judul menjelaskan proses apa yang disajikan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Identifikasi Simbol</strong></td>
+                        <td>Kenali setiap simbol yang digunakan</td>
+                        <td>Pastikan memahami makna setiap bentuk.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Ikuti Alur Panah</strong></td>
+                        <td>Telusuri arah aliran dari awal hingga akhir</td>
+                        <td>Mulai dari "MULAI" dan ikuti panah.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Pahami Percabangan</strong></td>
+                        <td>Analisis simbol keputusan (YA/TIDAK)</td>
+                        <td>Setiap cabang memiliki konsekuensi berbeda.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Catat Kosakata Teknis</strong></td>
+                        <td>Identifikasi istilah khusus dalam diagram</td>
+                        <td>Cari arti kata di kamus jika belum paham.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Rangkum Proses</strong></td>
+                        <td>Tuliskan kembali proses dalam bentuk narasi</td>
+                        <td>Ubah visual menjadi kalimat utuh.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Verifikasi Pemahaman</strong></td>
+                        <td>Cek apakah alur logis dan lengkap</td>
+                        <td>Pastikan tidak ada langkah yang terlewat.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>💡 Tips Praktis:</strong></p>
+                <p>Jika menemukan kosakata teknis yang tidak dipahami (misalnya: <em>modem, router, enkripsi, bandwidth, server</em>), jangan langsung menyerah! Cari artinya di kamus atau tanyakan pada guru. Memahami kosakata teknis adalah bagian penting dari literasi digital.</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN D ============ -->
+        <div class="section-header">
+            <div class="section-letter">D</div>
+            <div>
+                <h2>Mencari Arti Kata dalam Konteks Diagram</h2>
+                <p>Teknik memahami kosakata teknis berdasarkan konteks diagram alir</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Dalam diagram alir bertema komunikasi, sering ditemukan <strong>kosakata teknis</strong> yang mungkin belum familiar. Berikut strategi untuk memahami artinya berdasarkan konteks:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🔍 5 Strategi Mencari Arti Kata dalam Diagram Alir</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Strategi</th>
+                        <th>Penjelasan</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Konteks Kalimat</strong></td>
+                        <td>Perhatikan kata-kata di sekitar kata yang tidak dipahami.</td>
+                        <td>"<em>Enkripsi</em> data sebelum dikirim" → enkripsi = proses mengamankan data.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Posisi dalam Alur</strong></td>
+                        <td>Lihat posisi simbol dalam diagram untuk menebak fungsi.</td>
+                        <td>Simbol sebelum "kirim pesan" → kemungkinan "tulis pesan".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Akar Kata</strong></td>
+                        <td>Analisis asal kata (Latin, Yunani, Inggris, Arab).</td>
+                        <td>"Tele-komunikasi" → tele = jauh, komunikasi = berhubungan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Kamus & Referensi</strong></td>
+                        <td>Cek KBBI, kamus teknis, atau sumber terpercaya.</td>
+                        <td>Cari "modem" di KBBI Daring.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Diskusi dengan Teman/Guru</strong></td>
+                        <td>Tanyakan kepada yang lebih memahami.</td>
+                        <td>Diskusi kelompok tentang istilah teknis.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">📚 Kosakata Teknis dalam Diagram Alir Komunikasi</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Kata Teknis</th>
+                        <th>Asal Kata</th>
+                        <th>Arti</th>
+                        <th>Konteks dalam Diagram</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Transmisi</strong></td>
+                        <td>Latin: <em>transmittere</em></td>
+                        <td>Pengiriman sinyal/data</td>
+                        <td>Proses mengirim pesan melalui media.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Resepsi</strong></td>
+                        <td>Latin: <em>receptio</em></td>
+                        <td>Penerimaan pesan</td>
+                        <td>Langkah penerima mendapat pesan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enkripsi</strong></td>
+                        <td>Yunani: <em>kryptos</em> (tersembunyi)</td>
+                        <td>Pengkodean data agar aman</td>
+                        <td>Proses mengamankan pesan sebelum dikirim.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dekripsi</strong></td>
+                        <td>Kebalikan dari enkripsi</td>
+                        <td>Pembukaan kode data</td>
+                        <td>Penerima membuka kode pesan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modem</strong></td>
+                        <td>Singkatan: <em>modulator-demodulator</em></td>
+                        <td>Alat pengubah sinyal digital-analog</td>
+                        <td>Perangkat yang menghubungkan komputer ke internet.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Router</strong></td>
+                        <td>Inggris: <em>route</em> (rute)</td>
+                        <td>Alat pengarah lalu lintas data</td>
+                        <td>Perangkat yang mengirim data ke tujuan yang tepat.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Server</strong></td>
+                        <td>Inggris: <em>serve</em> (melayani)</td>
+                        <td>Komputer penyedia layanan</td>
+                        <td>Komputer pusat yang menyimpan data.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bandwidth</strong></td>
+                        <td>Inggris: <em>band</em> + <em>width</em></td>
+                        <td>Kapasitas maksimum transfer data</td>
+                        <td>Kecepatan koneksi internet.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Protokol</strong></td>
+                        <td>Yunani: <em>protokollon</em></td>
+                        <td>Aturan standar komunikasi</td>
+                        <td>Kesepakatan format data antar perangkat.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Algoritma</strong></td>
+                        <td>Arab: <em>al-Khawarizmi</em></td>
+                        <td>Urutan logis penyelesaian masalah</td>
+                        <td>Langkah-langkah sistematis dalam diagram.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>💡 Fakta Menarik:</strong></p>
+                <p>Kata <strong>"algoritma"</strong> berasal dari nama ilmuwan Muslim <strong>Abu Abdullah Muhammad ibnu Musa al-Khawarizmi</strong> (780-850 M), seorang matematikawan Persia yang menulis kitab <em>Al-Jabar wa al-Muqabalah</em>. Nama beliau dilatinisasi menjadi <em>Algoritmi</em>, yang kemudian menjadi asal kata "algoritma" dalam bahasa modern. Ini menunjukkan kontribusi besar peradaban Islam terhadap ilmu komputer modern!</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN E ============ -->
+        <div class="section-header">
+            <div class="section-letter">E</div>
+            <div>
+                <h2>Contoh Diagram Alir: Proses Komunikasi</h2>
+                <p>Teladani diagram alir tentang proses pengiriman pesan digital</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Berikut contoh diagram alir tentang <strong>proses pengiriman pesan digital</strong> yang memadukan konsep sejarah komunikasi dengan teknologi modern:</p>
+            
+            <div class="flowchart-container">
+                <h3 class="flowchart-title">📧 Alur Pengiriman Email</h3>
+                <div class="flowchart">
+                    <div class="flow-node flow-start">MULAI</div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                    
+                    <div class="flow-node flow-io">Pengguna menulis pesan email</div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                    
+                    <div class="flow-node flow-process">Sistem melakukan enkripsi data</div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                    
+                    <div class="flow-node flow-io">Email dikirim ke server pengirim</div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                    
+                    <div class="flow-node flow-process">Router mencari alamat tujuan</div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                    
+                    <div class="flow-node flow-decision">
+                        <div class="flow-decision-text">Alamat valid?</div>
+                    </div>
+                    <div class="flow-label">YA ← → TIDAK</div>
+                    
+                    <div style="display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; width: 100%; margin-top: 0.5rem;">
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <div class="flow-node flow-process" style="min-width: 180px;">Email diteruskan ke server penerima</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-process" style="min-width: 180px;">Dekripsi data di server penerima</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-io" style="min-width: 180px;">Penerima membaca email</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-end" style="min-width: 180px;">SELESAI</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <div class="flow-node flow-process" style="min-width: 180px; border-color: var(--error);">Kirim notifikasi error</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-io" style="min-width: 180px; border-color: var(--error);">Pengguna memperbaiki alamat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🔍 Analisis Diagram Alir di Atas</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Elemen</th>
+                        <th>Simbol yang Digunakan</th>
+                        <th>Makna</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>MULAI / SELESAI</strong></td>
+                        <td>Terminal (oval)</td>
+                        <td>Awal dan akhir proses pengiriman email.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Menulis pesan, enkripsi, dll</strong></td>
+                        <td>Process (persegi panjang)</td>
+                        <td>Tindakan/proses yang dilakukan sistem.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Input/output data</strong></td>
+                        <td>Input/Output (jajar genjang)</td>
+                        <td>Data masuk (pesan ditulis) atau keluar (email dibaca).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alamat valid?</strong></td>
+                        <td>Decision (belah ketupat)</td>
+                        <td>Percabangan berdasarkan kondisi ya/tidak.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Panah</strong></td>
+                        <td>Flow line</td>
+                        <td>Arah aliran proses.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📝 Narasi dari Diagram Alir</h4>
+            <div class="example-box">
+                <p><strong>Proses pengiriman email dimulai</strong> ketika pengguna menulis pesan. <em>Kemudian</em>, sistem melakukan enkripsi data untuk keamanan. <em>Setelah itu</em>, email dikirim ke server pengirim. <em>Selanjutnya</em>, router mencari alamat tujuan. <em>Jika</em> alamat valid, email diteruskan ke server penerima, didekripsi, dan dapat dibaca oleh penerima. <em>Namun jika</em> alamat tidak valid, sistem mengirim notifikasi error dan pengguna harus memperbaiki alamat. <em>Akhirnya</em>, proses selesai.</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN F ============ -->
+        <div class="section-header">
+            <div class="section-letter">F</div>
+            <div>
+                <h2>Contoh Diagram Alir: Sejarah Komunikasi</h2>
+                <p>Diagram alir proses pengiriman pesan dari era telegraf hingga digital</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Sebagai kelanjutan dari Pertemuan 17 tentang sejarah komunikasi, berikut diagram alir yang membandingkan proses pengiriman pesan pada dua era berbeda:</p>
+            
+            <div class="flowchart-container">
+                <h3 class="flowchart-title">📮 Perbandingan: Surat Pos vs Email</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <h4 style="color: var(--gold-light); text-align: center; margin-bottom: 1rem;">📜 Era Surat Pos (1800-an)</h4>
+                        <div class="flowchart">
+                            <div class="flow-node flow-start" style="min-width: 150px; font-size: 0.85rem;">MULAI</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-io" style="min-width: 150px; font-size: 0.8rem;">Tulis surat di kertas</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-process" style="min-width: 150px; font-size: 0.8rem;">Masukkan ke amplop</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-io" style="min-width: 150px; font-size: 0.8rem;">Tempel perangko</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-process" style="min-width: 150px; font-size: 0.8rem;">Antar ke kantor pos</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-process" style="min-width: 150px; font-size: 0.8rem;">Dikirim via kereta/kapal</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-io" style="min-width: 150px; font-size: 0.8rem;">Penerima membaca</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-end" style="min-width: 150px; font-size: 0.85rem;">SELESAI</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--gold-light); text-align: center; margin-bottom: 1rem;">💻 Era Digital (2020-an)</h4>
+                        <div class="flowchart">
+                            <div class="flow-node flow-start" style="min-width: 150px; font-size: 0.85rem;">MULAI</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-io" style="min-width: 150px; font-size: 0.8rem;">Ketik pesan di HP</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-process" style="min-width: 150px; font-size: 0.8rem;">Enkripsi otomatis</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-io" style="min-width: 150px; font-size: 0.8rem;">Kirim via internet</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-process" style="min-width: 150px; font-size: 0.8rem;">Router cari tujuan</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-process" style="min-width: 150px; font-size: 0.8rem;">Server terima & dekripsi</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-io" style="min-width: 150px; font-size: 0.8rem;">Notifikasi ke penerima</div>
+                            <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                            <div class="flow-node flow-end" style="min-width: 150px; font-size: 0.85rem;">SELESAI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📊 Perbandingan Dua Era</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Surat Pos (1800-an)</th>
+                        <th>Email (2020-an)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Media</strong></td>
+                        <td>Kertas, tinta, amplop</td>
+                        <td>Perangkat digital, internet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Waktu Tempuh</strong></td>
+                        <td>Hari hingga minggu</td>
+                        <td>Hitungan detik</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jarak</strong></td>
+                        <td>Terbatas oleh transportasi</td>
+                        <td>Seluruh dunia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Keamanan</strong></td>
+                        <td>Segel lilin, mudah dibaca orang lain</td>
+                        <td>Enkripsi digital, lebih aman</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biaya</strong></td>
+                        <td>Perangko, ongkos kirim</td>
+                        <td>Hampir gratis (hanya kuota)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jumlah Langkah</strong></td>
+                        <td>7 langkah</td>
+                        <td>7 langkah (lebih otomatis)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN G ============ -->
+        <div class="section-header">
+            <div class="section-letter">G</div>
+            <div>
+                <h2>Kesalahan Umum & Referensi</h2>
+                <p>Hindari kesalahan saat membaca/membuat diagram alir, serta sumber pendukung</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Banyak siswa yang masih melakukan kesalahan saat membaca atau membuat diagram alir. Berikut beberapa kesalahan umum beserta solusinya:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Dampak</th>
+                        <th>Solusi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Menggunakan simbol yang salah</td>
+                        <td>Diagram tidak sesuai standar internasional.</td>
+                        <td>Pelajari simbol standar ANSI/ISO.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Panah tidak konsisten</td>
+                        <td>Alur proses membingungkan.</td>
+                        <td>Pastikan semua panah mengalir satu arah.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Tidak ada simbol MULAI/SELESAI</td>
+                        <td>Proses tidak memiliki batas jelas.</td>
+                        <td>Selalu mulai dengan "MULAI" dan akhiri dengan "SELESAI".</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Teks dalam simbol terlalu panjang</td>
+                        <td>Diagram sulit dibaca.</td>
+                        <td>Gunakan kalimat singkat dan padat.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Tidak memahami kosakata teknis</td>
+                        <td>Makna diagram tidak tertangkap.</td>
+                        <td>Cari arti di kamus atau tanya guru.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Percabangan tidak logis</td>
+                        <td>Alur tidak masuk akal.</td>
+                        <td>Pastikan setiap cabang memiliki konsekuensi jelas.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">📚 Referensi Pendukung</h4>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Gilb, T. & Weinberg, G. (1993). <em>Current Issues in Software Engineering</em>. New York: Van Nostrand.</li>
+                <li>Tufte, Edward R. (2001). <em>The Visual Display of Quantitative Information</em>. Cheshire: Graphics Press.</li>
+                <li>ANSI/ISO. (2020). <em>Standard Symbols for Flowcharts</em>. International Organization for Standardization.</li>
+                <li>Kementrian Komunikasi dan Informatika. (2020). <em>Literasi Digital untuk Pelajar</em>. Jakarta: Kominfo.</li>
+                <li>Al-Khawarizmi Foundation. (2023). <em>The Father of Algorithms</em>. Diakses dari alkhwrazmi.org.</li>
+            </ul>
+        </div>
+
+        <!-- Kata Kunci -->
+        <div class="keywords-section">
+            <h3><i class="fas fa-key"></i> ◆ Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Diagram Alir</span>
+                <span class="keyword-tag">Flowchart</span>
+                <span class="keyword-tag">Simbol Flowchart</span>
+                <span class="keyword-tag">Terminal</span>
+                <span class="keyword-tag">Process</span>
+                <span class="keyword-tag">Decision</span>
+                <span class="keyword-tag">Input/Output</span>
+                <span class="keyword-tag">Kosakata Teknis</span>
+                <span class="keyword-tag">Enkripsi</span>
+                <span class="keyword-tag">Dekripsi</span>
+                <span class="keyword-tag">Router</span>
+                <span class="keyword-tag">Server</span>
+                <span class="keyword-tag">Algoritma</span>
+                <span class="keyword-tag">Al-Khawarizmi</span>
+                <span class="keyword-tag">Proses Komunikasi</span>
+                <span class="keyword-tag">Literasi Digital</span>
+            </div>
+        </div>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">إِنَّ ٱللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَن يُتْقِنَهُ</div>
+            <p class="quote-translation">"Sesungguhnya Allah mencintai seseorang yang jika melakukan suatu pekerjaan, dilakukan dengan <strong>itqan</strong> (tepat, terarah, jelas, dan tuntas)."</p>
+            <p class="quote-source">— HR. Thabrani (Hadis tentang profesionalitas & keteraturan)</p>
+        </div>
+
+        <!-- ============ UJI FORMATIF ============ -->
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 18</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+                
+                <div class="quiz-info">
+                    <div class="quiz-info-item">
+                        <i class="fas fa-list-ol"></i>
+                        <strong>PILIHAN GANDA</strong>
+                        <span>10 soal × 10 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <strong>ESSAY</strong>
+                        <span>5 soal × 20 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-trophy"></i>
+                        <strong>TOTAL MAKSIMAL</strong>
+                        <span>200 poin</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div style="background: var(--bg-card); border: 1px solid var(--gold-primary); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold-primary);"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal × 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Diagram alir (flowchart) adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Teks narasi yang panjang</label>
+                        <label><input type="radio" name="q1" value="B"> B. Representasi grafis dari suatu proses menggunakan simbol-simbol standar yang dihubungkan dengan panah</label>
+                        <label><input type="radio" name="q1" value="C"> C. Puisi modern bergambar</label>
+                        <label><input type="radio" name="q1" value="D"> D. Cerpen dengan ilustrasi</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Simbol berbentuk oval/lonjong dalam diagram alir disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Process</label>
+                        <label><input type="radio" name="q2" value="B"> B. Decision</label>
+                        <label><input type="radio" name="q2" value="C"> C. Terminal (Start/End)</label>
+                        <label><input type="radio" name="q2" value="D"> D. Input/Output</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Simbol berbentuk belah ketupat dalam diagram alir berfungsi untuk... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Menandai awal proses</label>
+                        <label><input type="radio" name="q3" value="B"> B. Menunjukkan percabangan berdasarkan keputusan ya/tidak</label>
+                        <label><input type="radio" name="q3" value="C"> C. Menampilkan input data</label>
+                        <label><input type="radio" name="q3" value="D"> D. Mengakhiri proses</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Simbol berbentuk jajar genjang dalam diagram alir melambangkan... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Proses</label>
+                        <label><input type="radio" name="q4" value="B"> B. Keputusan</label>
+                        <label><input type="radio" name="q4" value="C"> C. Input/Output data</label>
+                        <label><input type="radio" name="q4" value="D"> D. Terminal</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Kata "algoritma" berasal dari nama ilmuwan Muslim... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Ibnu Sina</label>
+                        <label><input type="radio" name="q5" value="B"> B. Al-Khawarizmi</label>
+                        <label><input type="radio" name="q5" value="C"> C. Al-Farabi</label>
+                        <label><input type="radio" name="q5" value="D"> D. Ibnu Rusyd</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Kata "enkripsi" dalam konteks komunikasi digital berarti... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Menghapus data</label>
+                        <label><input type="radio" name="q6" value="B"> B. Mengkodekan data agar aman</label>
+                        <label><input type="radio" name="q6" value="C"> C. Mengirim data</label>
+                        <label><input type="radio" name="q6" value="D"> D. Menerima data</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Langkah pertama dalam membaca diagram alir adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Langsung membuat kesimpulan</label>
+                        <label><input type="radio" name="q7" value="B"> B. Membaca judul untuk memahami topik diagram</label>
+                        <label><input type="radio" name="q7" value="C"> C. Mengkritik desainnya</label>
+                        <label><input type="radio" name="q7" value="D"> D. Menghitung jumlah simbol</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Router dalam diagram alir komunikasi digital berfungsi untuk... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Menghapus pesan</label>
+                        <label><input type="radio" name="q8" value="B"> B. Mencari dan mengarahkan data ke alamat tujuan</label>
+                        <label><input type="radio" name="q8" value="C"> C. Menyimpan data permanen</label>
+                        <label><input type="radio" name="q8" value="D"> D. Menulis pesan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Salah satu kesalahan umum dalam membuat diagram alir adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Menggunakan simbol standar ANSI/ISO</label>
+                        <label><input type="radio" name="q9" value="B"> B. Memulai dengan simbol "MULAI" dan mengakhiri dengan "SELESAI"</label>
+                        <label><input type="radio" name="q9" value="C"> C. Menggunakan simbol yang salah sehingga tidak sesuai standar</label>
+                        <label><input type="radio" name="q9" value="D"> D. Menggunakan panah yang konsisten</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa mempelajari diagram alir penting bagi siswa di era digital? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar bisa menghafal simbol</label>
+                        <label><input type="radio" name="q10" value="B"> B. Untuk melatih berpikir sistematis, memahami algoritma, dan membangun literasi digital</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar terlihat lebih pintar</label>
+                        <label><input type="radio" name="q10" value="D"> D. Untuk mengisi waktu luang</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal × 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan pengertian diagram alir menurut Gilb & Weinberg dan Kemendikbud! Sebutkan dan jelaskan 8 simbol standar dalam diagram alir beserta fungsinya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Jelaskan 7 langkah membaca diagram alir secara sistematis! Mengapa setiap langkah tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Jelaskan 5 strategi mencari arti kata dalam konteks diagram alir! Berikan masing-masing satu contoh penerapan! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan asal-usul kata "algoritma" dari ilmuwan Muslim Al-Khawarizmi! Sebutkan dan jelaskan 5 kosakata teknis dalam diagram alir komunikasi digital beserta artinya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK): Buatlah sebuah <strong>diagram alir</strong> sederhana (minimal 8 simbol) tentang salah satu topik berikut: <br>
+                    (a) "Proses Mengirim Pesan WhatsApp"<br>
+                    (b) "Alur Pendaftaran TBM"<br>
+                    (c) "Proses Membuat Rendang"<br>
+                    (d) "Alur Komunikasi dari Pengirim ke Penerima"<br><br>
+                    Diagram harus memuat: <br>
+                    • Simbol MULAI dan SELESAI<br>
+                    • Minimal 3 simbol proses<br>
+                    • Minimal 1 simbol keputusan (percabangan)<br>
+                    • Minimal 1 simbol input/output<br>
+                    • Panah yang konsisten<br>
+                    • Judul yang jelas<br><br>
+                    Setelah membuat diagram, tuliskan <strong>narasi</strong> (minimal 1 paragraf) yang menjelaskan alur diagram tersebut dalam bentuk kalimat! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea" style="min-height: 300px;" placeholder="Tulis diagram alir Anda di sini (gunakan simbol teks seperti [MULAI], (PROSES), {KEPUTUSAN}, /INPUT/, dll) dan narasinya.
+
+Contoh format:
+[JUDUL: Proses Mengirim Pesan WhatsApp]
+
+[MULAI]
+   ↓
+/INPUT: Buka aplikasi WhatsApp/
+   ↓
+(PROSES: Pilih kontak)
+   ↓
+/INPUT: Ketik pesan/
+   ↓
+{KEPUTUSAN: Pesan sudah benar?}
+   ↓ YA              ↓ TIDAK
+(PROSES: Kirim)    (PROSES: Edit ulang)
+   ↓                    ↓
+[SELESAI]          (kembali ke langkah ketik)
+
+NARASI:
+Proses mengirim pesan WhatsApp dimulai ketika pengguna membuka aplikasi..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div class="footer-nav">
+            <a href="17.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 17</a>
+            <a href="index.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="19.html" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 19 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'C', q3: 'B', q4: 'C', q5: 'B',
+            q6: 'B', q7: 'B', q8: 'B', q9: 'C', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quizForm');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_18_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 18 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5 (Diagram Alir + Narasi): ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan18_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 18 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 18 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. DIAGRAM ALIR + NARASI:
+${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

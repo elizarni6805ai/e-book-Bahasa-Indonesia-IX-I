@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 21: Menyimak Teks Rekon Video & Mencatat Informasi | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+            --info: #3B82F6;
+            --video-red: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- TOP NAVIGATION --- */
+        .top-nav {
+            background: rgba(11, 15, 25, 0.98);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        .top-nav-brand {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .top-nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- HERO HEADER --- */
+        .hero-header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .hero-icon {
+            font-size: 4rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            position: relative;
+        }
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .author-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        .author-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+        }
+        .author-card-text { text-align: left; }
+        .author-card-text h4 {
+            font-size: 1rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.2rem;
+        }
+        .author-card-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- SECTION HEADER --- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+        .section-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            line-height: 1.2;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* --- CONTENT CARD --- */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- DEFINITION BOX --- */
+        .definition-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .definition-box::before {
+            content: '📌 DEFINISI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .definition-box p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* --- CONCEPT BOX --- */
+        .concept-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .concept-box::before {
+            content: '📌 KONSEP KUNCI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .concept-box p {
+            color: var(--gold-light);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* --- EXAMPLE BOX --- */
+        .example-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .example-box::before {
+            content: '💡 CONTOH NYATA';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--success);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--success);
+            border-radius: 20px;
+        }
+        .example-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .example-box strong { color: var(--gold-primary); }
+
+        /* --- VIDEO PLAYER BOX --- */
+        .video-player {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.02) 100%);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+            text-align: center;
+        }
+        .video-player::before {
+            content: '🎬 VIDEO PEMBELAJARAN';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--video-red);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--video-red);
+            border-radius: 20px;
+        }
+        .video-thumbnail {
+            background: linear-gradient(135deg, #1a1f2e 0%, #0B0F19 100%);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            margin: 1rem 0 1.5rem;
+            position: relative;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+        .video-play-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--video-red);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 0 10px rgba(239, 68, 68, 0.2);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0.2); }
+            50% { box-shadow: 0 0 0 20px rgba(239, 68, 68, 0.1); }
+        }
+        .video-play-icon i {
+            color: white;
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+        .video-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .video-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .video-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .video-meta i { color: var(--video-red); }
+        .video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--video-red) 0%, #B91C1C 100%);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .video-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3); }
+
+        /* --- CORNELL NOTE BOX --- */
+        .cornell-note {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+        .cornell-header {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .cornell-title {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+        .cornell-meta {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .cornell-body {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 300px;
+        }
+        .cornell-cue {
+            background: rgba(212, 175, 55, 0.03);
+            padding: 1.5rem;
+            border-right: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .cornell-cue h4 {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cornell-cue ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .cornell-cue ul li {
+            color: var(--gold-primary);
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.15);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .cornell-notes {
+            padding: 1.5rem;
+        }
+        .cornell-notes h4 {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cornell-notes ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .cornell-notes ul li {
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .cornell-notes ul li strong { color: var(--gold-primary); }
+        .cornell-summary {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            grid-column: 1 / -1;
+        }
+        .cornell-summary h4 {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cornell-summary p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* --- MIND MAP --- */
+        .mindmap-container {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.01) 100%);
+            border: 2px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        .mindmap-container::before {
+            content: '🧠 MIND MAPPING';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .mindmap-center {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 700;
+            max-width: 300px;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+        .mindmap-branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .mindmap-branch {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1rem;
+            border-left: 3px solid var(--gold-primary);
+        }
+        .mindmap-branch h5 {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .mindmap-branch p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* --- BENEFIT GRID --- */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.75rem;
+        }
+        .benefit-title {
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .benefit-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .keywords-section h3 {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        .islamic-quote::before, .islamic-quote::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+        .islamic-quote::before { top: 15px; left: 20px; }
+        .islamic-quote::after { bottom: 15px; right: 20px; }
+        .arabic-text {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-family: 'Traditional Arabic', serif;
+            line-height: 1.8;
+        }
+        .quote-translation {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .quote-source {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .quiz-header h2 {
+            color: var(--gold-primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .quiz-info-item {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        .quiz-info-item i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info-item strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        .quiz-info-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label {
+            display: block;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 120px; resize: vertical; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .question-points {
+            float: right;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .options input[type="radio"] {
+            accent-color: var(--gold-primary);
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold-primary);
+        }
+        .btn-success {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+        .footer-nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .top-nav { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+            .section-header { flex-direction: column; text-align: center; }
+            .cornell-body { grid-template-columns: 1fr; }
+            .cornell-cue { border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-brand">
+            <i class="fas fa-book-open"></i> Bahasa Indonesia Kelas IX
+        </div>
+        <div class="top-nav-links">
+            <a href="20.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 20</a>
+            <a href="index.html" class="nav-btn"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="22.html" class="nav-btn">Pertemuan 22 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <span class="hero-badge">Pertemuan 21</span>
+        <div class="hero-icon"><i class="fas fa-video"></i></div>
+        <h1 class="hero-title">Menyimak Teks Rekon Video &<br>Mencatat Informasi Penting</h1>
+        <p class="hero-subtitle">
+            Mengasah keterampilan menyimak teks rekon faktual dalam bentuk video —
+            memadukan literasi visual, auditori, dan catatan terstruktur untuk
+            menangkap informasi penting secara efektif dan sistematis.
+        </p>
+        <div class="author-card">
+            <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+            <div class="author-card-text">
+                <h4>Elizarni, S.Pd.</h4>
+                <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- ============ BAGIAN A ============ -->
+        <div class="section-header">
+            <div class="section-letter">A</div>
+            <div>
+                <h2>Hakikat Menyimak Teks Rekon Video</h2>
+                <p>Memahami pengertian dan kedudukan menyimak video dalam pembelajaran teks rekon</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p><strong>Menyimak teks rekon video</strong> adalah kegiatan mendengarkan dan memperhatikan tayangan video yang menyajikan urutan peristiwa masa lalu berdasarkan fakta sejarah, dengan tujuan menangkap informasi penting secara utuh dan akurat. Berbeda dengan menyimak teks tertulis, menyimak video melibatkan <strong>multisensori</strong> — penglihatan (visual), pendengaran (auditori), dan kadang kinestetik (mencatat).</p>
+            
+            <div class="definition-box">
+                <p><strong>Menyimak Teks Rekon Video</strong> adalah proses menyerap informasi dari tayangan video yang berisi urutan peristiwa faktual masa lalu, dengan melibatkan perhatian penuh terhadap unsur audio (narasi, musik, efek suara) dan visual (gambar, teks, animasi, grafik) untuk menangkap informasi penting secara sistematis.</p>
+            </div>
+
+            <div style="background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--gold-primary); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+                <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;"><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Henry Guntur Tarigan (2008)</strong> mendefinisikan menyimak sebagai suatu proses kegiatan mendengarkan lambang-lambang lisan dengan penuh perhatian, pemahaman, apresiasi, serta interpretasi untuk memperoleh informasi, menangkap isi, serta memahami makna komunikasi.</p>
+                <p style="margin-top: 0.5rem;"><strong>Anderson & Krathwohl (2001)</strong> dalam Taksonomi Bloom Revisi menyatakan bahwa menyimak video merupakan bentuk <em>multimodal learning</em> yang melibatkan lebih dari satu indera, sehingga meningkatkan daya ingat hingga 65% dibandingkan teks tertulis saja.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menambahkan bahwa menyimak video teks rekon merupakan bagian dari literasi multimodal yang harus dikuasai siswa di abad ke-21, di mana informasi tidak hanya disajikan dalam bentuk teks, tetapi juga video, infografik, dan media digital lainnya.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">🌟 Manfaat Menyimak Teks Rekon Video</h4>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <div class="benefit-title">Daya Ingat Tinggi</div>
+                    <div class="benefit-desc">Kombinasi audio-visual meningkatkan retensi informasi hingga 65%.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-eye"></i></div>
+                    <div class="benefit-title">Literasi Visual</div>
+                    <div class="benefit-desc">Melatih kemampuan membaca gambar, grafik, dan animasi.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-ear-listen"></i></div>
+                    <div class="benefit-title">Keterampilan Menyimak</div>
+                    <div class="benefit-desc">Meningkatkan kemampuan menangkap informasi dari narasi lisan.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-pen-fancy"></i></div>
+                    <div class="benefit-title">Keterampilan Mencatat</div>
+                    <div class="benefit-desc">Belajar mencatat informasi penting secara sistematis dan cepat.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN B ============ -->
+        <div class="section-header">
+            <div class="section-letter">B</div>
+            <div>
+                <h2>Menyimak Teks Tertulis vs Video</h2>
+                <p>Memahami perbedaan mendasar antara kedua jenis menyimak</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Menyimak teks rekon dalam bentuk tertulis dan video memiliki perbedaan mendasar dari segi proses, unsur yang diserap, dan strategi yang digunakan. Memahami perbedaan ini akan membantu siswa memilih strategi yang tepat.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📊 Perbandingan Menyimak Teks Tertulis dan Video</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Teks Tertulis</th>
+                        <th>Video</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Modalitas</strong></td>
+                        <td>Visual (teks saja)</td>
+                        <td>Multimodal (audio + visual + teks)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kecepatan</strong></td>
+                        <td>Dapat diatur sendiri (baca cepat/lambat)</td>
+                        <td>Mengikuti kecepatan video (bisa di-pause)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unsur Emosional</strong></td>
+                        <td>Terbatas pada imajinasi pembaca</td>
+                        <td>Kaya: musik, intonasi narator, ekspresi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Informasi Visual</strong></td>
+                        <td>Hanya teks, kadang ilustrasi</td>
+                        <td>Video, animasi, grafik, foto, peta</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Daya Ingat</strong></td>
+                        <td>20-30% (hanya teks)</td>
+                        <td>65% (audio + visual)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strategi Mencatat</strong></td>
+                        <td>Membaca ulang, menandai, meringkas</td>
+                        <td>Pause, rewind, mencatat poin kunci</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tantangan</strong></td>
+                        <td>Membutuhkan konsentrasi membaca</td>
+                        <td>Informasi datang cepat, mudah terlewat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contoh Media</strong></td>
+                        <td>Buku, artikel, jurnal</td>
+                        <td>YouTube, dokumenter, video edukasi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="concept-box">
+                <p><strong>Prinsip Edgar Dale's Cone of Experience:</strong></p>
+                <p>Yang DIBACA → 10% diingat<br>
+                Yang DIDENGAR → 20% diingat<br>
+                Yang DILIHAT → 30% diingat<br>
+                Yang DILIHAT + DIDENGAR (VIDEO) → 65% diingat</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN C ============ -->
+        <div class="section-header">
+            <div class="section-letter">C</div>
+            <div>
+                <h2>Langkah-Langkah Menyimak Video Teks Rekon</h2>
+                <p>Teknik sistematis menyimak video untuk menangkap informasi secara optimal</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Agar menyimak video teks rekon berjalan efektif dan menghasilkan pemahaman yang utuh, siswa perlu mengikuti langkah-langkah sistematis berikut:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📋 3 Tahap Menyimak Video Teks Rekon</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Tahap</th>
+                        <th>Kegiatan</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Pra-Menyimak</strong></td>
+                        <td>Persiapan sebelum menonton</td>
+                        <td>Siapkan alat tulis, baca judul, prediksi isi, siapkan template catatan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Saat Menyimak</strong></td>
+                        <td>Menonton dengan aktif</td>
+                        <td>Perhatikan narasi, gambar, teks, grafik. Catat poin kunci. Pause jika perlu.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Pasca-Menyimak</strong></td>
+                        <td>Refleksi dan verifikasi</td>
+                        <td>Review catatan, lengkapi yang terlewat, diskusikan dengan teman, simpulkan.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">🎯 8 Langkah Detail Menyimak Video</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Langkah</th>
+                        <th>Kegiatan</th>
+                        <th>Tips Praktis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Siapkan Alat</strong></td>
+                        <td>Siapkan buku catatan, pulpen, template</td>
+                        <td>Gunakan template Cornell atau mind map.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Baca Judul & Deskripsi</strong></td>
+                        <td>Pahami topik video sebelum menonton</td>
+                        <td>Baca judul, deskripsi, durasi video.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Tonton Sekilas (Preview)</strong></td>
+                        <td>Putar video 30 detik pertama untuk gambaran umum</td>
+                        <td>Tangkap topik utama dan gaya penyajian.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Tonton dengan Fokus</strong></td>
+                        <td>Tonton video secara utuh dengan perhatian penuh</td>
+                        <td>Jangan multitasking, fokus pada narasi & visual.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Catat Poin Kunci</strong></td>
+                        <td>Tulis informasi penting saat menonton</td>
+                        <td>Gunakan singkatan, simbol, kata kunci.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Pause & Rewind</strong></td>
+                        <td>Berhenti atau putar ulang jika ada informasi penting</td>
+                        <td>Jangan ragu untuk pause dan catat detail.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Review Catatan</strong></td>
+                        <td>Periksa catatan setelah video selesai</td>
+                        <td>Lengkapi yang terlewat, perbaiki yang kurang jelas.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8. Simpulkan & Diskusikan</strong></td>
+                        <td>Buat simpulan dan diskusikan dengan teman</td>
+                        <td>Tulis simpulan 3-5 kalimat, diskusikan di kelompok.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>💡 Tips Praktis:</strong></p>
+                <p>Jika video terlalu cepat, manfaatkan fitur <strong>playback speed</strong> di YouTube (0.5x, 0.75x) untuk memperlambat. Jika ada bagian yang tidak dipahami, gunakan fitur <strong>subtitle/CC</strong> untuk membaca teks narasi secara langsung.</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN D ============ -->
+        <div class="section-header">
+            <div class="section-letter">D</div>
+            <div>
+                <h2>Teknik Mencatat Informasi Penting</h2>
+                <p>Metode-metode mencatat yang efektif untuk menyimak video</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Mencatat informasi dari video memerlukan teknik khusus karena informasi datang secara cepat dan simultan (audio + visual). Berikut tiga metode mencatat yang paling efektif:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📝 Metode 1: Cornell Note-Taking System</h4>
+            <p>Metode Cornell dikembangkan oleh <strong>Walter Pauk</strong> (Universitas Cornell) pada tahun 1950-an. Metode ini membagi halaman catatan menjadi tiga bagian: <em>cue column</em> (kolom kata kunci), <em>notes area</em> (area catatan utama), dan <em>summary</em> (simpulan).</p>
+
+            <div class="cornell-note">
+                <div class="cornell-header">
+                    <div class="cornell-title">📝 Catatan Cornell: Sejarah Komunikasi</div>
+                    <div class="cornell-meta">Tanggal: 27 Agustus 2026 | Durasi: 10 menit</div>
+                </div>
+                <div class="cornell-body">
+                    <div class="cornell-cue">
+                        <h4>Kata Kunci</h4>
+                        <ul>
+                            <li>Telegraf (1837)</li>
+                            <li>Telepon (1876)</li>
+                            <li>Radio (1895)</li>
+                            <li>TV (1927)</li>
+                            <li>Internet (1969)</li>
+                            <li>WWW (1991)</li>
+                            <li>Media Sosial</li>
+                        </ul>
+                    </div>
+                    <div class="cornell-notes">
+                        <h4>Catatan Utama</h4>
+                        <ul>
+                            <li><strong>1837:</strong> Samuel Morse menciptakan telegraf — awal komunikasi jarak jauh via kode titik-garis.</li>
+                            <li><strong>1876:</strong> Alexander Graham Bell mematenkan telepon — manusia bisa bicara jarak jauh.</li>
+                            <li><strong>1895:</strong> Marconi mengembangkan radio nirkabel di Italia — siaran massa pertama.</li>
+                            <li><strong>1927:</strong> TV lahir — gabungan suara + gambar.</li>
+                            <li><strong>1969:</strong> ARPANET (cikal bakal internet) oleh Dept. Pertahanan AS.</li>
+                            <li><strong>1991:</strong> Tim Berners-Lee menciptakan WWW — era informasi global.</li>
+                            <li><strong>2004-2026:</strong> Era media sosial (Facebook, Instagram, TikTok) — 5 miliar pengguna.</li>
+                        </ul>
+                    </div>
+                    <div class="cornell-summary">
+                        <h4>Simpulan</h4>
+                        <p>Komunikasi manusia berevolusi dari telegraf (1837) → telepon → radio → TV → internet → media sosial. Setiap revolusi memperluas jangkauan, mempercepat kecepatan, dan mengubah cara manusia berinteraksi. Media sosial (2004+) merupakan puncak evolusi dengan 5 miliar pengguna global pada 2026.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">🧠 Metode 2: Mind Mapping (Peta Pikiran)</h4>
+            <p>Mind mapping dikembangkan oleh <strong>Tony Buzan</strong> (1974). Metode ini menggunakan diagram bercabang dengan topik utama di tengah dan sub-topik di cabang-cabangnya. Cocok untuk menangkap struktur hierarkis informasi.</p>
+
+            <div class="mindmap-container">
+                <div class="mindmap-center">
+                    <i class="fas fa-broadcast-tower"></i> Sejarah Komunikasi
+                </div>
+                <div class="mindmap-branches">
+                    <div class="mindmap-branch">
+                        <h5>📡 Era Analog</h5>
+                        <p>Telegraf (1837), Telepon (1876), Radio (1895), TV (1927)</p>
+                    </div>
+                    <div class="mindmap-branch">
+                        <h5>💻 Era Digital</h5>
+                        <p>Internet (1969), WWW (1991), Email, Chat</p>
+                    </div>
+                    <div class="mindmap-branch">
+                        <h5>📱 Era Media Sosial</h5>
+                        <p>Facebook (2004), Instagram (2010), TikTok (2016), 5 miliar pengguna (2026)</p>
+                    </div>
+                    <div class="mindmap-branch">
+                        <h5>🔑 Penemu Kunci</h5>
+                        <p>Morse, Bell, Marconi, Berners-Lee, Zuckerberg</p>
+                    </div>
+                    <div class="mindmap-branch">
+                        <h5>🌍 Dampak</h5>
+                        <p>Konektivitas global, revolusi informasi, demokratisasi suara</p>
+                    </div>
+                    <div class="mindmap-branch">
+                        <h5>⚠️ Tantangan</h5>
+                        <p>Hoaks, cyberbullying, kecanduan, polarisasi</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">📊 Metode 3: Charting (Tabel)</h4>
+            <p>Metode charting menggunakan tabel untuk mencatat informasi secara terstruktur. Cocok untuk video yang membandingkan beberapa hal atau menyajikan data kronologis.</p>
+
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Tahun</th>
+                        <th>Penemuan</th>
+                        <th>Penemu</th>
+                        <th>Negara</th>
+                        <th>Dampak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1837</td>
+                        <td>Telegraf</td>
+                        <td>Samuel Morse</td>
+                        <td>Amerika Serikat</td>
+                        <td>Awal komunikasi jarak jauh</td>
+                    </tr>
+                    <tr>
+                        <td>1876</td>
+                        <td>Telepon</td>
+                        <td>Alexander Graham Bell</td>
+                        <td>Amerika Serikat</td>
+                        <td>Bicara jarak jauh real-time</td>
+                    </tr>
+                    <tr>
+                        <td>1895</td>
+                        <td>Radio</td>
+                        <td>Guglielmo Marconi</td>
+                        <td>Italia</td>
+                        <td>Siaran massa pertama</td>
+                    </tr>
+                    <tr>
+                        <td>1927</td>
+                        <td>Televisi</td>
+                        <td>Philo Farnsworth</td>
+                        <td>Amerika Serikat</td>
+                        <td>Audio + visual</td>
+                    </tr>
+                    <tr>
+                        <td>1969</td>
+                        <td>Internet</td>
+                        <td>ARPANET (DARPA)</td>
+                        <td>Amerika Serikat</td>
+                        <td>Jaringan global</td>
+                    </tr>
+                    <tr>
+                        <td>1991</td>
+                        <td>WWW</td>
+                        <td>Tim Berners-Lee</td>
+                        <td>Inggris</td>
+                        <td>Informasi untuk semua</td>
+                    </tr>
+                    <tr>
+                        <td>2004</td>
+                        <td>Facebook</td>
+                        <td>Mark Zuckerberg</td>
+                        <td>Amerika Serikat</td>
+                        <td>Era media sosial</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="concept-box">
+                <p><strong>Pemilihan Metode Mencatat:</strong></p>
+                <p>• Video NARATIF (cerita) → Gunakan <strong>Cornell Notes</strong><br>
+                • Video STRUKTUR (hierarki) → Gunakan <strong>Mind Map</strong><br>
+                • Video DATA (perbandingan) → Gunakan <strong>Charting/Tabel</strong><br>
+                • Video CAMPURAN → Gabungkan 2-3 metode</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN E ============ -->
+        <div class="section-header">
+            <div class="section-letter">E</div>
+            <div>
+                <h2>Video Pembelajaran: Sejarah Komunikasi</h2>
+                <p>Simak video berikut dan praktikkan teknik mencatat yang telah dipelajari</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Sebagai latihan, simaklah video pembelajaran berikut tentang sejarah komunikasi. Gunakan salah satu metode mencatat (Cornell, Mind Map, atau Charting) untuk menangkap informasi penting.</p>
+            
+            <div class="video-player">
+                <div class="video-thumbnail">
+                    <div class="video-play-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h3 class="video-title">"Dari Telegraf ke Media Sosial: Evolusi Komunikasi Manusia"</h3>
+                    <div class="video-meta">
+                        <span><i class="fas fa-clock"></i> 10:24 menit</span>
+                        <span><i class="fas fa-eye"></i> Video Edukasi</span>
+                        <span><i class="fas fa-closed-captioning"></i> Ada Subtitle</span>
+                    </div>
+                    <a href="#" class="video-btn"><i class="fas fa-play-circle"></i> Tonton Video</a>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">
+                        💡 Tips: Siapkan template catatan sebelum menonton. Pause di setiap poin penting!
+                    </p>
+                </div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📋 Transkrip Narasi Video (Ringkasan)</h4>
+            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 12px; padding: 1.5rem; margin: 1rem 0;">
+                <p style="color: var(--text-secondary); line-height: 2; font-style: italic;">
+                    "Komunikasi manusia telah mengalami evolusi panjang selama hampir dua abad. <strong>Pada tahun 1837</strong>, Samuel Morse menciptakan telegraf — alat komunikasi jarak jauh pertama yang menggunakan kode titik-garis. <strong>Tiga puluh sembilan tahun kemudian</strong>, tepatnya <strong>pada tahun 1876</strong>, Alexander Graham Bell mematenkan telepon di Amerika Serikat, memungkinkan manusia berbicara secara langsung tanpa bertemu.<br><br>
+                    <strong>Menjelang akhir abad ke-19</strong>, pada <strong>tahun 1895</strong>, Guglielmo Marconi mengembangkan radio nirkabel di Italia — membuka era siaran massa. <strong>Di awal abad ke-20</strong>, <strong>tahun 1927</strong>, televisi lahir, memadukan suara dan gambar untuk pertama kalinya.<br><br>
+                    <strong>Revolusi digital dimulai pada tahun 1969</strong> ketika Departemen Pertahanan AS meluncurkan ARPANET, cikal bakal internet. <strong>Puncaknya pada tahun 1991</strong>, Tim Berners-Lee menciptakan World Wide Web (WWW), yang membuat informasi dapat diakses siapa saja dari seluruh dunia.<br><br>
+                    <strong>Memasuki milenium ketiga</strong>, <strong>pada tahun 2004</strong>, Mark Zuckerberg meluncurkan Facebook — media sosial pertama yang revolusioner. Disusul Instagram (2010), dan TikTok (2016). <strong>Kini, pada tahun 2026</strong>, lebih dari 5 miliar orang di dunia terhubung melalui media sosial setiap hari."</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🎯 Informasi Penting yang Harus Dicatat</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Informasi Kunci</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tahun Penting</strong></td>
+                        <td>Tahun-tahun penemuan kunci</td>
+                        <td>1837, 1876, 1895, 1927, 1969, 1991, 2004, 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nama Tokoh</strong></td>
+                        <td>Penemu dan inovator utama</td>
+                        <td>Samuel Morse, A.G. Bell, Marconi, Berners-Lee, Zuckerberg</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nama Penemuan</strong></td>
+                        <td>Teknologi yang diciptakan</td>
+                        <td>Telegraf, telepon, radio, TV, internet, WWW, Facebook</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Negara Asal</strong></td>
+                        <td>Tempat penemuan dikembangkan</td>
+                        <td>Amerika Serikat, Italia, Inggris</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dampak</strong></td>
+                        <td>Pengaruh terhadap peradaban</td>
+                        <td>Komunikasi jarak jauh, siaran massa, era digital, media sosial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Statistik</strong></td>
+                        <td>Angka penting yang disebutkan</td>
+                        <td>5 miliar pengguna media sosial (2026)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN F ============ -->
+        <div class="section-header">
+            <div class="section-letter">F</div>
+            <div>
+                <h2>Template Catatan Informasi</h2>
+                <p>Format siap pakai untuk mencatat informasi dari video teks rekon</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Berikut template catatan yang dapat siswa gunakan saat menyimak video teks rekon. Template ini dirancang untuk menangkap informasi penting secara sistematis dan terstruktur.</p>
+            
+            <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0;">
+                <h3 style="font-family: 'Playfair Display', serif; color: var(--gold-primary); text-align: center; margin-bottom: 1.5rem;">📝 TEMPLATE CATATAN VIDEO TEKS REKON</h3>
+                
+                <div style="display: grid; gap: 1rem;">
+                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--gold-primary);">
+                        <strong style="color: var(--gold-light);">📌 JUDUL VIDEO:</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.25rem;">...........................................................</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--info);">
+                            <strong style="color: var(--info);">📅 DURASI:</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.25rem;">......... menit</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--info);">
+                            <strong style="color: var(--info);">👤 SUMBER:</strong>
+                            <p style="color: var(--text-secondary); margin-top: 0.25rem;">...........................</p>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--gold-primary);">
+                        <strong style="color: var(--gold-light);">🎯 TOPIK UTAMA:</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.25rem;">...........................................................</p>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--success);">
+                        <strong style="color: var(--success);">🔑 KATA KUNCI / KOSAKATA BARU:</strong>
+                        <ul style="color: var(--text-secondary); margin-top: 0.5rem; margin-left: 1.5rem;">
+                            <li>...................................</li>
+                            <li>...................................</li>
+                            <li>...................................</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--gold-primary);">
+                        <strong style="color: var(--gold-light);">📊 INFORMASI PENTING (5W+1H):</strong>
+                        <ul style="color: var(--text-secondary); margin-top: 0.5rem; margin-left: 1.5rem; line-height: 2;">
+                            <li><strong>WHAT</strong> (Apa): ...................................</li>
+                            <li><strong>WHO</strong> (Siapa): ...................................</li>
+                            <li><strong>WHEN</strong> (Kapan): ...................................</li>
+                            <li><strong>WHERE</strong> (Di mana): ...................................</li>
+                            <li><strong>WHY</strong> (Mengapa): ...................................</li>
+                            <li><strong>HOW</strong> (Bagaimana): ...................................</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--error);">
+                        <strong style="color: var(--error);">⏰ URUTAN PERISTIWA (KRONOLOGI):</strong>
+                        <ol style="color: var(--text-secondary); margin-top: 0.5rem; margin-left: 1.5rem; line-height: 2;">
+                            <li>Tahun ......... — ...................................</li>
+                            <li>Tahun ......... — ...................................</li>
+                            <li>Tahun ......... — ...................................</li>
+                            <li>Tahun ......... — ...................................</li>
+                        </ol>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: 8px; border-left: 3px solid #A855F7;">
+                        <strong style="color: #A855F7;">💭 REFLEKSI / OPINI PRIBADI:</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem; font-style: italic;">...........................................................</p>
+                    </div>
+
+                    <div style="background: rgba(212, 175, 55, 0.05); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--gold-primary);">
+                        <strong style="color: var(--gold-primary);">📝 SIMPULAN (3-5 kalimat):</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem; font-style: italic;">...........................................................</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <p><strong>💡 Tips Mengisi Template:</strong></p>
+                <p>• Jangan mencoba mencatat SEMUA yang diucapkan narator — fokus pada <strong>poin kunci</strong>.<br>
+                • Gunakan <strong>singkatan</strong> yang Anda pahami (misal: "thn" untuk tahun, "org" untuk orang).<br>
+                • Gunakan <strong>simbol</strong> (→ untuk "mengarah ke", ∴ untuk "karena itu", ∑ untuk "kesimpulan").<br>
+                • Jika ada bagian yang tidak jelas, beri tanda <strong>?</strong> dan tanyakan setelah video selesai.</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN G ============ -->
+        <div class="section-header">
+            <div class="section-letter">G</div>
+            <div>
+                <h2>Kesalahan Umum dalam Menyimak Video</h2>
+                <p>Hindari kesalahan-kesalahan berikut agar menyimak lebih efektif</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Banyak siswa yang masih melakukan kesalahan saat menyimak video teks rekon. Berikut beberapa kesalahan umum beserta solusinya:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Dampak</th>
+                        <th>Solusi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Tidak menyiapkan alat tulis</td>
+                        <td>Informasi penting terlewat.</td>
+                        <td>Siapkan buku, pulpen, template sebelum menonton.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Multitasking (main HP sambil nonton)</td>
+                        <td>Fokus terpecah, informasi tidak tertangkap.</td>
+                        <td>Fokus penuh pada video, jauhkan gangguan.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Mencatat semua yang diucapkan</td>
+                        <td>Catatan panjang, tidak efektif.</td>
+                        <td>Catat poin kunci, gunakan singkatan & simbol.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Tidak pause/rewind saat perlu</td>
+                        <td>Informasi detail terlewat.</td>
+                        <td>Jangan ragu pause untuk mencatat detail penting.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Tidak mereview catatan setelah video</td>
+                        <td>Catatan tidak lengkap, ada yang salah.</td>
+                        <td>Sisihkan 5 menit untuk review & lengkapi catatan.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Tidak membuat simpulan</td>
+                        <td>Pemahaman tidak utuh.</td>
+                        <td>Tulis simpulan 3-5 kalimat setelah menonton.</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Hanya mengandalkan ingatan</td>
+                        <td>Informasi cepat lupa (hanya 20% diingat).</td>
+                        <td>Catat selama menonton, review setelahnya.</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Tidak memanfaatkan subtitle/CC</td>
+                        <td>Kosakata teknis tidak tertangkap.</td>
+                        <td>Aktifkan subtitle untuk membantu pemahaman.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="concept-box">
+                <p><strong>Rumus Menyimak Video Efektif:</strong></p>
+                <p>PERSIAPAN + FOKUS PENUH + CATATAN PUNTI + REVIEW + SIMPULAN = PEMAHAMAN OPTIMAL</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN H ============ -->
+        <div class="section-header">
+            <div class="section-letter">H</div>
+            <div>
+                <h2>Referensi Pendukung</h2>
+                <p>Sumber-sumber akademik yang memperkuat materi pertemuan ini</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Tarigan, Henry Guntur. (2008). <em>Menyimak Sebagai Suatu Keterampilan Berbahasa</em>. Bandung: Angkasa.</li>
+                <li>Anderson, L.W. & Krathwohl, D.R. (2001). <em>A Taxonomy for Learning, Teaching, and Assessing</em>. New York: Longman.</li>
+                <li>Pauk, Walter. (1993). <em>How to Study in College</em>. Boston: Houghton Mifflin.</li>
+                <li>Buzan, Tony. (2010). <em>The Mind Map Book</em>. London: BBC Active.</li>
+                <li>Dale, Edgar. (1969). <em>Audio-Visual Methods in Teaching</em>. New York: Holt, Rinehart & Winston.</li>
+                <li>Mayer, Richard E. (2009). <em>Multimedia Learning</em>. Cambridge: Cambridge University Press.</li>
+                <li>Kementrian Komunikasi dan Informatika. (2021). <em>Panduan Literasi Digital untuk Pelajar</em>. Jakarta: Kominfo.</li>
+            </ul>
+        </div>
+
+        <!-- Kata Kunci -->
+        <div class="keywords-section">
+            <h3><i class="fas fa-key"></i> ◆ Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Menyimak</span>
+                <span class="keyword-tag">Teks Rekon</span>
+                <span class="keyword-tag">Video Pembelajaran</span>
+                <span class="keyword-tag">Mencatat</span>
+                <span class="keyword-tag">Cornell Notes</span>
+                <span class="keyword-tag">Mind Mapping</span>
+                <span class="keyword-tag">Charting</span>
+                <span class="keyword-tag">Multimodal Learning</span>
+                <span class="keyword-tag">Literasi Visual</span>
+                <span class="keyword-tag">5W+1H</span>
+                <span class="keyword-tag">Kata Kunci</span>
+                <span class="keyword-tag">Kronologi</span>
+                <span class="keyword-tag">Simpulan</span>
+                <span class="keyword-tag">Edgar Dale</span>
+                <span class="keyword-tag">Tony Buzan</span>
+            </div>
+        </div>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">فَبَشِّرْ عِبَادِ ٱلَّذِينَ يَسْتَمِعُونَ ٱلْقَوْلَ فَيَتَّبِعُونَ أَحْسَنَهُۥ</div>
+            <p class="quote-translation">"Maka berilah kabar gembira kepada hamba-hamba-Ku yang <strong>mendengarkan perkataan lalu mengikuti yang terbaik daripadanya</strong>."</p>
+            <p class="quote-source">— QS. Az-Zumar [39]: 17-18</p>
+        </div>
+
+        <!-- ============ UJI FORMATIF ============ -->
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 21</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+                
+                <div class="quiz-info">
+                    <div class="quiz-info-item">
+                        <i class="fas fa-list-ol"></i>
+                        <strong>PILIHAN GANDA</strong>
+                        <span>10 soal × 10 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <strong>ESSAY</strong>
+                        <span>5 soal × 20 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-trophy"></i>
+                        <strong>TOTAL MAKSIMAL</strong>
+                        <span>200 poin</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div style="background: var(--bg-card); border: 1px solid var(--gold-primary); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold-primary);"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal × 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Menurut Henry Guntur Tarigan, menyimak adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Kegiatan membaca teks dengan suara keras</label>
+                        <label><input type="radio" name="q1" value="B"> B. Proses mendengarkan lambang-lambang lisan dengan penuh perhatian untuk memperoleh informasi dan memahami makna</label>
+                        <label><input type="radio" name="q1" value="C"> C. Kegiatan menulis karangan ilmiah</label>
+                        <label><input type="radio" name="q1" value="D"> D. Proses menghafal teks</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Menurut Edgar Dale's Cone of Experience, informasi yang DILIHAT dan DIDENGAR (video) akan diingat sebesar... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. 10%</label>
+                        <label><input type="radio" name="q2" value="B"> B. 20%</label>
+                        <label><input type="radio" name="q2" value="C"> C. 30%</label>
+                        <label><input type="radio" name="q2" value="D"> D. 65%</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Metode mencatat yang membagi halaman menjadi tiga bagian (cue, notes, summary) disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Mind Mapping</label>
+                        <label><input type="radio" name="q3" value="B"> B. Charting</label>
+                        <label><input type="radio" name="q3" value="C"> C. Cornell Note-Taking System</label>
+                        <label><input type="radio" name="q3" value="D"> D. Outlining</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Mind Mapping dikembangkan oleh... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Walter Pauk</label>
+                        <label><input type="radio" name="q4" value="B"> B. Tony Buzan</label>
+                        <label><input type="radio" name="q4" value="C"> C. Edgar Dale</label>
+                        <label><input type="radio" name="q4" value="D"> D. Henry Guntur Tarigan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Langkah pertama dalam menyimak video teks rekon adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Langsung menonton video sampai selesai</label>
+                        <label><input type="radio" name="q5" value="B"> B. Menyiapkan alat tulis dan membaca judul video</label>
+                        <label><input type="radio" name="q5" value="C"> C. Mencatat semua yang diucapkan narator</label>
+                        <label><input type="radio" name="q5" value="D"> D. Mendiskusikan dengan teman</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Salah satu kesalahan umum saat menyimak video adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Menyiapkan template catatan</label>
+                        <label><input type="radio" name="q6" value="B"> B. Memanfaatkan fitur pause/rewind</label>
+                        <label><input type="radio" name="q6" value="C"> C. Multitasking (main HP sambil menonton)</label>
+                        <label><input type="radio" name="q6" value="D"> D. Membuat simpulan setelah menonton</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Metode mencatat yang paling cocok untuk video yang membandingkan beberapa hal adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Cornell Notes</label>
+                        <label><input type="radio" name="q7" value="B"> B. Mind Mapping</label>
+                        <label><input type="radio" name="q7" value="C"> C. Charting (Tabel)</label>
+                        <label><input type="radio" name="q7" value="D"> D. Outlining</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. 5W+1H yang digunakan untuk menangkap informasi penting dari video adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Who, What, Where, When, Why, How</label>
+                        <label><input type="radio" name="q8" value="B"> B. Who, What, Which, When, Why, How</label>
+                        <label><input type="radio" name="q8" value="C"> C. Who, What, Where, When, Which, How</label>
+                        <label><input type="radio" name="q8" value="D"> D. Who, What, Where, While, Why, How</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Mengapa review catatan setelah menonton video itu penting? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Agar catatan menjadi lebih panjang</label>
+                        <label><input type="radio" name="q9" value="B"> B. Untuk melengkapi informasi yang terlewat dan memperbaiki catatan yang kurang jelas</label>
+                        <label><input type="radio" name="q9" value="C"> C. Agar terlihat rajin</label>
+                        <label><input type="radio" name="q9" value="D"> D. Untuk mengisi waktu luang</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa menyimak video teks rekon penting dalam pembelajaran? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar siswa bisa menonton video tanpa tujuan</label>
+                        <label><input type="radio" name="q10" value="B"> B. Untuk melatih literasi multimodal, keterampilan menyimak, dan mencatat informasi penting secara sistematis</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar terlihat lebih pintar</label>
+                        <label><input type="radio" name="q10" value="D"> D. Untuk mengisi waktu luang</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal × 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan pengertian menyimak teks rekon video menurut Henry Guntur Tarigan dan Kemendikbud! Sebutkan 4 manfaat menyimak video teks rekon! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Buatlah tabel perbandingan antara menyimak teks tertulis dan menyimak video dari segi modalitas, kecepatan, unsur emosional, informasi visual, daya ingat, strategi mencatat, tantangan, dan contoh media! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Jelaskan 8 langkah detail menyimak video teks rekon secara sistematis! Mengapa setiap langkah tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan 3 metode mencatat (Cornell Notes, Mind Mapping, Charting)! Berikan kelebihan masing-masing metode dan kapan metode tersebut paling tepat digunakan! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK MENCATAT): Simaklah transkrip narasi video "Dari Telegraf ke Media Sosial: Evolusi Komunikasi Manusia" yang disajikan di materi. Buatlah catatan menggunakan <strong>METODE CORNELL</strong> yang memuat: <br>
+                    (a) Judul video, durasi, sumber<br>
+                    (b) Kata kunci (minimal 7)<br>
+                    (c) Catatan utama (minimal 7 poin penting dengan tahun dan nama tokoh)<br>
+                    (d) Simpulan (3-5 kalimat)<br><br>
+                    Gunakan format Cornell Notes yang telah dipelajari! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea" style="min-height: 300px;" placeholder="Tulis catatan Cornell Anda di sini...
+
+[JUDUL VIDEO]
+[DURASI]
+[SUMBER]
+
+KATA KUNCI:
+1. ...
+2. ...
+3. ...
+( dst )
+
+CATATAN UTAMA:
+• Tahun ... — ...
+• Tahun ... — ...
+• Tahun ... — ...
+( dst )
+
+SIMPULAN:
+..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div class="footer-nav">
+            <a href="20.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 20</a>
+            <a href="index.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="22.html" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 22 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'D', q3: 'C', q4: 'B', q5: 'B',
+            q6: 'C', q7: 'C', q8: 'A', q9: 'B', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quizForm');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_21_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 21 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5 (Catatan Cornell): ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan21_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 21 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 21 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. CATATAN CORNELL:
+${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 12: Teks Prosedur Infografik & Membaca Nyaring | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- INFOGRAPHIC DEMO --- */
+        .infographic-demo {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .infographic-demo h4 {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .info-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .info-step {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.25rem 0.75rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        .info-step-number {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .info-step-icon {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin: 0.75rem 0 0.5rem;
+        }
+        .info-step-label {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .info-step-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* --- READING BOX --- */
+        .reading-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0.02) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            color: var(--text-primary);
+            line-height: 2;
+            position: relative;
+        }
+        .reading-box::before {
+            content: '🎤';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        .reading-title {
+            display: block;
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .reading-box ol {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .reading-box ol li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 200px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="11.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 11</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="13.html" target="_blank" class="nav-btn">Pertemuan 13 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 12</span>
+            <h1 class="chapter-title">Teks Prosedur Infografik & Membaca Nyaring</h1>
+            <p class="chapter-desc">Menggali informasi dari teks prosedur yang disajikan dalam bentuk infografik visual, serta melatih keterampilan membaca nyaring untuk menyampaikan instruksi secara jelas, tepat, dan percaya diri di depan audiens.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Teks Prosedur Infografik -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-image"></i> A. Hakikat Teks Prosedur Berbasis Infografik</h3>
+            <p><strong>Teks prosedur infografik</strong> adalah teks prosedur yang disajikan dalam bentuk visual dengan memadukan unsur teks, ikon, diagram alir, ilustrasi, dan warna. Tujuannya agar langkah-langkah prosedur lebih mudah dipahami, menarik, dan cepat dicerna oleh pembaca.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Edward Tufte (2001)</strong> menyatakan bahwa infografik yang baik harus mampu menyajikan informasi kompleks secara visual sehingga pembaca dapat memahami alur dan makna dengan cepat tanpa harus membaca teks panjang.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menambahkan bahwa teks prosedur infografik merupakan bentuk modern dari teks instruksional yang menggabungkan kekuatan visual dan verbal untuk meningkatkan efektivitas komunikasi.</p>
+                <p style="margin-top: 0.5rem;"><strong>Stephen Few (2006)</strong> menegaskan bahwa kombinasi antara gambar dan teks dalam infografik prosedur dapat meningkatkan daya ingat pembaca hingga 65% dibandingkan teks biasa.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 12.1: Perbedaan Teks Prosedur Biasa vs Infografik</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Teks Prosedur Biasa</th>
+                        <th>Teks Prosedur Infografik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bentuk Penyajian</strong></td>
+                        <td>Teks naratif dengan penomoran langkah.</td>
+                        <td>Kombinasi teks, ikon, diagram, dan warna.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Daya Tarik Visual</strong></td>
+                        <td>Terbatas pada tipografi.</td>
+                        <td>Tinggi — menggunakan ilustrasi dan ikon.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kecepatan Pemahaman</strong></td>
+                        <td>Memerlukan waktu membaca lebih lama.</td>
+                        <td>Informasi dapat dipahami dalam hitungan detik.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Daya Ingat</strong></td>
+                        <td>20% dari yang dibaca.</td>
+                        <td>65% dari yang dilihat (visual).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kesesuaian Media</strong></td>
+                        <td>Buku, modul, makalah.</td>
+                        <td>Poster, media sosial, presentasi, mading.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Target Pembaca</strong></td>
+                        <td>Pembaca yang tekun dan fokus.</td>
+                        <td>Pembaca umum, termasuk yang sibuk.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Unsur Infografik Prosedur -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-palette"></i> B. Unsur-Unsur Teks Prosedur Infografik</h3>
+            <p>Infografik prosedur yang efektif terdiri atas beberapa unsur yang saling melengkapi. Setiap unsur memiliki fungsi spesifik dalam menyampaikan langkah-langkah secara visual.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 12.2: Unsur-Unsur Utama</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Unsur</th>
+                        <th>Fungsi</th>
+                        <th>Contoh dalam Prosedur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Judul</strong></td>
+                        <td>Menyampaikan topik prosedur secara singkat dan menarik.</td>
+                        <td>"7 Langkah Cuci Tangan yang Benar"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ikon Langkah</strong></td>
+                        <td>Menggambarkan setiap langkah secara visual.</td>
+                        <td>Ikon tangan di bawah keran air.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diagram Alir</strong></td>
+                        <td>Menunjukkan urutan dan alur prosedur.</td>
+                        <td>Panah dari langkah 1 ke langkah 2, dst.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Teks Singkat</strong></td>
+                        <td>Memberikan instruksi padat untuk setiap langkah.</td>
+                        <td>"Basahi tangan dengan air mengalir."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Angka Penomoran</strong></td>
+                        <td>Menegaskan urutan langkah.</td>
+                        <td>① ② ③ ④ ⑤</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Warna</strong></td>
+                        <td>Membedakan tahapan dan menarik perhatian.</td>
+                        <td>Hijau untuk langkah aman, merah untuk peringatan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ilustrasi Hasil</strong></td>
+                        <td>Menampilkan hasil akhir prosedur.</td>
+                        <td>Foto tangan bersih setelah dicuci.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Demo Infografik Prosedur -->
+            <div class="infographic-demo">
+                <h4><i class="fas fa-hand-sparkles"></i> Contoh Infografik Prosedur</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">"6 Langkah Cuci Tangan yang Benar Menurut WHO"</p>
+                <div class="info-steps">
+                    <div class="info-step">
+                        <div class="info-step-number">1</div>
+                        <div class="info-step-icon"><i class="fas fa-hand-holding-water"></i></div>
+                        <div class="info-step-label">Basahi Tangan</div>
+                        <div class="info-step-desc">Dengan air mengalir</div>
+                    </div>
+                    <div class="info-step">
+                        <div class="info-step-number">2</div>
+                        <div class="info-step-icon"><i class="fas fa-pump-soap"></i></div>
+                        <div class="info-step-label">Tuang Sabun</div>
+                        <div class="info-step-desc">Secukupnya</div>
+                    </div>
+                    <div class="info-step">
+                        <div class="info-step-number">3</div>
+                        <div class="info-step-icon"><i class="fas fa-hands"></i></div>
+                        <div class="info-step-label">Gosok Telapak</div>
+                        <div class="info-step-desc">Selama 20 detik</div>
+                    </div>
+                    <div class="info-step">
+                        <div class="info-step-number">4</div>
+                        <div class="info-step-icon"><i class="fas fa-hand-back"></i></div>
+                        <div class="info-step-label">Bersihkan Punggung</div>
+                        <div class="info-step-desc">Bergantian</div>
+                    </div>
+                    <div class="info-step">
+                        <div class="info-step-number">5</div>
+                        <div class="info-step-icon"><i class="fas fa-hand-fingers"></i></div>
+                        <div class="info-step-label">Bersihkan Jari</div>
+                        <div class="info-step-desc">Sela-sela jari</div>
+                    </div>
+                    <div class="info-step">
+                        <div class="info-step-number">6</div>
+                        <div class="info-step-icon"><i class="fas fa-faucet"></i></div>
+                        <div class="info-step-label">Bilas & Keringkan</div>
+                        <div class="info-step-desc">Dengan air bersih</div>
+                    </div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">Sumber: WHO, 2024 | Durasi total: minimal 40-60 detik</p>
+            </div>
+        </section>
+
+        <!-- Content C: Langkah Mendapatkan Informasi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-search"></i> C. Langkah Mendapatkan Informasi dari Infografik Prosedur</h3>
+            <p>Agar dapat memahami infografik prosedur secara utuh, siswa perlu melakukan analisis sistematis. Berikut langkah-langkahnya:</p>
+            
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li><strong>Baca Judul</strong> — Pahami topik prosedur yang disajikan.</li>
+                <li><strong>Amati Struktur Visual</strong> — Perhatikan alur, diagram, dan urutan ikon.</li>
+                <li><strong>Identifikasi Jumlah Langkah</strong> — Hitung berapa langkah yang disajikan.</li>
+                <li><strong>Baca Teks Setiap Langkah</strong> — Pahami instruksi singkat pada setiap tahap.</li>
+                <li><strong>Perhatikan Keterangan Tambahan</strong> — Tips, peringatan, durasi, atau takaran.</li>
+                <li><strong>Identifikasi Alat dan Bahan</strong> — Jika ada, catat apa saja yang dibutuhkan.</li>
+                <li><strong>Periksa Sumber</strong> — Pastikan informasi berasal dari sumber terpercaya.</li>
+                <li><strong>Simpulkan Inti Prosedur</strong> — Rangkum tujuan dan hasil akhir prosedur.</li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Pertanyaan Kritis saat Menganalisis</h4>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Apa tujuan prosedur ini?</li>
+                    <li>Siapa yang seharusnya mengikuti prosedur ini?</li>
+                    <li>Apakah langkah-langkahnya sudah berurutan dengan logis?</li>
+                    <li>Apakah ada langkah yang terlewat atau kurang jelas?</li>
+                    <li>Apakah visual (ikon/gambar) sesuai dengan instruksi teks?</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Content D: Contoh Analisis -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-file-alt"></i> D. Contoh Analisis Infografik Prosedur</h3>
+            <p>Mari kita analisis infografik "6 Langkah Cuci Tangan" di atas secara sistematis:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 12.3: Analisis Infografik "Cuci Tangan"</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek Analisis</th>
+                        <th>Temuan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Judul</strong></td>
+                        <td>"6 Langkah Cuci Tangan yang Benar Menurut WHO" — topik jelas, spesifik, dan mencantumkan sumber kredibel.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jumlah Langkah</strong></td>
+                        <td>6 langkah, sesuai standar WHO.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unsur Visual</strong></td>
+                        <td>Setiap langkah memiliki ikon yang relevan (air, sabun, tangan, keran).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Urutan</strong></td>
+                        <td>Logis dan kronologis — dari membasahi hingga mengeringkan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Keterangan Tambahan</strong></td>
+                        <td>Durasi total: 40-60 detik; sumber: WHO 2024.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Informasi yang Didapat</strong></td>
+                        <td>Cara cuci tangan yang benar membutuhkan 6 langkah dengan durasi minimal 40 detik.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Efektivitas</strong></td>
+                        <td>Sangat efektif — informasi dapat dipahami dalam 15 detik tanpa membaca teks panjang.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content E: Hakikat Membaca Nyaring -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-microphone-alt"></i> E. Hakikat Membaca Nyaring</h3>
+            <p><strong>Membaca nyaring</strong> (read aloud) adalah kegiatan membaca teks dengan suara lantang di depan audiens dengan tujuan menyampaikan isi teks secara jelas, tepat, dan menarik. Dalam konteks teks prosedur, membaca nyaring berfungsi untuk menyampaikan instruksi agar dapat diikuti oleh pendengar.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Henry Guntur Tarigan (2008)</strong> mendefinisikan membaca nyaring sebagai kegiatan membaca dengan suara keras yang bertujuan agar orang lain dapat mendengar dan memahami isi bacaan.</p>
+                <p style="margin-top: 0.5rem;"><strong>Farhad Malikany (2002)</strong> menambahkan bahwa membaca nyaring bukan sekadar "membaca dengan keras", melainkan seni menyampaikan pesan dengan intonasi, artikulasi, dan ekspresi yang tepat.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menegaskan bahwa dalam konteks teks prosedur, membaca nyaring harus menekankan pada <em>kejelasan instruksi</em>, <em>ketepatan penekanan</em> pada kata kerja imperatif, dan <em>tempo yang sesuai</em> agar pendengar dapat mengikuti langkah-langkah.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 12.4: Tujuan Membaca Nyaring Teks Prosedur</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Tujuan</th>
+                        <th>Manfaat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Menyampaikan instruksi dengan jelas</td>
+                        <td>Pendengar dapat mengikuti langkah tanpa melihat teks.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Melatih kepercayaan diri</td>
+                        <td>Siswa terbiasa berbicara di depan umum.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Melatih artikulasi dan intonasi</td>
+                        <td>Kemampuan berbicara menjadi lebih baik.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Memperkuat pemahaman isi</td>
+                        <td>Dengan membaca nyaring, siswa lebih memahami isi teks.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Mempersiapkan presentasi</td>
+                        <td>Dasar untuk presentasi dan demonstrasi di masa depan.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content F: Teknik Membaca Nyaring -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-sliders-h"></i> F. Teknik Membaca Nyaring Teks Prosedur</h3>
+            <p>Agar membaca nyaring berjalan efektif, diperlukan penguasaan beberapa teknik vokal dan nonvokal. Berikut teknik-teknik yang harus dikuasai:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 12.5: Teknik Membaca Nyaring</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Teknik</th>
+                        <th>Pengertian</th>
+                        <th>Penerapan dalam Teks Prosedur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Artikulasi</strong></td>
+                        <td>Kejelasan pengucapan setiap suku kata dan bunyi bahasa.</td>
+                        <td>Ucapkan "panaskan" dengan jelas, bukan "panasken".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Intonasi</strong></td>
+                        <td>Lagu kalimat atau naik-turunnya nada suara.</td>
+                        <td>Nada tegas pada kalimat perintah: "<em>Potonglah</em> bawang!"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Volume</strong></td>
+                        <td>Keras-lembutnya suara.</td>
+                        <td>Sesuaikan dengan ukuran ruangan dan jumlah pendengar.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Tempo</strong></td>
+                        <td>Cepat-lambatnya pembacaan.</td>
+                        <td>Langkah penting dibaca lambat; langkah sederhana boleh cepat.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Jeda</strong></td>
+                        <td>Pemberhentian sejenak antarbagian.</td>
+                        <td>Jeda setelah setiap langkah agar pendengar mencerna.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Ekspresi Wajah</strong></td>
+                        <td>Gestur wajah yang mendukung penyampaian.</td>
+                        <td>Senyum saat pembukaan, wajah serius saat peringatan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Kontak Mata</strong></td>
+                        <td>Menatap audiens saat membaca.</td>
+                        <td>Sesekali tatap pendengar untuk menjaga keterlibatan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8. Sikap Tubuh</strong></td>
+                        <td>Posisi tubuh saat membaca.</td>
+                        <td>Berdiri tegak, rileks, dan percaya diri.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-exclamation-circle"></i> Penekanan Khusus untuk Teks Prosedur</h4>
+                <p>Dalam membaca nyaring teks prosedur, berikan <strong>penekanan khusus</strong> pada:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 2;">
+                    <li><strong>Kata kerja imperatif</strong> — potonglah, aduklah, panaskan, tuangkan.</li>
+                    <li><strong>Keterangan waktu dan ukuran</strong> — "selama 5 menit", "secukupnya", "1 sendok teh".</li>
+                    <li><strong>Peringatan</strong> — "hati-hati", "jangan sampai", "awas".</li>
+                    <li><strong>Nomor langkah</strong> — bacakan dengan jelas untuk menjaga urutan.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Content G: Langkah-Langkah Membaca Nyaring -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-list-ol"></i> G. Langkah-Langkah Membaca Nyaring Teks Prosedur</h3>
+            <p>Agar membaca nyaring berjalan sukses, ikuti langkah-langkah berikut:</p>
+            
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li><strong>Pahami Teks Secara Utuh</strong> — Baca teks prosedur dalam hati terlebih dahulu untuk memahami alur dan isi.</li>
+                <li><strong>Tandai Kata Kunci</strong> — Berikan garis bawah pada kata kerja imperatif, keterangan waktu, dan peringatan.</li>
+                <li><strong>Latih Artikulasi</strong> — Ucapkan setiap kata dengan jelas, terutama istilah teknis atau nama alat.</li>
+                <li><strong>Atur Intonasi</strong> — Gunakan nada tegas untuk kalimat perintah, nada lembut untuk penjelasan.</li>
+                <li><strong>Atur Tempo dan Jeda</strong> — Baca langkah penting dengan lambat; beri jeda antarlangkah.</li>
+                <li><strong>Latihan Berulang</strong> — Latihan minimal 3 kali sebelum tampil di depan audiens.</li>
+                <li><strong>Siapkan Sikap Tubuh</strong> — Berdiri tegak, pandang audiens, dan gunakan gestur tangan jika perlu.</li>
+                <li><strong>Tampil dengan Percaya Diri</strong> — Tarik napas dalam, mulai dengan senyum, dan baca dengan penuh keyakinan.</li>
+            </ol>
+        </section>
+
+        <!-- Content H: Contoh Praktik -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bullhorn"></i> H. Contoh Praktik Membaca Nyaring</h3>
+            <p>Berikut contoh teks prosedur yang dapat dipraktikkan untuk membaca nyaring. Perhatikan tanda <strong>tebal</strong> untuk kata yang harus ditekankan, dan <em>(jeda)</em> untuk pemberhentian sejenak.</p>
+            
+            <div class="reading-box">
+                <span class="reading-title">Cara Membuat Teh Manis Hangat</span>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;"><em>(Baca dengan nada ramah dan tempo sedang)</em></p>
+                <ol>
+                    <li><strong>Siapkan</strong> gelas, sendok, teh celup, gula, dan air panas. <em>(jeda)</em></li>
+                    <li><strong>Panaskan</strong> air hingga mendidih <strong>sempurna</strong>. <em>(jeda)</em></li>
+                    <li><strong>Masukkan</strong> satu sachet teh celup ke dalam gelas. <em>(jeda)</em></li>
+                    <li><strong>Tuangkan</strong> air panas <strong>secukupnya</strong> — sekitar 200 ml. <em>(jeda)</em></li>
+                    <li><strong>Diamkan</strong> selama <strong>3 menit</strong> agar sari teh keluar sempurna. <em>(jeda)</em></li>
+                    <li><strong>Angkat</strong> teh celup, lalu <strong>tambahkan</strong> 2 sendok makan gula. <em>(jeda)</em></li>
+                    <li><strong>Aduk</strong> hingga gula larut sempurna. <em>(jeda)</em></li>
+                    <li>Teh manis hangat siap dinikmati. <strong>Selamat mencoba!</strong></li>
+                </ol>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 12.6: Panduan Penekanan dalam Contoh di Atas</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Elemen</th>
+                        <th>Cara Membaca</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kata kerja imperatif (<em>siapkan, panaskan, tuangkan</em>)</td>
+                        <td>Dibaca dengan <strong>nada tegas</strong> dan <strong>volume sedikit lebih keras</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td>Keterangan waktu/ukuran (<em>3 menit, 200 ml, 2 sendok</em>)</td>
+                        <td>Dibaca <strong>lebih lambat</strong> dan <strong>jelas</strong> agar pendengar mencatat.</td>
+                    </tr>
+                    <tr>
+                        <td>Kata penekanan (<em>sempurna, secukupnya</em>)</td>
+                        <td>Diberi <strong>intonasi naik</strong> untuk menegaskan pentingnya.</td>
+                    </tr>
+                    <tr>
+                        <td>Antarlangkah</td>
+                        <td>Berikan <strong>jeda 1-2 detik</strong> agar pendengar mencerna.</td>
+                    </tr>
+                    <tr>
+                        <td>Penutup (<em>Selamat mencoba!</em>)</td>
+                        <td>Dibaca dengan <strong>nada ceria</strong> dan <strong>senyum</strong>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content I: Kesalahan Umum -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> I. Kesalahan Umum dalam Membaca Nyaring</h3>
+            <p>Banyak siswa yang masih melakukan kesalahan saat membaca nyaring. Berikut beberapa kesalahan yang sering terjadi:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Dampak</th>
+                        <th>Solusi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Terlalu cepat membaca</td>
+                        <td>Pendengar tidak sempat mencerna instruksi.</td>
+                        <td>Atur tempo, beri jeda antarlangkah.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Artikulasi tidak jelas</td>
+                        <td>Kata terdengar samar atau salah.</td>
+                        <td>Latih pengucapan setiap suku kata.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Intonasi datar (monoton)</td>
+                        <td>Pendengar bosan dan kehilangan fokus.</td>
+                        <td>Variasikan nada sesuai konteks kalimat.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Volume terlalu pelan</td>
+                        <td>Pendengar di belakang tidak mendengar.</td>
+                        <td>Sesuaikan volume dengan ukuran ruangan.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Tidak ada kontak mata</td>
+                        <td>Terasa kaku dan tidak melibatkan audiens.</td>
+                        <td>Sesekali tatap pendengar.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Tidak memahami teks terlebih dahulu</td>
+                        <td>Tersendat-sendat saat membaca.</td>
+                        <td>Baca teks dalam hati minimal 2 kali sebelum tampil.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content J: Referensi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bookmark"></i> J. Referensi Pendukung</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Tufte, Edward R. (2001). <em>The Visual Display of Quantitative Information</em>. Cheshire: Graphics Press.</li>
+                <li>Few, Stephen. (2006). <em>Information Dashboard Design</em>. Sebastopol: O'Reilly Media.</li>
+                <li>Tarigan, Henry Guntur. (2008). <em>Membaca Sebagai Suatu Keterampilan Berbahasa</em>. Bandung: Angkasa.</li>
+                <li>Malakany, Farhad. (2002). <em>Keterampilan Membaca</em>. Jakarta: Depdiknas.</li>
+                <li>Lankow, Jason, dkk. (2012). <em>Infographics: The Power of Visual Storytelling</em>. New Jersey: John Wiley & Sons.</li>
+            </ul>
+        </section>
+
+        <!-- Kata Kunci -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-key"></i> Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Teks Prosedur</span>
+                <span class="keyword-tag">Infografik</span>
+                <span class="keyword-tag">Deskripsi Visual</span>
+                <span class="keyword-tag">Diagram Alir</span>
+                <span class="keyword-tag">Membaca Nyaring</span>
+                <span class="keyword-tag">Artikulasi</span>
+                <span class="keyword-tag">Intonasi</span>
+                <span class="keyword-tag">Volume</span>
+                <span class="keyword-tag">Tempo</span>
+                <span class="keyword-tag">Jeda</span>
+                <span class="keyword-tag">Ekspresi</span>
+                <span class="keyword-tag">Kalimat Imperatif</span>
+                <span class="keyword-tag">Literasi Visual</span>
+            </div>
+        </section>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">وَٱقْصِدْ فِى مَشْيِكَ وَغُضَّ مِن صَوْتِكَ</div>
+            <p class="quote-translation">"Dan sederhanakanlah dalam berjalan dan <strong>lunakkanlah suaramu</strong>."</p>
+            <p class="quote-source">— QS. Luqman [31]: 19</p>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 12</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal x 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Teks prosedur infografik adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Teks narasi yang panjang dan detail</label>
+                        <label><input type="radio" name="q1" value="B"> B. Teks prosedur yang disajikan dalam bentuk visual dengan ikon, diagram, dan warna</label>
+                        <label><input type="radio" name="q1" value="C"> C. Puisi tentang prosedur</label>
+                        <label><input type="radio" name="q1" value="D"> D. Cerpen bergambar</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Menurut Stephen Few, kombinasi gambar dan teks dalam infografik dapat meningkatkan daya ingat hingga... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. 20%</label>
+                        <label><input type="radio" name="q2" value="B"> B. 45%</label>
+                        <label><input type="radio" name="q2" value="C"> C. 65%</label>
+                        <label><input type="radio" name="q2" value="D"> D. 80%</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Unsur infografik prosedur yang berfungsi menunjukkan urutan langkah adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Judul</label>
+                        <label><input type="radio" name="q3" value="B"> B. Diagram alir dan angka penomoran</label>
+                        <label><input type="radio" name="q3" value="C"> C. Warna latar</label>
+                        <label><input type="radio" name="q3" value="D"> D. Sumber data</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Langkah pertama dalam menganalisis infografik prosedur adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Langsung membuat kesimpulan</label>
+                        <label><input type="radio" name="q4" value="B"> B. Mengkritik desainnya</label>
+                        <label><input type="radio" name="q4" value="C"> C. Membaca judul untuk memahami topik</label>
+                        <label><input type="radio" name="q4" value="D"> D. Menghitung jumlah warna</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Membaca nyaring (read aloud) adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Membaca dalam hati untuk memahami isi</label>
+                        <label><input type="radio" name="q5" value="B"> B. Membaca teks dengan suara lantang agar orang lain dapat mendengar dan memahami</label>
+                        <label><input type="radio" name="q5" value="C"> C. Menghafal teks secara lisan</label>
+                        <label><input type="radio" name="q5" value="D"> D. Membaca dengan suara pelan untuk diri sendiri</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Kejelasan pengucapan setiap suku kata dan bunyi bahasa dalam membaca nyaring disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Intonasi</label>
+                        <label><input type="radio" name="q6" value="B"> B. Volume</label>
+                        <label><input type="radio" name="q6" value="C"> C. Artikulasi</label>
+                        <label><input type="radio" name="q6" value="D"> D. Tempo</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Dalam membaca nyaring teks prosedur, kata yang harus ditekankan adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Kata sifat dan kata keterangan</label>
+                        <label><input type="radio" name="q7" value="B"> B. Kata kerja imperatif (perintah) dan keterangan waktu/ukuran</label>
+                        <label><input type="radio" name="q7" value="C"> C. Kata sambung dan kata ganti</label>
+                        <label><input type="radio" name="q7" value="D"> D. Semua kata dengan nada yang sama</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Lagu kalimat atau naik-turunnya nada suara dalam membaca nyaring disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Artikulasi</label>
+                        <label><input type="radio" name="q8" value="B"> B. Intonasi</label>
+                        <label><input type="radio" name="q8" value="C"> C. Volume</label>
+                        <label><input type="radio" name="q8" value="D"> D. Jeda</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Salah satu kesalahan umum dalam membaca nyaring adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Memberi jeda antarlangkah</label>
+                        <label><input type="radio" name="q9" value="B"> B. Membaca terlalu cepat sehingga pendengar tidak sempat mencerna</label>
+                        <label><input type="radio" name="q9" value="C"> C. Menggunakan intonasi yang bervariasi</label>
+                        <label><input type="radio" name="q9" value="D"> D. Melakukan kontak mata dengan audiens</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa membaca nyaring teks prosedur penting dipelajari? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar bisa menghafal teks tanpa memahami</label>
+                        <label><input type="radio" name="q10" value="B"> B. Agar mampu menyampaikan instruksi dengan jelas, percaya diri, dan dapat diikuti pendengar</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar suara menjadi lebih keras</label>
+                        <label><input type="radio" name="q10" value="D"> D. Agar tidak perlu menulis teks prosedur</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal x 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan perbedaan antara teks prosedur biasa dan teks prosedur infografik dari segi bentuk penyajian, daya tarik visual, dan kecepatan pemahaman! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Sebutkan dan jelaskan 7 unsur utama infografik prosedur! Mengapa setiap unsur tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Jelaskan 8 langkah mendapatkan informasi dari infografik prosedur secara sistematis! Mengapa setiap langkah tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Sebutkan dan jelaskan 8 teknik membaca nyaring! Bagaimana penerapan masing-masing teknik dalam membaca teks prosedur? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK): Tulislah sebuah teks prosedur singkat (5-7 langkah) tentang kegiatan sehari-hari (misalnya: cara merapikan tempat tidur, cara membuat mi instan, cara merawat sepatu). Kemudian, tandailah kata-kata yang harus ditekankan saat dibaca nyaring (dengan huruf kapital atau garis bawah), serta tentukan di mana jeda harus diberikan. Sertakan catatan singkat tentang intonasi, volume, dan ekspresi yang akan Anda gunakan saat membacakannya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea form-textarea-large" placeholder="Tulis teks prosedur dan catatan membacanya di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="11.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 11</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="13.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 13 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'C', q3: 'B', q4: 'C', q5: 'B',
+            q6: 'C', q7: 'B', q8: 'B', q9: 'B', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_12_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 12 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan12_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 12 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 12 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

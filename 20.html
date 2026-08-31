@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 20: Diskusi Pro dan Kontra Media Sosial | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+            --pro-color: #10B981;
+            --contra-color: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- TOP NAVIGATION --- */
+        .top-nav {
+            background: rgba(11, 15, 25, 0.98);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        .top-nav-brand {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .top-nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- HERO HEADER --- */
+        .hero-header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .hero-icon {
+            font-size: 4rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            position: relative;
+        }
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .author-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        .author-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+        }
+        .author-card-text { text-align: left; }
+        .author-card-text h4 {
+            font-size: 1rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.2rem;
+        }
+        .author-card-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- SECTION HEADER --- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+        .section-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            line-height: 1.2;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* --- CONTENT CARD --- */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- DEFINITION BOX --- */
+        .definition-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .definition-box::before {
+            content: '📌 DEFINISI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .definition-box p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* --- CONCEPT BOX --- */
+        .concept-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .concept-box::before {
+            content: '📌 KONSEP KUNCI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .concept-box p {
+            color: var(--gold-light);
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* --- EXAMPLE BOX --- */
+        .example-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .example-box::before {
+            content: '💡 CONTOH NYATA';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--success);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--success);
+            border-radius: 20px;
+        }
+        .example-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .example-box strong { color: var(--gold-primary); }
+
+        /* --- PRO vs CONTRA CARDS --- */
+        .debate-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .debate-card {
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .debate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        .debate-card.pro {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.02) 100%);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+        }
+        .debate-card.contra {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.02) 100%);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+        }
+        .debate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        .debate-card.pro::before { background: var(--pro-color); }
+        .debate-card.contra::before { background: var(--contra-color); }
+        .debate-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .debate-icon {
+            font-size: 2.5rem;
+        }
+        .debate-card.pro .debate-icon { color: var(--pro-color); }
+        .debate-card.contra .debate-icon { color: var(--contra-color); }
+        .debate-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .debate-card.pro .debate-title { color: var(--pro-color); }
+        .debate-card.contra .debate-title { color: var(--contra-color); }
+        .debate-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .debate-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .debate-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .debate-list li:last-child { border-bottom: none; }
+        .debate-list li i {
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        .debate-card.pro .debate-list li i { color: var(--pro-color); }
+        .debate-card.contra .debate-list li i { color: var(--contra-color); }
+
+        /* --- RECON TEXT BOX --- */
+        .recon-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        .recon-box::before {
+            content: '📜 TEKS REKON FAKTUAL';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .recon-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .recon-source {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .recon-box p {
+            color: var(--text-secondary);
+            text-align: justify;
+            margin-bottom: 1.25rem;
+            line-height: 2;
+        }
+        .recon-structure-label {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 0.25rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* --- HIGHLIGHT SENTENCE --- */
+        .highlight-pro {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--pro-color);
+            padding: 1rem 1.5rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1rem 0;
+            position: relative;
+        }
+        .highlight-pro::before {
+            content: '✓ ARGUMEN PRO';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: var(--bg-dark);
+            padding: 0.15rem 0.6rem;
+            color: var(--pro-color);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--pro-color);
+            border-radius: 15px;
+        }
+        .highlight-contra {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid var(--contra-color);
+            padding: 1rem 1.5rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1rem 0;
+            position: relative;
+        }
+        .highlight-contra::before {
+            content: '✗ ARGUMEN KONTRA';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: var(--bg-dark);
+            padding: 0.15rem 0.6rem;
+            color: var(--contra-color);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--contra-color);
+            border-radius: 15px;
+        }
+
+        /* --- BENEFIT GRID --- */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.75rem;
+        }
+        .benefit-title {
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .benefit-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .keywords-section h3 {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        .islamic-quote::before, .islamic-quote::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+        .islamic-quote::before { top: 15px; left: 20px; }
+        .islamic-quote::after { bottom: 15px; right: 20px; }
+        .arabic-text {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-family: 'Traditional Arabic', serif;
+            line-height: 1.8;
+        }
+        .quote-translation {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .quote-source {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .quiz-header h2 {
+            color: var(--gold-primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .quiz-info-item {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        .quiz-info-item i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info-item strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        .quiz-info-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label {
+            display: block;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 120px; resize: vertical; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .question-points {
+            float: right;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .options input[type="radio"] {
+            accent-color: var(--gold-primary);
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold-primary);
+        }
+        .btn-success {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+        .footer-nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .top-nav { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+            .section-header { flex-direction: column; text-align: center; }
+            .debate-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-brand">
+            <i class="fas fa-book-open"></i> Bahasa Indonesia Kelas IX
+        </div>
+        <div class="top-nav-links">
+            <a href="19.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 19</a>
+            <a href="index.html" class="nav-btn"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="21.html" class="nav-btn">Pertemuan 21 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <span class="hero-badge">Pertemuan 20</span>
+        <div class="hero-icon"><i class="fas fa-comments"></i></div>
+        <h1 class="hero-title">Diskusi Pro dan Kontra<br>Media Sosial dalam Teks Rekon</h1>
+        <p class="hero-subtitle">
+            Mengelaborasi teks rekon faktual tentang sejarah media sosial dalam diskusi kritis
+            tentang pro dan kontra — melatih kemampuan berpikir seimbang, berargumen logis,
+            dan menghargai perbedaan pendapat dalam era digital.
+        </p>
+        <div class="author-card">
+            <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+            <div class="author-card-text">
+                <h4>Elizarni, S.Pd.</h4>
+                <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- ============ BAGIAN A ============ -->
+        <div class="section-header">
+            <div class="section-letter">A</div>
+            <div>
+                <h2>Hakikat Diskusi Pro dan Kontra</h2>
+                <p>Memahami pengertian, tujuan, dan kedudukan diskusi pro-kontra dalam pembelajaran</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p><strong>Diskusi pro dan kontra</strong> adalah kegiatan bertukar pendapat antara dua pihak atau lebih yang memiliki pandangan berbeda terhadap suatu isu. Pihak <strong>pro</strong> mendukung atau setuju, sedangkan pihak <strong>kontra</strong> menentang atau tidak setuju. Diskusi ini bertujuan untuk mencapai pemahaman yang lebih komprehensif melalui pertukaran argumen yang logis dan berdasar.</p>
+            
+            <div class="definition-box">
+                <p><strong>Diskusi Pro dan Kontra</strong> adalah forum diskusi terstruktur di mana peserta dibagi menjadi dua kelompok — pendukung (pro) dan penentang (kontra) — untuk mengemukakan argumen berdasarkan fakta, data, dan alasan logis mengenai suatu isu kontroversial, dengan tujuan mencapai pemahaman yang lebih mendalam dan berimbang.</p>
+            </div>
+
+            <div style="background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--gold-primary); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+                <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;"><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Henry Guntur Tarigan (2008)</strong> mendefinisikan diskusi sebagai proses interaksi sosial yang melibatkan pertukaran gagasan secara lisan untuk memecahkan masalah atau mencari kebenaran bersama. Diskusi pro-kontra merupakan salah satu bentuk diskusi yang paling efektif untuk melatih berpikir kritis.</p>
+                <p style="margin-top: 0.5rem;"><strong>Gorys Keraf (1994)</strong> menambahkan bahwa diskusi yang baik harus didasari oleh fakta, data, dan argumen yang logis — bukan emosi atau prasangka. Setiap pihak harus menghargai pendapat lawan bicara.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menegaskan bahwa diskusi pro-kontra merupakan bagian dari <em>Higher Order Thinking Skills (HOTS)</em> yang melatih siswa menganalisis, mengevaluasi, dan mencipta argumen yang berdasar.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">🌟 Manfaat Diskusi Pro dan Kontra</h4>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <div class="benefit-title">Berpikir Kritis</div>
+                    <div class="benefit-desc">Melatih kemampuan menganalisis isu dari berbagai sudut pandang.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="benefit-title">Berpikir Berimbang</div>
+                    <div class="benefit-desc">Tidak terjebak pada satu sudut pandang saja, melihat kedua sisi.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-comments"></i></div>
+                    <div class="benefit-title">Keterampilan Berargumen</div>
+                    <div class="benefit-desc">Belajar menyusun argumen logis berdasarkan fakta dan data.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="benefit-title">Menghargai Perbedaan</div>
+                    <div class="benefit-desc">Belajar menghormati pendapat orang lain meski berbeda.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN B ============ -->
+        <div class="section-header">
+            <div class="section-letter">B</div>
+            <div>
+                <h2>Media Sosial dalam Sejarah Komunikasi</h2>
+                <p>Kelanjutan dari Pertemuan 17 — memahami konteks historis media sosial</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Media sosial merupakan puncak evolusi komunikasi manusia. Untuk memahami pro-kontra media sosial secara utuh, kita perlu melihatnya dalam konteks sejarah komunikasi yang telah dipelajari pada <strong>Pertemuan 17</strong>.</p>
+            
+            <div class="recon-box">
+                <h3 class="recon-title">"Dari Surat Pos hingga Media Sosial: Evolusi Komunikasi"</h3>
+                <p class="recon-source">— Teks Rekon Faktual Singkat</p>
+
+                <span class="recon-structure-label">📖 ORIENTASI</span>
+                <p>Komunikasi manusia telah mengalami evolusi panjang dari lukisan gua hingga media sosial digital. Setiap era memiliki karakteristik dan dampaknya masing-masing terhadap peradaban manusia.</p>
+
+                <span class="recon-structure-label">📖 URUTAN PERISTIWA</span>
+                <p><strong style="color: var(--info);">Pada tahun 1837</strong>, Samuel Morse menemukan telegraf — awal komunikasi jarak jauh. <strong style="color: var(--info);">Tahun 1876</strong>, Alexander Graham Bell mematenkan telepon. <strong style="color: var(--info);">Tahun 1895</strong>, Guglielmo Marconi mengembangkan radio. <strong style="color: var(--info);">Tahun 1927</strong>, televisi lahir. <strong style="color: var(--info);">Tahun 1969</strong>, internet (ARPANET) dikembangkan. <strong style="color: var(--info);">Tahun 1991</strong>, Tim Berners-Lee menciptakan World Wide Web.</p>
+
+                <p><strong style="color: var(--info);">Pada tahun 2004</strong>, Mark Zuckerberg meluncurkan Facebook — media sosial pertama yang revolusioner. <strong style="color: var(--info);">Tahun 2006</strong>, Twitter (kini X) diluncurkan. <strong style="color: var(--info);">Tahun 2010</strong>, Instagram muncul. <strong style="color: var(--info);">Tahun 2016</strong>, TikTok mengubah lanskap media sosial dengan konten video pendek. <strong style="color: var(--info);">Kini, pada tahun 2026</strong>, lebih dari 5 miliar orang di dunia menggunakan media sosial setiap hari.</p>
+
+                <span class="recon-structure-label">📖 REORIENTASI</span>
+                <p>Media sosial telah mengubah cara manusia berkomunikasi secara fundamental. Namun, seperti setiap revolusi teknologi, media sosial membawa dampak positif dan negatif yang perlu dikaji secara kritis dan berimbang.</p>
+            </div>
+
+            <div class="concept-box">
+                <p><strong>Konteks Historis Penting:</strong></p>
+                <p>Media sosial = PUNCAK evolusi komunikasi manusia<br>
+                Waktu pengembangan: ± 20 tahun (2004-2026)<br>
+                Jumlah pengguna global (2026): ± 5 miliar orang<br>
+                Platform utama: Facebook, Instagram, Twitter/X, TikTok, WhatsApp, YouTube</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN C ============ -->
+        <div class="section-header">
+            <div class="section-letter">C</div>
+            <div>
+                <h2>Argumen PRO Media Sosial</h2>
+                <p>Mengapa banyak pihak mendukung keberadaan media sosial</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Pihak <strong>pro</strong> media sosial berpendapat bahwa platform-platform ini membawa banyak manfaat bagi individu dan masyarakat. Berikut adalah argumen-argumen utama yang mendukung keberadaan media sosial:</p>
+            
+            <div class="debate-grid">
+                <div class="debate-card pro">
+                    <div class="debate-header">
+                        <div class="debate-icon"><i class="fas fa-check-circle"></i></div>
+                        <div>
+                            <div class="debate-title">PRO</div>
+                            <div class="debate-subtitle">Argumen Pendukung Media Sosial</div>
+                        </div>
+                    </div>
+                    <ul class="debate-list">
+                        <li><i class="fas fa-check"></i> <div><strong>Konektivitas Global</strong> — Menghubungkan orang dari seluruh dunia tanpa batas geografis. Keluarga yang terpisah jarak jauh dapat berkomunikasi secara real-time.</div></li>
+                        <li><i class="fas fa-check"></i> <div><strong>Akses Informasi Cepat</strong> — Berita dan informasi dapat tersebar dalam hitungan detik. Masyarakat lebih cepat mengetahui peristiwa penting.</div></li>
+                        <li><i class="fas fa-check"></i> <div><strong>Platform Edukasi</strong> — Banyak konten edukatif gratis tersedia: tutorial, kursus online, webinar, dll.</div></li>
+                        <li><i class="fas fa-check"></i> <div><strong>Peluang Ekonomi</strong> — Membuka lapangan kerja baru: content creator, influencer, digital marketer, online shop.</div></li>
+                        <li><i class="fas fa-check"></i> <div><strong>Suara Demokratis</strong> — Setiap orang bisa menyampaikan pendapat, termasuk kelompok marginal yang sebelumnya tidak didengar.</div></li>
+                        <li><i class="fas fa-check"></i> <div><strong>Mobilisasi Sosial</strong> — Memudahkan penggalangan dana, gerakan sosial, dan aksi kemanusiaan (contoh: kitabisacom, Patreon).</div></li>
+                        <li><i class="fas fa-check"></i> <div><strong>Ekspresi Kreativitas</strong> — Wadah bagi seniman, musisi, penulis untuk berkarya dan menemukan audiens.</div></li>
+                        <li><i class="fas fa-check"></i> <div><strong>Pembelajaran Kolaboratif</strong> — Siswa dapat berdiskusi, berbagi materi, dan belajar bersama secara online.</div></li>
+                    </ul>
+                </div>
+
+                <div class="debate-card contra">
+                    <div class="debate-header">
+                        <div class="debate-icon"><i class="fas fa-times-circle"></i></div>
+                        <div>
+                            <div class="debate-title">KONTRA</div>
+                            <div class="debate-subtitle">Argumen Penentang Media Sosial</div>
+                        </div>
+                    </div>
+                    <ul class="debate-list">
+                        <li><i class="fas fa-times"></i> <div><strong>Kecanduan Digital</strong> — Rata-rata remaja menghabiskan 7+ jam/hari di media sosial, mengganggu produktivitas.</div></li>
+                        <li><i class="fas fa-times"></i> <div><strong>Penyebaran Hoaks</strong> — Informasi palsu menyebar 6x lebih cepat daripada fakta (MIT Study, 2018).</div></li>
+                        <li><i class="fas fa-times"></i> <div><strong>Cyberbullying</strong> — 37% remaja mengalami perundungan online (UNICEF, 2019).</div></li>
+                        <li><i class="fas fa-times"></i> <div><strong>Gangguan Kesehatan Mental</strong> — Depresi, kecemasan, dan body image issues meningkat signifikan.</div></li>
+                        <li><i class="fas fa-times"></i> <div><strong>Polarisasi Masyarakat</strong> — Algoritma menciptakan "echo chamber" yang memperkuat pandangan ekstrem.</div></li>
+                        <li><i class="fas fa-times"></i> <div><strong>Pelanggaran Privasi</strong> — Data pribadi sering disalahgunakan oleh platform dan pihak ketiga.</div></li>
+                        <li><i class="fas fa-times"></i> <div><strong>Penurunan Interaksi Sosial Langsung</strong> — Orang lebih asyik dengan gadget, mengabaikan orang di sekitarnya.</div></li>
+                        <li><i class="fas fa-times"></i> <div><strong>Konten Berbahaya</strong> — Pornografi, kekerasan, radikalisme mudah diakses anak-anak.</div></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">📊 Data Pendukung Argumen PRO</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Argumen PRO</th>
+                        <th>Data Pendukung</th>
+                        <th>Sumber</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Konektivitas global</strong></td>
+                        <td>5 miliar pengguna aktif di seluruh dunia (2026)</td>
+                        <td>We Are Social & Hootsuite</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Peluang ekonomi</strong></td>
+                        <td>Industri ekonomi digital Indonesia mencapai Rp800 triliun (2025)</td>
+                        <td>Kemenkoparekraf RI</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Akses edukasi</strong></td>
+                        <td>70% pelajar menggunakan YouTube untuk belajar</td>
+                        <td>Survey Kemendikbudristek 2024</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mobilisasi sosial</strong></td>
+                        <td>Penggalangan dana online meningkat 300% pasca pandemi</td>
+                        <td>Kitabisa.com Report 2023</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN D ============ -->
+        <div class="section-header">
+            <div class="section-letter">D</div>
+            <div>
+                <h2>Argumen KONTRA Media Sosial</h2>
+                <p>Mengapa banyak pihak mengkritik dan menentang dampak media sosial</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Pihak <strong>kontra</strong> media sosial berpendapat bahwa dampak negatif platform-platform ini lebih besar daripada manfaatnya. Berikut adalah argumen-argumen utama yang menentang keberadaan media sosial tanpa regulasi ketat:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📊 Data Pendukung Argumen KONTRA</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Argumen KONTRA</th>
+                        <th>Data Pendukung</th>
+                        <th>Sumber</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kecanduan digital</strong></td>
+                        <td>Rata-rata remaja 13-18 tahun: 7,2 jam/hari di media sosial</td>
+                        <td>Common Sense Media 2024</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Penyebaran hoaks</strong></td>
+                        <td>Berita palsu menyebar 6x lebih cepat dari fakta</td>
+                        <td>MIT Study, Science Journal 2018</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cyberbullying</strong></td>
+                        <td>37% remaja usia 13-17 pernah mengalami perundungan online</td>
+                        <td>UNICEF Report 2019</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gangguan mental</strong></td>
+                        <td>Depresi pada remaja meningkat 60% sejak 2011 (era Instagram)</td>
+                        <td>American Psychological Association 2023</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Polarisasi</strong></td>
+                        <td>64% pengguna hanya melihat konten yang sesuai pandangannya</td>
+                        <td>Pew Research Center 2024</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pelanggaran privasi</strong></td>
+                        <td>83% aplikasi media sosial mengumpulkan data tanpa izin eksplisit</td>
+                        <td>Mozilla Foundation 2023</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-contra">
+                <p><strong>"Media sosial telah menciptakan generasi yang lebih terhubung secara digital, namun semakin terisolasi secara sosial dan emosional."</strong></p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">— Jean Twenge, psikolog Amerika, penulis <em>iGen</em> (2017)</p>
+            </div>
+
+            <div class="highlight-pro">
+                <p><strong>"Media sosial adalah alat yang netral — yang menentukan baik atau buruknya adalah cara manusia menggunakannya."</strong></p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">— Marshall McLuhan, teoritikus media Kanada</p>
+            </div>
+
+            <div class="concept-box">
+                <p><strong>Prinsip Berpikir Berimbang:</strong></p>
+                <p>Media sosial = ALAT (netral)<br>
+                DAMPAK = tergantung PENGGUNAAN<br>
+                Solusi = bukan menghapus, tapi REGULASI + LITERASI DIGITAL</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN E ============ -->
+        <div class="section-header">
+            <div class="section-letter">E</div>
+            <div>
+                <h2>Mengelaborasi Teks Rekon dalam Diskusi</h2>
+                <p>Teknik mengintegrasikan fakta sejarah ke dalam argumen diskusi</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Salah satu keterampilan penting dalam diskusi pro-kontra adalah kemampuan <strong>mengelaborasi teks rekon</strong> — yaitu menggunakan fakta-fakta sejarah dari teks rekon sebagai dasar argumen yang kuat. Argumen yang didukung data historis akan lebih meyakinkan daripada argumen yang hanya berdasarkan opini.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📋 6 Langkah Mengelaborasi Teks Rekon dalam Diskusi</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Langkah</th>
+                        <th>Kegiatan</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Baca Teks Rekon</strong></td>
+                        <td>Pahami fakta sejarah yang disajikan</td>
+                        <td>Identifikasi peristiwa, tokoh, tahun, dan dampaknya.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Identifikasi Fakta Kunci</strong></td>
+                        <td>Pilih fakta yang relevan dengan topik diskusi</td>
+                        <td>Fokus pada data yang mendukung argumen pro/kontra.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Hubungkan dengan Isu</strong></td>
+                        <td>Integrasikan fakta ke dalam argumen</td>
+                        <td>Gunakan fakta sebagai dasar logis argumen Anda.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Bandingkan Era</strong></td>
+                        <td>Analisis perbedaan era sebelum dan sesudah</td>
+                        <td>Misalnya: komunikasi sebelum vs sesudah media sosial.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Berikan Perspektif</strong></td>
+                        <td>Tambahkan analisis dan interpretasi</td>
+                        <td>Jangan hanya menyajikan fakta, tapi jelaskan maknanya.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Kutip dengan Benar</strong></td>
+                        <td>Sebutkan sumber teks rekon</td>
+                        <td>"Berdasarkan teks rekon tentang sejarah komunikasi..."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>💡 Contoh Elaborasi dalam Argumen PRO:</strong></p>
+                <p>"Berdasarkan teks rekon tentang sejarah komunikasi, kita dapat melihat bahwa setiap revolusi teknologi komunikasi — dari telegraf (1837), telepon (1876), radio (1895), hingga internet (1969) — selalu membawa manfaat besar bagi peradaban manusia. Media sosial, sebagai puncak evolusi ini, tidak terkecuali. Justru, kita harus melanjutkan tradisi positif ini dengan menggunakan media sosial secara bijak."</p>
+            </div>
+
+            <div class="example-box">
+                <p><strong>💡 Contoh Elaborasi dalam Argumen KONTRA:</strong></p>
+                <p>"Teks rekon sejarah komunikasi menunjukkan bahwa setiap teknologi baru selalu membawa dampak negatif yang tidak terduga. Misalnya, radio yang awalnya untuk edukasi, kemudian digunakan untuk propaganda perang. Televisi yang seharusnya mendidik, justru banyak menyajikan konten tidak pantas. Media sosial pun berpotensi sama — bahkan lebih berbahaya karena skalanya yang global dan kecepatannya yang instan. Oleh karena itu, regulasi ketat sangat diperlukan."</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN F ============ -->
+        <div class="section-header">
+            <div class="section-letter">F</div>
+            <div>
+                <h2>Teknik Berdiskusi yang Efektif</h2>
+                <p>Panduan berdiskusi pro-kontra dengan santun, logis, dan produktif</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Diskusi pro-kontra yang produktif memerlukan teknik dan etika tertentu. Tanpa keduanya, diskusi dapat berubah menjadi perdebatan emosional yang tidak produktif.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🎯 8 Teknik Berdiskusi Pro-Kontra yang Efektif</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Teknik</th>
+                        <th>Penjelasan</th>
+                        <th>Contoh Penerapan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Dengarkan Aktif</strong></td>
+                        <td>Dengarkan lawan bicara dengan penuh perhatian, jangan memotong.</td>
+                        <td>"Saya mengerti pendapat Anda bahwa..."</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Argumen Berbasis Fakta</strong></td>
+                        <td>Dukung argumen dengan data, statistik, atau kutipan ahli.</td>
+                        <td>"Berdasarkan data UNICEF 2019, 37% remaja..."</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Hindari Serangan Pribadi</strong></td>
+                        <td>Kritik argumennya, bukan orangnya.</td>
+                        <td>"Argumen tersebut kurang berdasar karena..." (BUKAN "Kamu salah!")</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Gunakan Bahasa Santun</strong></td>
+                        <td>Pilih kata-kata yang hormati dan tidak provokatif.</td>
+                        <td>"Dengan segala hormat, saya memiliki pandangan berbeda..."</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Akui Sisi Lawan</strong></td>
+                        <td>Akui kekuatan argumen lawan sebelum memberikan sanggahan.</td>
+                        <td>"Saya setuju bahwa media sosial memiliki manfaat, NAMUN..."</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Fokus pada Isu</strong></td>
+                        <td>Jangan melebar ke topik lain yang tidak relevan.</td>
+                        <td>Tetap pada topik "media sosial", jangan lari ke "politik".</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Berikan Solusi</strong></td>
+                        <td>Jangan hanya mengkritik, tapi tawarkan solusi.</td>
+                        <td>"Untuk mengatasi hoaks, kita perlu literasi digital sejak dini..."</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Tutup dengan Apresiasi</strong></td>
+                        <td>Hargai waktu dan kontribusi semua peserta.</td>
+                        <td>"Terima kasih atas diskusi yang sangat enriching ini."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="concept-box">
+                <p><strong>Rumus Argumen Efektif:</strong></p>
+                <p>FAKTA (dari teks rekon) + LOGIKA (analisis) + EMPATI (penghormatan) = ARGUMEN KUAT</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN G ============ -->
+        <div class="section-header">
+            <div class="section-letter">G</div>
+            <div>
+                <h2>Simulasi Diskusi Pro-Kontra</h2>
+                <p>Teladani bagaimana diskusi pro-kontra media sosial berlangsung</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Berikut simulasi diskusi pro-kontra tentang media sosial antara dua siswa. Perhatikan bagaimana masing-masing pihak menggunakan fakta dari teks rekon dan teknik berdiskusi yang efektif:</p>
+            
+            <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0;">
+                <h3 style="font-family: 'Playfair Display', serif; color: var(--gold-primary); text-align: center; margin-bottom: 1.5rem;">💬 Simulasi Diskusi: "Apakah Media Sosial Lebih Banyak Manfaat atau Mudaratnya?"</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid var(--pro-color); padding: 1rem 1.5rem; border-radius: 0 10px 10px 0;">
+                        <strong style="color: var(--pro-color);">Ahmad (PRO):</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Berdasarkan teks rekon sejarah komunikasi yang telah kita pelajari, setiap revolusi teknologi — dari telegraf hingga internet — selalu membawa kemajuan besar bagi peradaban. Media sosial sebagai puncak evolusi komunikasi juga seharusnya dilihat sebagai kemajuan, bukan ancaman. Data menunjukkan 5 miliar orang di dunia terhubung melalui media sosial, membuktikan manfaat konektivitas globalnya."</p>
+                    </div>
+
+                    <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid var(--contra-color); padding: 1rem 1.5rem; border-radius: 0 10px 10px 0;">
+                        <strong style="color: var(--contra-color);">Fatimah (KONTRA):</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Saya setuju bahwa media sosial memiliki manfaat konektivitas, Ahmad. Namun, teks rekon juga mengajarkan kita bahwa setiap teknologi baru membawa dampak tak terduga. Radio awalnya untuk edukasi, tapi kemudian digunakan untuk propaganda perang. Data UNICEF 2019 menunjukkan 37% remaja mengalami cyberbullying. Apakah kita siap mengorbankan kesehatan mental generasi muda demi konektivitas?"</p>
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid var(--pro-color); padding: 1rem 1.5rem; border-radius: 0 10px 10px 0;">
+                        <strong style="color: var(--pro-color);">Ahmad (PRO):</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Poin yang bagus, Fatimah. Namun, solusinya bukan menghapus media sosial, melainkan meningkatkan literasi digital. Berdasarkan sejarah, manusia selalu belajar beradaptasi dengan teknologi baru. Kita perlu edukasi, bukan pelarangan. Lagipula, data Kitabisa.com menunjukkan penggalangan dana online meningkat 300% — ini bukti nyata manfaat sosial media sosial."</p>
+                    </div>
+
+                    <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid var(--contra-color); padding: 1rem 1.5rem; border-radius: 0 10px 10px 0;">
+                        <strong style="color: var(--contra-color);">Fatimah (KONTRA):</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Saya setuju literasi digital penting. Namun, fakta bahwa 83% aplikasi mengumpulkan data tanpa izin eksplisit (Mozilla 2023) menunjukkan bahwa regulasi dari pemerintah juga diperlukan. Kita tidak bisa hanya mengandalkan kesadaran individu. Media sosial perlu diatur ketat seperti industri farmasi atau otomotif."</p>
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid var(--pro-color); padding: 1rem 1.5rem; border-radius: 0 10px 10px 0;">
+                        <strong style="color: var(--pro-color);">Ahmad (PRO):</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Dengan segala hormat, saya setuju bahwa regulasi diperlukan, tapi tidak sampai membatasi kebebasan berekspresi. Sejarah menunjukkan bahwa setiap kali pemerintah terlalu ketat mengatur komunikasi — seperti pembredelan pers Orde Baru — justru terjadi stagnasi demokrasi. Keseimbangan antara kebebasan dan regulasi adalah kuncinya."</p>
+                    </div>
+
+                    <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid var(--contra-color); padding: 1rem 1.5rem; border-radius: 0 10px 10px 0;">
+                        <strong style="color: var(--contra-color);">Fatimah (KONTRA):</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Poin yang sangat baik, Ahmad. Saya rasa kita sepakat bahwa media sosial memiliki dua sisi — manfaat dan mudarat. Solusinya adalah pendekatan komprehensif: literasi digital untuk pengguna, regulasi untuk platform, dan edukasi sejak dini untuk anak-anak. Terima kasih untuk diskusi yang sangat enriching ini."</p>
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid var(--pro-color); padding: 1rem 1.5rem; border-radius: 0 10px 10px 0;">
+                        <strong style="color: var(--pro-color);">Ahmad (PRO):</strong>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Sama-sama, Fatimah. Saya juga sangat menikmati diskusi ini. Semoga kita bisa menerapkan hasil diskusi ini dalam kehidupan sehari-hari — menggunakan media sosial secara bijak dan bertanggung jawab."</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🔍 Analisis Simulasi Diskusi</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Elemen</th>
+                        <th>Analisis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Penggunaan Fakta</strong></td>
+                        <td>Kedua pihak menggunakan data konkret (5 miliar pengguna, 37% cyberbullying, 300% penggalangan dana, 83% pengumpulan data).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elaborasi Teks Rekon</strong></td>
+                        <td>Ahmad menggunakan sejarah revolusi komunikasi; Fatimah menggunakan contoh radio dan propaganda.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Teknik Mendengarkan Aktif</strong></td>
+                        <td>Keduanya mengakui poin lawan sebelum memberikan sanggahan ("Saya setuju bahwa..., NAMUN...").</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Santun</strong></td>
+                        <td>Tidak ada serangan pribadi, hanya kritik terhadap argumen.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Solusi Ditawarkan</strong></td>
+                        <td>Di akhir diskusi, muncul solusi komprehensif: literasi + regulasi + edukasi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Apresiasi di Akhir</strong></td>
+                        <td>Keduanya saling menghargai kontribusi masing-masing.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN H ============ -->
+        <div class="section-header">
+            <div class="section-letter">H</div>
+            <div>
+                <h2>Analisis Fakta, Opini, dan Asumsi</h2>
+                <p>Menerapkan ilmu dari Pertemuan 19 dalam konteks diskusi pro-kontra</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Dalam diskusi pro-kontra, penting untuk membedakan antara <strong>fakta</strong>, <strong>opini</strong>, dan <strong>asumsi</strong> — sebagaimana telah dipelajari pada Pertemuan 19. Argumen yang kuat harus didominasi fakta, bukan opini atau asumsi.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🔍 Contoh Analisis dalam Diskusi Media Sosial</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Pernyataan</th>
+                        <th>Jenis</th>
+                        <th>Alasan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>"Pada tahun 2026, 5 miliar orang menggunakan media sosial."</td>
+                        <td style="color: var(--info);"><strong>FAKTA</strong></td>
+                        <td>Dapat diverifikasi melalui data statistik resmi.</td>
+                    </tr>
+                    <tr>
+                        <td>"Media sosial adalah platform terbaik untuk berkomunikasi."</td>
+                        <td style="color: var(--warning);"><strong>OPINI</strong></td>
+                        <td>Menggunakan kata penilaian "terbaik" yang subjektif.</td>
+                    </tr>
+                    <tr>
+                        <td>"Mungkin dalam 10 tahun, media sosial akan digantikan teknologi baru."</td>
+                        <td style="color: #A855F7;"><strong>ASUMSI</strong></td>
+                        <td>Menggunakan kata "mungkin" tentang masa depan.</td>
+                    </tr>
+                    <tr>
+                        <td>"37% remaja mengalami cyberbullying (UNICEF 2019)."</td>
+                        <td style="color: var(--info);"><strong>FAKTA</strong></td>
+                        <td>Data dari sumber kredibel (UNICEF).</td>
+                    </tr>
+                    <tr>
+                        <td>"Seharusnya semua remaja dilarang menggunakan media sosial."</td>
+                        <td style="color: var(--warning);"><strong>OPINI</strong></td>
+                        <td>Menggunakan kata "seharusnya" yang merupakan anjuran.</td>
+                    </tr>
+                    <tr>
+                        <td>"Tampaknya generasi Z lebih kecanduan media sosial."</td>
+                        <td style="color: #A855F7;"><strong>ASUMSI</strong></td>
+                        <td>Menggunakan kata "tampaknya" yang menunjukkan dugaan.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="concept-box">
+                <p><strong>Prinsip Argumen Kuat:</strong></p>
+                <p>Argumen PRO/KONTRA yang KUAT = didominasi FAKTA + didukung LOGIKA<br>
+                Argumen PRO/KONTRA yang LEMAH = didominasi OPINI + tanpa data</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN I ============ -->
+        <div class="section-header">
+            <div class="section-letter">I</div>
+            <div>
+                <h2>Kesalahan Umum dalam Diskusi</h2>
+                <p>Hindari kesalahan-kesalahan berikut agar diskusi produktif</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Banyak peserta diskusi yang melakukan kesalahan yang membuat diskusi tidak produktif. Berikut beberapa kesalahan umum beserta solusinya:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Dampak</th>
+                        <th>Solusi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Serangan pribadi (ad hominem)</td>
+                        <td>Diskusi berubah jadi pertengkaran.</td>
+                        <td>Kritik argumennya, bukan orangnya.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Memotong pembicaraan lawan</td>
+                        <td>Lawan tidak merasa dihargai.</td>
+                        <td>Dengarkan sampai selesai, baru tanggapi.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Argumen tanpa data</td>
+                        <td>Argumen lemah dan mudah dibantah.</td>
+                        <td>Dukung setiap klaim dengan fakta/data.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Emosi berlebihan</td>
+                        <td>Hilang objektivitas dan rasionalitas.</td>
+                        <td>Tetap tenang, fokus pada logika.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Melebar ke topik lain</td>
+                        <td>Diskusi tidak fokus, tidak mencapai tujuan.</td>
+                        <td>Tetap pada topik yang dibahas.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Tidak mau mengakui kebenaran lawan</td>
+                        <td>Diskusi tidak produktif, ego menang.</td>
+                        <td>Jujur mengakui poin lawan yang benar.</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Menggunakan bahasa provokatif</td>
+                        <td>Memancing konflik, bukan solusi.</td>
+                        <td>Gunakan bahasa santun dan hormati.</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Tidak memberikan solusi</td>
+                        <td>Diskusi hanya berisi kritik tanpa solusi.</td>
+                        <td>Sertakan usulan solusi konkret.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN J ============ -->
+        <div class="section-header">
+            <div class="section-letter">J</div>
+            <div>
+                <h2>Referensi Pendukung</h2>
+                <p>Sumber-sumber akademik dan data yang memperkuat materi pertemuan ini</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Tarigan, Henry Guntur. (2008). <em>Berbicara Sebagai Suatu Keterampilan Berbahasa</em>. Bandung: Angkasa.</li>
+                <li>Keraf, Gorys. (1994). <em>Komposisi: Sebuah Pengantar Kemahiran Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>We Are Social & Hootsuite. (2026). <em>Digital 2026 Global Overview Report</em>.</li>
+                <li>UNICEF. (2019). <em>Global Report on Cyberbullying</em>. New York: UNICEF.</li>
+                <li>Common Sense Media. (2024). <em>The Common Sense Census: Media Use by Tweens and Teens</em>.</li>
+                <li>American Psychological Association. (2023). <em>Stress and Mental Health in the Digital Age</em>.</li>
+                <li>Pew Research Center. (2024). <em>Social Media and Political Polarization</em>.</li>
+                <li>MIT Study. (2018). "The Spread of True and False News Online." <em>Science Journal</em>.</li>
+                <li>Kominfo RI. (2024). <em>Laporan Tahunan Literasi Digital Indonesia</em>.</li>
+            </ul>
+        </div>
+
+        <!-- Kata Kunci -->
+        <div class="keywords-section">
+            <h3><i class="fas fa-key"></i> ◆ Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Diskusi</span>
+                <span class="keyword-tag">Pro dan Kontra</span>
+                <span class="keyword-tag">Media Sosial</span>
+                <span class="keyword-tag">Teks Rekon</span>
+                <span class="keyword-tag">Elaborasi</span>
+                <span class="keyword-tag">Argumen</span>
+                <span class="keyword-tag">Fakta</span>
+                <span class="keyword-tag">Opini</span>
+                <span class="keyword-tag">Asumsi</span>
+                <span class="keyword-tag">Berpikir Kritis</span>
+                <span class="keyword-tag">Literasi Digital</span>
+                <span class="keyword-tag">Cyberbullying</span>
+                <span class="keyword-tag">Hoaks</span>
+                <span class="keyword-tag">Regulasi</span>
+                <span class="keyword-tag">Etika Diskusi</span>
+            </div>
+        </div>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِن جَآءَكُمْ فَاسِقٌۢ بِنَبَإٍ فَتَبَيَّنُوٓا۟</div>
+            <p class="quote-translation">"Wahai orang-orang yang beriman! Jika seseorang fasik datang kepadamu membawa berita, maka <strong>verifikasilah (tabayyun)</strong> dengan teliti."</p>
+            <p class="quote-source">— QS. Al-Hujurat [49]: 6</p>
+        </div>
+
+        <!-- ============ UJI FORMATIF ============ -->
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 20</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+                
+                <div class="quiz-info">
+                    <div class="quiz-info-item">
+                        <i class="fas fa-list-ol"></i>
+                        <strong>PILIHAN GANDA</strong>
+                        <span>10 soal × 10 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <strong>ESSAY</strong>
+                        <span>5 soal × 20 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-trophy"></i>
+                        <strong>TOTAL MAKSIMAL</strong>
+                        <span>200 poin</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div style="background: var(--bg-card); border: 1px solid var(--gold-primary); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold-primary);"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal × 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Diskusi pro dan kontra adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Perdebatan emosional tanpa dasar</label>
+                        <label><input type="radio" name="q1" value="B"> B. Forum diskusi terstruktur antara pihak pendukung dan penentang suatu isu berdasarkan fakta dan argumen logis</label>
+                        <label><input type="radio" name="q1" value="C"> C. Pidato satu arah dari seorang ahli</label>
+                        <label><input type="radio" name="q1" value="D"> D. Wawancara antara wartawan dan narasumber</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Media sosial pertama yang revolusioner diluncurkan pada tahun... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. 1991</label>
+                        <label><input type="radio" name="q2" value="B"> B. 2004</label>
+                        <label><input type="radio" name="q2" value="C"> C. 2010</label>
+                        <label><input type="radio" name="q2" value="D"> D. 2016</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Menurut data UNICEF 2019, persentase remaja yang mengalami cyberbullying adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. 17%</label>
+                        <label><input type="radio" name="q3" value="B"> B. 27%</label>
+                        <label><input type="radio" name="q3" value="C"> C. 37%</label>
+                        <label><input type="radio" name="q3" value="D"> D. 47%</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Salah satu argumen PRO media sosial adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Menyebabkan kecanduan digital</label>
+                        <label><input type="radio" name="q4" value="B"> B. Menyebarkan hoaks dengan cepat</label>
+                        <label><input type="radio" name="q4" value="C"> C. Menghubungkan orang dari seluruh dunia tanpa batas geografis</label>
+                        <label><input type="radio" name="q4" value="D"> D. Mengganggu kesehatan mental remaja</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Salah satu argumen KONTRA media sosial adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Membuka peluang ekonomi digital</label>
+                        <label><input type="radio" name="q5" value="B"> B. Meningkatkan konektivitas global</label>
+                        <label><input type="radio" name="q5" value="C"> C. Menyediakan platform edukasi gratis</label>
+                        <label><input type="radio" name="q5" value="D"> D. Meningkatkan depresi dan kecemasan pada remaja</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Teknik berdiskusi yang efektif adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Memotong pembicaraan lawan</label>
+                        <label><input type="radio" name="q6" value="B"> B. Menyerang pribadi lawan</label>
+                        <label><input type="radio" name="q6" value="C"> C. Mendengarkan aktif dan mendukung argumen dengan fakta</label>
+                        <label><input type="radio" name="q6" value="D"> D. Menggunakan emosi dan bahasa provokatif</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Mengelaborasi teks rekon dalam diskusi berarti... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Menyalin teks rekon secara utuh</label>
+                        <label><input type="radio" name="q7" value="B"> B. Menggunakan fakta dari teks rekon sebagai dasar argumen diskusi</label>
+                        <label><input type="radio" name="q7" value="C"> C. Mengabaikan teks rekon dan berargumen berdasarkan opini</label>
+                        <label><input type="radio" name="q7" value="D"> D. Mengkritik penulis teks rekon</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Pernyataan "Media sosial adalah platform terbaik untuk berkomunikasi" termasuk... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Fakta</label>
+                        <label><input type="radio" name="q8" value="B"> B. Opini</label>
+                        <label><input type="radio" name="q8" value="C"> C. Asumsi</label>
+                        <label><input type="radio" name="q8" value="D"> D. Data statistik</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Solusi komprehensif untuk masalah media sosial adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Menghapus semua platform media sosial</label>
+                        <label><input type="radio" name="q9" value="B"> B. Melarang semua remaja menggunakan internet</label>
+                        <label><input type="radio" name="q9" value="C"> C. Kombinasi literasi digital, regulasi platform, dan edukasi sejak dini</label>
+                        <label><input type="radio" name="q9" value="D"> D. Membiarkan semua orang menggunakan media sosial tanpa aturan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa diskusi pro-kontra penting dalam pembelajaran? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar siswa bisa berdebat tanpa dasar</label>
+                        <label><input type="radio" name="q10" value="B"> B. Untuk melatih berpikir kritis, berimbang, dan menghargai perbedaan pendapat</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar terlihat lebih pintar dari teman</label>
+                        <label><input type="radio" name="q10" value="D"> D. Untuk mengisi waktu luang</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal × 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan pengertian diskusi pro dan kontra menurut Henry Guntur Tarigan dan Gorys Keraf! Sebutkan 4 manfaat diskusi pro-kontra dalam pembelajaran! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Sebutkan dan jelaskan 8 argumen PRO media sosial beserta data pendukungnya! Mengapa masing-masing argumen tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Sebutkan dan jelaskan 8 argumen KONTRA media sosial beserta data pendukungnya! Mengapa masing-masing argumen tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan 6 langkah mengelaborasi teks rekon dalam diskusi! Berikan contoh konkret elaborasi teks rekon sejarah komunikasi dalam argumen PRO dan argumen KONTRA tentang media sosial! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK DISKUSI): Tulislah sebuah <strong>simulasi diskusi pro-kontra</strong> (minimal 8 giliran bicara: 4 PRO dan 4 KONTRA) tentang topik "Apakah media sosial lebih banyak manfaat atau mudaratnya bagi remaja?" Diskusi harus memuat: <br>
+                    (a) Penggunaan fakta dari teks rekon sejarah komunikasi<br>
+                    (b) Data statistik yang relevan<br>
+                    (c) Teknik mendengarkan aktif (mengakui poin lawan)<br>
+                    (d) Bahasa santun dan tidak menyerang pribadi<br>
+                    (e) Solusi komprehensif di akhir diskusi<br>
+                    (f) Apresiasi di akhir diskusi<br><br>
+                    Gunakan format:<br>
+                    [Nama (PRO/KONTRA)]: "..." <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea" style="min-height: 300px;" placeholder="Tulis simulasi diskusi Anda di sini...
+
+Contoh format:
+Ahmad (PRO): 'Berdasarkan teks rekon sejarah komunikasi...'
+
+Fatimah (KONTRA): 'Saya setuju bahwa..., NAMUN...'
+
+Ahmad (PRO): 'Poin yang bagus, Fatimah. Namun...'
+
+(lanjutkan minimal 8 giliran bicara)"></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div class="footer-nav">
+            <a href="19.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 19</a>
+            <a href="index.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="21.html" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 21 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'B', q3: 'C', q4: 'C', q5: 'D',
+            q6: 'C', q7: 'B', q8: 'B', q9: 'C', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quizForm');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_20_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 20 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5 (Simulasi Diskusi): ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan20_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 20 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 20 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. SIMULASI DISKUSI:
+${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 15: Menyimak Teks Prosedur & Menelaah Prosedur Menulis Esai | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- TOP NAVIGATION --- */
+        .top-nav {
+            background: rgba(11, 15, 25, 0.98);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        .top-nav-brand {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .top-nav-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- HERO HEADER --- */
+        .hero-header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .hero-icon {
+            font-size: 4rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .hero-title {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            position: relative;
+        }
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .author-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        .author-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+        }
+        .author-card-text { text-align: left; }
+        .author-card-text h4 {
+            font-size: 1rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.2rem;
+        }
+        .author-card-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- SECTION HEADER --- */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+        }
+        .section-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            line-height: 1.2;
+        }
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* --- CONTENT CARD --- */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- DEFINITION BOX --- */
+        .definition-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .definition-box::before {
+            content: '📌 DEFINISI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .definition-box p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* --- CONCEPT BOX --- */
+        .concept-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .concept-box::before {
+            content: '📌 KONSEP KUNCI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .concept-box p, .concept-box code {
+            color: var(--gold-light);
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* --- EXAMPLE BOX --- */
+        .example-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .example-box::before {
+            content: '💡 CONTOH NYATA';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.2rem 0.75rem;
+            color: var(--success);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--success);
+            border-radius: 20px;
+        }
+        .example-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        .example-box strong { color: var(--gold-primary); }
+
+        /* --- ESSAY EXAMPLE BOX --- */
+        .essay-example {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        .essay-example::before {
+            content: '✍️ CONTOH ESAI';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 20px;
+        }
+        .essay-example-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .essay-example-author {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .essay-example p {
+            color: var(--text-secondary);
+            text-align: justify;
+            margin-bottom: 1rem;
+            line-height: 1.9;
+        }
+        .essay-structure-label {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 0.2rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* --- VIDEO BOX --- */
+        .video-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(239, 68, 68, 0.02) 100%);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        .video-box::before {
+            content: '🎬 VIDEO PEMBELAJARAN';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            color: var(--error);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--error);
+            border-radius: 20px;
+        }
+        .video-icon {
+            font-size: 3.5rem;
+            color: var(--error);
+            margin-bottom: 1rem;
+        }
+        .video-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .video-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--error) 0%, #B91C1C 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .video-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3); }
+
+        /* --- BENEFIT GRID --- */
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.75rem;
+        }
+        .benefit-title {
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .benefit-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .keywords-section h3 {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+        .islamic-quote::before, .islamic-quote::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+        .islamic-quote::before { top: 15px; left: 20px; }
+        .islamic-quote::after { bottom: 15px; right: 20px; }
+        .arabic-text {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-family: 'Traditional Arabic', serif;
+            line-height: 1.8;
+        }
+        .quote-translation {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .quote-source {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .quiz-header h2 {
+            color: var(--gold-primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .quiz-info-item {
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        .quiz-info-item i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+        .quiz-info-item strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        .quiz-info-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label {
+            display: block;
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 120px; resize: vertical; }
+        .form-textarea-large { min-height: 300px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .question-points {
+            float: right;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .options input[type="radio"] {
+            accent-color: var(--gold-primary);
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold-primary);
+        }
+        .btn-success {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .breakdown-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        .breakdown-label { font-size: 0.85rem; color: var(--text-secondary); }
+        .breakdown-value {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+        .footer-nav {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .top-nav { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+            .section-header { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-brand">
+            <i class="fas fa-book-open"></i> Bahasa Indonesia Kelas IX
+        </div>
+        <div class="top-nav-links">
+            <a href="14.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 14</a>
+            <a href="index.html" class="nav-btn"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="16.html" class="nav-btn">Pertemuan 16 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <span class="hero-badge">Pertemuan 15</span>
+        <div class="hero-icon"><i class="fas fa-feather-alt"></i></div>
+        <h1 class="hero-title">Menyimak Teks Prosedur &<br>Menelaah Prosedur Menulis Esai</h1>
+        <p class="hero-subtitle">
+            Menyimak video/teks prosedur secara kritis dan menelaah prosedur menulis esai —
+            sebuah karya tulis nonfiksi yang memadukan fakta, opini, dan gaya pribadi penulis
+            untuk menyampaikan gagasan secara mendalam dan menarik, khususnya bertema kesukarelawanan.
+        </p>
+        <div class="author-card">
+            <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+            <div class="author-card-text">
+                <h4>Elizarni, S.Pd.</h4>
+                <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- ============ BAGIAN A ============ -->
+        <div class="section-header">
+            <div class="section-letter">A</div>
+            <div>
+                <h2>Hakikat Menyimak Teks/Video Prosedur</h2>
+                <p>Memahami konsep dan pentingnya kegiatan menyimak dalam pembelajaran teks prosedur</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p><strong>Menyimak</strong> adalah kegiatan mendengarkan secara sungguh-sungguh dengan penuh perhatian untuk memahami makna yang terkandung dalam ucapan atau teks yang disampaikan. Dalam konteks teks prosedur, menyimak bertujuan untuk menangkap langkah-langkah, informasi, dan instruksi yang disampaikan secara lisan maupun visual.</p>
+            
+            <div class="definition-box">
+                <p><strong>Menyimak Teks Prosedur</strong> adalah kegiatan mendengarkan atau menonton penyajian langkah-langkah sistematis untuk melakukan/membuat sesuatu, dengan tujuan memahami informasi secara utuh agar dapat mengikuti atau mengevaluasi prosedur tersebut.</p>
+            </div>
+
+            <div class="highlight-box" style="background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--gold-primary); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+                <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;"><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Henry Guntur Tarigan (2008)</strong> mendefinisikan menyimak sebagai suatu proses kegiatan mendengarkan lambang-lambang lisan dengan penuh perhatian, pemahaman, apresiasi, serta interpretasi untuk memperoleh informasi, menangkap isi, serta memahami makna komunikasi yang telah disampaikan oleh pembicara.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menambahkan bahwa menyimak teks prosedur memerlukan kemampuan khusus untuk menangkap urutan langkah, kata kerja imperatif, konjungsi temporal, serta keterangan waktu dan ukuran yang menjadi ciri khas teks prosedur.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">🌟 Manfaat Mempelajari Menyimak Teks Prosedur</h4>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <div class="benefit-title">Berpikir Kritis</div>
+                    <div class="benefit-desc">Melatih kemampuan menganalisis dan mengevaluasi informasi yang didengar.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-list-ol"></i></div>
+                    <div class="benefit-title">Literasi Prosedural</div>
+                    <div class="benefit-desc">Memahami langkah-langkah sistematis dalam berbagai kegiatan.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-ear-listen"></i></div>
+                    <div class="benefit-title">Keterampilan Menyimak</div>
+                    <div class="benefit-desc">Meningkatkan kemampuan menangkap informasi secara akurat.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-video"></i></div>
+                    <div class="benefit-title">Literasi Digital</div>
+                    <div class="benefit-desc">Mampu menyimak informasi dari video dan media digital.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN B ============ -->
+        <div class="section-header">
+            <div class="section-letter">B</div>
+            <div>
+                <h2>Langkah-Langkah Menyimak yang Efektif</h2>
+                <p>Teknik menyimak teks/video prosedur secara sistematis dan bermakna</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Agar kegiatan menyimak berjalan efektif dan menghasilkan pemahaman yang utuh, siswa perlu mengikuti langkah-langkah sistematis berikut:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📋 Tahapan Menyimak Teks/Video Prosedur</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Tahap</th>
+                        <th>Kegiatan</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Persiapan</strong></td>
+                        <td>Menyiapkan alat dan konsentrasi</td>
+                        <td>Siapkan buku catatan, pulpen, dan fokuskan perhatian.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Menyimak Awal</strong></td>
+                        <td>Mendengarkan/menonton secara utuh</td>
+                        <td>Tangkap gambaran umum topik dan tujuan prosedur.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Mencatat Informasi</strong></td>
+                        <td>Mencatat poin-poin penting</td>
+                        <td>Tulis langkah, alat, bahan, keterangan waktu/ukuran.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Identifikasi Ciri Kebahasaan</strong></td>
+                        <td>Menandai kata kerja imperatif, konjungsi temporal</td>
+                        <td>Temukan ciri khas teks prosedur dalam tayangan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Verifikasi</strong></td>
+                        <td>Memeriksa ulang catatan</td>
+                        <td>Pastikan semua langkah tercatat dengan benar.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Diskusi & Refleksi</strong></td>
+                        <td>Mendiskusikan hasil menyimak</td>
+                        <td>Bertukar pendapat dengan teman, evaluasi pemahaman.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Video Box -->
+            <div class="video-box">
+                <div class="video-icon"><i class="fas fa-play-circle"></i></div>
+                <h4 class="video-title">Video Pembelajaran: "Cara Membuat Rendang Padang"</h4>
+                <p class="video-desc">
+                    Simaklah video prosedur berikut dengan saksama!<br>
+                    Perhatikan langkah-langkah, alat, bahan, dan keterangan waktu yang disampaikan.
+                </p>
+                <a href="#" class="video-btn"><i class="fas fa-play"></i> Tonton Video</a>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">
+                    💡 Tips: Catat setiap langkah dengan nomor urut dan beri tanda pada kata kerja imperatif!
+                </p>
+            </div>
+
+            <div class="concept-box">
+                <p><strong>Kunci Menyimak Efektif:</strong></p>
+                <p>① Fokus penuh ② Catat poin penting ③ Identifikasi ciri kebahasaan ④ Verifikasi catatan ⑤ Diskusi hasil</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN C ============ -->
+        <div class="section-header">
+            <div class="section-letter">C</div>
+            <div>
+                <h2>Hakikat Esai</h2>
+                <p>Memahami pengertian, ciri, dan kedudukan esai dalam dunia tulis-menulis</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p><strong>Esai</strong> adalah karya tulis nonfiksi yang menyajikan gagasan, pendapat, atau refleksi pribadi penulis tentang suatu topik tertentu secara subjektif, kritis, dan mendalam. Esai berbeda dari artikel ilmiah karena lebih menekankan pada gaya pribadi (<em>voice</em>) penulis dan sudut pandang yang unik.</p>
+            
+            <div class="definition-box">
+                <p><strong>Esai</strong> adalah karangan prosa yang membahas suatu topik secara sepintas dari sudut pandang pribadi penulis. Esai bersifat subjektif, impresionistis, dan sering kali bersifat personal — memadukan fakta dengan opini penulis secara harmonis.</p>
+            </div>
+
+            <div class="highlight-box" style="background: rgba(212, 175, 55, 0.05); border-left: 4px solid var(--gold-primary); padding: 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+                <h4 style="color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif;"><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Michel de Montaigne (1580)</strong>, bapak esai modern, mendefinisikan esai sebagai "upaya" (<em>essai</em> dalam bahasa Perancis) — sebuah percobaan pemikiran untuk mengeksplorasi suatu topik secara mendalam namun tetap personal.</p>
+                <p style="margin-top: 0.5rem;"><strong>Aldous Huxley (1960)</strong> menyatakan bahwa esai adalah "perangkat sastra untuk membahas hampir segala hal tentang hampir segala topik". Esai menggabungkan abstraksi intelektual dengan pengalaman pribadi.</p>
+                <p style="margin-top: 0.5rem;"><strong>Gorys Keraf (1994)</strong> menambahkan bahwa esai merupakan karangan prosa yang membahas suatu topik secara sepintas dari sudut pandang pribadi penulis. Esai bersifat subjektif, impresionistis, dan personal.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 2rem 0 1rem;">📊 Perbedaan Esai dengan Jenis Tulisan Lain</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Esai</th>
+                        <th>Artikel Ilmiah</th>
+                        <th>Laporan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sifat</strong></td>
+                        <td>Subjektif, personal, reflektif</td>
+                        <td>Objektif, sistematis, empiris</td>
+                        <td>Faktual, deskriptif</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gaya Bahasa</strong></td>
+                        <td>Sastra, bervariasi, bernuansa pribadi</td>
+                        <td>Formal, baku, akademis</td>
+                        <td>Netral, informatif</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sudut Pandang</strong></td>
+                        <td>Pribadi penulis (orang pertama)</td>
+                        <td>Objektif (orang ketiga)</td>
+                        <td>Objektif</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tujuan</strong></td>
+                        <td>Merefleksikan gagasan, menginspirasi</td>
+                        <td>Menyampaikan hasil penelitian</td>
+                        <td>Melaporkan kejadian/kegiatan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Panjang</strong></td>
+                        <td>500 - 5.000 kata</td>
+                        <td>3.000 - 10.000 kata</td>
+                        <td>Variabel</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN D ============ -->
+        <div class="section-header">
+            <div class="section-letter">D</div>
+            <div>
+                <h2>Jenis-Jenis Esai</h2>
+                <p>Mengenal berbagai jenis esai berdasarkan tujuan dan pendekatannya</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Esai memiliki berbagai jenis berdasarkan tujuan dan pendekatannya. Pemilihan jenis yang tepat akan menentukan karakteristik esai yang ditulis.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📚 Klasifikasi Jenis Esai</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Ciri Khas</th>
+                        <th>Contoh Topik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Esai Deskriptif</strong></td>
+                        <td>Menggambarkan objek, tempat, atau pengalaman secara detail.</td>
+                        <td>"Suasana Ramadan di Kampung Halaman"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Esai Naratif</strong></td>
+                        <td>Menceritakan pengalaman pribadi secara kronologis.</td>
+                        <td>"Pengalaman Pertamaku Menjadi Relawan"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Esai Ekspositoris</strong></td>
+                        <td>Menjelaskan atau memaparkan informasi/fakta.</td>
+                        <td>"Manfaat Membaca bagi Remaja"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Esai Argumentatif</strong></td>
+                        <td>Mengemukakan pendapat dengan alasan logis.</td>
+                        <td>"Mengapa Media Sosial Perlu Dibatasi bagi Remaja"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Esai Persuasif</strong></td>
+                        <td>Membujuk pembaca untuk mengikuti pendapat penulis.</td>
+                        <td>"Mari Jadi Relawan untuk Masa Depan Lebih Baik"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Esai Reflektif</strong></td>
+                        <td>Merefleksikan pengalaman dan makna di baliknya.</td>
+                        <td>"Pelajaran Berharga dari Menjadi Relawan TBM"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>💡 Konteks Kesukarelawanan:</strong></p>
+                <p>Untuk tema <strong>kesukarelawanan</strong>, jenis esai yang paling cocok adalah <strong>esai naratif, reflektif, dan persuasif</strong>. Ketiga jenis ini memungkinkan penulis untuk: (1) menceritakan pengalaman pribadi sebagai relawan, (2) merefleksikan makna dan pelajaran dari kegiatan tersebut, dan (3) mengajak pembaca untuk turut menjadi relawan.</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN E ============ -->
+        <div class="section-header">
+            <div class="section-letter">E</div>
+            <div>
+                <h2>Struktur Esai</h2>
+                <p>Memahami bagian-bagian esai yang utuh dan padu</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Esai yang baik memiliki struktur yang jelas namun tetap mengalir secara natural. Struktur esai umumnya terdiri atas tiga bagian utama:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🏗️ Struktur Esai</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Bagian</th>
+                        <th>Isi</th>
+                        <th>Fungsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Pendahuluan (Pembuka)</strong></td>
+                        <td>Hook (pemancing perhatian), latar belakang, tesis/gagasan utama.</td>
+                        <td>Menarik perhatian pembaca dan memperkenalkan topik.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Tubuh Esai (Isi)</strong></td>
+                        <td>Beberapa paragraf yang mengembangkan gagasan utama dengan argumen, fakta, contoh, dan refleksi.</td>
+                        <td>Menguraikan gagasan secara mendalam dan meyakinkan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Penutup (Simpulan)</strong></td>
+                        <td>Rangkuman gagasan, refleksi akhir, pesan inspiratif, atau ajakan.</td>
+                        <td>Memberikan kesan mendalam dan menutup esai dengan kuat.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="concept-box">
+                <p><strong>Rumus Struktur Esai:</strong></p>
+                <p>Pendahuluan (1 paragraf) + Tubuh Esai (3-5 paragraf) + Penutup (1 paragraf) = Esai Utuh</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN F ============ -->
+        <div class="section-header">
+            <div class="section-letter">F</div>
+            <div>
+                <h2>Prosedur Menulis Esai</h2>
+                <p>Langkah-langkah sistematis menulis esai yang berkualitas</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Menulis esai memerlukan prosedur yang sistematis agar hasilnya berkualitas. Berikut langkah-langkahnya:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">📝 10 Langkah Menulis Esai</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Langkah</th>
+                        <th>Kegiatan</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Menentukan Topik</strong></td>
+                        <td>Memilih topik yang menarik dan dikuasai</td>
+                        <td>Misal: "Kesukarelawan di TBM"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Menentukan Jenis Esai</strong></td>
+                        <td>Memilih jenis esai yang sesuai</td>
+                        <td>Naratif, reflektif, persuasif, dll.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Merumuskan Tesis</strong></td>
+                        <td>Menentukan gagasan utama yang akan disampaikan</td>
+                        <td>"Menjadi relawan membentuk karakter"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Mengumpulkan Bahan</strong></td>
+                        <td>Mengumpulkan fakta, data, pengalaman</td>
+                        <td>Hasil wawancara, observasi, bacaan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Menyusun Kerangka</strong></td>
+                        <td>Membuat outline pendahuluan-isi-penutup</td>
+                        <td>Struktur paragraf per paragraf.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Menulis Draf Awal</strong></td>
+                        <td>Menulis esai secara utuh</td>
+                        <td>Fokus pada alur, jangan edit dulu.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Mengembangkan Paragraf</strong></td>
+                        <td>Memperkuat setiap paragraf dengan detail</td>
+                        <td>Tambahkan contoh, fakta, refleksi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>8. Merevisi</strong></td>
+                        <td>Memperbaiki isi, alur, dan gaya bahasa</td>
+                        <td>Cek koherensi dan kohesi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9. Menyunting</strong></td>
+                        <td>Memperbaiki ejaan, tanda baca, tata bahasa</td>
+                        <td>Cek PUEBI dan diksi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>10. Mempublikasikan</strong></td>
+                        <td>Menyajikan esai kepada pembaca</td>
+                        <td>Mading, blog, majalah sekolah.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <p><strong>💡 Tips Penting:</strong></p>
+                <p>Jangan menunggu sempurna untuk mulai menulis. Tulis saja dulu, lalu perbaiki kemudian. Esai yang baik lahir dari proses revisi yang berulang, bukan dari draf pertama yang sempurna.</p>
+            </div>
+        </div>
+
+        <!-- ============ BAGIAN G ============ -->
+        <div class="section-header">
+            <div class="section-letter">G</div>
+            <div>
+                <h2>Contoh Esai Bertema Kesukarelawanan</h2>
+                <p>Teladani struktur dan gaya bahasa esai berkualitas</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Berikut contoh esai bertema kesukarelawanan yang dapat dijadikan teladan. Perhatikan struktur, gaya bahasa, dan kedalaman refleksinya.</p>
+            
+            <div class="essay-example">
+                <h3 class="essay-example-title">"Satu Jam yang Mengubah Segalanya"</h3>
+                <p class="essay-example-author">— Esai Reflektif oleh Siswa MTsN 10 Agam</p>
+
+                <span class="essay-structure-label">PENDAHULUAN</span>
+                <p>Suatu sore, aku duduk di beranda rumah, menatap layar ponsel yang menyala tanpa tujuan. Notifikasi media sosial silih berganti muncul, namun hatiku terasa kosong. Aku bertanya pada diriku sendiri, "Sudahkah aku memberi manfaat hari ini?" Pertanyaan itu mengusik. Keesokan paginya, aku memberanikan diri melangkah ke Taman Bacaan Masyarakat (TBM) Cahaya Ilmu di dekat rumahku. Aku tidak tahu, bahwa satu jam di sana akan mengubah cara pandangku terhadap kehidupan.</p>
+
+                <span class="essay-structure-label">TUBUH ESAI</span>
+                <p>Sesampainya di TBM, aku disambut oleh Kak Siti, seorang relawan yang telah lima tahun mengabdikan dirinya. Dengan senyum hangat, ia mengajakku bergabung dengan anak-anak desa yang sedang belajar membaca. Awalnya aku canggung. Namun, ketika seorang anak bernama Aisyah berhasil mengeja kata "ibu" dengan mata berbinar, sesuatu dalam diriku tersentuh. Senyumnya begitu tulus, begitu murni, seolah ia baru saja menemukan harta karun.</p>
+
+                <p>Kak Siti bercerita bahwa banyak anak di desa ini tidak memiliki akses buku yang memadai. "Satu jam yang kita berikan," katanya, "bisa membuka jendela dunia bagi mereka." Kata-kata itu menancap dalam hatiku. Aku menyadari bahwa selama ini aku terlalu sibuk dengan diriku sendiri, hingga lupa bahwa di sekelilingku ada banyak tangan yang menanti uluran.</p>
+
+                <p>Sejak hari itu, aku rutin menjadi relawan di TBM setiap akhir pekan. Aku tidak hanya mengajar membaca, tetapi juga belajar banyak hal dari anak-anak tersebut — tentang kesederhanaan, tentang syukur, tentang makna kebahagiaan yang sejati. Mereka mengajarkanku bahwa kekayaan bukan tentang apa yang kita miliki, melainkan tentang apa yang kita berikan.</p>
+
+                <span class="essay-structure-label">PENUTUP</span>
+                <p>Kini, setiap kali aku merasa lelah atau putus asa, aku teringat pada senyum Aisyah. Satu jam yang awalnya kuanggap sebagai kewajiban, ternyata menjadi sumber inspirasi tak terduga. Menjadi relawan bukan tentang seberapa besar pengorbanan yang kita berikan, tetapi tentang ketulusan hati untuk berbagi. Dan aku percaya, sekecil apa pun kontribusi kita, jika dilakukan dengan ikhlas, ia akan tumbuh menjadi pohon rindang yang menaungi banyak jiwa. Maka, mari kita mulai — satu jam saja, hari ini — karena satu jam itu bisa mengubah segalanya.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">🔍 Analisis Struktur Esai di Atas</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Bagian</th>
+                        <th>Analisis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pendahuluan</strong></td>
+                        <td>Dibuka dengan hook personal (perasaan kosong), lalu diperkenalkan latar (TBM) dan tesis tersirat (satu jam bisa mengubah segalanya).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tubuh Esai</strong></td>
+                        <td>3 paragraf yang mengembangkan pengalaman: (1) pertemuan pertama, (2) percakapan inspiratif dengan Kak Siti, (3) refleksi dan komitmen menjadi relawan rutin.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Penutup</strong></td>
+                        <td>Merangkum makna pengalaman, memberikan pesan inspiratif, dan mengajak pembaca untuk bertindak.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gaya Bahasa</strong></td>
+                        <td>Menggunakan sudut pandang orang pertama, banyak metafora ("jendela dunia", "pohon rindang"), dan refleksi personal.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ciri Esai Reflektif</strong></td>
+                        <td>Menyajikan pengalaman pribadi + makna yang dipetik + pesan universal untuk pembaca.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN H ============ -->
+        <div class="section-header">
+            <div class="section-letter">H</div>
+            <div>
+                <h2>Kesalahan Umum dalam Menulis Esai</h2>
+                <p>Hindari kesalahan-kesalahan berikut agar esai Anda berkualitas</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <p>Banyak siswa yang masih melakukan kesalahan saat menulis esai. Berikut beberapa kesalahan yang sering terjadi beserta solusinya:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Dampak</th>
+                        <th>Solusi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Tidak memiliki tesis yang jelas</td>
+                        <td>Esai terasa mengambang, tidak fokus.</td>
+                        <td>Rumuskan satu gagasan utama sebelum menulis.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Terlalu banyak topik dalam satu esai</td>
+                        <td>Pembaca kebingungan, pesan tidak tersampaikan.</td>
+                        <td>Fokus pada satu topik utama saja.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Pendahuluan terlalu panjang</td>
+                        <td>Pembaca bosan sebelum masuk ke isi.</td>
+                        <td>Buat pendahuluan singkat, padat, dan memancing.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Tidak ada refleksi pribadi</td>
+                        <td>Esai terasa datar, seperti laporan.</td>
+                        <td>Sisipkan perasaan, pikiran, dan pelajaran pribadi.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Penutup lemah (tidak berkesan)</td>
+                        <td>Esai berakhir menggantung.</td>
+                        <td>Akhiri dengan pesan inspiratif atau ajakan kuat.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Tidak merevisi setelah menulis</td>
+                        <td>Banyak kesalahan ejaan dan alur.</td>
+                        <td>Baca ulang minimal 2 kali, minta feedback teman.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ============ BAGIAN I ============ -->
+        <div class="section-header">
+            <div class="section-letter">I</div>
+            <div>
+                <h2>Referensi Pendukung</h2>
+                <p>Sumber-sumber akademik yang memperkuat materi pertemuan ini</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Tarigan, Henry Guntur. (2008). <em>Menyimak Sebagai Suatu Keterampilan Berbahasa</em>. Bandung: Angkasa.</li>
+                <li>Keraf, Gorys. (1994). <em>Komposisi: Sebuah Pengantar Kemahiran Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Montaigne, Michel de. (1580). <em>Essais</em>. Paris: Éditions originales.</li>
+                <li>Huxley, Aldous. (1960). <em>Texts and Pretexts: An Anthology with Commentaries</em>. New York: Harper.</li>
+                <li>Nurgiyantoro, Burhan. (2010). <em>Teori Pengkajian Fiksi</em>. Yogyakarta: Gadjah Mada University Press.</li>
+                <li>Tim Penyusun. (2016). <em>Panduan Menulis Esai untuk Pelajar</em>. Jakarta: Kompas.</li>
+            </ul>
+        </div>
+
+        <!-- Kata Kunci -->
+        <div class="keywords-section">
+            <h3><i class="fas fa-key"></i> ◆ Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Menyimak</span>
+                <span class="keyword-tag">Teks Prosedur</span>
+                <span class="keyword-tag">Video Prosedur</span>
+                <span class="keyword-tag">Esai</span>
+                <span class="keyword-tag">Esai Reflektif</span>
+                <span class="keyword-tag">Esai Naratif</span>
+                <span class="keyword-tag">Esai Persuasif</span>
+                <span class="keyword-tag">Tesis</span>
+                <span class="keyword-tag">Pendahuluan</span>
+                <span class="keyword-tag">Tubuh Esai</span>
+                <span class="keyword-tag">Penutup</span>
+                <span class="keyword-tag">Kesukarelawanan</span>
+                <span class="keyword-tag">Relawan</span>
+                <span class="keyword-tag">Voice</span>
+                <span class="keyword-tag">Refleksi</span>
+            </div>
+        </div>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ۝ خَلَقَ الْإِنسَانَ مِنْ عَلَقٍ ۝ اقْرَأْ وَرَبُّكَ الْأَكْرَمُ ۝ الَّذِي عَلَّمَ بِالْقَلَمِ ۝ عَلَّمَ الْإِنسَانَ مَا لَمْ يَعْلَمْ</div>
+            <p class="quote-translation">"Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan. Dia telah menciptakan manusia dari segumpal darah. Bacalah, dan Tuhanmulah Yang Mahamulia. Yang mengajar (manusia) dengan pena. Dia mengajarkan manusia apa yang tidak diketahuinya."</p>
+            <p class="quote-source">— QS. Al-Alaq [96]: 1-5</p>
+        </div>
+
+        <!-- ============ UJI FORMATIF ============ -->
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 15</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+                
+                <div class="quiz-info">
+                    <div class="quiz-info-item">
+                        <i class="fas fa-list-ol"></i>
+                        <strong>PILIHAN GANDA</strong>
+                        <span>10 soal × 10 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <strong>ESSAY</strong>
+                        <span>5 soal × 20 poin</span>
+                    </div>
+                    <div class="quiz-info-item">
+                        <i class="fas fa-trophy"></i>
+                        <strong>TOTAL MAKSIMAL</strong>
+                        <span>200 poin</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div style="background: var(--bg-card); border: 1px solid var(--gold-primary); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold-primary);"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal × 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Menurut Henry Guntur Tarigan, menyimak adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Kegiatan membaca teks dengan suara keras</label>
+                        <label><input type="radio" name="q1" value="B"> B. Proses mendengarkan lambang-lambang lisan dengan penuh perhatian untuk memperoleh informasi</label>
+                        <label><input type="radio" name="q1" value="C"> C. Kegiatan menulis karangan ilmiah</label>
+                        <label><input type="radio" name="q1" value="D"> D. Proses menghafal teks</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Bapak esai modern yang memperkenalkan istilah "essai" adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Aldous Huxley</label>
+                        <label><input type="radio" name="q2" value="B"> B. Gorys Keraf</label>
+                        <label><input type="radio" name="q2" value="C"> C. Michel de Montaigne</label>
+                        <label><input type="radio" name="q2" value="D"> D. Henry Guntur Tarigan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Ciri utama esai yang membedakannya dari artikel ilmiah adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Bersifat objektif dan empiris</label>
+                        <label><input type="radio" name="q3" value="B"> B. Bersifat subjektif, personal, dan reflektif</label>
+                        <label><input type="radio" name="q3" value="C"> C. Menggunakan bahasa formal dan baku</label>
+                        <label><input type="radio" name="q3" value="D"> D. Memiliki struktur yang kaku</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Jenis esai yang menceritakan pengalaman pribadi secara kronologis disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Esai deskriptif</label>
+                        <label><input type="radio" name="q4" value="B"> B. Esai argumentatif</label>
+                        <label><input type="radio" name="q4" value="C"> C. Esai naratif</label>
+                        <label><input type="radio" name="q4" value="D"> D. Esai ekspositoris</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Struktur esai yang benar secara berurutan adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Isi → Pendahuluan → Penutup</label>
+                        <label><input type="radio" name="q5" value="B"> B. Pendahuluan → Tubuh Esai → Penutup</label>
+                        <label><input type="radio" name="q5" value="C"> C. Penutup → Isi → Pendahuluan</label>
+                        <label><input type="radio" name="q5" value="D"> D. Tubuh Esai → Pendahuluan → Penutup</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Langkah pertama dalam prosedur menulis esai adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Langsung menulis draf awal</label>
+                        <label><input type="radio" name="q6" value="B"> B. Menentukan topik yang menarik dan dikuasai</label>
+                        <label><input type="radio" name="q6" value="C"> C. Menyunting ejaan</label>
+                        <label><input type="radio" name="q6" value="D"> D. Mempublikasikan esai</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Untuk tema kesukarelawanan, jenis esai yang paling cocok adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Esai deskriptif murni</label>
+                        <label><input type="radio" name="q7" value="B"> B. Esai naratif, reflektif, dan persuasif</label>
+                        <label><input type="radio" name="q7" value="C"> C. Esai ekspositoris teknis</label>
+                        <label><input type="radio" name="q7" value="D"> D. Esai ilmiah</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Salah satu kesalahan umum dalam menulis esai adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Memiliki tesis yang jelas</label>
+                        <label><input type="radio" name="q8" value="B"> B. Menyisipkan refleksi pribadi</label>
+                        <label><input type="radio" name="q8" value="C"> C. Tidak memiliki tesis yang jelas sehingga esai terasa mengambang</label>
+                        <label><input type="radio" name="q8" value="D"> D. Melakukan revisi setelah menulis</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Bagian esai yang berfungsi menarik perhatian pembaca dan memperkenalkan topik adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Tubuh esai</label>
+                        <label><input type="radio" name="q9" value="B"> B. Pendahuluan</label>
+                        <label><input type="radio" name="q9" value="C"> C. Penutup</label>
+                        <label><input type="radio" name="q9" value="D"> D. Daftar pustaka</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa kegiatan menyimak teks/video prosedur penting dalam pembelajaran? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar siswa bisa menghafal teks</label>
+                        <label><input type="radio" name="q10" value="B"> B. Untuk melatih berpikir kritis, literasi prosedural, dan literasi digital</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar siswa tidak perlu menulis</label>
+                        <label><input type="radio" name="q10" value="D"> D. Untuk mengisi waktu luang</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal × 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan pengertian menyimak menurut Henry Guntur Tarigan! Sebutkan dan jelaskan 6 tahapan menyimak teks/video prosedur secara sistematis! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Jelaskan pengertian esai menurut Montaigne, Huxley, dan Gorys Keraf! Buatlah tabel perbandingan antara esai, artikel ilmiah, dan laporan dari segi sifat, gaya bahasa, sudut pandang, tujuan, dan panjang! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Sebutkan dan jelaskan 6 jenis esai! Untuk tema kesukarelawanan, jenis esai apa yang paling cocok? Jelaskan alasannya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan 10 langkah menulis esai secara sistematis! Mengapa setiap langkah tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK MENULIS ESAI): Tulislah sebuah esai pendek (minimal 3 paragraf: pendahuluan, tubuh, penutup) bertema "Kesukarelawanan" dengan mengambil inspirasi dari pengalaman pribadimu atau pengalaman orang di sekitarmu. Esai harus memuat: (a) hook yang menarik di awal, (b) tesis yang jelas, (c) refleksi pribadi, (d) pesan inspiratif di penutup. Gunakan gaya bahasa yang personal dan bernuansa sastra! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea form-textarea-large" placeholder="Tulis esai Anda di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                
+                <div class="score-breakdown">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Pilihan Ganda</div>
+                        <div class="breakdown-value" id="scorePG">0/100</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Essay</div>
+                        <div class="breakdown-value" id="scoreEssay">0/100</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Skor Akhir</div>
+                        <div class="breakdown-value" id="scoreAkhir">0</div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 1.5rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div class="footer-nav">
+            <a href="14.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 14</a>
+            <a href="index.html" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-list"></i> Daftar Isi</a>
+            <a href="16.html" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 16 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'C', q3: 'B', q4: 'C', q5: 'B',
+            q6: 'B', q7: 'B', q8: 'C', q9: 'B', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('scorePG').textContent = `${score}/100`;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_15_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 15 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan15_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 15 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 15 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

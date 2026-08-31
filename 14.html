@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 14: Prosedur Wawancara Bertema Kesukarelawanan | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- DIALOGUE BOX --- */
+        .dialogue-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            color: var(--text-primary);
+            line-height: 2;
+            position: relative;
+        }
+        .dialogue-box::before {
+            content: '🎤';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        .dialogue-title {
+            display: block;
+            font-weight: 600;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .dialogue-speaker {
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        .dialogue-line {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 250px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="13.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 13</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="15.html" target="_blank" class="nav-btn">Pertemuan 15 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 14</span>
+            <h1 class="chapter-title">Prosedur Wawancara Bertema Kesukarelawanan</h1>
+            <p class="chapter-desc">Mempraktikkan keterampilan wawancara secara sistematis dengan mengangkat tema kesukarelawanan (volunteering) — sebuah nilai luhur yang mencerminkan kepedulian sosial dan semangat berbagi dalam kehidupan bermasyarakat.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Wawancara -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-microphone"></i> A. Hakikat Wawancara</h3>
+            <p><strong>Wawancara</strong> adalah kegiatan tanya jawab antara dua pihak atau lebih — yaitu pewawancara (interviewer) dan narasumber (interviewee) — untuk memperoleh informasi, pendapat, atau keterangan tentang suatu topik tertentu. Wawancara merupakan salah satu teknik pengumpulan data yang penting dalam berbagai bidang, termasuk jurnalistik, penelitian, dan kegiatan sosial.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Lexy J. Moleong (2010)</strong> mendefinisikan wawancara sebagai percakapan dengan maksud tertentu yang dilakukan oleh dua pihak, yaitu pewawancara yang mengajukan pertanyaan dan terwawancara yang memberikan jawaban.</p>
+                <p style="margin-top: 0.5rem;"><strong>Henry Guntur Tarigan (2008)</strong> menyatakan bahwa wawancara merupakan kegiatan berbicara untuk memperoleh informasi dari narasumber dengan cara tanya jawab secara lisan, baik secara langsung maupun tidak langsung.</p>
+                <p style="margin-top: 0.5rem;"><strong>Sugiyono (2015)</strong> menambahkan bahwa wawancara digunakan sebagai teknik pengumpulan data apabila peneliti ingin mengetahui keadaan yang lebih kompleks, mendalam, dan bersifat pribadi.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 14.1: Mengapa Wawancara Penting?</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Alasan</th>
+                        <th>Manfaat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Mendapatkan informasi mendalam</td>
+                        <td>Memahami sudut pandang narasumber secara utuh.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mengklarifikasi data</td>
+                        <td>Memastikan kebenaran informasi yang diperoleh.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Menggali pengalaman pribadi</td>
+                        <td>Memperoleh cerita inspiratif yang tidak tertulis.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Melatih keterampilan komunikasi</td>
+                        <td>Siswa terampil bertanya, menyimak, dan merespons.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Membangun empati sosial</td>
+                        <td>Memahami isu sosial melalui pengalaman narasumber.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Jenis-Jenis Wawancara -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-th-list"></i> B. Jenis-Jenis Wawancara</h3>
+            <p>Wawancara dapat dibedakan berdasarkan beberapa aspek. Pemilihan jenis yang tepat akan menentukan keberhasilan pengumpulan informasi.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 14.2: Jenis-Jenis Wawancara</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Ciri Khas</th>
+                        <th>Kapan Digunakan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Wawancara Terstruktur</strong></td>
+                        <td>Pertanyaan sudah disiapkan secara rinci dan berurutan.</td>
+                        <td>Penelitian kuantitatif, survei formal.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Wawancara Semiterstruktur</strong></td>
+                        <td>Ada pedoman pertanyaan, tetapi dapat dikembangkan sesuai situasi.</td>
+                        <td>Penelitian kualitatif, profil tokoh.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Wawancara Tidak Terstruktur</strong></td>
+                        <td>Pertanyaan fleksibel, mengalir seperti percakapan.</td>
+                        <td>Eksplorasi mendalam, cerita pribadi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Wawancara Langsung</strong></td>
+                        <td>Dilakukan tatap muka antara pewawancara dan narasumber.</td>
+                        <td>Profil tokoh, berita lapangan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Wawancara Tidak Langsung</strong></td>
+                        <td>Melalui perantara (telepon, video call, email).</td>
+                        <td>Narasumber berada di lokasi jauh.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-star"></i> Konteks Kesukarelawanan</h4>
+                <p>Untuk wawancara bertema <strong>kesukarelawanan (volunteering)</strong>, jenis yang paling tepat adalah <strong>wawancara semiterstruktur</strong>. Alasannya: pewawancara memiliki pedoman pertanyaan yang terarah, tetapi tetap dapat mengembangkan pertanyaan untuk menggali pengalaman pribadi narasumber secara lebih mendalam dan inspiratif.</p>
+            </div>
+        </section>
+
+        <!-- Content C: Prosedur Wawancara -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-list-ol"></i> C. Prosedur Melakukan Wawancara</h3>
+            <p>Agar wawancara berjalan lancar dan menghasilkan informasi yang bermutu, siswa perlu mengikuti prosedur sistematis berikut:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 14.3: Tahapan Prosedur Wawancara</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Tahap</th>
+                        <th>Kegiatan</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Perencanaan</strong></td>
+                        <td>Menentukan tujuan, topik, dan narasumber</td>
+                        <td>Siapkan pedoman wawancara dan janji temu.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Persiapan</strong></td>
+                        <td>Menyusun daftar pertanyaan</td>
+                        <td>Buat 8-12 pertanyaan terbuka yang terstruktur.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Pembukaan</strong></td>
+                        <td>Memperkenalkan diri dan menjelaskan tujuan</td>
+                        <td>Salam, perkenalan, izin merekam (jika perlu).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Pelaksanaan</strong></td>
+                        <td>Mengajukan pertanyaan dan menyimak jawaban</td>
+                        <td>Tanyakan pertanyaan inti, catat, gali lebih dalam.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Penutup</strong></td>
+                        <td>Merangkum dan mengucapkan terima kasih</td>
+                        <td>Konfirmasi data, ucapkan terima kasih, salam.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Pasca-Wawancara</strong></td>
+                        <td>Mengolah dan menyajikan hasil</td>
+                        <td>Transkrip, analisis, laporan tertulis/lisan.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content D: Struktur Wawancara -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-sitemap"></i> D. Struktur Wawancara</h3>
+            <p>Wawancara yang baik memiliki struktur yang jelas agar informasi yang diperoleh terarah dan lengkap. Berikut adalah struktur standar wawancara:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 14.4: Struktur Wawancara</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Bagian</th>
+                        <th>Isi</th>
+                        <th>Contoh Kalimat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Pembukaan</strong></td>
+                        <td>Salam, perkenalan diri, penjelasan tujuan, permohonan izin.</td>
+                        <td>"Assalamualaikum, perkenalkan nama saya Rina dari MTsN 10 Agam. Saya ingin mewawancarai Bapak/Ibu tentang kegiatan sukarela yang telah dilakukan."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Isi (Inti)</strong></td>
+                        <td>Pertanyaan-pertanyaan utama yang disusun secara sistematis.</td>
+                        <td>"Boleh diceritakan bagaimana awal mula Bapak/Ibu terjun dalam kegiatan sukarela?"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Pendalaman</strong></td>
+                        <td>Pertanyaan lanjutan untuk menggali informasi lebih dalam.</td>
+                        <td>"Apa tantangan terbesar yang dihadapi? Bagaimana cara mengatasinya?"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Penutup</strong></td>
+                        <td>Kesimpulan, ucapan terima kasih, dan salam penutup.</td>
+                        <td>"Terima kasih atas waktu dan-sharing yang luar biasa. Semoga pengalaman ini menginspirasi banyak orang."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content E: Tema Kesukarelawanan -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-hands-helping"></i> E. Tema Kesukarelawanan (Volunteering)</h3>
+            <p><strong>Kesukarelawanan</strong> adalah kegiatan yang dilakukan secara sukarela tanpa mengharapkan imbalan materi, dengan tujuan membantu sesama, masyarakat, atau lingkungan. Pelakunya disebut <em>relawan</em> atau <em>volunteer</em>.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Makna Kesukarelawanan</h4>
+                <p>Menurut <strong>United Nations Volunteers (UNV)</strong>, kesukarelawanan adalah tindakan sukarela demi kepentingan umum, di mana individu memberikan waktu, keterampilan, dan tenaganya tanpa mengharapkan imbalan finansial. Kegiatan ini mencerminkan nilai-nilai <em>solidaritas, empati, kepedulian, dan tanggung jawab sosial</em>.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 14.5: Bentuk-Bentuk Kesukarelawanan</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Bentuk</th>
+                        <th>Contoh Kegiatan</th>
+                        <th>Manfaat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pendidikan</strong></td>
+                        <td>Mengajar di TBM, menjadi tutor sebaya, literasi desa.</td>
+                        <td>Meningkatkan literasi masyarakat.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lingkungan</strong></td>
+                        <td>Penanaman pohon, bersih-bersih pantai, daur ulang.</td>
+                        <td>Menjaga kelestarian alam.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kesehatan</strong></td>
+                        <td>Donor darah, pendampingan lansia, posyandu.</td>
+                        <td>Meningkatkan kesehatan masyarakat.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bencana</strong></td>
+                        <td>Relawan bencana alam, dapur umum, evakuasi.</td>
+                        <td>Membantu korban bencana.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sosial</strong></td>
+                        <td>Panti asuhan, panti jompo, santunan yatim.</td>
+                        <td>Meringankan beban sesama.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Keagamaan</strong></td>
+                        <td>Pengajaran mengaji, panitia masjid, dakwah sosial.</td>
+                        <td>Menebar nilai-nilai keagamaan.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Mengapa Tema Kesukarelawanan Relevan?</h4>
+                <p>Tema ini sangat relevan bagi siswa MTsN 10 Agam karena:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 2;">
+                    <li>Sesuai dengan nilai-nilai Islam tentang <em>ta'awun</em> (tolong-menolong) dan <em>sedekah</em>.</li>
+                    <li>Membangun karakter peduli sosial sejak dini.</li>
+                    <li>Memberikan inspirasi melalui cerita nyata relawan di sekitar.</li>
+                    <li>Melatih siswa menjadi agen perubahan di masyarakat.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Content F: Pedoman Wawancara -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-file-alt"></i> F. Menyusun Pedoman Wawancara Bertema Kesukarelawanan</h3>
+            <p>Pedoman wawancara adalah daftar pertanyaan yang akan diajukan kepada narasumber. Pedoman ini harus disusun secara sistematis agar informasi yang diperoleh lengkap dan terarah.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 14.6: Contoh Pedoman Wawancara Relawan TBM</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Aspek</th>
+                        <th>Pertanyaan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Latar Belakang</strong></td>
+                        <td>"Boleh diceritakan, bagaimana awal mula Kakak terjun sebagai relawan di TBM?"</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Motivasi</strong></td>
+                        <td>"Apa yang memotivasi Kakak untuk terus menjadi relawan?"</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Pengalaman</strong></td>
+                        <td>"Pengalaman apa yang paling berkesan selama menjadi relawan?"</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Tantangan</strong></td>
+                        <td>"Apa tantangan terbesar yang dihadapi, dan bagaimana mengatasinya?"</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Dampak</strong></td>
+                        <td>"Menurut Kakak, apa dampak kegiatan relawan bagi masyarakat sekitar?"</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Nilai yang Dipelajari</strong></td>
+                        <td>"Nilai-nilai apa yang Kakak dapatkan dari kegiatan ini?"</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Pesan Inspiratif</strong></td>
+                        <td>"Apa pesan Kakak bagi remaja yang ingin mulai menjadi relawan?"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Tips Menyusun Pertanyaan yang Baik</h4>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 2;">
+                    <li>Gunakan <strong>pertanyaan terbuka</strong> (mengapa, bagaimana, ceritakan) agar narasumber dapat bercerita panjang.</li>
+                    <li>Hindari pertanyaan yang mengarahkan (<em>leading question</em>).</li>
+                    <li>Urutkan pertanyaan dari umum ke khusus.</li>
+                    <li>Siapkan pertanyaan cadangan untuk pengembangan.</li>
+                    <li>Gunakan bahasa yang sopan dan sesuai usia narasumber.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Content G: Contoh Dialog Wawancara -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-comments"></i> G. Contoh Simulasi Wawancara</h3>
+            <p>Berikut contoh dialog wawancara antara siswa dengan seorang relawan TBM. Perhatikan struktur pembukaan, isi, dan penutupnya.</p>
+            
+            <div class="dialogue-box">
+                <span class="dialogue-title">Simulasi Wawancara dengan Relawan TBM Cahaya Ilmu</span>
+                
+                <div class="dialogue-line">
+                    <span class="dialogue-saker">Pewawancara (Rina):</span>
+                    "Assalamualaikum, Kak Siti. Terima kasih sudah meluangkan waktu. Perkenalkan, saya Rina dari MTsN 10 Agam. Boleh saya mewawancarai Kakak tentang pengalaman sebagai relawan TBM?"
+                </div>
+                <div class="dialogue-line">
+                    <span class="dialogue-speaker">Narasumber (Kak Siti):</span>
+                    "Waalaikumsalam. Tentu, silakan. Saya senang bisa berbagi pengalaman."
+                </div>
+                <div class="dialogue-line">
+                    <span class="dialogue-speaker">Rina:</span>
+                    "Bagaimana awal mula Kakak terjun sebagai relawan di TBM?"
+                </div>
+                <div class="dialogue-line">
+                    <span class="dialogue-speaker">Kak Siti:</span>
+                    "Awalnya saya iseng datang ke TBM untuk membaca. Lama-lama saya melihat banyak anak-anak desa yang butuh bimbingan membaca. Dari situlah saya terpanggil untuk membantu."
+                </div>
+                <div class="dialogue-line">
+                    <span class="dialogue-speaker">Rina:</span>
+                    "Apa tantangan terbesar yang Kakak hadapi?"
+                </div>
+                <div class="dialogue-line">
+                    <span class="dialogue-speaker">Kak Siti:</span>
+                    "Tantangannya adalah konsistensi. Kadang saya lelah setelah bekerja, tapi melihat senyum anak-anak saat berhasil membaca, semua lelah terbayar."
+                </div>
+                <div class="dialogue-line">
+                    <span class="dialogue-speaker">Rina:</span>
+                    "Apa pesan Kakak bagi remaja yang ingin menjadi relawan?"
+                </div>
+                <div class="dialogue-line">
+                    <span class="dialogue-speaker">Kak Siti:</span>
+                    "Mulai saja dulu, jangan tunggu sempurna. Satu jam yang kita berikan bisa mengubah masa depan seorang anak."
+                </div>
+                <div class="dialogue-line">
+                    <span class="dialogue-speaker">Rina:</span>
+                    "Masya Allah, luar biasa. Terima kasih banyak, Kak, atas waktunya. Semoga pengalaman Kakak menginspirasi banyak orang."
+                </div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 14.7: Analisis Dialog di Atas</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Elemen</th>
+                        <th>Analisis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pembukaan</strong></td>
+                        <td>Rina menggunakan salam, memperkenalkan diri, dan meminta izin — sesuai etika wawancara.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pertanyaan</strong></td>
+                        <td>Pertanyaan terbuka, mengalir dari latar belakang → tantangan → pesan inspiratif.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Respon Narasumber</strong></td>
+                        <td>Jawaban narasumber detail, personal, dan inspiratif.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Penutup</strong></td>
+                        <td>Rina merangkum dengan ucapan terima kasih dan doa — sopan dan berkesan.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content H: Etika Wawancara -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-balance-scale"></i> H. Etika Wawancara</h3>
+            <p>Agar wawancara berjalan lancar dan narasumber merasa dihargai, siswa harus memperhatikan etika berikut:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Etika</th>
+                        <th>Penjelasan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Berpakaian sopan dan rapi</strong></td>
+                        <td>Menunjukkan rasa hormat kepada narasumber.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Tepat waktu</strong></td>
+                        <td>Datang sesuai janji, tidak membuat narasumber menunggu.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Meminta izin sebelum merekam</strong></td>
+                        <td>Menghargai privasi narasumber.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Menyimak dengan penuh perhatian</strong></td>
+                        <td>Tidak memotong pembicaraan narasumber.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Menggunakan bahasa yang sopan</strong></td>
+                        <td>Hindari kata-kata kasar atau menyinggung SARA.</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Tidak memaksa narasumber</strong></td>
+                        <td>Jika narasumber enggan menjawab, hormati keputusannya.</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Menjaga kerahasiaan</strong></td>
+                        <td>Tidak menyebarkan informasi pribadi tanpa izin.</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Mengucapkan terima kasih</strong></td>
+                        <td>Apresiasi atas waktu dan informasi yang diberikan.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content I: Referensi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bookmark"></i> I. Referensi Pendukung</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Moleong, Lexy J. (2010). <em>Metodologi Penelitian Kualitatif</em>. Bandung: Remaja Rosdakarya.</li>
+                <li>Tarigan, Henry Guntur. (2008). <em>Berbicara Sebagai Suatu Keterampilan Berbahasa</em>. Bandung: Angkasa.</li>
+                <li>Sugiyono. (2015). <em>Metode Penelitian Kuantitatif, Kualitatif, dan R&D</em>. Bandung: Alfabeta.</li>
+                <li>United Nations Volunteers (UNV). (2024). <em>What is Volunteering?</em> Diakses dari unv.org.</li>
+                <li>Eriyanto. (2011). <em>Analisis Wawancara: Teori dan Praktik</em>. Yogyakarta: Kanisius.</li>
+            </ul>
+        </section>
+
+        <!-- Kata Kunci -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-key"></i> Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Wawancara</span>
+                <span class="keyword-tag">Interview</span>
+                <span class="keyword-tag">Pewawancara</span>
+                <span class="keyword-tag">Narasumber</span>
+                <span class="keyword-tag">Pedoman Wawancara</span>
+                <span class="keyword-tag">Kesukarelawanan</span>
+                <span class="keyword-tag">Volunteering</span>
+                <span class="keyword-tag">Relawan</span>
+                <span class="keyword-tag">Pertanyaan Terbuka</span>
+                <span class="keyword-tag">Etika Wawancara</span>
+                <span class="keyword-tag">Ta'awun</span>
+                <span class="keyword-tag">Kepedulian Sosial</span>
+            </div>
+        </section>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">وَتَعَاوَنُوا۟ عَلَى ٱلْبِرِّ وَٱلتَّقْوَىٰ وَلَا تَعَاوَنُوا۟ عَلَى ٱلْإِثْمِ وَٱلْعُدْوَانِ</div>
+            <p class="quote-translation">"Dan tolong-menolonglah kamu dalam (mengerjakan) <strong>kebajikan dan takwa</strong>, dan jangan tolong-menolong dalam berbuat dosa dan pelanggaran."</p>
+            <p class="quote-source">— QS. Al-Maidah [5]: 2</p>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 14</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal x 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Menurut Lexy J. Moleong, wawancara adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Kegiatan membaca teks di depan umum</label>
+                        <label><input type="radio" name="q1" value="B"> B. Percakapan dengan maksud tertentu antara pewawancara dan terwawancara</label>
+                        <label><input type="radio" name="q1" value="C"> C. Kegiatan menulis karangan ilmiah</label>
+                        <label><input type="radio" name="q1" value="D"> D. Diskusi kelompok di kelas</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Pihak yang memberikan jawaban dalam wawancara disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Pewawancara</label>
+                        <label><input type="radio" name="q2" value="B"> B. Narasumber (terwawancara)</label>
+                        <label><input type="radio" name="q2" value="C"> C. Moderator</label>
+                        <label><input type="radio" name="q2" value="D"> D. Notulis</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Jenis wawancara yang pertanyaan sudah disiapkan secara rinci dan berurutan disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Wawancara tidak terstruktur</label>
+                        <label><input type="radio" name="q3" value="B"> B. Wawancara semiterstruktur</label>
+                        <label><input type="radio" name="q3" value="C"> C. Wawancara terstruktur</label>
+                        <label><input type="radio" name="q3" value="D"> D. Wawancara bebas</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Untuk wawancara bertema kesukarelawanan, jenis yang paling tepat adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Wawancara terstruktur penuh</label>
+                        <label><input type="radio" name="q4" value="B"> B. Wawancara semiterstruktur</label>
+                        <label><input type="radio" name="q4" value="C"> C. Wawancara tidak langsung</label>
+                        <label><input type="radio" name="q4" value="D"> D. Wawancara anonim</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Tahap pertama dalam prosedur wawancara adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Pelaksanaan wawancara</label>
+                        <label><input type="radio" name="q5" value="B"> B. Perencanaan (menentukan tujuan dan narasumber)</label>
+                        <label><input type="radio" name="q5" value="C"> C. Penutup</label>
+                        <label><input type="radio" name="q5" value="D"> D. Pengolahan data</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Kesukarelawanan (volunteering) adalah kegiatan yang dilakukan... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Dengan mengharapkan imbalan materi</label>
+                        <label><input type="radio" name="q6" value="B"> B. Secara sukarela tanpa mengharapkan imbalan materi</label>
+                        <label><input type="radio" name="q6" value="C"> C. Karena paksaan dari orang lain</label>
+                        <label><input type="radio" name="q6" value="D"> D. Untuk mencari popularitas semata</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Pertanyaan yang baik dalam wawancara adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Pertanyaan tertutup yang hanya dijawab ya/tidak</label>
+                        <label><input type="radio" name="q7" value="B"> B. Pertanyaan terbuka yang memungkinkan narasumber bercerita</label>
+                        <label><input type="radio" name="q7" value="C"> C. Pertanyaan yang mengarahkan jawaban</label>
+                        <label><input type="radio" name="q7" value="D"> D. Pertanyaan yang menyinggung SARA</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Struktur wawancara yang benar secara berurutan adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Isi → Pembukaan → Penutup</label>
+                        <label><input type="radio" name="q8" value="B"> B. Pembukaan → Isi → Penutup</label>
+                        <label><input type="radio" name="q8" value="C"> C. Penutup → Isi → Pembukaan</label>
+                        <label><input type="radio" name="q8" value="D"> D. Isi → Penutup → Pembukaan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Salah satu etika wawancara yang harus diperhatikan adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Datang terlambat agar narasumber menunggu</label>
+                        <label><input type="radio" name="q9" value="B"> B. Memotong pembicaraan narasumber</label>
+                        <label><input type="radio" name="q9" value="C"> C. Meminta izin sebelum merekam dan menyimak dengan penuh perhatian</label>
+                        <label><input type="radio" name="q9" value="D"> D. Memaksa narasumber menjawab semua pertanyaan</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa tema kesukarelawanan penting diangkat dalam wawancara? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar siswa bisa menghafal teori</label>
+                        <label><input type="radio" name="q10" value="B"> B. Untuk membangun empati sosial, menginspirasi, dan meneladani nilai-nilai tolong-menolong</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar terlihat lebih pintar dari teman</label>
+                        <label><input type="radio" name="q10" value="D"> D. Untuk mencari popularitas di media sosial</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal x 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan pengertian wawancara menurut para ahli! Sebutkan dan jelaskan 5 jenis wawancara! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Jelaskan 6 tahapan prosedur wawancara secara sistematis! Mengapa setiap tahapan tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Apa yang dimaksud dengan kesukarelawanan (volunteering)? Sebutkan dan jelaskan 5 bentuk kegiatan kesukarelawanan beserta contohnya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Sebutkan dan jelaskan 8 etika wawancara yang harus diperhatikan! Mengapa etika tersebut penting dalam kegiatan wawancara? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK): Susunlah sebuah <strong>pedoman wawancara</strong> lengkap bertema "Kesukarelawanan" dengan narasumber seorang relawan di lingkunganmu (misalnya: relawan TBM, relawan masjid, relawan lingkungan, relawan bencana). Pedoman harus memuat: (a) Tujuan wawancara, (b) Profil narasumber, (c) 10 pertanyaan terbuka yang terstruktur (dari latar belakang, motivasi, pengalaman, tantangan, dampak, hingga pesan inspiratif), (d) Rencana pembukaan dan penutup wawancara! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea form-textarea-large" placeholder="Tulis pedoman wawancara Anda di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="13.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 13</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="15.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 15 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'B', q3: 'C', q4: 'B', q5: 'B',
+            q6: 'B', q7: 'B', q8: 'B', q9: 'C', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_14_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 14 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan14_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 14 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 14 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

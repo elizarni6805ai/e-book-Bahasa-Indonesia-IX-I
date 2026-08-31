@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 13: Prosedur Membuat Poster Promosi Kegiatan TBM | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- POSTER DEMO --- */
+        .poster-demo {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.03) 100%);
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+        }
+        .poster-demo::before {
+            content: '📢';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-dark);
+            padding: 0 1rem;
+            font-size: 2rem;
+        }
+        .poster-demo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            margin: 1rem 0 0.5rem;
+            letter-spacing: 1px;
+        }
+        .poster-demo-tagline {
+            font-style: italic;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .poster-demo-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .poster-info-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .poster-info-item i {
+            color: var(--gold-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .poster-info-item strong {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        .poster-info-item span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .poster-demo-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%);
+            color: var(--bg-dark);
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 250px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="12.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 12</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="14.html" target="_blank" class="nav-btn">Pertemuan 14 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 13</span>
+            <h1 class="chapter-title">Prosedur Membuat Poster Promosi Kegiatan TBM</h1>
+            <p class="chapter-desc">Mempraktikkan keterampilan menulis teks prosedur kreatif dengan membuat poster promosi kegiatan Taman Bacaan Masyarakat (TBM) — sebuah media visual yang efektif untuk mengajak masyarakat gemar membaca.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Poster -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bullhorn"></i> A. Hakikat Poster sebagai Media Promosi</h3>
+            <p><strong>Poster</strong> adalah media komunikasi visual yang memadukan unsur gambar, warna, dan teks singkat untuk menyampaikan pesan tertentu kepada khalayak. Poster biasanya dipasang di tempat-tempat strategis yang mudah dilihat banyak orang.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Anton Adirassu (2005)</strong> mendefinisikan poster sebagai karya seni grafis yang memadukan unsur gambar dan huruf (tipografi) pada bidang besar, yang bertujuan menyampaikan informasi singkat dan persuasif kepada masyarakat.</p>
+                <p style="margin-top: 0.5rem;"><strong>Kemendikbud (2018)</strong> menambahkan bahwa poster termasuk dalam kategori <em>teks persuasif visual</em>, yaitu teks yang bertujuan memengaruhi pembaca untuk melakukan sesuatu (menghadiri, membeli, mendukung, dll).</p>
+                <p style="margin-top: 0.5rem;"><strong>Dwi Nuring (2010)</strong> menegaskan bahwa poster yang baik harus memenuhi prinsip <strong>AIDA</strong>: <em>Attention</em> (menarik perhatian), <em>Interest</em> (membangkitkan minat), <em>Desire</em> (memicu keinginan), dan <em>Action</em> (mendorong tindakan).</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 13.1: Mengapa Poster Efektif untuk Promosi TBM?</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Alasan</th>
+                        <th>Manfaat bagi TBM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Menarik perhatian visual</td>
+                        <td>Masyarakat yang lewat langsung tertarik melihat.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Informasi singkat dan padat</td>
+                        <td>Pesan inti tersampaikan dalam hitungan detik.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Dapat dipasang di banyak tempat</td>
+                        <td>Menjangkau masyarakat luas (sekolah, masjid, pasar).</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Bersifat persuasif</td>
+                        <td>Mendorong masyarakat untuk datang dan membaca.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Biaya produksi rendah</td>
+                        <td>Dapat dibuat dengan alat sederhana atau digital.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Unsur Poster -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-palette"></i> B. Unsur-Unsur Poster yang Efektif</h3>
+            <p>Sebuah poster yang baik harus memiliki unsur-unsur berikut agar pesan dapat tersampaikan dengan efektif kepada pembaca.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 13.2: Unsur-Unsur Utama Poster</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Unsur</th>
+                        <th>Fungsi</th>
+                        <th>Contoh dalam Poster TBM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Judul (Headline)</strong></td>
+                        <td>Menarik perhatian dan menyampaikan topik utama.</td>
+                        <td>"Ayo Membaca di TBM!"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Tagline/Slogan</strong></td>
+                        <td>Memberikan pesan persuasif yang mudah diingat.</td>
+                        <td>"Baca Hari Ini, Sukses Esok Hari!"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Visual/Gambar</strong></td>
+                        <td>Memperkuat pesan dan menarik perhatian.</td>
+                        <td>Ilustrasi anak membaca buku dengan gembira.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Informasi Acara</strong></td>
+                        <td>Memberikan detail waktu, tempat, dan kegiatan.</td>
+                        <td>"Sabtu, 5 September 2026, Pukul 09.00 WIB"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Call to Action (CTA)</strong></td>
+                        <td>Mendorong pembaca untuk melakukan tindakan.</td>
+                        <td>"Daftar sekarang! Hubungi: 08xxx"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Identitas Penyelenggara</strong></td>
+                        <td>Memberikan kredibilitas dan kontak.</td>
+                        <td>"TBM Cahaya Ilmu — MTsN 10 Agam"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Warna dan Tipografi</strong></td>
+                        <td>Menciptakan suasana dan hierarki visual.</td>
+                        <td>Warna cerah (kuning, biru) untuk kesan ceria.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content C: Jenis Poster -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-th-large"></i> C. Jenis-Jenis Poster</h3>
+            <p>Poster memiliki berbagai jenis berdasarkan tujuan dan isinya. Pemilihan jenis yang tepat akan menentukan efektivitas poster dalam menyampaikan pesan.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 13.3: Jenis-Jenis Poster</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Tujuan</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Poster Niaga</strong></td>
+                        <td>Mempromosikan produk atau jasa.</td>
+                        <td>Poster diskon, peluncuran produk.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Poster Kegiatan</strong></td>
+                        <td>Memberikan informasi tentang acara.</td>
+                        <td>Poster lomba, seminar, pentas seni.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Poster Layanan Masyarakat</strong></td>
+                        <td>Menyampaikan pesan sosial/edukasi.</td>
+                        <td>Poster anti-narkoba, pola hidup sehat.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Poster Pendidikan</strong></td>
+                        <td>Memberikan informasi edukatif.</td>
+                        <td>Poster pentingnya membaca, tata krama.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Poster Propaganda</strong></td>
+                        <td>Memengaruhi opini publik.</td>
+                        <td>Poster kampanye, isu sosial.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Poster Karya Seni</strong></td>
+                        <td>Ekspresi artistik.</td>
+                        <td>Poster pameran seni, film.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-star"></i> Konteks TBM</h4>
+                <p>Poster untuk kegiatan <strong>Taman Bacaan Masyarakat (TBM)</strong> termasuk dalam kategori <strong>poster kegiatan</strong> dan <strong>poster pendidikan</strong>. Tujuannya adalah mengajak masyarakat (terutama anak-anak dan remaja) untuk datang, membaca, dan berpartisipasi dalam kegiatan literasi di TBM.</p>
+            </div>
+        </section>
+
+        <!-- Content D: Langkah-Langkah Membuat Poster -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-list-ol"></i> D. Langkah-Langkah Membuat Poster Promosi TBM</h3>
+            <p>Agar poster yang dibuat efektif dan menarik, ikuti langkah-langkah sistematis berikut:</p>
+            
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li><strong>Tentukan Tujuan Poster</strong> — Apa yang ingin dicapai? (Misalnya: mengajak masyarakat datang ke TBM, mempromosikan lomba membaca, dll).</li>
+                <li><strong>Kenali Target Audiens</strong> — Siapa yang dituju? (Anak-anak, remaja, orang dewasa, atau umum).</li>
+                <li><strong>Kumpulkan Informasi Kegiatan</strong> — Nama kegiatan, tanggal, waktu, tempat, penyelenggara, kontak.</li>
+                <li><strong>Rancang Konsep Visual</strong> — Tentukan gaya (ceria, formal, modern), palet warna, dan jenis gambar.</li>
+                <li><strong>Tulis Headline yang Menarik</strong> — Buat judul singkat, padat, dan memancing rasa ingin tahu.</li>
+                <li><strong>Susun Tagline/Slogan</strong> — Buat kalimat persuasif yang mudah diingat.</li>
+                <li><strong>Tata Letak (Layout)</strong> — Atur posisi judul, gambar, informasi, dan CTA secara seimbang.</li>
+                <li><strong>Pilih Tipografi</strong> — Gunakan font yang mudah dibaca dan sesuai tema.</li>
+                <li><strong>Tambahkan Call to Action</strong> — Berikan ajakan jelas: "Daftar sekarang!", "Hubungi kami!", dll.</li>
+                <li><strong>Review dan Revisi</strong> — Periksa ejaan, keterbacaan, dan daya tarik visual.</li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Prinsip Desain Poster</h4>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 2;">
+                    <li><strong>KISS (Keep It Short and Simple)</strong> — Singkat, padat, jelas.</li>
+                    <li><strong>Hierarki Visual</strong> — Informasi terpenting paling menonjol.</li>
+                    <li><strong>Kontras Warna</strong> — Pastikan teks terbaca dari jarak jauh.</li>
+                    <li><strong>White Space</strong> — Beri ruang kosong agar tidak sumpek.</li>
+                    <li><strong>Konsisten</strong> — Gunakan maksimal 2-3 jenis font dan 3-4 warna.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Content E: Contoh Poster TBM -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-image"></i> E. Contoh Poster Promosi Kegiatan TBM</h3>
+            <p>Berikut contoh desain poster untuk kegiatan TBM yang dapat dijadikan inspirasi:</p>
+            
+            <!-- Demo Poster -->
+            <div class="poster-demo">
+                <div class="poster-demo-title">📚 AYO MEMBACA DI TBM!</div>
+                <div class="poster-demo-tagline">"Baca Hari Ini, Sukses Esok Hari!"</div>
+                
+                <p style="color: var(--text-secondary); margin: 1rem 0;">
+                    Mari kunjungi <strong style="color: var(--gold-primary);">Taman Bacaan Masyarakat (TBM) Cahaya Ilmu</strong><br>
+                    dan buka jendela dunia melalui buku-buku menarik!
+                </p>
+
+                <div class="poster-demo-info">
+                    <div class="poster-info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <strong>HARI/TANGGAL</strong>
+                        <span>Sabtu, 5 September 2026</span>
+                    </div>
+                    <div class="poster-info-item">
+                        <i class="fas fa-clock"></i>
+                        <strong>WAKTU</strong>
+                        <span>09.00 - 12.00 WIB</span>
+                    </div>
+                    <div class="poster-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>TEMPAT</strong>
+                        <span>TBM Cahaya Ilmu, MTsN 10 Agam</span>
+                    </div>
+                    <div class="poster-info-item">
+                        <i class="fas fa-gift"></i>
+                        <strong>KEGIATAN</strong>
+                        <span>Baca Bersama, Lomba Cerpen, Dongeng</span>
+                    </div>
+                </div>
+
+                <p style="color: var(--text-secondary); margin: 1rem 0;">
+                    <strong style="color: var(--gold-light);">GRATIS & TERBUKA UNTUK UMUM!</strong><br>
+                    Hubungi: 0812-xxxx-xxxx (Kak Rina)
+                </p>
+
+                <div class="poster-demo-cta">DAFTAR SEKARANG!</div>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 13.4: Analisis Unsur Poster di Atas</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Unsur</th>
+                        <th>Implementasi</th>
+                        <th>Efektivitas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Judul</strong></td>
+                        <td>"AYO MEMBACA DI TBM!"</td>
+                        <td>Singkat, persuasif, menggunakan kata ajakan.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tagline</strong></td>
+                        <td>"Baca Hari Ini, Sukses Esok Hari!"</td>
+                        <td>Mudah diingat, mengandung pesan inspiratif.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Informasi Acara</strong></td>
+                        <td>Tanggal, waktu, tempat, kegiatan</td>
+                        <td>Lengkap dan jelas, mudah dipahami.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Call to Action</strong></td>
+                        <td>"DAFTAR SEKARANG!"</td>
+                        <td>Tegas, mendorong tindakan segera.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kontak</strong></td>
+                        <td>Nomor HP dan nama kontak</td>
+                        <td>Memudahkan calon peserta menghubungi.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content F: Teks Prosedur dalam Poster -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-file-alt"></i> F. Menyertakan Teks Prosedur dalam Poster</h3>
+            <p>Poster kegiatan TBM dapat memuat <strong>teks prosedur singkat</strong> untuk memberikan petunjuk kepada calon peserta. Misalnya: prosedur pendaftaran, tata tertib kegiatan, atau cara mengikuti lomba.</p>
+            
+            <div class="example-box">
+                <strong>Contoh Teks Prosedur dalam Poster:</strong><br><br>
+                <strong>CARA MENDAFTAR KEGIATAN TBM:</strong><br>
+                1. <u>Hubungi</u> kontak panitia melalui WhatsApp/SMS.<br>
+                2. <u>Isi</u> formulir pendaftaran dengan data diri lengkap.<br>
+                3. <u>Kirim</u> formulir yang telah diisi ke panitia.<br>
+                4. <u>Tunggu</u> konfirmasi dari panitia maksimal H-1.<br>
+                5. <u>Datang</u> ke lokasi sesuai waktu yang ditentukan.
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 13.5: Ciri Kebahasaan Teks Prosedur dalam Poster</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Ciri</th>
+                        <th>Penjelasan</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kalimat Imperatif</strong></td>
+                        <td>Menggunakan kata kerja perintah.</td>
+                        <td>"<em>Hubungi</em> panitia", "<em>Isi</em> formulir".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konjungsi Temporal</strong></td>
+                        <td>Menunjukkan urutan waktu.</td>
+                        <td>"<em>Kemudian</em>", "<em>Setelah itu</em>", "<em>Lalu</em>".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bilangan Penomoran</strong></td>
+                        <td>Menandai urutan langkah.</td>
+                        <td>1, 2, 3, 4, 5.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kalimat Singkat</strong></td>
+                        <td>Padat dan mudah dipahami.</td>
+                        <td>"Datang tepat waktu."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content G: Aplikasi Desain -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-laptop"></i> G. Aplikasi untuk Membuat Poster</h3>
+            <p>Di era digital, siswa dapat membuat poster dengan berbagai aplikasi yang mudah digunakan. Berikut beberapa rekomendasi:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Aplikasi</th>
+                        <th>Kelebihan</th>
+                        <th>Cocok Untuk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>

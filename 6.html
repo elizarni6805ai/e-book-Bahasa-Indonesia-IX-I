@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 6: Kosakata Serapan dalam Teks Deskripsi | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 200px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="5.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 5</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="7.html" target="_blank" class="nav-btn">Pertemuan 7 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 06</span>
+            <h1 class="chapter-title">Kosakata Serapan dalam Teks Deskripsi</h1>
+            <p class="chapter-desc">Memahami dan menggunakan kosakata serapan dari bahasa daerah dan bahasa asing untuk memperkaya teks deskripsi, sehingga tulisan menjadi lebih variatif, kaya makna, dan bernuansa budaya.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Kosakata Serapan -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-language"></i> A. Hakikat Kosakata Serapan</h3>
+            <p><strong>Kosakata serapan</strong> adalah kata-kata yang berasal dari bahasa lain (baik bahasa daerah maupun bahasa asing) yang telah diterima dan digunakan dalam bahasa Indonesia, baik dengan perubahan ejaan, lafal, maupun makna, maupun tanpa perubahan sama sekali.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Abdul Chaer (2007)</strong> menyatakan bahwa penyerapan kosakata adalah proses alami dalam perkembangan bahasa. Bahasa Indonesia, sebagai bahasa yang hidup, terus menyerap kata-kata dari bahasa lain untuk memenuhi kebutuhan komunikasi yang semakin kompleks.</p>
+                <p style="margin-top: 0.5rem;"><strong>Alwi dkk. (2003)</strong> menambahkan bahwa proses penyerapan kosakata asing ke dalam bahasa Indonesia dilakukan melalui beberapa cara: adopsi langsung, adaptasi ejaan, translasi (penerjemahan), dan kreasi baru berdasarkan pola bahasa Indonesia.</p>
+                <p style="margin-top: 0.5rem;"><strong>Samsuri (1987)</strong> menegaskan bahwa kosakata serapan dari bahasa daerah juga merupakan bagian penting dari kekayaan bahasa Indonesia, karena mencerminkan keragaman budaya Nusantara.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 6.1: Mengapa Kosakata Serapan Penting dalam Teks Deskripsi?</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Alasan</th>
+                        <th>Manfaat bagi Teks Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Memperkaya variasi kata</td>
+                        <td>Teks tidak monoton, lebih menarik dibaca.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Memberikan nuansa budaya</td>
+                        <td>Deskripsi terasa lebih autentik dan kaya nilai lokal.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Memperjelas makna spesifik</td>
+                        <td>Beberapa konsep hanya tepat jika menggunakan kata serapan tertentu.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Menunjukkan kedalaman literasi penulis</td>
+                        <td>Teks terasa lebih berbobot dan akademis.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Menjembatani komunikasi lintas budaya</td>
+                        <td>Pembaca dari berbagai latar belakang dapat memahami teks.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Proses Penyerapan Kosakata -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-exchange-alt"></i> B. Proses Penyerapan Kosakata Asing</h3>
+            <p>Kosakata asing yang masuk ke dalam bahasa Indonesia tidak selalu diterima begitu saja. Terdapat beberapa cara atau proses penyerapan yang dilakukan agar kata tersebut sesuai dengan kaidah bahasa Indonesia.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 6.2: Empat Cara Penyerapan Kosakata Asing</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Cara Penyerapan</th>
+                        <th>Pengertian</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Adopsi Langsung</strong></td>
+                        <td>Kata asing dipakai apa adanya tanpa perubahan ejaan maupun lafal.</td>
+                        <td><em>hot dog, burger, supermarket, upload, download, reschedule</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Adaptasi Ejaan</strong></td>
+                        <td>Kata asing disesuaikan ejaan dan lafalnya dengan kaidah bahasa Indonesia.</td>
+                        <td><em>activity → aktivitas</em>, <em>organization → organisasi</em>, <em>technology → teknologi</em>, <em>effective → efektif</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Translasi (Penerjemahan)</strong></td>
+                        <td>Kata asing diterjemahkan ke dalam padanan kata bahasa Indonesia.</td>
+                        <td><em>supermarket → pasar swalayan</em>, <em>online → daring</em>, <em>download → unduh</em>, <em>upload → unggah</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Kreasi Baru</strong></td>
+                        <td>Membentuk kata baru berdasarkan konsep asing dengan pola bahasa Indonesia.</td>
+                        <td><em>swalayan</em> (dari konsep self-service), <em>nirlaba</em> (dari konsep non-profit)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Catatan Penting</h4>
+                <p>Pemerintah melalui <strong>Kemendikbud</strong> dan <strong>Badan Bahasa</strong> terus mengupayakan padanan kata Indonesia untuk istilah asing. Sebagai contoh, kata <em>"unduh"</em> kini resmi menggantikan <em>"download"</em>, dan <em>"daring"</em> menggantikan <em>"online"</em>. Namun, dalam penggunaan sehari-hari, kedua bentuk sering muncul bersamaan.</p>
+            </div>
+        </section>
+
+        <!-- Content C: Kosakata Serapan dari Bahasa Asing -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-globe"></i> C. Kosakata Serapan dari Bahasa Asing</h3>
+            <p>Bahasa Indonesia telah menyerap ribuan kata dari berbagai bahasa asing. Berikut adalah beberapa bahasa penyumbang utama beserta contohnya:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 6.3: Kosakata Serapan dari Berbagai Bahasa Asing</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Bahasa Asal</th>
+                        <th>Contoh Kosakata</th>
+                        <th>Bidang Penggunaan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bahasa Arab</strong></td>
+                        <td>musyawarah, kursi, pikir, kabar, adil, ilmu, kursi, selamat, minggu, kamis, Jumat</td>
+                        <td>Agama, pemerintahan, waktu, pendidikan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Inggris</strong></td>
+                        <td>komputer, televisi, internet, bisnis, desain, manajemen, akses, data, sistem, informasi</td>
+                        <td>Teknologi, ekonomi, pendidikan modern</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Belanda</strong></td>
+                        <td>kantor, polisi, karcis, handuk, kulkas, kantor, sopir, kantor, asbak, loteng</td>
+                        <td>Administrasi, rumah tangga, transportasi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Sanskerta</strong></td>
+                        <td>bahasa, surga, neraka, raja, negara, pancasila, agama, cinta, karya, budaya</td>
+                        <td>Sastra, pemerintahan, filsafat, agama Hindu-Buddha</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Portugis</strong></td>
+                        <td>meja, jendela, sabun, sepatu, bendera, boneka, gereja, mentega</td>
+                        <td>Rumah tangga, agama Kristen, perabotan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Tionghoa</strong></td>
+                        <td>tauge, loteng, cawan, teko, mie, tahu, kepiting, angpao</td>
+                        <td>Kuliner, perabotan, tradisi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <strong>Contoh Penggunaan dalam Teks Deskripsi:</strong><br><br>
+                <em>"Perpustakaan modern itu dilengkapi dengan <u>komputer</u> dan akses <u>internet</u> yang cepat. Setiap sudut ruangan didesain dengan <u>desain</u> minimalis yang elegan. <u>Informasi</u> tentang koleksi buku dapat diakses melalui <u>sistem</u> digital yang terintegrasi."</em><br><br>
+                Kata bercetak miring (<em>komputer, internet, desain, informasi, sistem</em>) merupakan kosakata serapan dari bahasa Inggris yang memperkaya teks deskripsi.
+            </div>
+        </section>
+
+        <!-- Content D: Kosakata Serapan dari Bahasa Daerah -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-mountain"></i> D. Kosakata Serapan dari Bahasa Daerah</h3>
+            <p>Selain dari bahasa asing, bahasa Indonesia juga menyerap banyak kosakata dari bahasa daerah di Nusantara. Hal ini mencerminkan kekayaan budaya Indonesia dan menjadikan bahasa Indonesia sebagai bahasa pemersatu yang inklusif.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 6.4: Kosakata Serapan dari Bahasa Daerah</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Bahasa Daerah</th>
+                        <th>Contoh Kosakata</th>
+                        <th>Makna</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bahasa Minangkabau</strong></td>
+                        <td>rendang, dendeng, randang, salendang, rumah gadang</td>
+                        <td>Kuliner khas, alat musik, arsitektur tradisional</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Jawa</strong></td>
+                        <td>wayang, keris, batik, angkringan, gotong royong, lurik</td>
+                        <td>Budaya, seni, makanan, nilai sosial</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Sunda</strong></td>
+                        <td>angklung, saung, empek-empek, lotek, karedok</td>
+                        <td>Alat musik, arsitektur, kuliner</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Bali</strong></td>
+                        <td>subak, canang, penjor, odah-odah</td>
+                        <td>Sistem irigasi, ritual, dekorasi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Batak</strong></td>
+                        <td>ulos, nabolak, dalihan na tolu</td>
+                        <td>Kain tradisional, makanan, sistem kekerabatan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bahasa Dayak</strong></td>
+                        <td>betang, mandau, suku dayak</td>
+                        <td>Rumah panjang, senjata tradisional</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-star"></i> Konteks Lokal: Bahasa Minangkabau</h4>
+                <p>Sebagai siswa MTsN 10 Agam yang berada di Sumatra Barat, kalian tentu akrab dengan kosakata Minangkabau yang telah diserap ke dalam bahasa Indonesia. Beberapa di antaranya bahkan telah dikenal secara nasional, seperti <strong>"rendang"</strong> yang dinobatkan sebagai makanan terlezat di dunia oleh CNN, dan <strong>"rumah gadang"</strong> yang menjadi simbol arsitektur Nusantara.</p>
+            </div>
+
+            <div class="example-box">
+                <strong>Contoh Teks Deskripsi dengan Kosakata Serapan Daerah:</strong><br><br>
+                <em>"Dapur tradisional Minangkabau itu dipenuhi aroma <u>rendang</u> yang khas. <u>Dendeng</u> balado tersaji di atas piring keramik biru. Di sudut ruangan, terdapat <u>salendang</u> yang dipajang dengan bangga. <u>Rumah gadang</u> dengan atap gonjongnya terlihat megah dari kejauhan, menjadi simbol kebesaran kaum."</em><br><br>
+                Kata bercetak miring (<em>rendang, dendeng, salendang, rumah gadang</em>) merupakan kosakata serapan dari bahasa Minangkabau yang memperkaya deskripsi dan memberikan nuansa budaya lokal yang kuat.
+            </div>
+        </section>
+
+        <!-- Content E: Penggunaan dalam Teks Deskripsi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-pen-fancy"></i> E. Penggunaan Kosakata Serapan dalam Teks Deskripsi</h3>
+            <p>Agar teks deskripsi menjadi lebih kaya dan menarik, penggunaan kosakata serapan harus dilakukan dengan tepat dan proporsional. Berikut adalah panduan penggunaannya:</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 6.5: Panduan Penggunaan Kosakata Serapan</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Prinsip</th>
+                        <th>Penjelasan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Sesuaikan dengan konteks</strong></td>
+                        <td>Gunakan kosakata serapan yang sesuai dengan objek yang dideskripsikan. Misalnya, gunakan "rendang" saat mendeskripsikan kuliner Minang.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Perhatikan pembaca</strong></td>
+                        <td>Jika pembaca tidak familiar dengan kata serapan tertentu, berikan penjelasan atau konteks yang cukup.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Gunakan secara proporsional</strong></td>
+                        <td>Jangan terlalu banyak menggunakan kosakata serapan sehingga teks menjadi sulit dipahami.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Utamakan padanan Indonesia</strong></td>
+                        <td>Jika sudah ada padanan resmi dalam bahasa Indonesia (seperti "unduh" untuk "download"), utamakan penggunaannya.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Perhatikan ejaan baku</strong></td>
+                        <td>Tulis kosakata serapan sesuai ejaan baku yang telah ditetapkan (misalnya "aktivitas", bukan "aktifitas").</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <strong>Contoh Analisis Teks Deskripsi:</strong><br><br>
+                <em>"<u>Pasar</u> tradisional itu sangat hidup. Aroma <u>rendang</u> dan <u>dendeng</u> menguar dari warung-warung kecil. Para pedagang menggunakan <u>timbangan</u> digital yang modern, namun tetap mempertahankan <u>cagak</u> kayu tradisional. <u>Musyawarah</u> antar pedagang sering dilakukan untuk menjaga kerukunan. <u>Teknologi</u> pembayaran <u>digital</u> kini mulai diterima, namun <u>uang tunai</u> masih menjadi pilihan utama."</em>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 6.6: Analisis Kosakata Serapan dalam Teks</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kosakata Serapan</th>
+                        <th>Asal Bahasa</th>
+                        <th>Cara Penyerapan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>pasar</td>
+                        <td>Bahasa Sanskerta (पण्य / paṇya)</td>
+                        <td>Adaptasi</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>rendang</td>
+                        <td>Bahasa Minangkabau</td>
+                        <td>Adopsi langsung</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>dendeng</td>
+                        <td>Bahasa Minangkabau</td>
+                        <td>Adopsi langsung</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>timbangan</td>
+                        <td>Bahasa Melayu lama</td>
+                        <td>Kreasi baru</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>musyawarah</td>
+                        <td>Bahasa Arab (شورى / syura)</td>
+                        <td>Adaptasi</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>teknologi</td>
+                        <td>Bahasa Inggris (technology)</td>
+                        <td>Adaptasi ejaan</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>digital</td>
+                        <td>Bahasa Inggris (digital)</td>
+                        <td>Adopsi langsung</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content F: Kesalahan Umum -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> F. Kesalahan Umum dalam Penggunaan Kosakata Serapan</h3>
+            <p>Banyak siswa yang masih melakukan kesalahan dalam penggunaan kosakata serapan. Berikut beberapa kesalahan yang sering terjadi:</p>
+            
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kesalahan</th>
+                        <th>Contoh Salah</th>
+                        <th>Perbaikan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ejaan tidak baku</td>
+                        <td>"<u>aktifitas</u>", "<u>resiko</u>", "<u>antrian</u>"</td>
+                        <td>"<u>aktivitas</u>", "<u>risiko</u>", "<u>antrean</u>"</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Menggunakan kata asing padahal ada padanan Indonesia</td>
+                        <td>"<u>download</u> materi", "<u>upload</u> tugas"</td>
+                        <td>"<u>unduh</u> materi", "<u>unggah</u> tugas"</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Penggunaan berlebihan</td>
+                        <td>"<u>System</u> di <u>server</u> <u>online</u> <u>error</u>."</td>
+                        <td>"<u>Sistem</u> di <u>peladen</u> <u>daring</u> <u>galat</u>."</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Tidak memahami makna</td>
+                        <td>"<u>Desain</u> rumahnya sangat <u>efektif</u>." (salah konteks)</td>
+                        <td>"<u>Rancangan</u> rumahnya sangat <u>efisien</u>."</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Pelafalan tidak sesuai kaidah</td>
+                        <td>"<u>teknoloji</u>" (dengan j)</td>
+                        <td>"<u>teknologi</u>" (dengan g)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content G: Referensi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-bookmark"></i> G. Referensi Pendukung</h3>
+            <ul style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2;">
+                <li>Kementerian Pendidikan dan Kebudayaan. (2018). <em>Bahasa Indonesia Kelas IX</em>. Jakarta: Kemendikbud.</li>
+                <li>Chaer, Abdul. (2007). <em>Lexicology: Peristilahan, Teori, dan Penerapannya</em>. Jakarta: Rineka Cipta.</li>
+                <li>Alwi, Hasan, dkk. (2003). <em>Tata Bahasa Baku Bahasa Indonesia</em>. Jakarta: Balai Pustaka.</li>
+                <li>Samsuri. (1987). <em>Kemampuan Bahasa dalam Jenis-Jenis Ragam Berbahasa</em>. Jakarta: Erlangga.</li>
+                <li>Badan Pengembangan dan Pembinaan Bahasa. (2016). <em>Pedoman Penyerapan Istilah</em>. Jakarta: Kemendikbud.</li>
+                <li>Kridalaksana, Harimurti. (2008). <em>Kamus Linguistik</em>. Jakarta: Gramedia Pustaka Utama.</li>
+            </ul>
+        </section>
+
+        <!-- Kata Kunci -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-key"></i> Kata Kunci Pertemuan Ini</h3>
+            <div class="keywords">
+                <span class="keyword-tag">Kosakata Serapan</span>
+                <span class="keyword-tag">Bahasa Asing</span>
+                <span class="keyword-tag">Bahasa Daerah</span>
+                <span class="keyword-tag">Adopsi</span>
+                <span class="keyword-tag">Adaptasi</span>
+                <span class="keyword-tag">Translasi</span>
+                <span class="keyword-tag">Kreasi Baru</span>
+                <span class="keyword-tag">Bahasa Arab</span>
+                <span class="keyword-tag">Bahasa Inggris</span>
+                <span class="keyword-tag">Bahasa Belanda</span>
+                <span class="keyword-tag">Bahasa Sanskerta</span>
+                <span class="keyword-tag">Minangkabau</span>
+                <span class="keyword-tag">Rendang</span>
+                <span class="keyword-tag">Padanan Kata</span>
+            </div>
+        </section>
+
+        <!-- Islamic Quote -->
+        <div class="islamic-quote">
+            <div class="arabic-text">وَمِنْ آيَٰتِهِ خَلْقُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَٱخْتِلَٰفُ أَلْسِنَتِكُمْ وَأَلْوَٰنِكُمْ</div>
+            <p class="quote-translation">"Dan di antara tanda-tanda (kebesaran)-Nya ialah penciptaan langit dan bumi, <strong>keberagaman bahasamu dan warna kulitmu</strong>."</p>
+            <p class="quote-source">— QS. Ar-Rum [30]: 22</p>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div id="quiz-section" class="quiz-container">
+            <div class="quiz-header">
+                <h2><i class="fas fa-clipboard-check"></i> Uji Formatif Pertemuan 6</h2>
+                <p style="color: var(--text-secondary);">Kerjakan dengan jujur. Skor Pilihan Ganda akan dihitung otomatis. Bagian Essay memerlukan penilaian manual oleh guru.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="border-color: var(--gold-primary); padding: 1.5rem;">
+                    <h3 class="section-title" style="font-size: 1.2rem; margin-bottom: 1rem;"><i class="fas fa-user-graduate"></i> Identitas Siswa</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-input" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-input" required placeholder="Contoh: 12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Kelas *</label>
+                            <select id="kelas" class="form-select" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="IX-A">IX-A</option>
+                                <option value="IX-B">IX-B</option>
+                                <option value="IX-C">IX-C</option>
+                                <option value="IX-D">IX-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Tanggal *</label>
+                            <input type="date" id="tanggal" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">📋 Bagian A: Pilihan Ganda (10 Soal x 10 Poin)</h3>
+                
+                <div class="question-card">
+                    <p class="question-text">1. Kosakata serapan adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> A. Kata-kata yang hanya digunakan dalam bahasa daerah</label>
+                        <label><input type="radio" name="q1" value="B"> B. Kata-kata dari bahasa lain yang telah diterima dan digunakan dalam bahasa Indonesia</label>
+                        <label><input type="radio" name="q1" value="C"> C. Kata-kata baru yang diciptakan sendiri</label>
+                        <label><input type="radio" name="q1" value="D"> D. Kata-kata yang sudah tidak digunakan lagi</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">2. Kata "aktivitas" merupakan serapan dari bahasa Inggris "activity". Proses penyerapan ini disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> A. Adopsi langsung</label>
+                        <label><input type="radio" name="q2" value="B"> B. Adaptasi ejaan</label>
+                        <label><input type="radio" name="q2" value="C"> C. Translasi</label>
+                        <label><input type="radio" name="q2" value="D"> D. Kreasi baru</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">3. Kata "rendang" dalam bahasa Indonesia merupakan kosakata serapan dari... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> A. Bahasa Inggris</label>
+                        <label><input type="radio" name="q3" value="B"> B. Bahasa Arab</label>
+                        <label><input type="radio" name="q3" value="C"> C. Bahasa Minangkabau</label>
+                        <label><input type="radio" name="q3" value="D"> D. Bahasa Belanda</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">4. Kata "musyawarah" dalam bahasa Indonesia merupakan serapan dari bahasa... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> A. Sanskerta</label>
+                        <label><input type="radio" name="q4" value="B"> B. Arab</label>
+                        <label><input type="radio" name="q4" value="C"> C. Belanda</label>
+                        <label><input type="radio" name="q4" value="D"> D. Inggris</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">5. Padanan bahasa Indonesia yang tepat untuk kata "download" adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> A. Muat turun</label>
+                        <label><input type="radio" name="q5" value="B"> B. Unduh</label>
+                        <label><input type="radio" name="q5" value="C"> C. Ambil</label>
+                        <label><input type="radio" name="q5" value="D"> D. Serap</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">6. Penulisan kosakata serapan yang <strong>benar</strong> menurut ejaan baku adalah... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> A. Aktifitas</label>
+                        <label><input type="radio" name="q6" value="B"> B. Aktivitas</label>
+                        <label><input type="radio" name="q6" value="C"> C. Apotik</label>
+                        <label><input type="radio" name="q6" value="D"> D. Resiko</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">7. Kata "wayang", "keris", dan "batik" merupakan kosakata serapan dari bahasa... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> A. Minangkabau</label>
+                        <label><input type="radio" name="q7" value="B"> B. Sunda</label>
+                        <label><input type="radio" name="q7" value="C"> C. Jawa</label>
+                        <label><input type="radio" name="q7" value="D"> D. Bali</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">8. Proses menerjemahkan kata asing ke dalam padanan bahasa Indonesia disebut... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> A. Adopsi</label>
+                        <label><input type="radio" name="q8" value="B"> B. Adaptasi</label>
+                        <label><input type="radio" name="q8" value="C"> C. Translasi</label>
+                        <label><input type="radio" name="q8" value="D"> D. Kreasi</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">9. Kata "teknologi" merupakan serapan dari bahasa... <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> A. Arab</label>
+                        <label><input type="radio" name="q9" value="B"> B. Belanda</label>
+                        <label><input type="radio" name="q9" value="C"> C. Inggris</label>
+                        <label><input type="radio" name="q9" value="D"> D. Sanskerta</label>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">10. Mengapa penggunaan kosakata serapan penting dalam teks deskripsi? <span class="question-points">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> A. Agar teks menjadi lebih panjang</label>
+                        <label><input type="radio" name="q10" value="B"> B. Untuk memperkaya variasi kata dan memberikan nuansa budaya</label>
+                        <label><input type="radio" name="q10" value="C"> C. Agar terlihat lebih pintar</label>
+                        <label><input type="radio" name="q10" value="D"> D. Untuk mengganti semua kata bahasa Indonesia</label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="color: var(--gold-primary); margin: 2rem 0 1rem; font-family: 'Playfair Display', serif;">✍️ Bagian B: Essay (5 Soal x 20 Poin)</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Jawaban essay akan disimpan dan dapat dikirimkan ke guru untuk dinilai manual.</p>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 1: Jelaskan perbedaan antara adopsi, adaptasi, translasi, dan kreasi baru dalam proses penyerapan kosakata asing! Berikan masing-masing dua contoh! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay1" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 2: Sebutkan 5 contoh kosakata serapan dari bahasa Arab, 5 dari bahasa Inggris, dan 5 dari bahasa daerah (Minangkabau/Jawa/Sunda)! Jelaskan bidang penggunaan masing-masing! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay2" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 3: Tuliskan 5 kesalahan umum dalam penggunaan kosakata serapan! Berikan contoh kalimat yang salah dan perbaikannya! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay3" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 4: Jelaskan 5 prinsip penggunaan kosakata serapan dalam teks deskripsi! Mengapa setiap prinsip tersebut penting? <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay4" class="form-textarea" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <p class="question-text">Essay 5 (PRAKTIK MENULIS): Tulislah sebuah paragraf deskripsi (minimal 5 kalimat) tentang "Kuliner Khas Daerahmu" atau "Tempat Wisata di Daerahmu". Gunakan minimal <strong>7 kosakata serapan</strong> (dari bahasa daerah dan/atau bahasa asing). Tandai kosakata serapan yang kamu gunakan dengan garis bawah, lalu jelaskan asal bahasa dan cara penyerapannya di bawah paragraf! <span class="question-points">20 POIN</span></p>
+                    <textarea id="essay5" class="form-textarea form-textarea-large" placeholder="Tulis paragraf deskripsi Anda di sini..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary" onclick="calculateScore()">
+                        <i class="fas fa-calculator"></i> Kirim Jawaban & Lihat Hasil
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf"></i> Unduh PDF Lengkap
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="downloadTXT()">
+                        <i class="fas fa-file-alt"></i> Unduh Skor (TXT)
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i> Kirim ke Email Guru
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="border-color: var(--error); color: var(--error);">
+                        <i class="fas fa-redo"></i> Mulai Ulang
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box">
+                <h3 style="color: var(--success); margin-bottom: 1rem;"><i class="fas fa-check-circle"></i> Uji Formatif Selesai!</h3>
+                <div class="score-display" id="finalScore">0</div>
+                <p class="score-detail">Skor Pilihan Ganda (Maksimal 100)</p>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Skor Essay (Maksimal 100) memerlukan penilaian manual oleh Ibu Elizarni, S.Pd.
+                    <br>Total Nilai Akhir akan dihitung setelah penilaian essay.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span class="gold-text">Elizarni, S.Pd.</span> — MTsN 10 Agam.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Hak Cipta Dilindungi Undang-Undang | Email: <a href="mailto:elizarni6805@gmail.com" class="gold-text">elizarni6805@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="5.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-arrow-left"></i> Pertemuan 5</a>
+            <a href="index.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="7.html" target="_blank" class="nav-btn" style="font-size: 0.8rem;">Pertemuan 7 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz Functionality -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const correctAnswers = {
+            q1: 'B', q2: 'B', q3: 'C', q4: 'B', q5: 'B',
+            q6: 'B', q7: 'C', q8: 'C', q9: 'C', q10: 'B'
+        };
+
+        function calculateScore() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value;
+            const nis = document.getElementById('nis').value;
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('Harap lengkapi semua data identitas siswa terlebih dahulu!');
+                return;
+            }
+
+            let score = 0;
+            let answeredCount = 0;
+
+            // Hitung Skor PG
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    answeredCount++;
+                    if (selected.value === correctAnswers[`q${i}`]) {
+                        score += 10;
+                    }
+                }
+            }
+
+            if (answeredCount < 10) {
+                if (!confirm(`Anda baru menjawab ${answeredCount} dari 10 soal Pilihan Ganda. Yakin ingin mengumpulkan?`)) {
+                    return;
+                }
+            }
+
+            // Tampilkan Hasil
+            document.getElementById('finalScore').textContent = score;
+            const resultBox = document.getElementById('resultBox');
+            resultBox.classList.add('show');
+            
+            // Scroll ke hasil
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            alert(`Terima kasih, ${nama}! Skor Pilihan Ganda Anda: ${score}/100.\nJawaban Essay telah disimpan dan siap dikirim ke guru.`);
+        }
+
+        function getQuizData() {
+            const nama = document.getElementById('nama').value || 'Tidak diisi';
+            const nis = document.getElementById('nis').value || 'Tidak diisi';
+            const kelas = document.getElementById('kelas').value || 'Tidak diisi';
+            const tanggal = document.getElementById('tanggal').value || 'Tidak diisi';
+            
+            let pgScore = 0;
+            let pgDetails = "";
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const userAns = selected ? selected.value : 'Kosong';
+                const isCorrect = userAns === correctAnswers[`q${i}`];
+                if (isCorrect) pgScore += 10;
+                pgDetails += `Soal ${i}: Jawaban Anda: ${userAns} (Kunci: ${correctAnswers[`q${i}`]}) - ${isCorrect ? 'BENAR' : 'SALAH'}\n`;
+            }
+
+            const essay1 = document.getElementById('essay1').value || 'Kosong';
+            const essay2 = document.getElementById('essay2').value || 'Kosong';
+            const essay3 = document.getElementById('essay3').value || 'Kosong';
+            const essay4 = document.getElementById('essay4').value || 'Kosong';
+            const essay5 = document.getElementById('essay5').value || 'Kosong';
+
+            return { nama, nis, kelas, tanggal, pgScore, pgDetails, essay1, essay2, essay3, essay4, essay5 };
+        }
+
+        function downloadPDF() {
+            const element = document.getElementById('quiz-section');
+            const opt = {
+                margin: 10,
+                filename: `Uji_Formatif_Pertemuan_6_${document.getElementById('nama').value || 'Siswa'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#0B0F19' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            if (!document.getElementById('resultBox').classList.contains('show')) {
+                calculateScore();
+            }
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        function downloadTXT() {
+            const data = getQuizData();
+            const textContent = `=== HASIL UJI FORMATIF PERTEMUAN 6 ===
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+
+--- SKOR PILIHAN GANDA: ${data.pgScore}/100 ---
+${data.pgDetails}
+
+--- JAWABAN ESSAY ---
+Essay 1: ${data.essay1}
+Essay 2: ${data.essay2}
+Essay 3: ${data.essay3}
+Essay 4: ${data.essay4}
+Essay 5: ${data.essay5}
+
+========================================
+Dokumen ini digenerate secara otomatis dari sistem pembelajaran.
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_Pertemuan6_${data.nama}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function sendEmail() {
+            const data = getQuizData();
+            const subject = `Hasil Uji Formatif Pertemuan 6 - ${data.nama} (${data.kelas})`;
+            const body = `Yth. Ibu Elizarni, S.Pd.,
+
+Berikut adalah hasil uji formatif Pertemuan 6 saya:
+
+Nama: ${data.nama}
+NIS: ${data.nis}
+Kelas: ${data.kelas}
+Tanggal: ${data.tanggal}
+Skor Pilihan Ganda: ${data.pgScore}/100
+
+Jawaban Essay:
+1. ${data.essay1}
+2. ${data.essay2}
+3. ${data.essay3}
+4. ${data.essay4}
+5. ${data.essay5}
+
+Terima kasih.
+Hormat saya,
+${data.nama}`;
+
+            window.location.href = `mailto:elizarni6805@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function resetQuiz() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').classList.remove('show');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set default date to today
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

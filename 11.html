@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 11: Informasi & Diskusi Teks Prosedur | Bahasa Indonesia Kelas IX</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --gold-primary: #D4AF37;
+            --gold-light: #F3E5AB;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--gold-primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .nav-btn:hover { background: var(--gold-primary); color: var(--bg-dark); }
+
+        /* --- CONTAINER --- */
+        .container { max-width: 950px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+        /* --- HEADER --- */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title { font-size: 2.5rem; color: var(--gold-light); margin-bottom: 1rem; line-height: 1.2; }
+        .chapter-desc { color: var(--text-secondary); max-width: 700px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+        .author-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .author-mini img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold-primary); object-fit: cover; }
+        .author-mini-text { text-align: left; }
+        .author-mini-text h4 { font-size: 1rem; color: var(--gold-primary); margin-bottom: 0.2rem; }
+        .author-mini-text p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; }
+
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+
+        .example-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+        }
+        .example-box strong { color: var(--gold-primary); }
+        .example-box em { color: var(--text-primary); }
+
+        /* --- PROSEDUR BOX --- */
+        .prosedur-box {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            color: var(--text-primary);
+            line-height: 1.9;
+            position: relative;
+        }
+        .prosedur-box::before {
+            content: '📋';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-dark);
+            padding: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        .prosedur-title {
+            display: block;
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .prosedur-box ol, .prosedur-box ul {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .prosedur-box ol li, .prosedur-box ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- TABLES --- */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+        .luxury-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .luxury-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        /* --- KEYWORDS --- */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        .keyword-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- ISLAMIC QUOTE --- */
+        .islamic-quote {
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .arabic-text { font-size: 2rem; color: var(--gold-primary); margin-bottom: 1rem; font-family: 'Traditional Arabic', serif; line-height: 1.6; }
+        .quote-translation { color: var(--text-secondary); font-style: italic; font-size: 1.05rem; }
+        .quote-source { color: var(--gold-light); font-size: 0.9rem; margin-top: 0.75rem; font-weight: 600; letter-spacing: 1px; }
+
+        /* --- QUIZ STYLES --- */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .quiz-header { text-align: center; margin-bottom: 2rem; }
+        .quiz-header h2 { color: var(--gold-primary); font-size: 2rem; margin-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--gold-light); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-input);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-textarea-large { min-height: 200px; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); line-height: 1.5; }
+        .question-points { float: right; color: var(--gold-primary); font-size: 0.85rem; font-weight: 600; }
+
+        .options label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.85rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .options label:hover { background: rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        .options input[type="radio"] { accent-color: var(--gold-primary); width: 18px; height: 18px; margin-top: 3px; }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--gold-primary) 0%, #B8962E 100%); color: var(--bg-dark); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--gold-primary); }
+        .btn-success { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
+        .btn-success:hover { background: rgba(16, 185, 129, 0.3); }
+
+        /* --- RESULTS --- */
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+        .result-box.show { display: block; }
+        .score-display { font-size: 3.5rem; font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700; }
+        .score-detail { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+        .gold-text { color: var(--gold-primary); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chapter-title { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; gap: 1rem; }
+            .action-buttons { grid-template-columns: 1fr; }
+            .luxury-table { font-size: 0.85rem; }
+            .luxury-table th, .luxury-table td { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Isi</a>
+        <div class="nav-links">
+            <a href="10.html" target="_blank" class="nav-btn"><i class="fas fa-arrow-left"></i> Pertemuan 10</a>
+            <a href="index.html" target="_blank" class="nav-btn"><i class="fas fa-book-open"></i> Daftar Isi</a>
+            <a href="12.html" target="_blank" class="nav-btn">Pertemuan 12 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="chapter-header">
+            <span class="chapter-badge">Pertemuan 11</span>
+            <h1 class="chapter-title">Informasi & Diskusi Teks Prosedur</h1>
+            <p class="chapter-desc">Menggali informasi penting dari teks prosedur, menganalisis struktur dan ciri kebahasaannya, serta mendiskusikannya secara kritis untuk memperdalam pemahaman literasi instruksional.</p>
+            
+            <div class="author-mini">
+                <img src="photo-penulis.png" alt="Elizarni, S.Pd." onerror="this.src='https://ui-avatars.com/api/?name=Elizarni+S+Pd&background=D4AF37&color=0B0F19&size=128'">
+                <div class="author-mini-text">
+                    <h4>Elizarni, S.Pd.</h4>
+                    <p>MTsN 10 Agam | elizarni6805@gmail.com</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content A: Hakikat Teks Prosedur -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-clipboard-list"></i> A. Hakikat Teks Prosedur</h3>
+            <p><strong>Teks prosedur</strong> adalah teks yang berisi langkah-langkah sistematis untuk melakukan, membuat, atau menggunakan sesuatu. Tujuannya agar pembaca dapat mengikuti petunjuk tersebut dengan tepat dan menghasilkan sesuatu yang sesuai harapan.</p>
+            
+            <div class="highlight-box">
+                <h4><i class="fas fa-quote-left"></i> Teori Pendukung (Ahli)</h4>
+                <p><strong>Kemendikbud (2018)</strong> menyatakan bahwa teks prosedur merupakan teks yang berfungsi memberikan petunjuk kepada pembaca agar dapat melakukan suatu kegiatan secara tepat dan sistematis.</p>
+                <p style="margin-top: 0.5rem;"><strong>Gorys Keraf (1994)</strong> menambahkan bahwa teks prosedur termasuk dalam kategori <em>teks instruksional</em>, yaitu teks yang bertujuan mengatur perilaku pembaca agar melakukan sesuatu sesuai dengan yang diinginkan penulis.</p>
+                <p style="margin-top: 0.5rem;"><strong>Henry Guntur Tarigan (2008)</strong> menegaskan bahwa teks prosedur harus bersifat <em>objektif, logis, dan sistematis</em>. Setiap langkah harus dapat diikuti oleh siapa pun yang membaca tanpa memerlukan penjelasan tambahan.</p>
+            </div>
+
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 11.1: Mengapa Teks Prosedur Penting?</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Alasan</th>
+                        <th>Manfaat bagi Kehidupan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Memudahkan kegiatan sehari-hari</td>
+                        <td>Resep masakan, panduan penggunaan alat, cara membuat kerajinan.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Menjamin keselamatan</td>
+                        <td>Petunjuk penggunaan obat, prosedur evakuasi, cara mengoperasikan mesin.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Menghemat waktu dan tenaga</td>
+                        <td>Langkah-langkah yang terstruktur menghindari kesalahan dan pengulangan.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Menghasilkan sesuatu yang konsisten</td>
+                        <td>Kualitas hasil sama jika prosedur diikuti dengan benar.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Melatih berpikir sistematis</td>
+                        <td>Siswa terbiasa menyusun langkah secara logis dan berurutan.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content B: Struktur Teks Prosedur -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-sitemap"></i> B. Struktur Teks Prosedur</h3>
+            <p>Teks prosedur yang baik memiliki struktur yang jelas dan lengkap. Setiap bagian memiliki fungsi spesifik dalam membantu pembaca memahami dan mengikuti petunjuk.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 11.2: Struktur Teks Prosedur</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Struktur</th>
+                        <th>Pengertian</th>
+                        <th>Isi</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Tujuan (Pembukaan)</strong></td>
+                        <td>Bagian pengantar yang menjelaskan apa yang akan dibuat/dilakukan dan mengapa.</td>
+                        <td>Judul, latar belakang singkat, manfaat mengikuti prosedur.</td>
+                        <td>"Cara Membuat Rendang Padang — Rendang adalah masakan khas Minangkabau yang telah diakui dunia."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Material (Bahan/Alat)</strong></td>
+                        <td>Daftar bahan dan/atau alat yang dibutuhkan untuk menyelesaikan prosedur.</td>
+                        <td>Bahan-bahan dengan takaran, alat-alat yang diperlukan.</td>
+                        <td>"Bahan: 1 kg daging sapi, 10 cabai merah... Alat: cobek, wajan, spatula."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Langkah-Langkah</strong></td>
+                        <td>Inti teks prosedur yang berisi urutan kegiatan secara sistematis.</td>
+                        <td>Nomor urut, kalimat perintah, keterangan waktu/ukuran.</td>
+                        <td>"1. Haluskan bumbu. 2. Panaskan minyak. 3. Tumis bumbu hingga harum."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Penutup</strong></td>
+                        <td>Bagian akhir yang berisi simpulan, tips, atau ucapan selamat.</td>
+                        <td>Saran penyajian, tips tambahan, ucapan selamat mencoba.</td>
+                        <td>"Sajikan rendang dengan nasi hangat. Selamat mencoba!"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Catatan Penting</h4>
+                <p>Tidak semua teks prosedur memiliki bagian <strong>Material</strong>. Teks prosedur tentang "Cara Melakukan Senam Pagi" misalnya, tidak memerlukan daftar bahan. Namun, bagian <strong>Tujuan</strong> dan <strong>Langkah-Langkah</strong> adalah <em>wajib</em> ada dalam setiap teks prosedur.</p>
+            </div>
+        </section>
+
+        <!-- Content C: Ciri Kebahasaan -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-spell-check"></i> C. Ciri Kebahasaan Teks Prosedur</h3>
+            <p>Teks prosedur memiliki ciri kebahasaan yang khas dan berbeda dari jenis teks lainnya. Ciri-ciri ini berfungsi untuk memperjelas instruksi dan memudahkan pembaca mengikuti langkah-langkah.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 11.3: Ciri Kebahasaan Teks Prosedur</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Ciri Kebahasaan</th>
+                        <th>Penjelasan</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Kalimat Perintah (Imperatif)</strong></td>
+                        <td>Menggunakan kata kerja imperatif untuk memberikan instruksi.</td>
+                        <td>"<u>Potonglah</u> bawang menjadi kecil-kecil." "<u>Aduk</u> adonan hingga rata."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Konjungsi Temporal</strong></td>
+                        <td>Menggunakan kata hubung yang menunjukkan urutan waktu.</td>
+                        <td>"<u>Kemudian</u>, panaskan minyak." "<u>Setelah itu</u>, masukkan bumbu."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Bilangan Penomoran</strong></td>
+                        <td>Menggunakan angka untuk menandai urutan langkah.</td>
+                        <td>"<u>1.</u> Cuci beras. <u>2.</u> Masukkan ke rice cooker. <u>3.</u> Tambahkan air."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Kata Kerja Aktif Transitif</strong></td>
+                        <td>Menggunakan kata kerja yang memerlukan objek.</td>
+                        <td>"<u>Masak</u> air", "<u>Potong</u> sayuran", "<u>Tuang</u> santan".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Kata Keterangan Waktu dan Tempat</strong></td>
+                        <td>Memberikan detail kapan dan di mana langkah dilakukan.</td>
+                        <td>"Masak selama <u>30 menit</u>." "Letakkan di <u>atas kompor</u>."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Kata Keterangan Cara</strong></td>
+                        <td>Menjelaskan bagaimana suatu langkah dilakukan.</td>
+                        <td>"Aduk <u>dengan perlahan</u>." "Potong <u>menjadi tipis-tipis</u>."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Kalimat Deklaratif (Pernyataan)</strong></td>
+                        <td>Memberikan informasi tambahan atau penjelasan.</td>
+                        <td>"Rendang akan semakin lezat jika didiamkan semalam."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content D: Jenis-Jenis Teks Prosedur -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-th-list"></i> D. Jenis-Jenis Teks Prosedur</h3>
+            <p>Teks prosedur dapat dibedakan berdasarkan tujuan dan sifat langkah-langkahnya. Setiap jenis memiliki karakteristik yang berbeda.</p>
+            
+            <h4 style="color: var(--gold-light); margin: 1.5rem 0 1rem;">Tabel 11.4: Jenis-Jenis Teks Prosedur</h4>
+            <table class="luxury-table">
+                <thead>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Ciri Khas</th>
+                        <th>Contoh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Prosedur Sederhana</strong></td>
+                        <td>Langkah sedikit (2-3), dapat dilakukan tanpa alat khusus.</td>
+                        <td>"Cara Menyalakan Lampu", "Cara Mengisi Pulsa".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Prosedur Kompleks</strong></td>
+                        <td>Langkah banyak dan berjenjang, memerlukan keahlian khusus.</td>
+                        <td>"Cara Membuat Rendang", "Cara Merakit Komputer".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Prosedur Protokol</strong></td>
+                        <td>Langkah tidak harus berurutan, pembaca bebas memilih urutan.</td>
+                        <td>"Cara Menggunakan ATM", "Cara Memesan Tiket Online".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Prosedur Cara Membuat/Melakukan</strong></td>
+                        <td>Fokus pada proses pembuatan atau pelaksanaan sesuatu.</td>
+                        <td>"Cara Membuat Kue", "Cara Melakukan Senam".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Prosedur Cara Bermain</strong></td>
+                        <td>Aturan dan langkah dalam permainan.</td>
+                        <td>"Cara Bermain Catur", "Aturan Permainan Bola Voli".</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Content E: Mendapatkan Informasi -->
+        <section class="content-section">
+            <h3 class="section-title"><i class="fas fa-search"></i> E. Langkah-Langkah Mendapatkan Informasi dari Teks Prosedur</h3>
+            <p>Agar dapat memahami dan mengikuti teks prosedur dengan baik, siswa perlu melakukan analisis sistematis. Berikut langkah-langkahnya:</p>
+            
+            <ol style="margin-left: 1.5rem; color: var(--text-secondary); line-height: 2.2;">
+                <li><strong>Baca Judul dan Tujuan</strong> — Pahami apa yang akan dibuat/dilakukan dan mengapa.</li>
+                <li><strong>Identifikasi Material</strong> — Catat semua bahan dan alat yang dibutuhkan.</li>
+                <li><strong>Baca Langkah-Langkah secara Utuh</strong> — Pahami alur keseluruhan sebelum memulai.</li>
+                <li><strong>Tandai Kata Kunci</strong> — Perhatikan kata kerja imperatif, konjungsi temporal, dan keterangan waktu/ukuran.</li>
+                <li><strong>Perhatikan Keterangan Tambahan</strong> — Tips, peringatan, atau saran yang diberikan penulis.</li>
+                <li><strong>Verifikasi Kelengkapan</strong
